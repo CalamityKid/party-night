@@ -176,7 +176,7 @@ def format_objects_string(
         if len(given_list) >= 3:
             for item in given_list[:-2]:
                 final_string += item + ", "
-            	final_string += given_list[-2] + " and " + given_list[-1] + "."
+            final_string += given_list[-2] + " and " + given_list[-1] + "."
 
         return final_string
 

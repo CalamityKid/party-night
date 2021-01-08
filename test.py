@@ -6,15 +6,15 @@ def yesorno():
             yesornoresult = yesornoresult.lower()
             if "y" in yesornoresult[0]:
                 return True
-            if "n" in yesornoresult[0]:    
+            elif "n" in yesornoresult[0]:
                 return False
-            else:
-                print ("(yes or no):", end = " ")
-                yesornoresult = None
+        print("(yes or no):", end=" ")
+        yesornoresult = None
+
 
 input()
 var = yesorno()
-print (var)
+print(var)
 
 var = yesorno()
-print (var)
+print(var)
