@@ -1,0 +1,419 @@
+title: Main story thing
+tags: Beggining
+colorID: 8
+position: -1585,-4270
+---
+This is where the thing goes in the beggining
+The setting, you know?
+Then we're going to the tutorial [[Keep on going to the tutorial|Tutorial]]
+===
+title: Tutorial
+tags: tutorial
+colorID: 8
+position: -1588,-3882
+---
+This is the tutorial and then im gonna branch out on every single other person
+[[Partner|Partner Root]]
+[[ Smile |Smile]]
+[[ Russian |Russian Root]]
+[[ Couple: |Couple Root]]
+[[ Pusher: |Pusher Root]]
+[[ Tanktop: |Tanktop Root]]
+[[ Beauty |Beauty Root]]
+[[ Nemesis?: |Nemesis Root]]
+===
+title: Partner Root
+tags: 
+colorID: 8
+position: -3123,-4062
+---
+Empty Text
+===
+title: Smile
+tags: Smile
+colorID: 0
+position: -2682,-3633
+---
+[[ |SmileTimes0]] 
+[[ |SmileTimes1]] 
+[[ |SmileTimes2]]
+[[ |SmileTimes3]]
+[[ |SmileTimes4]]
+[[ |SmileTimes5]]
+[[ |Borrow G]]
+[[ |DANCE]]
+[[ |Smile Flirt]]
+===
+title: Russian Root
+tags: Russian Root
+colorID: 0
+position: -2131,-3591
+---
+[[ |RussianTimes0]] 
+[[ |RussianTimes1]] 
+[[ |RussianTimes2]]
+[[ |RussianTimes3]]
+[[ |RussianTimes4]]
+[[ |RussianTimes5]]
+[[ |Borrow Poppers]]
+[[ |DANCE]]
+[[ |Russian Flirt]]
+===
+title: Couple Root
+tags: 
+colorID: 0
+position: -1586,-3399
+---
+Empty Text
+===
+title: Pusher Root
+tags: 
+colorID: 0
+position: -1122,-3420
+---
+Empty Text
+===
+title: Tanktop Root
+tags: 
+colorID: 0
+position: -730,-3552
+---
+Empty Text
+===
+title: Beauty Root
+tags: 
+colorID: 0
+position: -422,-3804
+---
+Empty Text
+===
+title: Nemesis Root
+tags: 
+colorID: 0
+position: -138,-4203
+---
+Empty Text
+===
+title: SmileTimes0
+tags: smile Times0
+colorID: 0
+position: -2798,-3388
+---
+We haven't partied in so long, it's about time we had some real, like, with people fun.
+And I am ready. to. party.
+They open up this huge fan. Like a hand fan. Makes a loud ass noise. 
+It's the signature smile ambassador party fan. 
+<< smile times talked = 1 >>
+===
+title: SmileTimes1
+tags: Smile Times1
+colorID: 0
+position: -2794,-3172
+---
+#offers G
+<< if borrow not in commands>>
+    The smile ambassador is scanning the room for hotties.
+    <<stop>>
+
+<< if borrow in commands>>
+    By the way, I got some G, babe, in case you want some later.
+    We can't do it here in front of everyone though.
+    So do consider we'd have to go to the bathroom to take it.
+    Yeah, it's a drag, especially when the party's packed, but it is what it is. 
+    So yeah, if you want some, just [BORROW] some from me whenever!
+    << add G to Smile items>>
+    <<make Smile times = 2>>
+===
+title: SmileTimes2
+tags: Smile Times2
+colorID: 0
+position: -2790,-2942
+---
+#Tells you about introducing you to the pusher, skips to introducing him if conditions are right
+<<if time < 2 am >>
+    I wanted to introduce you to someone. Who I get my candy from.
+    I don't think they're still here yet.
+    They'll probably be around later.
+    << make SmileTimes = 3>> 
+    
+<< if time > 2 am >>
+    << if in the bathroom>>
+    Hey babe, I really wanted to introduce you to someone.
+    The smile ambassador introduces you to their friend.
+    Their friend is clearly a pusher.
+    <<add clearly a pusher to total people>>
+    << make Smiletimes = 4 >> 
+
+    << if not in bathroom>> 
+    I wanted to introduce you to someone. Who I get my candy from.
+    They must be around here somewhere.
+    << make Smiletimes = 3 >>
+===
+title: Borrow G
+tags: Smile borrow g
+colorID: 0
+position: -2527,-3388
+---
+<<if G in active items>> 
+    Baby, we already did some. Chill, you don't wanna drop on us.
+    <<stop>>
+
+<<if G not in active items>> 
+    << if location = bathroom>> 
+            
+        << if smile.timestalked == 3>> #This is if you havent met the pusher yet.
+            Here they are! Remember I told you I wanted to introduce you to a friend?
+            You're introduced to this friend. 
+            Their friend is clearly a pusher. 
+            They seem nice.
+            You talk a bit, a lot of smiling on all parts.
+            <<time passes>>
+            <<add clearly a pusher to total people>>
+            << make Smiletimes = 4 >> 
+
+            << if party is crowded>>
+            
+                << if player.stalltimewarning is not True>>
+                    It's pretty crowded here in the bathroom.
+                    We're gonna have to wait a bit to get a stall. (input)
+                    It will probably take a while actually.
+                    << player.stalltimewarning set to True>> 
+
+                You okay with waiting? (y/n)
+                << if yes>>
+                    Alright, let's do it.
+                    It IS pretty crowded. Waiting. Small talk. 
+                    After a few minutes a stall frees up.
+                    You both get in.
+                << use G, drop sound effect>>
+                << time passes>> 
+                <<stop>>
+
+                << if no>> 
+                Alright. Let me know if you change your mind.
+                
+            << if party is not crowded>> 
+                Alright, let's do it!
+                << use G, drop sound effect>>
+                << time passes>> 
+                <<stop>>
+    
+    << if location is not the bathroom>>
+        Yeah, for sure! I could have some of that!
+        
+        << if player.movementtimewarning is not True>>
+            We'd have to go all the way to the bathroom, though.
+            I don't wanna do the whole trip by myself.
+            Oh, especially when it's crowded. It's a nightmare.
+            We can still go though. If you want.
+            << set player.movementtimewarning to True>>
+        
+        You really wanna go all the way to the bathroom for this? (y/n)
+            << if yes>> 
+            << player location changes to bathroom, Smile location changes to bathroom>>
+                
+                << if party is crowded>>
+                    The smile ambassador and you slowly bump your way around to the bathroom.
+                    << time passes>> 
+                    << restart this node>> 
+                    <<stop>>
+
+                << if party is NOT crowded>> 
+                    You both find yourselves in the bathroom in no time. 
+                    <<restart this node>>
+            << if no>> 
+                Alright, if you wanna go do tell me though.
+                << stop>>
+===
+title: SmileTimes3
+tags: Smile times3
+colorID: 0
+position: -2787,-2727
+---
+#theyve already told you about introducing you, youre stuck here until you meet either here or in borrow
+<<  if in bathroom>> #
+    Hey babe, I really wanted to introduce you to someone.
+    
+    The smile ambassador introduces you to their friend.
+    Their friend is clearly a pusher. They seem nice.
+    You talk a bit, a lot of smiling on all parts.
+    <<time passes>>
+    <<add clearly a pusher to total people>>
+    << make Smiletimes = 4 >> 
+
+<< if on dance floor>>
+    
+    << if music is terrible>>
+        << if smile.boost is less than 1.2>> 
+            I LOVE THIS SONG!!!
+            And it shows. So much enthusiasm. No musical standards.
+            And you love that. It's infectious. It cheers you up.
+            << if smile.boost is less than 1.2, make smile.boost 1.2>> 
+        
+        << if smile.boost is => 1.2>>
+            The smile embassador is dancing up a storm, using that huge ass fan as a prop.
+
+    << if music is okay or great>>
+    The smile ambassador is really into this particular song apparently.
+    The huge fan they're waving around seems a bit dangerous...
+
+<< if on smoking room>> 
+
+    They remind you they wanna introduce you to their friend who should be around.
+===
+title: SmileTimes4
+tags: Smile times4
+colorID: 0
+position: -2784,-2506
+---
+#You've already met the pusher, this is sharing a moment, you get a memory, you need to dance with him to get to 5
+<< if on dance floor>>
+
+    << if music is terrible>>
+        << if smile.boost is less than 1.2>> 
+            I LOVE THIS SONG!!!
+            And it shows. So much enthusiasm. No musical standards.
+            And you love that. It's infectious. It cheers you up.
+            << if smile.boost is less than 1.2, make smile.boost 1.2>> 
+        
+        << if smile.boost is => 1.2>>
+            Come on baby, I wanna see some moves from you too.
+            Let's dance!
+
+    << if music is okay or great>>
+    The smile ambassador is really into this particular song apparently.
+    That huge fan they're waving around seems a bit dangerous though.
+    You're urged to dance, through body languge.
+
+<<if in smoking room>>
+    You talk a bit about how stuff is going for each of you.
+
+<<if in bathroom>> 
+    They're talking to someone else now, but you get this knowing look.
+    An I need to go dance look.
+===
+title: DANCE
+tags: Dance
+colorID: 0
+position: -1504,-1843
+---
+You start to dance to the music.
+<< if smile is in dance floor>>
+    << if smile times talked == 4>>
+        The smile ambassador joins your dance.
+        Swinging that huge ass fan to the music.
+        You shadow each other's moves.
+        It's really very fun.
+        << make smile boost 1.3 >> 
+        << add Smile dance to memories>> 
+        << make smile times talked 5>> 
+
+    << if smile times talked == 5>>
+        The sound of the huge fan in the background gives you courage.
+        
+
+
+
+all the dance things
+and the final outcome
+<< time passes, 30 minutes maybe>>
+===
+title: SmileTimes5
+tags: Smile times5
+colorID: 0
+position: -2783,-2286
+---
+#Youve already partied etc, this is the final link.
+
+<< if on dance floor>>
+    You're lead to a corner of the room a little farther away from the music.
+    So you can talk without screaming over the music.
+<< if SmileLink in not in memories>>
+    You know, when I first met you last march. I did think you were cool.
+    But I not this cool. (input) What I meant I say is. (input)
+    I'm really glad we get to share. It's great to party together too.
+    I'm really happy we've become good friends.
+    You feel the same way. You hug and go back to the party,
+    
+    <<add SmileLink to memories>>
+    << stop>>
+
+<< if smilelink in memories>>
+    You've shared some great memories tonight.
+    You feel really grateful for your friendship.
+===
+title: Smile Flirt
+tags: Smile Flirt
+colorID: 0
+position: -2521,-3164
+---
+You give them a long seductive look and a wink.
+You're answered with a chuckle and a kiss on the cheek.
+You both laugh it off.
+===
+title: RussianTimes0
+tags: Russian Times0
+colorID: 0
+position: -2182,-3374
+---
+Hey bitchees! You guys doing alright?
+Both you and your partner agree things are, indeed, alright.
+#need some characterization
+<< change Russian times talked to 1 >>
+===
+title: RussianTimes1
+tags: Russian Times1
+colorID: 0
+position: -2184,-3156
+---
+Empty Text
+===
+title: RussianTimes2
+tags: Russian Times2
+colorID: 0
+position: -2179,-2936
+---
+Empty Text
+===
+title: RussianTimes3
+tags: Russian Times3
+colorID: 0
+position: -2181,-2717
+---
+Empty Text
+===
+title: RussianTimes4
+tags: Russian Times4
+colorID: 0
+position: -2177,-2504
+---
+Empty Text
+===
+title: RussianTimes5
+tags: Russian Times5
+colorID: 0
+position: -2175,-2288
+---
+Empty Text
+===
+title: Borrow Poppers
+tags: Borrow Poppers Russian
+colorID: 0
+position: -1953,-3371
+---
+Empty Text
+===
+title: Russian Flirt
+tags: Russian Flirt
+colorID: 0
+position: -1947,-3155
+---
+Empty Text
+===
+title: Borrow Poppers
+tags: 
+colorID: 0
+position: -691,-3811
+---
+Empty Text
+===
