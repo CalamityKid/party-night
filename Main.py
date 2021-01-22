@@ -1,8 +1,8 @@
-from Blocks.Room import Room
+from Blocks.Room import *  # import Room class and also instances
 from Blocks.PlayerNPC import Player, NPC
 from Blocks.Scene import Scene, SceneVariables
 from Scenes.SmileScenes.Smile0 import smiletimes0content
-
+from Blocks.Room import *
 
 ###ROOM SETUP GOES BELOW###
 # ("name" must be compatible with "the name" formula, [available actions], [usable items])

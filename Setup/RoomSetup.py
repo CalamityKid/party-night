@@ -1,4 +1,5 @@
-from ..Blocks import Room
+from ..Blocks.Room import Room
+
 
 ###ROOM SETUP GOES BELOW###
 # ("name" must be compatible with "the name" formula, [available actions], [usable items])
@@ -29,4 +30,4 @@ every_room = [smoking_room, bathroom, dance_floor]
 # remember to add borrow to the actions available in rooms in the tutorial
 ###ROOM SETUP ABOVE, Every new room must also be set up in Battle.move()###
 
-print(smoking_room)
+print("The room code is running")

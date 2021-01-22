@@ -1,10 +1,8 @@
 class Scene:
-    def __init__(self, sceneName, actor, content=None, actor2=None, has_run=False):
+    def __init__(self, sceneName, content=None, has_run=False):
         self.sceneName = sceneName
         self.content = content
         self.has_run = has_run
-        self.actor = actor
-        self.actor2 = actor2
 
     def __repr__(self):
         return "Scene: " + str(self.sceneName)

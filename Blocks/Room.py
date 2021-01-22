@@ -6,3 +6,33 @@ class Room:
 
     def __repr__(self):
         return self.name
+
+
+###ROOM SETUP GOES BELOW###
+# ("name" must be compatible with "the name" formula, [available actions], [usable items])
+# Every new room must also be set up in Battle.move()###
+smoking_room = Room(
+    "the smoking room",
+    ["[FLIRT]", "[BORROW] something", "[MOVE] to another room", "[LEAVE] the party"],
+    ["lollipop", "Soundcloud", "blunt", "cigarette", "chewing gum"],
+)
+bathroom = Room(
+    "the bathroom",
+    ["[FLIRT]", "drink [TAP] water", "[MOVE] to another room", "[LEAVE] the party"],
+    ["lollipop", "Soundcloud", "G", "poppers", "chewing gum"],
+)
+dance_floor = Room(
+    "the dance floor",
+    [
+        "[FLIRT]",
+        "[DANCE]",
+        "[BORROW] something",
+        "[MOVE] to another room",
+        "[LEAVE] the party",
+    ],
+    ["lollipop", "Soundcloud", "poppers", "chewing gum"],
+)
+
+every_room = [smoking_room, bathroom, dance_floor]
+# remember to add borrow to the actions available in rooms in the tutorial
+###ROOM SETUP ABOVE#####################################################
