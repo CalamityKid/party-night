@@ -41,3 +41,50 @@ class NPC(Player):
 
     def __repr__(self):
         return "NPC: " + self.name
+
+
+###NPCS GO DOWN HERE####       SET UP INPUT KEYS in Battle.identify_user
+def setupcharacters(partnerlocation, smilelocation, russianlocation):
+    player = Player(
+        "Joel",
+        20,
+        0,
+        10,
+        {
+            "lollipop": 50,
+            "Soundcloud": 70,
+            "blunt": 40,
+            "poppers": 20,
+            "chewing gum": 40,
+        },
+        {},
+        None,
+    )
+    partner = NPC("your partner", ["cigarette"], 0, partnerlocation)
+    smile = NPC("the smile embassador", ["blunt"], 0, smilelocation)
+    russian = NPC("your russian friend", ["poppers", "lollipop"], 0, russianlocation)
+    tanktop = NPC(
+        "the cutie in the tank top",
+        ["Soundcloud", "blunt", "cigarette", "lollipop"],
+        50,
+        None,
+    )
+    pusher = NPC(
+        "someone who seems to be a pusher",
+        ["Soundcloud", "blunt", "cigarette", "poppers", "chewing gum"],
+        90,
+        None,
+    )
+    hottest = NPC("a breathtaking beauty", ["lollipop", "cigarette"], 90, None)
+    couple = NPC(
+        "an attractive couple", ["blunt", "cigarette", "chewing gum"], 20, None
+    )
+    return player, {
+        "partner": partner,
+        "smile": smile,
+        "russian": russian,
+        "tanktop": tanktop,
+        "pusher": pusher,
+        "hottest": hottest,
+        "couple": couple,
+    }

@@ -1,20 +1,18 @@
-from Dialogue import (
+from ItemStatusText import (
     intro_text,
     intro_text2,
     intro_text3,
     intro_text4,
     tutorial_text,
+    body_check_opener,
     space,
     line,
 )
-from Dialogue import (
-    total_items,
-    total_available_actions,
-    body_check_opener,
+from Format.formatting import (
     format_objects_string,
     format_input,
 )
-from Dialogue import (
+from ItemStatusText import (
     blunt_text,
     Soundcloud_text1,
     Soundcloud_text2,
