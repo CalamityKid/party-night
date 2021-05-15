@@ -1,23 +1,29 @@
-from Blocks.Room import (
-    smoking_room,
-    dance_floor,
-    bathroom,
-    every_room,
-)  # import instances of rooms
-from Blocks.PlayerNPC import setupcharacters  # imports player and NPC setup method
-from Blocks.Scene import Scene, SceneVariables
-from Scenes.SmileScenes.Smile0 import smiletimes0content
+from Blocks.PlayerNPC import (
+    setupcharacters,
+    NPC,
+    MainCharacter,
+)
+from Blocks.Room import rooms, Room
+from Blocks.Items import items, Item
+import Input
 
+# from Blocks.Scene import Scene, SceneVariables
+# from Scenes.SmileScenes.Smile0 import smiletimes0content
+player, NPCs = setupcharacters(None, None, None)
 
-player, every_character = setupcharacters(None, None, None)
 people_in_party = [
-    every_character["partner"],
-    every_character["smile"],
-    every_character["russian"],
+    NPCs["partner"],
+    NPCs["smile"],
+    NPCs["russian"],
 ]
+
 
 ##############################
 # print(smile.times_talked)
 # SmileTimes0 = Scene("SmileTimes0", smile, smiletimes0content)
 # SmileTimes0.run_scene()
 # print(smile.times_talked)
+
+
+# if isinstance(rooms["smoking room"], Room) == True:
+#    print("yus")
