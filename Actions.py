@@ -1,4 +1,5 @@
 from Blocks.Room import Room, rooms
+
 from Blocks.PlayerNPC import MainCharacter, NPC, player, NPCs
 from Blocks.Items import Item, items
 
@@ -22,7 +23,9 @@ class Action:
 
 
 class Move(Action):
-    pass
+    def __init__(self, name, identifiers, rooms_it_cannot_be_done_in=None):
+        self.name = "Move"
+        self.identifiers = ["move", "go"]
 
     def execute(object_performing_the_action, object_to_be_interacted_with):
 
@@ -43,7 +46,9 @@ class Move(Action):
 
 
 class Use_Item(Action):
-    pass
+    def __init__(self, name, identifiers, rooms_it_cannot_be_done_in=None):
+        self.name = "Use"
+        self.identifiers = ["use", "item", "smoke", "take"]
 
     def execute(object_performing_the_action, object_to_be_interacted_with):
         if object_to_be_interacted_with not in object_performing_the_action.items:
@@ -71,6 +76,7 @@ class Use_Item(Action):
             # also remember to check if it has a delay
 
 
+dict_of_actions = {"Move": Move, "Use": Use_Item}
 #    def use_item(character, item_to_add):
 #        if item_to_add not in character.items:
 #            print("You don't have that on you.")
@@ -93,40 +99,6 @@ class Use_Item(Action):
 #           if "G" in item_used:
 #               self.G_turn = 1
 #######print statements on what item is used
-print(player.items)
-player.items.append(items["lollipop"])
-print(player.items)
-Use_Item.execute(player, items["lollipop"])
-player.items.append(items["lollipop"])
-player.items.append(items["G"])
-Use_Item.execute(player, items["lollipop"])
-Use_Item.execute(player, items["G"])
-print(player.active_items)
-print(player.items)
-print(items)
-input()
-print("mouth is", player.mouth)
-print("cool is", player.coolness)
-player.update_active_items()
-print("mouth is", player.mouth)
-print("cool is", player.coolness)
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-player.update_active_items()
-input()
-
 
 # Move.execute(player, rooms["dance floor"])  # THIS WORKS FINE
 # if isinstance(rooms["smoking room"], Room) == True:
