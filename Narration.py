@@ -18,3 +18,18 @@ def narrate_items(player):
     final_string = final_string.replace(".", " in this room though.")
     print("You're holding " + formatting.format_objects_string(player.items))
     print(final_string)
+
+
+def narrate_people_in_room(player, people_dictionary):
+    people_in_room_string = ""
+    people_in_room_list = []
+    for key, person in people_dictionary.items():
+        if person.location == player.location:
+            people_in_room_list.append(person)
+    people_in_room_string = formatting.format_objects_string(people_in_room_list)
+    if people_in_room_string == "nothing":
+        people_in_room_string = "no familiar faces."
+    player.location.narrate()
+    print("You see", people_in_room_string)
+    if people_in_room_string != "no familiar faces.":
+        print("You could [TALK] to them.")
