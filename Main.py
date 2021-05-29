@@ -1,5 +1,6 @@
 from Blocks.PlayerNPC import (
     setupcharacters,
+    player,
     NPC,
     MainCharacter,
 )
@@ -9,7 +10,7 @@ import Input
 
 # from Blocks.Scene import Scene, SceneVariables
 # from Scenes.SmileScenes.Smile0 import smiletimes0content
-player, NPCs = setupcharacters(None, None, None)
+NPCs = setupcharacters(None, None, None)
 
 people_in_party = [
     NPCs["partner"],
@@ -25,5 +26,5 @@ people_in_party = [
 # print(smile.times_talked)
 
 
-# if isinstance(rooms["smoking room"], Room) == True:
-#    print("yus")
+if isinstance(rooms["smoking room"], Room) == True:
+    print("yus")

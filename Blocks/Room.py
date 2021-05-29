@@ -1,3 +1,6 @@
+from typing import Type
+
+
 class Room:
     def __init__(self, name, available_actions, usable_items, identifiers):
         self.name = name
@@ -7,6 +10,18 @@ class Room:
 
     def __repr__(self):
         return self.name
+
+    def narrate(self):
+        print("You are currently in", self.name + ".")
+
+    def usable_in_room(self, object):
+        try:
+            if object.name in self.usable_items:
+                return True
+            elif object.name not in self.usable_items:
+                return False
+        except TypeError:
+            return True
 
 
 ###ROOM SETUP GOES BELOW###
@@ -39,3 +54,4 @@ dance_floor = Room(
 
 every_room = [smoking_room, bathroom, dance_floor]
 rooms = {"smoking room": smoking_room, "bathroom": bathroom, "dance floor": dance_floor}
+dance_floor.narrate()

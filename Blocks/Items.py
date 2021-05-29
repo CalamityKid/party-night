@@ -8,6 +8,7 @@ class Item:
         active_item_text,
         effects_while_active,
         exit_text,
+        rooms_it_cannot_be_done_in=None,
         loading_item=False,
         loading_counter=None,
         loading_text=None,
@@ -22,9 +23,19 @@ class Item:
         self.effects_while_active = effects_while_active
         self.exit_text = exit_text
         self.loading_counter = loading_counter
+        self.rooms_it_cannot_be_done_in = rooms_it_cannot_be_done_in
 
     def __repr__(self):
         return self.name
+
+    def usable_in_room(self, room_youre_in):
+        try:
+            if room_youre_in.name in self.rooms_it_cannot_be_done_in:
+                return False
+            elif room_youre_in.name not in self.rooms_it_cannot_be_done_in:
+                return True
+        except TypeError:
+            return True
 
 
 #########################################################################
@@ -34,7 +45,7 @@ class Item:
 
 def setupitems():
     lollipop = Item(
-        "lollipop",
+        "a lollipop",
         ["lol"],
         50,
         "You put the lollipop in your mouth.",
@@ -43,7 +54,7 @@ def setupitems():
         "You chew on the lollipop and gulp it down.",
     )
     soundcloud = Item(
-        "Soundcloud",
+        "a Soundcloud pill",
         ["sound", "pill", "mdma"],
         70,
         "You pop the pill.",
@@ -62,39 +73,43 @@ def setupitems():
         "G's making you horny af.",
         {"high": 10, "lit": 20},
         "You don't feel the G anymore.",
+        ["the dance floor", "the smoking room"],
         True,
         20,
         "G still hasn't kicked in...",
     )
     blunt = Item(
-        "blunt",
+        "a blunt",
         ["blunt", "weed", "hash", "maria", "green"],
         50,
         "Puff, puff, pass.",
         "The blunt's buzzing in the background",
         {"coolness": 10, "high": 10, "lit": 10, "mouth": -20},
         "The green high fades away.",
+        ["the dance floor", "the bathroom"],
     )
     cigarette = Item(
-        "cigarette",
+        "a cigarette",
         ["cig", "gare"],
         20,
         "You smoke the cigarette.",
         "You feel the nicotine.",
         {"coolness": 20, "lit": 10, "high": 10, "mouth": -10},
         "You don't feel the nicotine anymore.",
+        ["the dance floor", "the bathroom"],
     )
     poppers = Item(
-        "poppers",
+        "a bottle of poppers",
         ["popp", "rush"],
         20,
         "You huff in the vapors.",
         "Oof, the poppers.",
         {"high": 10, "lit": 30},
         "Popper comedown. Alright.",
+        ["the smoking room"],
     )
     chewing_gum = Item(
-        "chewing gum",
+        "some chewing gum",
         ["chew", "gum", "mint"],
         40,
         "You put the chewing gum in your mouth.",

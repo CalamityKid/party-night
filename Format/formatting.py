@@ -1,3 +1,6 @@
+from typing import Type
+
+
 def identify_object(object_to_be_identified_list, dict_of_objects):
     if object_to_be_identified_list == None:
         return None
@@ -58,9 +61,11 @@ def format_objects_string(
     given_list,
 ):  # Returns "nothing" if empty list, returns "object, object, and object." style string.
     final_string = ""
-
-    if len(given_list) == 0:
-        return "nothing"
+    try:
+        if len(given_list) == 0:
+            return "nothing"
+    except TypeError:
+        pass
 
     try:
         if hasattr(given_list[0], "name") == True:  # If it's a list of objects

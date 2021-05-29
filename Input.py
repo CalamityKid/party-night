@@ -1,9 +1,5 @@
-from Blocks.PlayerNPC import (
-    NPCs,
-    player,
-    NPC,
-    MainCharacter,
-)
+from Blocks.Player import MainCharacter, player
+from Blocks.NPC import NPC, NPCs
 from Blocks.Room import rooms, Room
 from Blocks.Items import items, Item
 from Format import formatting

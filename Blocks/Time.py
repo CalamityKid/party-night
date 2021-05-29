@@ -1,22 +1,20 @@
 class Time:
-    def __init__(self, hour, minute):
+    def __init__(self, hour, minute):  # maybe add an actor
         self.hour = hour
         self.minute = minute
 
     def __repr__(self):
         if self.minute == 0:
-            return "0{hour}:0{minute}".format(hour=self.hour, minute=self.minute)
+            return "0{hour} o' clock.".format(hour=self.hour)
         else:
             return "0{hour}:{minute}".format(hour=self.hour, minute=self.minute)
 
     def thirty_minute_update(self, whereverthebodycheckis):
         whereverthebodycheckis.body_check()
 
-    def fast_acting(self):  # for item effects that are immediate
-        return None  # should find a way around this
-
     def ten_minutes(self, whateversystemmanagesitemstoupdate):
         self.minute += 10
+
         whateversystemmanagesitemstoupdate.update_items()
 
         if self.minute % 30 == 0:
