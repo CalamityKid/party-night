@@ -1,56 +1,6 @@
-
 class Battle:
     def __repr__(self):
         return "All the battle functions"
-
-    # TO DO !!!!!!!!!! Changed it to being time sensitive.
-    def update_room():  # Updates people in this room, informs where you are and what you can do. Calls choose_action in the end.
-        people_in_this_room = []
-        people_in_room_string = ""
-        usable_items_now = []
-        usable_items_now_string = ""
-        available_actions_string = ""
-
-        for person in every_NPC:  # Updates Battle.people_in_this_room
-            if person.location == player.location:
-                people_in_this_room.append(person)
-        Battle.people_in_this_room = people_in_this_room
-        people_in_room_string = format_objects_string(people_in_this_room)
-        if people_in_room_string == "nothing":
-            people_in_room_string = "no familiar faces."
-
-        for key, value in player.items.items():  # Updates Battle.usable_items_now
-            if key in player.location.usable_items:
-                usable_items_now.append(key)
-        Battle.usable_items_now = usable_items_now
-        usable_items_now_string = format_objects_string(usable_items_now)
-
-        available_actions_string = format_objects_string(
-            player.location.available_actions
-        )  # formats actions available
-
-        print("You're currently in the " + player.location.name + ".", end=" ")
-        print("You can see " + people_in_room_string)
-        if people_in_room_string != "no familiar faces.":
-            print("You could [TALK] to them.")
-        if len(usable_items_now) == 0:
-            print("You don't have anything you can [USE] in this room.")
-        elif len(usable_items_now) > 0:
-            print(
-                "In this room, you could probably safely [USE] your "
-                + usable_items_now_string
-            )
-        available_actions_string = available_actions_string.replace("and", "or")
-        print("You could also " + available_actions_string)
-        Battle.choose_action()
-
-
-            if action == "do":  # If you wanna do something else
-                print("You decide not to move in the end.")
-                input()
-                Battle.choose_action()
-
-
 
     def tap_water():  # drink tap water as an action
         print("It's definitely not your best look, but free water is free water.")
@@ -75,15 +25,6 @@ class Battle:
             action = input()
             action = format_input(action)
 
-            if (
-                action == "no"
-                or action == "nobody"
-                or action == "no one"
-                or action == "noone"
-            ):
-                print("You change your mind.")
-                Battle.choose_action()
-                break
             person = Battle.identify_person(action)
             if person == None:
                 action = None
@@ -138,8 +79,6 @@ class Battle:
                         Battle.choose_action()
                         break
 
-
-
         action = None
         while action == None:
             print("What do you want to do?", end=" ")
@@ -184,14 +123,8 @@ class Battle:
             # 	Battle.dance()
 
 
-
-
-
 party = Party("empty", "okay")
 scenevariables = SceneVariables()
-
-##TO DO Borrow cigarette,
-## NOTE that player items are a dictionary while user items are a LIST.
 
 total_available_actions = [
     "[FLIRT]",
@@ -201,14 +134,5 @@ total_available_actions = [
     "drink [TAP] water",
     "[MOVE] to another room",
     "[LEAVE] the party",
-    "lollipop",
-    "Soundcloud",
-    "G",
-    "blunt",
-    "cigarette",
-    "poppers",
-    "chewing gum",
 ]
 time = Time(1, 30)
-###########################SCENES
-

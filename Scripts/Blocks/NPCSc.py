@@ -1,4 +1,7 @@
-class NPC:
+from .PlayerSc import MainCharacter
+
+
+class NPC(MainCharacter):
     def __init__(
         self,
         name,
@@ -50,7 +53,7 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
     )
     hottest = NPC("a breathtaking beauty", ["lollipop", "cigarette"], ["beau", "breat"])
     couple = NPC(
-        "an attractive couple",
+        "the attractive couple",
         ["blunt", "cigarette", "chewing gum"],
         ["attrac", "coupl"],
     )

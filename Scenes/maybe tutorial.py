@@ -1,5 +1,3 @@
-from random import randint
-
 intro_text = """
 You're not super excited to play this game.
 Because it doesn't have any visuals.

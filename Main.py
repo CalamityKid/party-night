@@ -24,7 +24,3 @@ people_in_party = [
 # SmileTimes0 = Scene("SmileTimes0", smile, smiletimes0content)
 # SmileTimes0.run_scene()
 # print(smile.times_talked)
-
-
-if isinstance(rooms["smoking room"], Room) == True:
-    print("yus")

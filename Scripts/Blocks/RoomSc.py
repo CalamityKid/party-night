@@ -1,6 +1,3 @@
-from typing import Type
-
-
 class Room:
     def __init__(self, name, available_actions, usable_items, identifiers):
         self.name = name
@@ -12,7 +9,7 @@ class Room:
         return self.name
 
     def narrate(self):
-        print("You are currently in", self.name + ".")
+        print("You are currently in", self.name + ".", end=" ")
 
     def usable_in_room(self, object):
         try:
@@ -24,9 +21,10 @@ class Room:
             return True
 
 
-###ROOM SETUP GOES BELOW###
-# ("name" must be compatible with "the name" formula, [available actions], [usable items])
-# Every new room must also be set up in Battle.move()###
+#########################################################################
+#############################   INSTANCES   #############################
+#########################################################################
+
 smoking_room = Room(
     "the smoking room",
     ["[FLIRT]", "[BORROW] something", "[MOVE] to another room", "[LEAVE] the party"],
@@ -54,4 +52,3 @@ dance_floor = Room(
 
 every_room = [smoking_room, bathroom, dance_floor]
 rooms = {"smoking room": smoking_room, "bathroom": bathroom, "dance floor": dance_floor}
-dance_floor.narrate()
