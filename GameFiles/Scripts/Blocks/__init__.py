@@ -4,5 +4,3 @@ from .NPCSc import NPC, NPCs
 from .RoomSc import Room, rooms
 
 __all__ = ["ItemsSc", "PlayerSc", "NPCSc", "RoomSc", "SceneSc", "TimeSc"]
-
-print(NPCs)

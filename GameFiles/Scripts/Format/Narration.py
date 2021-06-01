@@ -1,4 +1,4 @@
-from Format import formatting
+from . import formatting
 
 
 def narrate_items(player):

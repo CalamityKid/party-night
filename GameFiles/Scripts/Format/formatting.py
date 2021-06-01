@@ -1,4 +1,4 @@
-from typing import Type
+from ..Blocks.ItemsSc import items
 
 
 def identify_object(object_to_be_identified_list, dict_of_objects):
@@ -9,6 +9,9 @@ def identify_object(object_to_be_identified_list, dict_of_objects):
             for identifierx in objectx.identifiers:
                 if identifierx in word:
                     return objectx
+                # exception for G
+                if word == "g":
+                    return items["G"]
 
 
 def identify_action(action_to_be_identified, dict_of_actions):

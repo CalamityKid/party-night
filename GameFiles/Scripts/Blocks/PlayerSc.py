@@ -1,3 +1,7 @@
+from ..Format.Bark import body_check_bark as body_check_bark
+from .ItemsSc import items
+
+
 class MainCharacter:
     def __init__(
         self,
@@ -39,7 +43,7 @@ class MainCharacter:
             updated_value = 0
             if (
                 activeitemkey.loading_item == True
-            ):  # if its a loading item, it ticks the clock and skips its use
+            ):  # if its a loading item, it ticks the counter and skips its use
                 if activeitemkey.loading_counter > 0:  # that isnt done loading
                     activeitemkey.loading_counter -= 10  # it ticks the counter
                     print(activeitemkey.loading_text)  # prints the text
@@ -67,12 +71,15 @@ class MainCharacter:
                 updated_list[activeitemkey] = activeitemvalue
             elif activeitemvalue <= 0:
                 print(activeitemkey.exit_text)
+        # checks if its specifically G to wane the effect
+        if items["G"] in self.active_items and items["G"] not in updated_list:
+            self.lit -= 40
         self.active_items = updated_list
 
     def narrate_stats(
         self,
     ):  # Informs body stats.
-        # CALL a bark function. body_check_bark()
+        body_check_bark()
         if self.high <= 20:  # For high
             print("Pretty sober rn.", end=" ")
         if self.high >= 30 and self.high <= 50:
@@ -153,6 +160,6 @@ player = MainCharacter(
     20,
     0,
     10,
-    ["lollipop", "cigarette", "Soundcloud", "blunt", "poppers", "chewing gum"],
+    ["G", "cigarette", "Soundcloud", "blunt", "poppers", "chewing gum"],
     {},
 )

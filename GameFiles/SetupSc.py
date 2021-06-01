@@ -1,5 +1,10 @@
-from Narration import narrate_items, narrate_people_in_room
-from Scripts.Blocks import (
+from GameFiles.Input import player_choose_action
+from .Scripts.Format.Narration import (
+    narrate_items as narrate_items,
+    narrate_people_in_room as narrate_people_in_room,
+)
+
+from .Scripts.Blocks import (
     Item as Item,
     items as items,
     MainCharacter as MainCharacter,
@@ -9,7 +14,7 @@ from Scripts.Blocks import (
     Room as Room,
     rooms as rooms,
 )
-from Scripts.Actions import (
+from .Scripts.Actions import (
     Move as Move,
     move as move,
     Use_Item as Use_Item,
@@ -35,24 +40,20 @@ string_item_to_item_object(player, items)
 # print(rooms["smoking room"].usable_in_room(items["cigarette"]))
 # print(items["cigarette"].usable_in_room(rooms["bathroom"]))
 # narrate_items(player)
-
-player.location = rooms["smoking room"]
-NPCs["partner"].location = rooms["smoking room"]
-NPCs["smile"].location = rooms["smoking room"]
-NPCs["russian"].location = rooms["bathroom"]
-NPCs["tanktop"].location = rooms["bathroom"]
-# NPCs["pusher"] = rooms["smoking room"]
-NPCs["hottest"].location = rooms["dance floor"]
-NPCs["couple"].location = rooms["bathroom"]
+# narrate_people_in_room(player, NPCs)
 
 player.location = rooms["bathroom"]
-narrate_people_in_room(player, NPCs)
+player.narrate_stats()
 
-player.location = rooms["smoking room"]
-narrate_people_in_room(player, NPCs)
+player_choose_action()
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
 
-player.location = rooms["dance floor"]
-narrate_people_in_room(player, NPCs)
-
-NPCs["hottest"].location = rooms["bathroom"]
-narrate_people_in_room(player, NPCs)
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
+player.update_active_items()
