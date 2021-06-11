@@ -5,9 +5,9 @@ from ..Blocks.RoomSc import Room, rooms
 class Tap_Water(Action):
     def __init__(
         self,
-        name="Drink tap water",
+        name="drink tap water",
         identifiers=["drink", "tap"],
-        rooms_it_cannot_be_done_in=[rooms["dance floor", rooms["smoking room"]]],
+        rooms_it_cannot_be_done_in=[rooms["dance floor"], rooms["smoking room"]],
     ):
         self.name = name
         self.identifiers = identifiers

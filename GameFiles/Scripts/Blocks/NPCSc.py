@@ -1,4 +1,4 @@
-from .PlayerSc import MainCharacter
+from .PlayerSc import MainCharacter, player
 
 
 class NPC(MainCharacter):
@@ -23,6 +23,12 @@ class NPC(MainCharacter):
 
     def __repr__(self):
         return "NPC: " + self.name
+
+    def narrate(self):
+        if player.location == self.location:
+            print("You see " + self.name + " nearby.")
+        elif player.location != self.location:
+            print("You can't see " + self.name + " around.")
 
 
 #########################################################################

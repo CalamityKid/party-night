@@ -1,7 +1,8 @@
 class Time:
-    def __init__(self, hour, minute):  # maybe add an actor
+    def __init__(self, hour, minute, identifiers="time"):
         self.hour = hour
         self.minute = minute
+        self.identifiers = identifiers
 
     def __repr__(self):
         if self.minute == 0:
@@ -27,6 +28,9 @@ class Time:
         if self.hour == 6:
             # player.gameover = True
             print("GAME OVER")
+
+    def narrate(self):
+        print("It is now", self)
 
 
 time = Time(1, 30)

@@ -1,3 +1,4 @@
+from typing import final
 from . import formatting
 
 
@@ -17,13 +18,14 @@ def narrate_items(player):
     final_string = final_string.replace(" a ", " the ")
     final_string = final_string.replace(".", " in this room though.")
     print("You're holding " + formatting.format_objects_string(player.items))
-    print(final_string)
+    if len(final_string) >= 34:
+        print(final_string)
 
 
-def narrate_people_in_room(player, people_dictionary):
+def narrate_people_in_room(player):
     people_in_room_string = ""
     people_in_room_list = []
-    for key, person in people_dictionary.items():
+    for key, person in player.dict_of_people.items():
         if person.location == player.location:
             people_in_room_list.append(person)
     people_in_room_string = formatting.format_objects_string(people_in_room_list)
@@ -33,3 +35,14 @@ def narrate_people_in_room(player, people_dictionary):
     print("You see", people_in_room_string)
     if people_in_room_string != "no familiar faces.":
         print("You could [TALK] to them.")
+
+
+def narrate_actions(player):
+    final_string = ""
+    usable_actions = []
+    for key, act in player.dict_of_actions.items():
+        if act.doable_in_room(player.location) == True:
+            usable_actions.append(act)
+    final_string = formatting.format_objects_string(usable_actions)
+    final_string = final_string.replace("and", "or")
+    print("You could " + final_string)

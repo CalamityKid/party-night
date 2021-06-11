@@ -76,10 +76,9 @@ class MainCharacter:
             self.lit -= 40
         self.active_items = updated_list
 
-    def narrate_stats(
-        self,
-    ):  # Informs body stats.
-        body_check_bark()
+    def narrate_stats(self, bark=True):  # Informs body stats.
+        if bark == True:
+            body_check_bark()
         if self.high <= 20:  # For high
             print("Pretty sober rn.", end=" ")
         if self.high >= 30 and self.high <= 50:
@@ -149,6 +148,10 @@ class MainCharacter:
 
         if self.coolness <= 10:  # For coolness
             self.coolness = 10
+
+    def narrate(self):
+        print("I'm currently in " + str(self.location) + "... ", end="")
+        self.narrate_stats(False)
 
 
 #########################################################################

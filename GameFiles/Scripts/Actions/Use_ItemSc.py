@@ -6,7 +6,7 @@ from ..Blocks.PlayerSc import MainCharacter
 class Use_Item(Action):
     def __init__(
         self,
-        name="Use",
+        name="use something you're holding",
         identifiers=["use", "item", "smoke", "take", "do"],
         rooms_it_cannot_be_done_in=None,
     ):

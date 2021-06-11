@@ -5,7 +5,7 @@ from ..Blocks.RoomSc import Room
 class Move(Action):
     def __init__(
         self,
-        name="Move to",
+        name="move somewhere else",
         identifiers=["move", "go"],
         rooms_it_cannot_be_done_in=None,
     ):

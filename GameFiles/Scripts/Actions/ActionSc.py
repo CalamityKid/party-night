@@ -12,11 +12,11 @@ class Action:
     def __repr__(self):
         return str(self.name)
 
-    def doable_in_room(self, action):
+    def doable_in_room(self, room_to_be_checked):
         try:
-            if action.name in self.rooms_it_cannot_be_done_in:
+            if room_to_be_checked in self.rooms_it_cannot_be_done_in:
                 return False
-            elif action.name not in self.rooms_it_cannot_be_done_in:
+            elif room_to_be_checked not in self.rooms_it_cannot_be_done_in:
                 return True
-        except TypeError:
+        except TypeError:  # if there are no rooms_it_cannot_be_done_in
             return True
