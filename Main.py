@@ -1,23 +1,10 @@
-from Blocks.PlayerNPC import (
-    setupcharacters,
-    player,
-    NPC,
-    MainCharacter,
-)
-from Blocks.Room import rooms, Room
-from Blocks.Items import items, Item
-import Input
+from GameFiles.Scripts.Blocks.ItemsSc import Item
+from GameFiles.Scripts.Actions.Use_ItemSc import Use_Item
+from GameFiles import SetupSc
 
-# from Blocks.Scene import Scene, SceneVariables
-# from Scenes.SmileScenes.Smile0 import smiletimes0content
-NPCs = setupcharacters(None, None, None)
+# from GameFiles.Scripts.Blocks import PartySc
 
-people_in_party = [
-    NPCs["partner"],
-    NPCs["smile"],
-    NPCs["russian"],
-]
-
+# from Gamefiles.Scripts.Blocks import PartySc
 
 ##############################
 # print(smile.times_talked)
