@@ -17,6 +17,7 @@ class Time:
         print("It is now " + str(self))
 
     def thirty_minute_update(self):
+        # update schedule
         self.narrate()
         player.party.narrate()
         player.narrate()

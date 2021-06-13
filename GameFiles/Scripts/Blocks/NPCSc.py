@@ -44,20 +44,19 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
     russian = NPC(
         "your russian friend",
         ["poppers", "lollipop"],
-        ["russ", "friend", "misha"],
+        ["russ"],
         russianlocation,
     )
     tanktop = NPC(
         "the cutie in the tank top",
         ["Soundcloud", "blunt", "cigarette", "lollipop"],
-        ["cut", "tank", "top"],
+        ["cutie", "tank", "tanktop"],
     )
     pusher = NPC(
         "someone who seems to be a pusher",
         ["Soundcloud", "blunt", "cigarette", "poppers", "chewing gum"],
-        ["push"],
+        ["pusher"],
     )
-    hottest = NPC("a breathtaking beauty", ["lollipop", "cigarette"], ["beau", "breat"])
     couple = NPC(
         "the attractive couple",
         ["blunt", "cigarette", "chewing gum"],
@@ -70,7 +69,6 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
         "russian": russian,
         "tanktop": tanktop,
         "pusher": pusher,
-        "hottest": hottest,
         "couple": couple,
     }
 

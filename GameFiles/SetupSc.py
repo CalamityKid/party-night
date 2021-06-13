@@ -15,6 +15,8 @@ from .Scripts.Blocks import (
     Room as Room,
     rooms as rooms,
     dict_of_objects as dict_of_objects,
+    time as time,
+    party as party,
 )
 from .Scripts.Actions import (
     Move as Move,
@@ -41,6 +43,8 @@ string_item_to_item_object(player, items)
 player.dict_of_actions = dict_of_actions
 player.dict_of_objects = dict_of_objects
 player.dict_of_people = NPCs
+player.party = party
+player.people_in_party = [NPCs["smile"], NPCs["partner"], NPCs["russian"]]
 
 # Gives the player and NPCs a location so shit doesn't crash
 player.location = rooms["bathroom"]
@@ -55,12 +59,12 @@ NPCs["tanktop"].location = rooms["smoking room"]
 # print(items["cigarette"].usable_in_room(rooms["bathroom"]))
 
 # narrate_items(player)
-# narrate_people_in_room(player, NPCs)
 # player.narrate_stats()
 # player_choose_action()
-print(player.dict_of_actions)
-player_choose_action(player)
-player_choose_action(player)
-player_choose_action(player)
-player_choose_action(player)
-player_choose_action(player)
+print("GAME START.")
+print("")
+
+while player.gameover == False:
+    player_choose_action(player)
+    time.ten_minutes()
+print("GAME OVER BITCH")
