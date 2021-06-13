@@ -1,3 +1,6 @@
+from .PlayerSc import player
+
+
 class Time:
     def __init__(self, hour, minute, identifiers="time"):
         self.hour = hour
@@ -8,29 +11,37 @@ class Time:
         if self.minute == 0:
             return "0{hour} o' clock.".format(hour=self.hour)
         else:
-            return "0{hour}:{minute}".format(hour=self.hour, minute=self.minute)
+            return "0{hour}:{minute}.".format(hour=self.hour, minute=self.minute)
 
-    def thirty_minute_update(self, whereverthebodycheckis):
-        whereverthebodycheckis.body_check()
+    def narrate(self):
+        print("It is now " + str(self))
 
-    def ten_minutes(self, whateversystemmanagesitemstoupdate):
+    def thirty_minute_update(self):
+        self.narrate()
+        player.party.narrate()
+        player.narrate()
+
+    def ten_minutes(self):
         self.minute += 10
-
-        whateversystemmanagesitemstoupdate.update_items()
-
-        if self.minute % 30 == 0:
-            self.thirty_minute_update()
 
         if self.minute == 60:
             self.hour += 1
             self.minute = 0
 
         if self.hour == 6:
-            # player.gameover = True
+            player.gameover = True
             print("GAME OVER")
+            ##############RUN GAMEOVER SCRIPT##############
 
-    def narrate(self):
-        print("It is now", self)
+        if player.gameover == True:
+            return None
+
+        elif player.gameover == False:
+            if self.minute % 30 == 0:
+                player.high -= 10
+                self.thirty_minute_update()
+            player.update_active_items()
+            print("")
 
 
-time = Time(1, 30)
+time = Time(1, 00)

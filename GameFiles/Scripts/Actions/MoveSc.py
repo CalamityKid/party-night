@@ -1,5 +1,6 @@
 from .ActionSc import Action
 from ..Blocks.RoomSc import Room
+from ..Format.Narration import narrate_people_in_room
 
 
 class Move(Action):
@@ -7,7 +8,7 @@ class Move(Action):
         self,
         name="move somewhere else",
         identifiers=["move", "go"],
-        rooms_it_cannot_be_done_in=None,
+        rooms_it_cannot_be_done_in=[],
     ):
         self.name = name
         self.identifiers = identifiers
@@ -26,6 +27,7 @@ class Move(Action):
                     "moves to",
                     object_to_be_interacted_with.name + ".",
                 )
+                narrate_people_in_room(object_performing_the_action)
                 return True
 
             elif isinstance(object_to_be_interacted_with, Room) == False:

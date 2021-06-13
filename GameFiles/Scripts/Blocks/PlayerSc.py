@@ -75,6 +75,7 @@ class MainCharacter:
         if items["G"] in self.active_items and items["G"] not in updated_list:
             self.lit -= 40
         self.active_items = updated_list
+        self.update_body()
 
     def narrate_stats(self, bark=True):  # Informs body stats.
         if bark == True:
@@ -96,6 +97,8 @@ class MainCharacter:
             print("Mouth's getting pretty dry, it's bothering you.")
         if self.mouth >= 50 and self.mouth < 70:
             print("Mouth's starting to feel a bit dry.")
+        if self.mouth >= 70:
+            print("")
 
         if self.lit <= 10:  # For lit
             print("You feel like leaving...", end=" ")
@@ -106,7 +109,7 @@ class MainCharacter:
         if self.lit >= 80 and self.lit <= 90:
             print("This party's really fucking lit.", end=" ")
         if self.lit >= 100:
-            print("You're having the best time of your life.")
+            print("You're having the best time of your life.", end=" ")
 
         if self.coolness <= 10:  # For coolness
             print("Not getting any attention.")
@@ -150,7 +153,7 @@ class MainCharacter:
             self.coolness = 10
 
     def narrate(self):
-        print("I'm currently in " + str(self.location) + "... ", end="")
+        print("You're currently in " + str(self.location) + "... ", end="")
         self.narrate_stats(False)
 
 
