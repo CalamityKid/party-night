@@ -1,9 +1,5 @@
+from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
-from .Scripts.Format.Narration import (
-    narrate_actions,
-    narrate_items as narrate_items,
-    narrate_people_in_room as narrate_people_in_room,
-)
 
 from .Scripts.Blocks import (
     Item as Item,
@@ -44,6 +40,9 @@ player.dict_of_actions = dict_of_actions
 player.dict_of_objects = dict_of_objects
 player.dict_of_people = NPCs
 player.party = party
+player.time = time
+player.rooms = rooms
+player.NPCs = NPCs
 player.people_in_party = [NPCs["smile"], NPCs["partner"], NPCs["russian"]]
 
 # Gives the player and NPCs a location so shit doesn't crash
@@ -51,7 +50,6 @@ player.location = rooms["bathroom"]
 NPCs["partner"].location = rooms["bathroom"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
-NPCs["tanktop"].location = rooms["smoking room"]
 
 
 # print(formatting.format_objects_string(items))
@@ -63,8 +61,10 @@ NPCs["tanktop"].location = rooms["smoking room"]
 # player_choose_action()
 print("GAME START.")
 print("")
-
+party.change_crowd_full()
 while player.gameover == False:
     player_choose_action(player)
     time.ten_minutes()
+    if time.minute == 0 or time.minute == 30:
+        update_schedule()
 print("GAME OVER BITCH")

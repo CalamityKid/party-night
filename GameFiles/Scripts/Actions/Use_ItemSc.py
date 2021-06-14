@@ -1,5 +1,5 @@
 from .ActionSc import Action
-from ..Blocks.ItemsSc import Item
+from ..Blocks.ItemsSc import Item, items
 from ..Blocks.PlayerSc import MainCharacter
 
 
@@ -16,9 +16,9 @@ class Use_Item(Action):
 
     def execute(self, object_performing_the_action, object_to_be_interacted_with):
         if isinstance(object_to_be_interacted_with, Item) != True:
-            print("You can't use", object_to_be_interacted_with.name, ".")
+            print("You can't use", object_to_be_interacted_with.name + ".")
             if isinstance(object_to_be_interacted_with, MainCharacter) == True:
-                print("I mean, not in that way anyway.")
+                print("I mean, not like that anyway.")
             print("You can only use the things you're holding.")
             return None
         if object_to_be_interacted_with not in object_performing_the_action.items:
@@ -46,6 +46,9 @@ class Use_Item(Action):
                 object_performing_the_action.active_items[
                     object_to_be_interacted_with
                 ] = object_to_be_interacted_with.duration
+                ########### poppers exception cause time passes if you use poppers
+                # if object_to_be_interacted_with == items["poppers"]:
+                #    return True
                 return True
 
 
