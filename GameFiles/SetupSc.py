@@ -1,5 +1,6 @@
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
+from GameFiles.Scenes.SceneSelectSc import scene_select
 
 from .Scripts.Blocks import (
     Item as Item,
@@ -59,6 +60,7 @@ NPCs["russian"].location = rooms["smoking room"]
 # narrate_items(player)
 # player.narrate_stats()
 # player_choose_action()
+
 print("GAME START.")
 print("")
 party.change_crowd_full()
