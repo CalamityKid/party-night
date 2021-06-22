@@ -1,6 +1,8 @@
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
-from GameFiles.Scenes.SceneSelectSc import scene_select
+
+# from GameFiles.Scenes.SceneSelectSc import scene_select
+from .Scripts.Blocks.SceneSc import scenevariables
 
 from .Scripts.Blocks import (
     Item as Item,
@@ -45,9 +47,10 @@ player.time = time
 player.rooms = rooms
 player.NPCs = NPCs
 player.people_in_party = [NPCs["smile"], NPCs["partner"], NPCs["russian"]]
+player.scenevariables = scenevariables
 
 # Gives the player and NPCs a location so shit doesn't crash
-player.location = rooms["bathroom"]
+player.location = rooms["smoking room"]
 NPCs["partner"].location = rooms["bathroom"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
@@ -63,10 +66,12 @@ NPCs["russian"].location = rooms["smoking room"]
 
 print("GAME START.")
 print("")
-party.change_crowd_full()
+
+update_schedule()
 while player.gameover == False:
     player_choose_action(player)
     time.ten_minutes()
-    if time.minute == 0 or time.minute == 30:
+    if player.gameover == False:
         update_schedule()
+
 print("GAME OVER BITCH")
