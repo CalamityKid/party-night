@@ -10,3 +10,7 @@
 # aslo Smile use G has too many spaces, add narration to quotes
 # Partner gives you "Borrow" in memories
 # make a coke item, used in divinity (Russian 5), make a (special K) item.
+
+if tanktop4 has run and tantop in dancefloor stay there in schedule
+"Partner Hookup" asks how it does, at gameover check
+write and program the Tanktopflirt function thingy
