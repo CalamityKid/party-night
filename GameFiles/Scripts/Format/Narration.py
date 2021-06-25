@@ -1,4 +1,3 @@
-from typing import final
 from . import formatting
 
 
@@ -13,11 +12,15 @@ def narrate_items(player):
         if i.usable_in_room(player.location) == False:
             unusable_item_list.append(i)
 
-    final_string += formatting.format_objects_string(unusable_item_list)
-    final_string = final_string.replace("and", "or")
-    final_string = final_string.replace(" a ", " the ")
-    final_string = final_string.replace(".", " in this room though.")
-    print("You're holding " + formatting.format_objects_string(player.items))
+    if len(unusable_item_list) > 0:
+        final_string += formatting.format_objects_string(unusable_item_list)
+        final_string = final_string.replace("and", "or")
+        final_string = final_string.replace(" a ", " the ")
+        final_string = final_string.replace(".", " in this room though.")
+    if len(player.items) > 0:
+        print("You're holding " + formatting.format_objects_string(player.items))
+    elif len(player.items) == 0:
+        print("You're not holding anything rn.")
     if len(final_string) >= 34:
         print(final_string)
 
@@ -31,10 +34,12 @@ def narrate_people_in_room(player):
     people_in_room_string = formatting.format_objects_string(people_in_room_list)
     if people_in_room_string == "nothing":
         people_in_room_string = "no familiar faces."
-    player.location.narrate()
-    print("You see", people_in_room_string)
+    print("You see " + str(people_in_room_string), end=" ")
     if people_in_room_string != "no familiar faces.":
-        print("You could [TALK] to them.")
+        print("You could talk to them.")
+    else:  # to keep the spacing equal cause of the end
+        print("")
+    print("")
 
 
 def narrate_actions(player):

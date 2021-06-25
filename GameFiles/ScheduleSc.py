@@ -1,12 +1,13 @@
 from .Scripts.Blocks.PlayerSc import player
 from .Scenes.CoupleScenes.Compile import couplescenes
 from .Scenes.PartnerScenes.Compile import partnerscenes
+from .Scenes.TanktopScenes.Compile import tanktopscenes
 
 
 def update_schedule():
     print("People move around.")
     ################ CROWDS #############
-    if player.time.hour < 1 or player.time.hour > 5:
+    if player.time.hour < 1 or player.time.hour >= 5:
         player.party.change_crowd_empty()
     elif player.time.hour == 1 or player.time.hour == 4:
         player.party.change_crowd_half()
@@ -34,7 +35,7 @@ def update_schedule():
     if player.time.hour == 0 and player.time.minute == 30:
         player.NPCs["smile"].location = player.rooms["bathroom"]
         player.NPCs["russian"].location = player.location
-        couplescenes["Times0"].run_scene(player)  #runs couple times 0 when its 00.30
+        couplescenes["Times0"].run_scene(player)  # runs couple times 0 when its 00.30
         player.time.ten_minutes()
 
     if player.time.hour == 1 and player.time.minute == 00:
@@ -78,6 +79,9 @@ def update_schedule():
         if player.party.music != "terrible":
             player.NPCs["russian"].location = player.rooms["dance floor"]
             player.NPCs["smile"].location = player.rooms["dance floor"]
+            player.NPCs["couple"].location = player.rooms["dance floor"]
+        elif player.party.music == "terrible":
+            player.NPCs["couple"].location = player.rooms["smoking room"]
         if player.time.hour == 4 and player.time.minute == 00:
             player.NPCs["smile"].location = player.rooms["bathroom"]
         if player.NPCs["tanktop"] in player.people_in_party:
@@ -107,8 +111,27 @@ def update_schedule():
             player.NPCs["tanktop"].location = player.rooms["dance floor"]
         if player.NPCs["pusher"] in player.people_in_party:
             player.NPCs["pusher"].location = player.rooms["bathroom"]
-    
+
     ###########Then checks for condition based timed events
-    if (player.NPCs["tanktop"].times_talked == 1) and (couplescenes["PartnerTanktop0"].has_run == False) and (player.location != player.rooms["dance floor"]) and (player.location =! player.NPCs["tanktop"].location):
-        partnerscenes["PartnerTanktop"].run_scene(player)  #runs partnertanktop to decide the branching path
+    if (
+        (player.NPCs["tanktop"].times_talked == 1)
+        and (partnerscenes["PartnerTanktop0"].has_run == False)
+        and (player.location != player.rooms["dance floor"])
+        and (player.location != player.NPCs["tanktop"].location)
+    ):
+        partnerscenes["PartnerTanktop0"].run_scene(
+            player
+        )  # runs partnertanktop to decide the branching path
         player.time.ten_minutes()
+
+    if (
+        (tanktopscenes["Times4"].has_run == True)
+        and (tanktopscenes["Times5"].has_run == False)
+        and player.NPCs["tanktop"].location != player.rooms["dance floor"]
+    ):
+        player.NPCs["tanktop"].location = player.rooms[
+            "dance floor"
+        ]  # if tanktop4 has run and tanktop 5 hasnt run, stay there on dance floor
+
+        if couplescenes["CoupleGum"].has_run == False and player.mouth < 30:
+            couplescenes["CoupleGum"].run_scene(player)
