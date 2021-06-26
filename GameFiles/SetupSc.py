@@ -1,5 +1,6 @@
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
+from GameFiles.Scripts.Format.Narration import narrate_actions, narrate_people_in_room
 
 # from GameFiles.Scenes.SceneSelectSc import scene_select
 from .Scripts.Blocks.SceneSc import scenevariables
@@ -24,6 +25,8 @@ from .Scripts.Actions import (
     use_item as use_item,
     dict_of_actions as dict_of_actions,
 )
+
+from .Scenes.Gameover.Compile import assemble_and_run_gameover_scenes
 
 # function to give the players item objects
 def string_item_to_item_object(character, item_dictionary):
@@ -69,9 +72,12 @@ print("")
 
 update_schedule()
 while player.gameover == False:
+    player.location.narrate()
+    narrate_actions(player)
+    narrate_people_in_room(player)
     player_choose_action(player)
     time.ten_minutes()
     if player.gameover == False:
         update_schedule()
 
-print("GAME OVER BITCH")
+assemble_and_run_gameover_scenes(player)
