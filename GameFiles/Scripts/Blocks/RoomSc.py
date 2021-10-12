@@ -1,3 +1,7 @@
+from ..Format.Narration import narrate_people_in_room
+from .PlayerSc import player
+
+
 class Room:
     def __init__(self, name, available_actions, usable_items, identifiers):
         self.name = name
@@ -9,7 +13,24 @@ class Room:
         return self.name
 
     def narrate(self):
-        print("You are currently in", self.name + ".", end=" ")
+
+        if player.location != self:
+            print(
+                "You're not in " + str(self.name) + ". You could move there. ", end=" "
+            )
+        if self.name == "the dance floor":
+            print(
+                "You and your partner are currently on "
+                + str(player.location.name)
+                + "."
+            )
+        else:
+            print(
+                "You and your partner are currently in "
+                + str(player.location.name)
+                + "."
+            )
+        narrate_people_in_room(player)
 
     def usable_in_room(self, object):
         try:

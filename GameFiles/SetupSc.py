@@ -1,3 +1,4 @@
+from time import sleep
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
 from GameFiles.Scripts.Format.Narration import narrate_actions, narrate_people_in_room
@@ -70,14 +71,24 @@ NPCs["russian"].location = rooms["smoking room"]
 print("GAME START.")
 print("")
 
+from GameFiles.Scripts.Format import Calculations
+
+
 update_schedule()
+print(player.dict_of_actions)
 while player.gameover == False:
+    print("--------------------")
     player.location.narrate()
     narrate_actions(player)
-    narrate_people_in_room(player)
+    print("--------------------")
+    print("")
+    sleep(1)
+    player.narrate_stats(True)
     player_choose_action(player)
+    sleep(3)
     time.ten_minutes()
     if player.gameover == False:
         update_schedule()
+        sleep(3)
 
 assemble_and_run_gameover_scenes(player)

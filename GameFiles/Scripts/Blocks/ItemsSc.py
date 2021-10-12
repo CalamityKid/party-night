@@ -13,6 +13,7 @@ class Item:
         loading_item=False,
         loading_counter=None,
         loading_text=None,
+        exit_effect=None,
     ):
         self.name = name
         self.identifiers = identifiers
@@ -26,6 +27,7 @@ class Item:
         self.narrate_text = narrate_text
         self.loading_counter = loading_counter
         self.rooms_it_cannot_be_done_in = rooms_it_cannot_be_done_in
+        self.exit_effect = exit_effect
 
     def __repr__(self):
         return self.name
@@ -52,7 +54,7 @@ def setupitems():
     lollipop = Item(
         "a lollipop",
         ["lol"],
-        50,
+        40,
         "You put the lollipop in your mouth.",
         "You're sucking on the lollipop.",
         {"mouth": 30, "coolness": 10},
@@ -79,7 +81,7 @@ def setupitems():
         60,
         "You mix the G with some water and wash it down in a big gulp.",
         "G's making you horny af.",
-        {"high": 10, "lit": 20},
+        {"high": 10, "lit": 10},
         "You don't feel the G anymore.",
         "G's like alcohol but better, unless you mix it with alcohol. Then it's like poison.",
         ["the dance floor", "the smoking room"],
@@ -103,8 +105,8 @@ def setupitems():
         ["cig", "gare"],
         40,
         "You smoke the cigarette.",
-        "You feel the nicotine.",
-        {"coolness": 20, "lit": 10, "high": 10, "mouth": -10},
+        "You feel the nicotine tingle.",
+        {"coolness": 10, "lit": 10, "high": 10, "mouth": -10},
         "You don't feel the nicotine anymore.",
         "Cancer sticks. Look cool, die faster.",
         ["the dance floor", "the bathroom"],
@@ -119,6 +121,10 @@ def setupitems():
         "Popper comedown. Alright.",
         "Poppers. To the moon and back in 30 seconds.",
         ["the smoking room"],
+        False,
+        None,
+        None,
+        {"lit": -40},
     )
     chewing_gum = Item(
         "some chewing gum",
@@ -130,6 +136,41 @@ def setupitems():
         "Chewing gum's tasteless, you get rid of it.",
         "Chewing gum, an oasis in your mouth.",
     )
+    coke = Item(
+        "a line of coke",
+        ["coke", "cocaine", "perico"],
+        40,
+        "You elegantly snort the line.",
+        "The nose candy's perking you up.",
+        {"high": 20, "lit": 10},
+        "That extra perk's gone, it seems.",
+        "Coke, future energy, now. May cause heart attacks.",
+    )
+    special_K = Item(
+        "some special K",
+        ["special", "ketamine", "keta"],
+        50,
+        "You take in just the corner of your house key.",
+        "Special K's got you feeling intergalactic.",
+        {"high": 10, "lit": 10, "coolness": 10},
+        "You're feeling less special, K.",
+        "Special K, part of a balanced breakfast.",
+    )
+    ########## Create mod effects (x_mod = multiplier, coolness multipliers should be negative if they help the player)
+    poppers.lit_mod = 1.2
+    blunt.coolness_mod = 0.9
+    blunt.lit_mod = 1.1
+    blunt.high_mod = 1.1
+    ghb.coolness_mod = 0.8
+    special_K.lit_mod = 1.1
+    special_K.coolness_mod = 0.8
+    coke.lit_mod = 1.2
+    coke.high_mod = 1.2
+    soundcloud.lit_mod = 1.1
+    soundcloud.coolness_mod = 0.9
+    soundcloud.high_mod = 1.2
+    ##############
+
     return {
         "lollipop": lollipop,
         "Soundcloud": soundcloud,
@@ -138,6 +179,8 @@ def setupitems():
         "cigarette": cigarette,
         "poppers": poppers,
         "chewing gum": chewing_gum,
+        "special K": special_K,
+        "coke": coke,
     }
 
 

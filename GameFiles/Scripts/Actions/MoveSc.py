@@ -7,7 +7,7 @@ class Move(Action):
     def __init__(
         self,
         name="move somewhere else",
-        identifiers=["move", "go"],
+        identifiers=["move", "go", "walk"],
         rooms_it_cannot_be_done_in=[],
     ):
         self.name = name
@@ -22,13 +22,24 @@ class Move(Action):
         elif object_performing_the_action.location != object_to_be_interacted_with:
             if isinstance(object_to_be_interacted_with, Room) == True:
                 object_performing_the_action.location = object_to_be_interacted_with
-                print(
-                    object_performing_the_action.name,
-                    "moves to",
-                    object_to_be_interacted_with.name + ".",
-                )
+                object_performing_the_action.NPCs[
+                    "partner"
+                ].location = object_to_be_interacted_with
+                if object_performing_the_action.party.crowd != "full":
+                    print(
+                        "You and your partner move to",
+                        object_to_be_interacted_with.name + ".",
+                    )
+                if object_performing_the_action.party.crowd == "full":
+                    print(
+                        " You slowly push your way through the crowd and make your way to",
+                        object_to_be_interacted_with.name + ".",
+                    )
+                    object_performing_the_action.time.ten_minutes()
                 narrate_people_in_room(object_performing_the_action)
-                return True
+                return (
+                    None  # because time doesnt pass when you move unless crowd is full.
+                )
 
             elif isinstance(object_to_be_interacted_with, Room) == False:
                 print("You can't move to " + object_to_be_interacted_with.name + ".")

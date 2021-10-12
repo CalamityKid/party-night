@@ -1,6 +1,3 @@
-from .TimeSc import time
-
-
 class Party:
     def __init__(
         self, name="Party", identifiers=["party", "music"], music="great", crowd="empty"
@@ -19,12 +16,9 @@ class Party:
     def narrate_crowd(self):
         final_string = ""
         if self.crowd == "half":
-            if time.hour == 1:
-                final_string += "Party's starting to get packed."
-            if time.hour == 4:
-                final_string += "People are starting to leave the party."
+            final_string += "Party's sorta crowded but you can still move around."
         elif self.crowd == "empty":
-            final_string += "Just a few people in the room."
+            final_string += "Just a few people in the room, party's kinda empty."
         elif self.crowd == "full":
             final_string += "Party's packed full of people."
         print(final_string)

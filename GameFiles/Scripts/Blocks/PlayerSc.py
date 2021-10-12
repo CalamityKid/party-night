@@ -1,5 +1,4 @@
 from ..Format.Bark import body_check_bark as body_check_bark
-from .ItemsSc import items
 
 
 class MainCharacter:
@@ -13,7 +12,7 @@ class MainCharacter:
         active_items,
         items=[],
         location=None,
-        identifiers=[["player", "myself", "me"]],
+        identifiers=["player", "myself", "me"],
         memories=[],
         gameover=False,
     ):
@@ -69,12 +68,26 @@ class MainCharacter:
                             # print("Now ", attribute, "is ", vars(self)[attribute])
             if activeitemvalue > 0:  # adds it back if it hasn't waned off
                 updated_list[activeitemkey] = activeitemvalue
+
             elif activeitemvalue <= 0:
                 print(activeitemkey.exit_text)
-        # checks if its specifically G to wane the effect
-        if items["G"] in self.active_items and items["G"] not in updated_list:
-            self.lit -= 40
-        self.active_items = updated_list
+                ####checks if an item has an exit effect and makes it happen if it does
+                if (hasattr(activeitemkey, "exit_effect") == True) and (
+                    activeitemkey.exit_effect != None
+                ):
+                    for (
+                        effectkey,
+                        effectvalue,
+                    ) in (
+                        activeitemkey.exit_effect.items()
+                    ):  # for each effect in the the exit effects dictionary
+                        for attribute in vars(self):  # checks your attributes
+                            if (
+                                str(attribute) == effectkey
+                            ):  # if its the same updates them
+                                updated_value = (vars(self)[attribute]) + effectvalue
+                                vars(self)[attribute] = updated_value
+        self.active_items = updated_list  # returns
         self.update_body()
 
     def narrate_stats(self, bark=True):  # Informs body stats.
@@ -91,14 +104,18 @@ class MainCharacter:
         if self.high >= 100:
             print("You're waay too high right now, like bad high, you feel... ugh.")
 
+        print("high is now", self.high)
+
         if self.mouth <= 10:  # For mouth
             print("Mouth feels like cardboard, it's really fucking with you.")
         if self.mouth >= 20 and self.mouth <= 40:
-            print("Mouth's getting pretty dry, it's bothering you.")
+            print("Mouth's pretty dry, it's bothering you.")
         if self.mouth >= 50 and self.mouth < 70:
-            print("Mouth's starting to feel a bit dry.")
+            print("Mouth's feeling a bit dry.")
         if self.mouth >= 70:
             print("")
+
+        print("mouth is now", self.mouth)
 
         if self.lit <= 10:  # For lit
             print("You feel like leaving...", end=" ")
@@ -110,6 +127,8 @@ class MainCharacter:
             print("This party's really fucking lit.", end=" ")
         if self.lit >= 100:
             print("You're having the best time of your life.", end=" ")
+
+        print("lit is now", self.lit)
 
         if self.coolness <= 10:  # For coolness
             print("Not getting any attention.")
@@ -123,9 +142,12 @@ class MainCharacter:
             print("You're the soul of the party.")
         print("""			""")
 
+        print("cool is now", self.coolness)
+
     def update_body(
         self,
     ):  # modifies lit and cool depending on other stats, should be time sensitive.
+        print("running update body in player")
         if self.high >= 30 and self.high <= 50:
             self.lit += 10
         if self.high >= 60 and self.high <= 70:
@@ -146,14 +168,19 @@ class MainCharacter:
         if self.mouth >= 20 and self.mouth <= 40:
             self.lit -= 10
 
-        if self.lit <= 10:  # For lit
-            self.lit = 10
-
-        if self.coolness <= 10:  # For coolness
-            self.coolness = 10
+        for attr in ["high", "coolness", "lit", "mouth"]:
+            if getattr(self, attr) < 10:
+                setattr(self, attr, 10)
+                print(" fixed now its 10.")
+            elif getattr(self, attr) > 100:
+                setattr(self, attr, 100)
+                print("fixed now its 100.")
 
     def narrate(self):
-        print("You're currently in " + str(self.location) + "... ", end="")
+        if self.location == self.rooms["dance floor"]:
+            print("You're currently on " + str(self.location) + "... ", end="")
+        else:
+            print("You're currently in " + str(self.location) + "... ", end="")
         self.narrate_stats(False)
 
 
@@ -166,6 +193,6 @@ player = MainCharacter(
     20,
     0,
     10,
-    ["G", "cigarette", "Soundcloud", "blunt", "poppers", "chewing gum"],
+    ["cigarette", "Soundcloud", "blunt"],
     {},
 )

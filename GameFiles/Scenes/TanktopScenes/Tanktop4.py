@@ -1,48 +1,54 @@
-===
-title: TanktopTimes4
-tags: tantop times4
-colorID: 0
-position: -626,-2647
----
-#Candy's kicked in now, you have to dance with them to jump to 5, if not on dance floor you can get a cigarette, maybe flirt and they go to the dance floor again
+from random import randint
+from ...Input import yesorno
+from ...Scripts.Blocks import items
 
-<< if location == dancefloor>>
-    You approach the cutie in the tanktop's group of friends
-    and they're all really getting down to the music.
-    You can't really talk, they're all movement.
+# Candy's kicked in now, you have to dance with them to jump to 5, if not on dance floor you can get a cigarette, maybe flirt and they go to the dance floor again
+def tanktoptimes4content(player):
+    if player.location == player.rooms["dance floor"]:
+        print("You approach the cutie in the tanktop's group of friends")
+        print("and they're all really getting down to the music.")
+        print("You can't really talk, they're all movement.")
+        print("")
 
-<< If location != Dance floor >> 
-    You approach the cutie in the tanktop's group of friends.
-    The cutie's smoking a cigarette, most of them are.
-    They offer you one.
-    Do you want a cigarette? (y/n)
-    << space>> 
-    << if yes>>
-        << add cigarette to inventory>>
-        You take a cigarette from them.
-    <<if no>>
-        You kindly refuse.
-    
-        << if Tanktop Conversation in memories>>
-            You can feel your partner holding back.
+    elif player.location != player.rooms["dance floor"]:
+        print("You approach the cutie in the tanktop's group of friends.")
+        print("The cutie's smoking a cigarette, most of them are.")
+        print("They offer you one.")
+        print("")
+        print("     Do you want a cigarette? (y/n) ", end="")
+        option = yesorno()
+        if option == True:
+            print("You accept the cigarette.")
+            player.items.append(items["cigarette"])
+        elif option == False:
+            print("You offhandedly refuse the offer.")
 
-        << if Tanktop Interest in memories>>
-            You talk about random stuff.
-            Things seem more interesting when a cutie's talking.
-            You get some compliments in.
-            << random 3>>
-            << if 1>>
-                You focus on the way they play with their cigarette.
-            << if 2>>
-                You focus on that beautiful smile. 
-            << if 3>> 
-                You love how your partner is really going for it.
-            << cutie.flirt +2>>
+        if "Tanktop Conversation" in player.memories:
+            print("You can feel your partner holding back.")
+            print("")
 
-        << if Tanktop partner in memories>>
-                Your partner gets some sexy energy into the conversation.
-                There's chemistry for sure.
-    
-    When everybody's done with their cigarette they go back to the dance floor.
-    << time passes>>
-    << change tanktop locaton to dance floor>>
+        elif "Tanktop Interest" in player.memories:
+            print("You talk about random stuff.")
+            print("Things seem more interesting when being told by a hottie.")
+            print("You get some compliments in.")
+
+            op = randint(0, 2)
+            if op == 1:
+                print("You focus on the way they play with their cigarette.")
+            elif op == 1:
+                print("You focus on that beautiful smile.")
+            elif op == 1:
+                print("You love how your partner is really going for it.")
+                print("They get along great, it's really cute.")
+                player.NPCs["tanktop"].flirt += 1
+
+        elif "Tanktop Partner" in player.memories:
+            print("Your partner gets some sexy energy into the conversation.")
+            print("Yeah, there's chemistry for sure.")
+
+        print(
+            "When everybody's done with their cigarette they decide to go back to the dance floor."
+        )
+        print("The cutie lets you know they'll all be downstairs dancing.")
+        print("")
+        player.NPCs["tanktop"].location = player.rooms["dance floor"]

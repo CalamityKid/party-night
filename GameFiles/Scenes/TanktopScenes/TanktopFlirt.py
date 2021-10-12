@@ -1,3 +1,8 @@
+def tanktopflirtcontent(player):
+    pass
+
+
+content = """
 ===
 title: TanktopFlirt
 tags: Tanktop Flirt
@@ -84,3 +89,4 @@ position: -408,-3536
  
 
 a point system and the calculation thingy
+"""

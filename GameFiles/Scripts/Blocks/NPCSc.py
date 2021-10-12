@@ -9,8 +9,9 @@ class NPC(MainCharacter):
         identifiers,
         location=None,
         times_talked=0,
-        flirt=None,
+        flirt=0,
         items=[],
+        boost=1.1,
     ):
         self.name = name
         self.stringitems = stringitems
@@ -19,7 +20,8 @@ class NPC(MainCharacter):
         self.flirt = flirt
         self.identifiers = identifiers
         self.stringitems = stringitems
-        self.items = []
+        self.items = items
+        self.boost = boost
 
     def __repr__(self):
         return "NPC: " + self.name

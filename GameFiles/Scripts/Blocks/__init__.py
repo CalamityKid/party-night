@@ -2,8 +2,12 @@ from .ItemsSc import Item, items
 from .PlayerSc import MainCharacter, player
 from .NPCSc import NPC, NPCs
 from .RoomSc import Room, rooms
+from .TimeSc import time
+from .PartySc import party
 
-__all__ = ["ItemsSc", "PlayerSc", "NPCSc", "RoomSc", "SceneSc", "TimeSc"]
+# not used here, but imported from here, don't delete them.
+
+__all__ = ["ItemsSc", "PlayerSc", "NPCSc", "RoomSc", "SceneSc", "TimeSc", "PartySc"]
 
 
 def create_dictionary_of_objects(dict1, dict2, dict3):

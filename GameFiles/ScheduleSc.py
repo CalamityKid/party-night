@@ -5,7 +5,6 @@ from .Scenes.TanktopScenes.Compile import tanktopscenes
 
 
 def update_schedule():
-    print("People move around.")
     ################ CROWDS #############
     if player.time.hour < 1 or player.time.hour >= 5:
         player.party.change_crowd_empty()

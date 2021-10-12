@@ -17,7 +17,6 @@ class Time:
         print("It is now " + str(self))
 
     def thirty_minute_update(self):
-        # update schedule
         self.narrate()
         player.party.narrate()
         player.narrate()
@@ -38,11 +37,17 @@ class Time:
             return None
 
         elif player.gameover == False:
-            if self.minute % 30 == 0:
+            if self.minute == 00 or self.minute == 30:
                 player.high -= 10
+                if player.party.music == "great":
+                    player.lit += 10
+                    print("The music's fire rn, it's cheering you up.")
+                elif player.party.music == "terrible":
+                    player.lit -= 10
+                    print("You really hate this music.")
                 self.thirty_minute_update()
             player.update_active_items()
             print("")
 
 
-time = Time(1, 00)
+time = Time(00, 00)

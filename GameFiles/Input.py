@@ -1,7 +1,3 @@
-from .Scripts.Blocks.PlayerSc import MainCharacter, player
-from .Scripts.Blocks.NPCSc import NPC, NPCs
-from .Scripts.Blocks.RoomSc import rooms, Room
-from .Scripts.Blocks.ItemsSc import items, Item
 from .Scripts.Format import formatting
 
 
@@ -11,37 +7,41 @@ def player_choose_action(player):
         inputaction = None
         inputobject = None
         while (inputaction == None) or (inputobject == None):
-            currentinput = input()
-            try:
-                print("current input: " + str(currentinput))
-                inputaction, inputobject = formatting.format_input_command(currentinput)
-                print(
-                    "inside player_choose_action. after format_input."
-                    + inputaction
-                    + " + "
-                    + inputobject
-                )
-
-            except TypeError:
-                print(
-                    "player choose action type error exception. Formar input didn't identify both an action and a object."
-                )
-                # input exceptions, this is for tap water, isn't an object
-                if inputaction == player.dict_of_actions["Tap Water"]:
-                    inputobject = True
-                if inputobject == player.dict_of_actions["Tap Water"]:
-                    inputaction = player.dict_of_actions["Tap Water"]
-                    inputobject = True
-                ###########################################input exception end
-
-            print("action: " + str(inputaction) + "object: " + str(inputobject))
+            currentinput = input("What do you want to do? ")
+            inputaction, inputobject = formatting.format_input_command(currentinput)
             if inputaction == None or inputobject == None:
-                print("Try again, bitch. One of the things is None. It won't execute.")
+                print(inputaction, inputobject)
+                print("What?")
+                # print("Try again, bitch. One of the things is None. It won't execute.")
                 inputaction = None
                 inputobject = None
-        print("executing!")
+        ######################################### tap water exception
+        if (
+            inputaction == player.dict_of_actions["Use"]
+            and inputobject == player.dict_of_actions["Tap Water"]
+        ):
+            inputaction = player.dict_of_actions["Tap Water"]
+            inputobject = True
+        # print("executing!")
+
+        print("")
         action_met = inputaction.execute(player, inputobject)
-        if action_met == None:
-            print(
-                "execute returned None. So time doesn't pass. Try something else:, maybe here refresh available actions, also maybe a counter"
-            )
+        print("")
+        # if action_met == None:    #this is if execute returns none, maybe add a counter here
+        # print("execute returned None. So time doesn't pass. Try something else:, maybe here refresh available actions, also maybe a counter")
+
+
+def yesorno():
+    yesornoresult = None
+    while yesornoresult == None:
+        yesornoresult = input()
+        if len(yesornoresult) > 0:
+            yesornoresult = formatting.clean_input(yesornoresult)
+            if "y" in yesornoresult[0]:
+                print("")
+                return True
+            elif "n" in yesornoresult[0]:
+                print("")
+                return False
+        print("(yes or no): ", end=" ")
+        yesornoresult = None

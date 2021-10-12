@@ -1,8 +1,3 @@
-
----
-<< If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>[[|PartnerTanktopTimes1 ]]
-<< if Tanktop Link in memories and Tanktop Partner in memories and Partner Hookup not in memories>> [[|PartnerTanktopTimes5 ]]
-
 ===
 title: DANCE
 tags: Dance
@@ -213,24 +208,7 @@ position: -1237,-1751
         the other one says
     They hug everyone goodbye and leave the party.
     << remove couple from total players, change location to None>>
-===
-title: Endgame
-tags: 
-colorID: 0
-position: -1522,-1387
----
-Empty Text
 
-<< divinity in memories>>
-<< couple convinced>>
-<< link and dance memories for each character>>
-<< Tanktop Conversation>>
-<< Tanktop Interest>>
-<< Tanktop Partner>>
-<< Looking for pusher>>
-<< Tanktop Asks>>
-<< Tanktop Home>>
-<< Partner Left>> #with tanktop
 ===
 title: PusherTimes0
 tags: 
@@ -297,12 +275,3 @@ colorID: 0
 position: -3556,-3938
 ---
 
-===
-title: PartnerTanktopTimes5
-tags: Partner Tanktop times5
-colorID: 0
-position: -3545,-3712
----
-#Write this ,que liga con tanktop
-<<add Partner Hookup to memories >>
-===

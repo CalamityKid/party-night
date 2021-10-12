@@ -1,8 +1,6 @@
 from .ActionSc import Action
-from ..Blocks.PlayerSc import MainCharacter as MainCharacter, player
 from ..Blocks.ItemsSc import Item as Item
-from ..Blocks.RoomSc import Room as Room
-from ..Format.Narration import narrate_actions, narrate_items
+from ..Format.Narration import narrate_actions, narrate_items, narrate_people_in_room
 
 
 class Check(Action):
@@ -10,24 +8,29 @@ class Check(Action):
         self,
         name="check something",
         identifiers=["check", "inspect", "look"],
-        rooms_it_cannot_be_done_in=None,
+        rooms_it_cannot_be_done_in=[],
     ):
         self.name = name
         self.identifiers = identifiers
         self.rooms_it_cannot_be_done_in = rooms_it_cannot_be_done_in
 
-    def execute(self, object_checking, thing_to_be_checked):
+    def execute(
+        self, object_checking, thing_to_be_checked
+    ):  # object checking is always the player
+        print("")
         if type(thing_to_be_checked) == str:
             if thing_to_be_checked == "actions check":
                 narrate_actions(object_checking)
             if thing_to_be_checked == "item check":
                 narrate_items(object_checking)
+            if thing_to_be_checked == "friends":
+                narrate_people_in_room(object_checking)
             return None
 
         if type(thing_to_be_checked) != str:
             thing_to_be_checked.narrate()
 
-        #### Item exception for narration stuff
+        #### Item exception for narration stuff, to add more info
         if type(thing_to_be_checked) == Item:
             if thing_to_be_checked in object_checking.items:
                 print("You have some on you", end="")

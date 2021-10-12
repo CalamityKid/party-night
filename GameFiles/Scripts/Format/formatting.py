@@ -14,12 +14,12 @@ def identify_object(object_to_be_identified_list, dict_of_objects):
                     return objectx
                 # exception for G
                 if word == "g":
-                    print("identify object: G exception")
+                    # print("identify object: G exception")
                     return items["G"]
                 if word == "tap" or word == "water":
-                    print("identify object: tap exception")
+                    # print("identify object: tap exception")
                     return player.dict_of_actions["Tap Water"]
-    print("Identify object i guess returns None cause nothing was identified")
+    # print("Identify object i guess returns None cause nothing was identified")
 
 
 def identify_object_check(object_to_be_identified_list, dict_of_objects):
@@ -52,6 +52,10 @@ def identify_object_check(object_to_be_identified_list, dict_of_objects):
                     return "item check"
                 if word == "around" or word == "room":
                     return player.location
+                if word == "party":
+                    return party
+                if word == "friends":
+                    return "friends"
 
 
 def identify_action(action_to_be_identified, dict_of_actions):
@@ -81,31 +85,29 @@ def format_input_command(player_input):
     subject = None
     player_input = clean_input(player_input)
     player_input = player_input.split()
-    try:
+    if len(player_input) == 0:
+        return None, None
+
+    elif len(player_input) >= 1:
         action = player_input[0]
-        print(action)
+        action = identify_action(action, player.dict_of_actions)
+
+    if len(player_input) >= 2:
         subject = player_input[1:]
-        print(subject)
-    except IndexError:
-        action = None
-        subject = None
-    #####################################################################
-    action = identify_action(action, player.dict_of_actions)
-    if action == None:
-        return None
-    #######################################################################
-    # Check exception
-    if action == player.dict_of_actions["Check"]:
-        subject = identify_object_check(subject, player.dict_of_objects)
-    elif action != player.dict_of_actions["Check"]:
-        subject = identify_object(subject, player.dict_of_objects)
-    #######################################################################
-    if subject == None:
-        return None
+
+        if action == player.dict_of_actions["Check"]:
+            subject = identify_object_check(subject, player.dict_of_objects)
+
+        elif action != player.dict_of_actions["Check"]:
+            subject = identify_object(subject, player.dict_of_objects)
+
+    if subject == None and (
+        action == player.dict_of_actions["Tap Water"]
+        or action == player.dict_of_actions["Dance"]
+    ):
+        subject = True
+
     return action, subject
-
-
-# You feed it a list and it gives you a string. pretty sure i can make it take an attribute if I rewrite it with getattr
 
 
 def format_objects_string(

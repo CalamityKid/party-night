@@ -1,4 +1,5 @@
 from . import formatting
+from .Calculations import create_list_people_in_room
 
 
 def narrate_items(player):
@@ -27,10 +28,9 @@ def narrate_items(player):
 
 def narrate_people_in_room(player):
     people_in_room_string = ""
-    people_in_room_list = []
-    for key, person in player.dict_of_people.items():
-        if person.location == player.location:
-            people_in_room_list.append(person)
+    people_in_room_list = create_list_people_in_room(player)
+    if player.NPCs["partner"] in people_in_room_list:
+        people_in_room_list.remove(player.NPCs["partner"])
     people_in_room_string = formatting.format_objects_string(people_in_room_list)
     if people_in_room_string == "nothing":
         people_in_room_string = "no familiar faces."
@@ -39,7 +39,6 @@ def narrate_people_in_room(player):
         print("You could talk to them.")
     else:  # to keep the spacing equal cause of the end
         print("")
-    print("")
 
 
 def narrate_actions(player):

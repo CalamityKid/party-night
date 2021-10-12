@@ -8,7 +8,7 @@ class Use_Item(Action):
         self,
         name="use something you're holding",
         identifiers=["use", "item", "smoke", "take", "do"],
-        rooms_it_cannot_be_done_in=None,
+        rooms_it_cannot_be_done_in=[],
     ):
         self.name = name
         self.identifiers = identifiers
