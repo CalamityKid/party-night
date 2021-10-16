@@ -2,11 +2,12 @@ from .ActionSc import Action
 from ..Format.Calculations import (
     calculate_friend_boost,
     calculate_mod_item_effect,
-    outcome,
     calculate_bads,
     calculate_goods,
+    create_bool_dict,
+    create_goods_code,
 )
-from ..Format.DanceNarration import identify_causes, mod_helped, narrate_goods
+from ..Format.DanceNarration import narrate_goods
 
 
 class DanceInstance:
@@ -43,12 +44,13 @@ class Dance(Action):
         instance.bads = calculate_bads(instance)
         instance.result = int(instance.goods - instance.bads)
 
-        #
+        # creates the bool dictionary for narration
+        instance.bool_dict = create_bool_dict(instance)
+        instance.goods_code = create_goods_code(instance.bool_dict)
 
         print(
             "dance result is ",
             instance.result,
-            outcome(instance.result),
             "goods:",
             instance.goods,
             "bads:",
@@ -61,18 +63,18 @@ class Dance(Action):
         print(
             "unmodded dance result is",
             instance.unmodded_result,
-            outcome(instance.unmodded_result),
             "unmodded goods:",
             instance.unmodded_goods,
         )
-        narrate_goods(instance)
+
+        print(narrate_goods(instance))
 
         # instance.good_causes = identify_causes(object_checking, True)
         # instance.good_causes = identify_causes(object_checking, False)
         # instance.good_mod = mod_helped(object_checking, instance, True)
         # instance.bad_mod = mod_helped(object_checking, instance, False)
 
-        return None
+        return True
 
 
 dance = Dance()
