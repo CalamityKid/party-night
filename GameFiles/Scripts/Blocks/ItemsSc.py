@@ -150,7 +150,7 @@ def setupitems():
         "some special K",
         ["special", "ketamine", "keta"],
         50,
-        "You take in just the corner of your house key.",
+        "You take in a bit with the corner of your house key.",
         "Special K's got you feeling intergalactic.",
         {"high": 10, "lit": 10, "coolness": 10},
         "You're feeling less special, K.",

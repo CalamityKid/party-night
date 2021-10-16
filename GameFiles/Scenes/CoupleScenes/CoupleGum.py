@@ -17,7 +17,7 @@ def coupleGumcontent(player):
         elif option == False:
             print("You say no, thank you.")
             print("     It'll be good, here you go, think about it.")
-            print("they put a some chewing gum in your pocket nonetheless.")
+            print("they put some chewing gum in your pocket nonetheless.")
         player.items.append(items["chewing gum"])
         return None
     elif items["chewing gum"] in player.items:
