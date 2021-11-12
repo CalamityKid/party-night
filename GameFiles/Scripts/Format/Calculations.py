@@ -1,4 +1,8 @@
+# from GameFiles.Scripts.Format.Garbagefunctions import outcome
+
+
 def create_list_people_in_room(player):
+    """ "given player object, returns a list of objects of people in that room"""
     people_in_room_list = []
     for person in player.people_in_party:
         if person.location == player.location:
@@ -6,11 +10,11 @@ def create_list_people_in_room(player):
     return people_in_room_list
 
 
-def calculate_friend_boost(player):
+def calculate_friend_boost(ppl_room_list):
+    """Given a list of people in room, returns the total boost in full int (mult of 10)
+    used in dance calculations"""
     total_boost = 0
-    people_in_room = create_list_people_in_room(player)
-
-    for person in people_in_room:
+    for person in ppl_room_list:
         total_boost += person.boost
     print("total boost is", total_boost)
     return int(total_boost * 10)
@@ -60,10 +64,8 @@ def assign_bool(var, intvalue=50):
     """Auxiliary function for narrate goods in Dance narration.
     Takes a variable, if less than 50 returns true or false"""
     if var > intvalue:
-        print(True)
         return True
     elif var <= intvalue:
-        print(False)
         return False
     else:
         raise ValueError(
@@ -72,7 +74,8 @@ def assign_bool(var, intvalue=50):
 
 
 def create_bool_dict(dance_instance):
-    """Auxiliary function that returns a bool dict to use in narrations given a dance instance"""
+    """Auxiliary function that returns a bool dict to use in narrations given a dance instance
+    the keys are "result", "lit", "high" """
     final_dict = {}
 
     ## Assign booleans in order to create narrations
@@ -94,17 +97,76 @@ def TorF(var):
 
 
 def create_goods_code(bool_dict):
-    """takes the bool dict and returns a list of codes to build goods sentence narration"""
+    """takes the bool dict and returns a dict with "lit code" and "high code" """
     assert "result" in bool_dict
-    list_result = []
-    prefix = "r"
-    prefix += TorF(bool_dict["result"])
+    code_dict = {}
+    code_prefix = "r"
+    code_prefix += TorF(bool_dict["result"])
+    code_suffix = " code"
 
     for i in ["lit", "high"]:
-        stringi = prefix
-        stringi += i[0]
-        stringi += TorF(bool_dict[i])
-        print(stringi)
-        list_result.append(stringi)
+        code_name = i
+        code_name += code_suffix
+        code = code_prefix
+        code += i[0]
+        code += TorF(bool_dict[i])
 
-    return list_result
+        code_dict[code_name] = code
+
+    return code_dict
+
+
+def create_bads_code(dance_instance):
+    """takes dance instance, returns bads code dict
+    returns dict with {"friend code": rFf#, "cool conjunction": boolean depending on result, may include "cool phrase": 1 2 or not at all}"""
+    code_dict = {}
+    boost = dance_instance.friend_boost
+    assert type(boost) == int
+
+    resultbool = dance_instance.bool_dict["result"]
+    code_dict["cool conjunction"] = resultbool
+
+    fc = "r"
+    fc += TorF(resultbool)
+    fc += "f"
+    if boost < 20:
+        fc += "1"
+    elif boost >= 20 and boost <= 30:
+        fc += "2"
+    elif boost > 30:
+        fc += "3"
+
+    code_dict["friend code"] = fc
+
+    # cool phrase and if sentence is passed or not
+    if dance_instance.coolness >= 40 and dance_instance.coolness < 70:
+        code_dict["cool phrase"] = 1
+
+    elif dance_instance.coolness >= 70:
+        code_dict["cool phrase"] = 2
+
+    return code_dict
+
+
+def calculate_outcome(number_to_calculate):
+    """takes an int (result of dance calc) and returns an outcome tuple, number and string
+    to be used in other narration functions"""
+    assert type(number_to_calculate) == int
+    if number_to_calculate <= 30:
+        return (1, "bad")
+    elif number_to_calculate <= 50:
+        return (2, "ok")
+    elif number_to_calculate <= 70:
+        return (3, "good")
+    elif number_to_calculate <= 100:
+        return (4, "great")
+    elif number_to_calculate > 100:
+        return (5, "amazing")
+
+
+def outcome_on_stats(player_object, outcome_number, outcome_bool):
+    """given player, outcome number and outcome bool, runs player.modify stat
+    to alter stats + or - based on the result"""
+    to_be_modified = int(outcome_number * 10)
+    for i in ["lit", "coolness"]:
+        player_object.modify_stat(i, to_be_modified, outcome_bool)
