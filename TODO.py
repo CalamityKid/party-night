@@ -6,18 +6,20 @@
 # TO DO
 # Make an ask for action and put the asking items in there.
 # # aslo Smile use G has too many spaces.
-# write and program the flirt function and the calculations
 # Write partner, pusher ("you get a comission") + gameover for each
-# partner scene when you convince them to come down, times tlaked4, they go back for some reason
-# smile doesnt offer G when in bathroom in times tlaked 1
+# write tutorial, partner has to mention social anxiety
+# consider making a save function.
 
 # MAYBE
 # Narrate everything before each turn, make text more interactive, maybe make it a setting.
 
-
 # in dance
-##if successful dance, trigger dance scenes for people in room, if possible
-# really confirm that the outcome_on_stats works fine but it prob does
 # consider making a formatting function that edits the length of sentences before theyre printed.
-# the cool conjunction is weird
 # the stats are all fucked up but I modified a lot of player stats so we gotta check that as well
+
+# check if the Tanktop dance thing, flirt > 5 is ok or not
+
+# body update or something is out of control
+# theres a cool loop also, it cannot go down at all, its forever high, maybe bad dance should really get it down
+
+# the list of people in room is being calculated multiple times, maybe make it more efficient
