@@ -71,10 +71,9 @@ NPCs["russian"].location = rooms["smoking room"]
 print("GAME START.")
 print("")
 
+print(player.time)
+
 from GameFiles.Scripts.Format import Calculations
-
-player.coolness = 50
-
 
 update_schedule()
 print(player.dict_of_actions)

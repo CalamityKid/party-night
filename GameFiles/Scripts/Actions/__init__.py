@@ -4,9 +4,7 @@ from .Tap_WaterSc import Tap_Water, tap_water
 from .CheckSc import Check, check
 from .TalkSc import Talk, talk
 from .DanceSc import Dance, dance
-
-
-__all__ = ["CheckSc", "MoveSc", "Tap_WaterSc", "Use_ItemSc"]
+from .BorrowSc import Borrow, borrow
 
 #########################################################################
 #############################   INSTANCES   #############################
@@ -19,4 +17,5 @@ dict_of_actions = {
     "Check": check,
     "Talk": talk,
     "Dance": dance,
+    "Borrow": borrow,
 }

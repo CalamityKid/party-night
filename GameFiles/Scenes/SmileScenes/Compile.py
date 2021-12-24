@@ -5,7 +5,6 @@ from .Smile2 import smiletimes2content
 from .Smile3 import smiletimes3content
 from .Smile4 import smiletimes4content
 from .Smile5 import smiletimes5content
-from .SmileG import smileGcontent
 
 
 def assemble_smile_scenes():
@@ -15,7 +14,6 @@ def assemble_smile_scenes():
     times3 = Scene("Times3", smiletimes3content)
     times4 = Scene("Times4", smiletimes4content)
     times5 = Scene("Times4", smiletimes5content)
-    smileG = Scene("SmileG", smileGcontent)
 
     return {
         "Times0": times0,
@@ -24,7 +22,6 @@ def assemble_smile_scenes():
         "Times3": times3,
         "Times4": times4,
         "Times5": times5,
-        "SmileG": smileG,
     }
 
 

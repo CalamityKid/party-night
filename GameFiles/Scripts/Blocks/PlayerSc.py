@@ -95,16 +95,14 @@ class MainCharacter:
             body_check_bark()
         if self.high <= 20:  # For high
             print("Pretty sober rn.", end=" ")
-        if self.high >= 30 and self.high <= 50:
+        elif self.high <= 50:
             print("You can feel the high a bit.", end=" ")
-        if self.high >= 60 and self.high <= 70:
+        elif self.high <= 70:
             print("This high is feeling goood tho.", end=" ")
-        if self.high >= 80 and self.high <= 90:
-            print("Great fucking high, the world is yours.", end=" ")
-        if self.high >= 100:
+        elif self.high <= 90:
+            print("Great fucking high.", end=" ")
+        elif self.high >= 100:
             print("You're waay too high right now, like bad high, you feel... ugh.")
-
-        print("high is now", self.high)
 
         if self.mouth <= 10:  # For mouth
             print("Mouth feels like cardboard, it's really fucking with you.")
@@ -115,48 +113,53 @@ class MainCharacter:
         if self.mouth >= 70:
             print("")
 
-        print("mouth is now", self.mouth)
-
         if self.lit <= 10:  # For lit
-            print("You feel like leaving...", end=" ")
-        if self.lit >= 20 and self.lit <= 40:
-            print("Not really feeling this party.", end=" ")
-        if self.lit >= 50 and self.lit <= 70:
-            print("You're enjoying yourself.", end=" ")
-        if self.lit >= 80 and self.lit <= 90:
-            print("This party's really fucking lit.", end=" ")
-        if self.lit >= 100:
-            print("You're having the best time of your life.", end=" ")
-
-        print("lit is now", self.lit)
+            print("You feel like this party sucks... ", end=" ")
+        elif self.lit <= 30:
+            print("You're bored. ", end="")
+        elif self.lit <= 50:
+            print("You're kinda enjoying yourself. ", end=" ")
+        elif self.lit <= 70:
+            print("You feel like you're having fun. ", end=" ")
+        elif self.lit <= 90:
+            print("This party's really fucking lit. ", end=" ")
+        elif self.lit >= 100:
+            print("You're having the best time of your life. ", end=" ")
 
         if self.coolness <= 10:  # For coolness
-            print("Not getting any attention.")
-        if self.coolness >= 20 and self.coolness <= 40:
-            print("Not getting much attention.")
-        if self.coolness >= 50 and self.coolness <= 70:
-            print("Getting looks from cute people.")
-        if self.coolness >= 80 and self.coolness <= 90:
-            print("Getting the attention of the hottest people.")
-        if self.coolness >= 100:
-            print("You're the soul of the party.")
+            print("")
+        elif self.coolness <= 40:
+            print("Some looks from people.")
+        elif self.coolness <= 70:
+            print("Getting looks from some cuties around the room.")
+        elif self.coolness <= 90:
+            print("You're getting a ton of attention from people.")
+        elif self.coolness >= 100:
+            print("You feel like all eyes are on you.")
         print("""			""")
 
-        print("cool is now", self.coolness)
+        print(
+            "cool is now",
+            self.coolness,
+            " , lit is now",
+            self.lit,
+            ", high is now",
+            self.high,
+            ", mouth is now",
+            self.mouth,
+        )
 
     def update_body(
         self,
     ):  # modifies lit and cool depending on other stats, should be time sensitive.
         print("running update body in player")
-        if self.high >= 30 and self.high <= 50:
+        if self.high >= 30 and self.high < 70:
             self.lit += 10
-        if self.high >= 60 and self.high <= 70:
+            self.coolness += 10
+        elif self.high >= 70 and self.high < 100:
             self.lit += 20
             self.coolness += 10
-        if self.high >= 80 and self.high <= 90:
-            self.lit += 30
-            self.coolness += 10
-        if self.high >= 100:
+        elif self.high >= 100:
             self.high = 90
             self.coolness -= 10
             self.lit -= 20
@@ -165,7 +168,7 @@ class MainCharacter:
             self.coolness -= 10
             self.lit -= 10
             self.mouth = 10
-        if self.mouth >= 20 and self.mouth <= 40:
+        elif self.mouth >= 20 and self.mouth <= 40:
             self.lit -= 10
 
         for attr in ["high", "coolness", "lit", "mouth"]:
@@ -175,6 +178,32 @@ class MainCharacter:
             elif getattr(self, attr) > 100:
                 setattr(self, attr, 100)
                 print("fixed now its 100.")
+
+    def modify_stat(self, attr, ammount, bool):
+        """attribute in ""(coolness, high, lit, mouth), ammount in multiples of 10,
+        bool True if you want to add, False if you want to substract"""
+        assert ammount % 10 == 0
+        base_stat = getattr(self, attr)
+        if bool == True:
+            setattr(self, attr, (base_stat + ammount))
+            print(
+                "Attribute is",
+                attr,
+                "it was",
+                base_stat,
+                "now its",
+                (base_stat + ammount),
+            )
+        elif bool == False:
+            setattr(self, attr, (base_stat - ammount))
+            print(
+                "Attribute is",
+                attr,
+                "it was",
+                base_stat,
+                "now its",
+                (base_stat - ammount),
+            )
 
     def narrate(self):
         if self.location == self.rooms["dance floor"]:

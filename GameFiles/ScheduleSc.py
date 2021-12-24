@@ -80,7 +80,8 @@ def update_schedule():
             player.NPCs["smile"].location = player.rooms["dance floor"]
             player.NPCs["couple"].location = player.rooms["dance floor"]
         elif player.party.music == "terrible":
-            player.NPCs["couple"].location = player.rooms["smoking room"]
+            if "Couple Convinced" not in player.memories:
+                player.NPCs["couple"].location = player.rooms["smoking room"]
         if player.time.hour == 4 and player.time.minute == 00:
             player.NPCs["smile"].location = player.rooms["bathroom"]
         if player.NPCs["tanktop"] in player.people_in_party:
@@ -91,7 +92,10 @@ def update_schedule():
     if player.time.hour == 5 and player.time.minute == 00:
         # couple kisses you goodbye
         print("")
-        print("Bye bye birdie, couple kisses you goodbye.")
+        print("The cute couple tells you it's five am and they gotta go.")
+        print(
+            "They both kiss you goodbye and swiftly start their long trek to the mountains."
+        )
         print("")
         player.NPCs["couple"].location = None
         player.people_in_party.remove(player.NPCs["couple"])

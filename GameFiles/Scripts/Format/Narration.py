@@ -50,3 +50,8 @@ def narrate_actions(player):
     final_string = formatting.format_objects_string(usable_actions)
     final_string = final_string.replace("and", "or")
     print("You could " + final_string)
+
+
+def people_in_room_string(player_object):
+    """takes player object, returns list of people in room as string"""
+    return formatting.format_objects_string(create_list_people_in_room(player_object))

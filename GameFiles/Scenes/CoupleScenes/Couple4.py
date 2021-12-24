@@ -68,6 +68,7 @@ def coupletimes4content(player):
                     print("You're looking forward to dancing with them.")
                     player.NPCs["couple"].boost = 1.2
                 player.NPCs["couple"].location = player.rooms["dance floor"]
+                print("")
                 return True
 
             elif "Changed Music" not in player.memories:

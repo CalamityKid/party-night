@@ -3,13 +3,22 @@ tags: Beggining
 colorID: 8
 position: -1585,-4350
 ---
-This is where the thing goes in the beggining
-The setting, you know?
-Then we're going to the tutorial [[Keep on going to the tutorial|Tutorial]]
+Tutorial, yes no. [[Keep on going to the tutorial|Tutorial]]
+
+
+You've come to this party with your partner.
+Also two of your friends, the self proclaimed "smile ambassador", smile for short
+and your russian friend. 
+<<sleep 4>>
+
+the party's empty right now. It'll get crowded later.
+You're pretty sober. And broke.
+
+It's 12 am. What do you want to do?
 ===
 title: Tutorial
 tags: tutorial
-colorID: 8
+colorID: 7
 position: -1588,-3955
 ---
 This is the tutorial and then im gonna branch out on every single other person
@@ -22,19 +31,81 @@ This is the tutorial and then im gonna branch out on every single other person
 [[ Beauty |Beauty Root]] 
 [[Timed Events |Timed Events]]
 [[ Endgame |Endgame]] ]]
+
+
+
+tutorial
+
+Before the game starts, do you want a tutorial? (y/n)
+
+<<if no>>
+Okay then, let's get started!
+
+<<if yes>>
+Okay, so, you're partying with your friends after a long time of no parties.
+You have no money and the idea is to have the best time you can with your friends.
+<<sleep 4>>
+You can perform actions by writing a verb and a noun. For example try "talk to partner".
+<<run the thingy, try to detect talk action and a subject, if it doesnt work, if it works it continues>>
+
+Talking with your friends is key to having a good time tonight. 
+<<sleep 4>>
+You can also use items you have in your pockets, they will affect how you feel. 
+Some will make you high, others will make you look cool or freshen up your dry mouth.
+Try "smoke a cigarette".
+<<run the thing, if detect is smoke and cigarette continue if not>> write "smoke a cigarette"
+
+When you perform actions, they take time, usually 10 minutes.
+The party will END and the game will be OVER at 6:00 AM.
+<<sleep 6>>
+
+There are three rooms in this party: the dance floor, the smoking room and the bathroom. 
+You can move between them. The actions in each room will change slightly.
+You are currently on the smoking room, try moving to the dance floor. 
+<<run the thingy, detect move and dance floor to continue>>
+
+Lastly, while on the dance floor, you can try dancing. Just write "dance".
+Dancing can lead to different outcomes.
+<<sleep 4>>
+Let's pretend you're having a great time, you've smoked some weed and the music's great. 
+<<set some stuff>>
+Try writing "dance".
+<<input thingy, only accepts dance>>. "try writing dance"
+
+If you don't like the music, are too sober or not enjoying the party it'll go worse.
+<<sleep 4>>
+Let's "dance again"
+<<set some shit>>
+<<do it again>>
+
+You can attract attention in the party. This gives you some influence.
+It also makes you anxious and gives you performance anxiety.
+<<sleep 5>>
+
+If your friends are on the dance floor with you, it'll help ease it.
+The closer you are with your friends the more it'll counter it.
+So remember to talk to your friends.
+<<sleep 4>>
+Let's try dance one last time.
+<<set some shit>>
+<<do it again>>
+
+Cool. That's the end of the tutorial! Let's get to the game.
 ===
 title: Partner Root
 tags: Partner root
 colorID: 8
-position: -3118,-4142
+position: -3378,-4090
 ---
-<< If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>[[|PartnerTanktopTimes1 ]]
-<< if Tanktop Link in memories and Tanktop Partner in memories and Partner Hookup not in memories>> [[|PartnerTanktopTimes5 ]]
+<< If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>[[|PartnerTanktopTimes1 ]] [[|PartnerWater]]
+
+[[|Partner Times 0 ]]
+[[|PartnerBorrowK]]
 ===
 title: Smile
 tags: Smile
 colorID: 0
-position: -2682,-3713
+position: -2681,-3730
 ---
 [[ |SmileTimes0]] 
 [[ |SmileTimes1]] 
@@ -1116,19 +1187,80 @@ Empty Text
 << Partner Left>> #with tanktop
 ===
 title: PusherTimes0
-tags: 
+tags: Pusher, times0
 colorID: 0
 position: -1090,-3385
 ---
-<< Pusher bussiness>>
-<< Looking for pusher>>
+Times talked 0
+#Youve just been introduced. There are two memories associated, pusher business, when youve made a deal and looking for pusher, when you havent met the pusher and tanktop asks if you know someone. You get up to times talked1 either having made the bussiness which happens automatically or being told its cool to make the deal, you can't go further if you don't know tanktop.
+
+<<if Looking for pusher in memories and Pusher Business not in memories>>
+You and your partner start casually talking to them
+quickly confirming that, yes, they have some stuff to move around
+
+Your partner mentions some friends of a friend need a boost
+
+    You hook me up with a group and I'll give you a boost too
+
+you say you might do just that
+
+make times_talked = 1
+
+<<elif Pusher Business in memories>>
+    Thanks for the networking earlier.
+    You're a cool cat. Here, for the trouble.
+
+the pusher gives you a pill and gives your partner some k 
+your partner's beaming. you're both thankful.
+
+make times_talked 1
+Commission added to memories
+
+<<elif Pusher Business not in memories>>
+You make some polite small talk about how the party's going so far
+the conversation doesn't go much further than that
 ===
 title: PusherTimes1
-tags: 
+tags: Pusher, times1
 colorID: 0
 position: -1089,-3170
 ---
-Empty Text
+Times talked 1
+#Youve met tanktop and talked to pusher after, you might or might not have your commission. 
+
+<<if Commission in memories>>
+if weed not in active items and location is smoking room
+
+they're smoking some green
+    Heyy! yes. The cool cats!
+
+you talk a little. They offer some weed.
+    All you want, on me today!
+
+do you want some weed?
+yes. You say yes, thankyouverymuch.
+use weed.
+
+no. You kindly refuse.
+    You just let me know, my spliff's your spliff.
+    Have a good one.
+
+ else:
+    Enjoying yourself tonight?
+all friendly like, super articulate.
+you chatter on for a bit before going back to the party.
+
+<<if Looking for pusher in memories and Pusher Business not in memories>>
+
+you should probably go talk to the cutie in the tanktop and play matchmaker.
+
+<<elif Pusher Business in memories>>
+    Thanks for the networking earlier.
+    You're a cool cat. Here, for the trouble.
+
+the pusher gives you a pill and gives your partner some k 
+your partner's beaming. you're both thankful.
+Commission added to memories
 ===
 title: PusherTimes2
 tags: 
@@ -1142,7 +1274,33 @@ tags: Pusher flirt
 colorID: 0
 position: -864,-3388
 ---
-Empty Text
+You flirt with the pusher friend
+
+if flirt == 1:
+The pusher half smirks
+
+    Don't think that'll get you any discounts though!
+you answer the only prize you're after is a smile
+and you get your prize
+flirt +1
+
+elif pusher bussiness in memories and flirt <3:
+
+    You wanna sweeten the deal even more huh?
+    but strictly bussiness today sexy
+    don't get any ideas
+
+flirt +1 
+
+(else)
+random 3
+1: You wink and smile from some distance away.
+They pretend they didn't see you, but you can see the smirk.
+
+2: You compliment their jacket.
+They tell you they genuinely appreciate the compliment.
+
+3: You can't think of anything to tell them right now.
 ===
 title: TanktopTimes0
 tags: Tanktop times0
@@ -1276,9 +1434,7 @@ position: -632,-3096
         You tell them you don't know of anybody in here.
         But you'll let them know if you hear something.
         << add Looking for pusher in memories>> 
-        << make times talked 3>> 
-
-        you act as support.
+        << make times talked 3>>
 ===
 title: TanktopTimes3
 tags: tanktop times3
@@ -1618,8 +1774,9 @@ Empty Text
 title: PartnerTanktopTimes1
 tags: Partner Tanktoptimes1 choice
 colorID: 0
-position: -3556,-3938
+position: -3809,-4165
 ---
+[[|PartnerTanktopTimes5]]
 << If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>
     So... that cutie in the tanktop.
     Hot, right?
@@ -1668,8 +1825,302 @@ position: -3556,-3938
 title: PartnerTanktopTimes5
 tags: Partner Tanktop times5
 colorID: 0
-position: -3545,-3712
+position: -3920,-3857
 ---
 #Write this ,que liga con tanktop
 <<add Partner Hookup to memories >>
+===
+title: Partner Times 0
+tags: partner, times0
+colorID: 0
+position: -3440,-3618
+---
+#gives you ask for and use K. [[|PartnerTimes1]]
+
+Babe, we can do the k if you want, just let me know when.
+    I only have a little bit though.
+<<if in the bathroom>> 
+    We could do it now if you want.
+
+<<if not in the bathroom>>
+    We'd have to go to the bathroom first of course.
+
+<<Give you ask for. Borrow K added to memories>>
+<<make partner times 1>>
+===
+title: PartnerBorrowK
+tags: PartnerBorrowK
+colorID: 0
+position: -3092,-3723
+---
+3 k uses
+
+
+on the third he says theres only a bit left, he gave some to your russian friend
+only this last ononly
+
+gets recharched to 2 si capeas
+===
+title: PartnerTimes1
+tags: partner, times1
+colorID: 0
+position: -3450,-3380
+---
+#talks about cute couple, comments on having fun and dancing [[|PartnerTimes2 before 330]]
+
+<<if cute couple not in total people and before 5am>>
+Your partner tells you 
+
+    I wonder if they'll show up at all tonight 
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, they might not come at all
+<<sleep 2>>
+    I hope they come, I miss hanging out with them
+    they leave early too
+    we gotta dance a lot and have fun
+<<sleep 4>>
+you agree, the night feels promising
+<<sleep 2>>
+
+
+<<elif cute couple in total people and before 5am>>
+Your partner tells you 
+
+    I'm glad they came tonight!
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, you thought they might not come at all
+<<sleep 2>>
+    They said they'll leave early, like at 5
+    so let's talk and dance and have fun
+<<sleep 2>>
+you agree, the night feels promising
+<<sleep 2>>
+
+<<elif after 5 am>>
+Your partner tells you 
+
+    I'm glad they came tonight in the end
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, you thought they might not come at all
+<<sleep 2>>
+    it was fun hanging out 
+    I'm really glad we met them
+<<sleep 4>>
+you agree, it makes you feel all warm inside
+<<sleep 2>>
+
+
+player.modify_stat("lit", 10, True)
+<<make times2>>
+===
+title: PartnerTimes2 before 330
+tags: partner, times2 
+colorID: 0
+position: -3449,-3136
+---
+#appreciation and some navi stuff [[|PartnerTimes3]] [[|Partnertimes3after 330]]
+
+if boost is <1.3 
+who's looking very pleased just by being here
+and it's a really good look
+<<sleep 2>>
+you appreciate what a beautiful creature your partner is
+<<sleep 2>>
+you're caught looking and get the most charming smile in return
+make boost 1.3 
+player.NPCs[partner].times2list = ["keta", "GHB", "fun", "mouth", "empty", "reloaded"]
+return False
+
+else:
+who tells you
+
+<<if "keta" in actor.times2list:>>
+    <<if keta not in active items and high is less than 50 and keta counter >1:>>
+
+    Remember I still some k left in case you want some.
+
+you make a point to ask them for some
+if you feel like it later
+player.NPCs[partner].times2list.remove ("keta")
+return False 
+
+<<if "GHB" in actor.times2list:>>
+    <<if high is less than 50 and G not in active items>>
+    
+    We can always ask for some G
+    if you're too sober
+
+you make a point to ask your friend
+the smile ambassador for some later
+if you feel like it
+player.NPCs[partner].times2list.remove ("GHB")
+return False 
+
+<<if "fun" in actor.times2list:>>
+    <<if lit is less than 30>>
+    
+    You don't seem like you're having fun babe
+    Let's go talk with our friends
+    or dance a bit
+
+you might as well
+it's only, <<player.time>> .
+player.modify_stat("lit", 10, True)
+player.NPCs[partner].times2list.remove ("fun")
+return False 
+
+<<if "mouth" in actor.times2list:>>
+    <<if mouth is less than 50>>
+    
+    Maybe we should try to get a lolipop
+    or some chewing gum or something
+
+you can always drink tap water too
+your mouth is getting dry
+player.NPCs[partner].times2list.remove ("mouth")
+return False 
+
+<<if "empty" in actor.times2list:>>
+    <<if keta counter is 0 and high < 50>>
+    
+    I wish I had some k left...
+
+you can't help laughing
+player.modify_stat("lit", 10, True)
+player.NPCs[partner].times2list.remove ("empty")
+return False 
+
+<<if "reloaded" in actor.times2list:>>
+    <<if Pusher Bussiness in memories>>
+    
+    What a wonderful night
+    meeting this total cutie
+    and we even got some more k
+
+you let out a laugh
+player.modify_stat("lit", 10, True)
+player.NPCs[partner].times2list.remove ("reloaded")
+return False 
+
+they wish they were dancing
+return False
+===
+title: PartnerTimes3
+tags: partner, coolness
+colorID: 0
+position: -3612,-2914
+---
+#comments on your anxiety if youre anxious coolness >70
+offers some k if you have some, calms you down, takes time, leaves it at 70
+offer to look for friends and take them down to the dance floor
+max boost
+===
+title: Partnertimes3after 330
+tags: partner, times3 after 330
+colorID: 0
+position: -3301,-2896
+---
+#explains that if coolness is high enough you might convince the DJ to change the music, tells you to get people down.
+#gathering people memory
+
+if you already have it. Remind you to do it. You have to DANCE. 
+Deactivate people moving if gathering people in memories.
+
+If DANCE is great and gathering people in memories, make partnertimes 4 and give yo changed music.[[|PartnerTimes4]]
+remove gathering people if its after 5 and gathering people in memories. Music not changed.
+===
+title: PartnerTimes4
+tags: partner times4
+colorID: 0
+position: -3458,-2637
+---
+#cahnged music and didnt change music variations
+either way hes happy
+you get more lit
+partner link memory
+
+generic appreciation thing
+===
+title: PartnerWater
+tags: Partner tap water
+colorID: 0
+position: -3901,-3575
+---
+#plays immediately if it hasnt run and your mouth is very dry and you dont have a lolipop on you [[|PartnerMusic]]
+
+You partner stops you for a second
+
+    Babe, your mouth
+    it's so dry
+while half laughing
+<<sleep 4>>
+    Hold on, I think I have some chewing gum
+but turns out it ran out already
+<<sleep 4>>
+    We can always drink some tap water in the bathroom I guess
+    not super classy
+    but gotta stay hydrated
+
+you get the idea
+<<sleep 6>>
+===
+title: PartnerMusic
+tags: partner music
+colorID: 0
+position: -3916,-3306
+---
+#plays immediately and doesnt take time if on dance floor and music is terrible and it hasnt played yet [[|partnercrowd]]
+
+You partner gives you this look
+mouthing something like 
+    
+    This music is terrible
+<<sleep 2>>
+you feel your willpower draining 
+this is totally killing your vibe
+<<sleep 4>>
+    Let's go smoke
+they gesture
+
+    Better to avoid the dance floor when the music's this bad.
+    Do you wanna go smoke? (y/n)
+    <<if yes>>
+You both make your way to the smoking room.
+Your partner looks half amused as they tell you
+
+    That was nonsensical
+    <<sleep 2>>
+you consider making some time until the bad music blows over.
+<<move you and partner to the dance floor>>
+
+    <<if no>>
+You decide to stay here for the moment.
+You feel as the fun slowly drains out of your body.
+player.modify_stat("lit", 10, False)
+===
+title: partnercrowd
+tags: 
+colorID: 0
+position: -3927,-3044
+---
+#plays immediately at 1.30 and doesnt take time if it hasnt played yet [[|partnercrowd]] [[|partneranxiety]]
+
+The party is starting to get crowded, more and more people are coming in
+You partner also notices and says
+    
+    It's gonna be harder to move around soon
+<<sleep 2>>
+it's definintely gonna take some time to move around
+if it gets more crowded than this
+<<sleep 4>>
+===
+title: partneranxiety
+tags: 
+colorID: 0
+position: -3977,-2712
+---
+#plays immediately at 1.30 and doesnt take time if it hasnt played yet
 ===

@@ -41,7 +41,7 @@ class NPC(MainCharacter):
 def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=None):
     partner = NPC("your partner", ["cigarette"], ["part"], partnerlocation)
     smile = NPC(
-        "the smile embassador", ["blunt"], ["smil", "embass", "ruben"], smilelocation
+        "the smile ambassador", ["blunt"], ["smil", "ambass", "ruben"], smilelocation
     )
     russian = NPC(
         "your russian friend",

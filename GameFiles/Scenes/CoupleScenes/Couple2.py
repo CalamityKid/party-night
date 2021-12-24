@@ -18,7 +18,7 @@ def coupletimes2content(player):
             print("For sure music's pretty bad right now, wish you could change it.")
             print("")
             print(
-                "     We're leaving early too, like 5 am, we gonna have to get going..."
+                "     We're leaving early too, like 5 am, we're gonna have to get going..."
             )
             print("     so I hope the DJ steps it up.")
             print("says the other one.")

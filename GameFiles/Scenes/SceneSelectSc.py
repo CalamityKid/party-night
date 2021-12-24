@@ -7,14 +7,12 @@ from ..Input import yesorno
 
 
 def scene_select(player, actor):
-    print(
-        "You walk up to",
-        str(actor.name)
-        + ". "
-        + "Times talked is now: "
-        + str(actor.times_talked)
-        + ".",
-    )
+    if actor.name == "your partner":
+        print("You turn to your partner ", end="")
+    else:
+        print("You walk up to", str(actor.name) + " ", end="")
+
+    print("Times talked is now", str(actor.times_talked) + ".")
     print("")
     scene_dict_used = {}
     scene_name = "Times"
@@ -35,24 +33,12 @@ def scene_select(player, actor):
         scene_dict_used = partnerscenes
 
     ######## scene exceptions
-    if actor == player.NPCs["smile"] and actor.times_talked >= 2:
-        print("Do you wanna ask for G? ", end="")
-        option = yesorno()
-        if option == True:
-            return smilescenes["SmileG"].run_scene(player)
-
-    elif (
+    if (
         (actor == player.NPCs["couple"])
         and (player.mouth < 20)
         and (couplescenes["CoupleGum"].has_run == False)
     ):
         return couplescenes["CoupleGum"].run_scene(player)
-
-    elif actor == player.NPCs["russian"]:
-        print("Do you wanna ask for poppers? ", end="")
-        option = yesorno()
-        if option == True:
-            return russianscenes["RussianPoppers"].run_scene(player)
 
     ######################### end exceptions, if no exceptions, run the scene
     try:
