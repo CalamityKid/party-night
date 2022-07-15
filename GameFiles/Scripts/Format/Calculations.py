@@ -170,3 +170,17 @@ def outcome_on_stats(player_object, outcome_number, outcome_bool):
     to_be_modified = int(outcome_number * 10)
     for i in ["lit", "coolness"]:
         player_object.modify_stat(i, to_be_modified, outcome_bool)
+
+
+def not_on_dance_floor(player):
+    """given player, checks if the chars are on dance floor for the change music scene"""
+    final_list = []
+    chars_to_check = [
+        player.NPCs["couple"],
+        player.NPCs["russian"],
+        player.NPCs["smile"],
+    ]
+    for person in chars_to_check:
+        if person.location != player.rooms["dance floor"]:
+            final_list.append(person)
+    return final_list

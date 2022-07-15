@@ -3,14 +3,15 @@
 # partner gives you "Borrow" memory. This is now unnecesary.
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
 # stablish partner.kusesleft somewhere
+# Make partner anxiety, crowd, music, water run automatically
 
 # Link balti #plays immediately when your high goes up to 100
 # make script for friends on dance floor to check for the gathering scene, in partnerdance
+# in schedule, if its 5 and music changed not in memories and gathering in memories, "DJ changes", add music not changed to memories
+# Get the flow down properly in partner and the gather scenes
 
 # TO DO
 # # aslo Smile use G has too many spaces.
-# Write partner, pusher ("you get a comission") + gameover for each
-# write tutorial, partner has to mention social anxiety
 # consider making a save function.
 
 # MAYBE
