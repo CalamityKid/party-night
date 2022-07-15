@@ -107,122 +107,9 @@ return Beggining
 elif play partnertimes(x) scene
 [[|PartnerWater]]
 
-[[|Partner Times 0 ]]
-[[|PartnerBorrowK]]
-",
-		"position": {
-			"x": -3378,
-			"y": -4090
-		},
-		"colorID": 8
+
 	},
-	{
-		"title": "Smile",
-		"tags": "Smile",
-		"body": "[[ |SmileTimes0]] 
-[[ |SmileTimes1]] 
-[[ |SmileTimes2]]
-[[ |SmileTimes3]]
-[[ |SmileTimes4]]
-[[ |SmileTimes5]]
-[[ |Borrow G]]
-[[ |DANCE]]
-[[ |Smile Flirt]]
-",
-		"position": {
-			"x": -2681,
-			"y": -3730
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Russian Root",
-		"tags": "Russian Root",
-		"body": "[[ |RussianTimes0]] 
-[[ |RussianTimes1]] 
-[[ |RussianTimes2]]
-[[ |RussianTimes3]]
-[[ |RussianTimes4]]
-[[ |RussianTimes5]]
-[[ |BorrowPoppers]]
-[[ |DANCE]]
-[[ |Russian Flirt]]
-",
-		"position": {
-			"x": -2131,
-			"y": -3676
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Couple Root",
-		"tags": "Couple Root",
-		"body": "[[ |CoupleTimes0]] 
-[[ |CoupleTimes1]] 
-[[ |CoupleTimes2]]
-[[ |CoupleTimes3]]
-[[ |CoupleTimes4]]
-[[ |CoupleTimes5]]
-[[ |BorrowChewingGum]]
-[[ |DANCE]]
-[[ |Couple Flirt]]
-",
-		"position": {
-			"x": -1557,
-			"y": -3514
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Pusher Root",
-		"tags": "Pusher Root",
-		"body": "[[ |PusherTimes0]] 
-[[ |PusherTimes1]] 
-[[ |PusherTimes2]]
-[[ |CoupleTimes3]]
-[[ |Pusher Flirt]]
-",
-		"position": {
-			"x": -987,
-			"y": -3627
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Tanktop Root",
-		"tags": "Tanktop Root",
-		"body": "[[ |TanktopTimes0]] 
-[[ |TanktopTimes1]] 
-[[ |TanktopTimes2]]
-[[ |TanktopTimes3]]
-[[ |TanktopTimes4]]
-[[ |TanktopTimes5]]
-[[ |DANCE]]
-[[ |TanktopFlirt]]
-",
-		"position": {
-			"x": -564,
-			"y": -3759
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Beauty Root",
-		"tags": "Beauty Root",
-		"body": "[[ |BeautyTimes0]] 
-[[ |BeautyTimes1]] 
-[[ |BeautyTimes2]]
-[[ |BeautyTimes3]]
-[[ |BeautyTimes4]]
-[[ |BeautyTimes5]]
-[[ |DANCE]]
-[[ |BeautyFlirt]]
-",
-		"position": {
-			"x": 1195,
-			"y": -4439
-		},
-		"colorID": 0
+
 	},
 	{
 		"title": "SmileTimes0",
@@ -1303,54 +1190,7 @@ you all agree, you gotta party hard today
     They hug everyone goodbye and leave the party.
     << remove couple from total players, change location to None>>
 ",
-		"position": {
-			"x": -1237,
-			"y": -1751
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Couple Gameover",
-		"tags": "couple, gameover",
-		"body": "[[|Couple Root]]
 
-
-    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
-    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
-    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
-    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
-    print("|                                                            |")
-    print("|       You got to see your friends, the cute couple,        |")
-    if "Couple Link" in player.memories:
-        print("|       you got to share some great moments with them        |")
-    elif "Couple Link" not in player.memories:
-        print("|      you wish you could have spent more time with them     |")
-    print("|                                                            |")
-    if "Changed Music" in player.memories:
-        print("|         you'll never forget how excited they got           |")
-        print("|       when you got the DJ to play something decent,        |")
-
-    elif "Couple Convinced" in player.memories:
-        print("|         even though the music sucked, it was nice          |")
-        print("|              to get them on the dance floor,               |")
-
-    if "Couple Dance" in player.memories:
-        print("|             dancing with them was so much fun.             |")
-    elif "Couple Dance" not in player.memories:
-        print("|          you wish you could have danced with them.         |")
-    print("|                                                            |")
-    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
-    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
-    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
-    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
-",
-		"position": {
-			"x": -1632,
-			"y": -1260
-		},
-		"colorID": 0
-	},
-	{
 		"title": "PusherTimes0",
 		"tags": "Pusher, times0",
 		"body": "Times talked 0
@@ -2522,96 +2362,7 @@ it calms you down a bit.
 player.modify_stat ("coolness", False, 30)
 return False
 ",
-		"position": {
-			"x": -4103,
-			"y": -2796
-		},
-		"colorID": 0
-	},
-	{
-		"title": "PartnerBank",
-		"tags": "#partner #bank",
-		"body": ">><<if it hasnt run>>
-    player.NPCs[partner].banklist = ["keta", "GHB", "fun", "mouth", "empty", "reloaded"]
 
-<<if "keta" in actor.banklist:>>
-    <<if keta not in active items and high is less than 50 and partner.kusesleft >1:>>
-
-    Remember I still some k left in case you want some.
-
-you make a point to ask them for some
-if you feel like it later
-player.NPCs[partner].banklist.remove ("keta")
-return False 
-
-<<if "GHB" in actor.banklist:>>
-    <<if high is less than 50 and G not in active items>>
-    
-    We can always ask for some G
-    if you're too sober
-
-you make a point to ask your friend
-the smile ambassador for some later
-if you feel like it
-player.NPCs[partner].banklist.remove ("GHB")
-return False 
-
-<<if "fun" in actor.banklist:>>
-    <<if lit is less than 30>>
-    
-    You don't seem like you're having fun babe
-    Let's go talk with our friends
-    or dance a bit
-
-you might as well
-it's only, <<player.time>> .
-player.modify_stat("lit", 10, True)
-player.NPCs[partner].banklist.remove ("fun")
-return False 
-
-<<if "mouth" in actor.banklist:>>
-    <<if mouth is less than 50>>
-    
-    Maybe we should try to get a lollipop
-    or some chewing gum or something
-
-you can always drink tap water too
-your mouth is getting dry
-player.NPCs[partner].banklist.remove ("mouth")
-return False 
-
-<<if "empty" in actor.banklist:>>
-    <<if keta counter is 0 and high < 50>>
-    
-    I wish I had some k left...
-
-you can't help laughing
-player.modify_stat("lit", 10, True)
-player.NPCs[partner].banklist.remove ("empty")
-return False 
-
-<<if "reloaded" in actor.banklist:>>
-    <<if Comission in memories>>
-    
-    What a wonderful night
-    meeting this total cutie
-    and we even got some more k
-
-this love for horse tranquilizer
-you let out a laugh
-
-player.modify_stat("lit", 10, True)
-player.NPCs["partner"].banklist.remove ("reloaded")
-return False 
-
-
-----
-if partnerlink not in memories:
-they wish they were dancing
-elif partnerlink in memories:
-you're really grateful to be sharing your life with your partner 
-you stay in quiet appreciation
-return False
 ",
 		"position": {
 			"x": -3811,
@@ -2664,44 +2415,7 @@ your partner tells you
 
 and you're hoping this works
 cause you cannot stand this music anymore
-",
-		"position": {
-			"x": -3099,
-			"y": -2534
-		},
-		"colorID": 0
-	},
-	{
-		"title": "PartnerDance",
-		"tags": "partner dance",
-		"body": "if changed music not in memories:
-    if gathering in memories and all your friends are on the dance floor 
-    run the change the music scene, add changed music to memories
-    and finish
-
-
-elif partner boost = 1.3 and partner times < 3:
-your partner's feeling the rhythm 
-/sleep2 effortlessly melting into the ether 
-/sleep2 commuting with the melody sprites
-/sleep1 speaking with the elements
-/2sleep2 absolute rapture
-
-and it fills you with joy
-your heart swells
-lit + 10
-coolness - 10
-partner.times == 3
-
-else:
-your partner's dancing next to you
-
-
-
-	{
-		"title": "PartnerGameover",
-		"tags": "Parter, gameover",
-		"body": "[[|Partner Root]]
+"
 
 balt�, dance and link
 changed music

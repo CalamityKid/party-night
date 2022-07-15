@@ -2,8 +2,10 @@
 # remeber to add people to player.people_in_party in Scenes when they are introduced
 # partner gives you "Borrow" memory. This is now unnecesary.
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
+# stablish partner.kusesleft somewhere
 
 # Link balti #plays immediately when your high goes up to 100
+# make script for friends on dance floor to check for the gathering scene, in partnerdance
 
 # TO DO
 # # aslo Smile use G has too many spaces.

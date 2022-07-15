@@ -72,7 +72,10 @@ print("GAME START.")
 print("")
 
 print(player.time)
-
+time.hour = 4
+time.minute = 20
+timestr = "it's only " + str(player.time)
+print(timestr)
 from GameFiles.Scripts.Format import Calculations
 
 update_schedule()
