@@ -9,6 +9,7 @@ def smilegameovercontent(player):
 
     if "Smile Link" in player.memories:
         print("|              never a boring day with this one              |")
+        print("|             and today you got to hang out a lot            |")
     elif "Smile Link" not in player.memories:
         print("|               should have hung out more today              |")
 
@@ -31,6 +32,9 @@ def smilegameovercontent(player):
 
     if "Smile Dance" in player.memories:
         print("|              Dancing together was stupid fun               |")
+        print("|           the moniker is dumb af let's face it             |")
+        print("|          but the smiles are def served everytime           |")
+        print("|                                                            |")
     elif "Smile Dance" not in player.memories:
         print("|             Wish you had danced together a bit             |")
     print("|     that fan's def gonna hurt someone eventually though    |")

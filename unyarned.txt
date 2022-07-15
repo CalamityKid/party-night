@@ -1,0 +1,2738 @@
+[
+	{
+		"title": "Main story thing",
+		"tags": "Beggining",
+		"body": "if tutorial has not run:
+    Before the game starts, do you want a tutorial? (y/n)
+    Tutorial, yes no. [[Keep on going to the tutorial|Tutorial]]
+    if yes return Tutorial scene.
+
+else:
+
+You've come to this party with your partner.
+Also two of your friends, the self proclaimed "smile ambassador", smile for short
+and your russian friend. 
+<<sleep 4>>
+
+the party's pretty empty right now. It'll get crowded later.
+You're pretty sober. And broke.
+
+It's 12 am. What do you want to do?
+
+ask for thing.
+",
+		"position": {
+			"x": -1585,
+			"y": -4350
+		},
+		"colorID": 8
+	},
+	{
+		"title": "Tutorial",
+		"tags": "tutorial",
+		"body": "This is the tutorial and then im gonna branch out on every single other person
+
+
+
+
+tutorial
+
+Before the game starts, do you want a tutorial? (y/n)
+
+<<if no or tutorial has>>
+Okay then, let's get started!
+
+<<if yes>>
+Okay, so, you're partying with your friends after a long time of no parties.
+You have no money and the idea is to have the best time you can with your friends.
+<<sleep 4>>
+You can perform actions by writing a verb and a noun. For example try "talk to partner".
+<<run the thingy, try to detect talk action and a subject, if it doesnt work, if it works it continues>>
+
+Talking with your friends is key to having a good time tonight. 
+<<sleep 4>>
+You can also use items you have in your pockets, they will affect how you feel. 
+Some will give you a buzz, others will affect your breath and so on.
+Try "smoke a cigarette", "smoke cig" works too.
+<<run the thing, if detect is smoke and cigarette continue if not>> write "smoke a cigarette"
+
+When you perform actions, they take time, usually 10 minutes.
+The party will END and the game will be OVER at 6:00 AM.
+<<sleep 6>>
+
+There are three rooms in this party: the dance floor, the smoking room and the bathroom. 
+You can move between them. The actions in each room will change slightly.
+You are currently in the smoking room, try moving to the dance floor. 
+<<run the thingy, detect move and dance floor to continue>>
+
+Lastly, while on the dance floor, you can try dancing. Just write "dance".
+Dancing can lead to different outcomes.
+<<sleep 4>>
+Let's pretend you're having a great time, you've smoked some weed and the music's great. 
+<<set some stuff>>
+Try writing "dance".
+<<input thingy, only accepts dance>>. "try writing dance"
+
+If you don't like the music, are too sober or not enjoying the party it'll go worse.
+<<sleep 4>>
+Let's "dance again"
+<<set some shit>>
+<<do it again>>
+
+When you feel people are looking at you, it can make you self conscious.
+It gives you performance anxiety.
+<<sleep 5>>
+
+If your friends are on the dance floor with you, it'll help ease it.
+The closer to your friends are, the less anxious you'll feel when they're by your side.
+So remember to talk to your friends.
+<<sleep 4>>
+Let's try dance one last time.
+<<set some shit>>
+<<do it again>>
+
+Cool. That's the end of the tutorial! Let's get to the game.
+return Beggining
+",
+		"position": {
+			"x": -1588,
+			"y": -3955
+		},
+		"colorID": 7
+	},
+	{
+		"title": "Partner Root",
+		"tags": "Partner root",
+		"body": ">><< If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>[[|PartnerTanktopDecision]] 
+elif play partnertimes(x) scene
+[[|PartnerWater]]
+
+[[|Partner Times 0 ]]
+[[|PartnerBorrowK]]
+",
+		"position": {
+			"x": -3378,
+			"y": -4090
+		},
+		"colorID": 8
+	},
+	{
+		"title": "Smile",
+		"tags": "Smile",
+		"body": "[[ |SmileTimes0]] 
+[[ |SmileTimes1]] 
+[[ |SmileTimes2]]
+[[ |SmileTimes3]]
+[[ |SmileTimes4]]
+[[ |SmileTimes5]]
+[[ |Borrow G]]
+[[ |DANCE]]
+[[ |Smile Flirt]]
+",
+		"position": {
+			"x": -2681,
+			"y": -3730
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Russian Root",
+		"tags": "Russian Root",
+		"body": "[[ |RussianTimes0]] 
+[[ |RussianTimes1]] 
+[[ |RussianTimes2]]
+[[ |RussianTimes3]]
+[[ |RussianTimes4]]
+[[ |RussianTimes5]]
+[[ |BorrowPoppers]]
+[[ |DANCE]]
+[[ |Russian Flirt]]
+",
+		"position": {
+			"x": -2131,
+			"y": -3676
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Couple Root",
+		"tags": "Couple Root",
+		"body": "[[ |CoupleTimes0]] 
+[[ |CoupleTimes1]] 
+[[ |CoupleTimes2]]
+[[ |CoupleTimes3]]
+[[ |CoupleTimes4]]
+[[ |CoupleTimes5]]
+[[ |BorrowChewingGum]]
+[[ |DANCE]]
+[[ |Couple Flirt]]
+",
+		"position": {
+			"x": -1557,
+			"y": -3514
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pusher Root",
+		"tags": "Pusher Root",
+		"body": "[[ |PusherTimes0]] 
+[[ |PusherTimes1]] 
+[[ |PusherTimes2]]
+[[ |CoupleTimes3]]
+[[ |Pusher Flirt]]
+",
+		"position": {
+			"x": -987,
+			"y": -3627
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Tanktop Root",
+		"tags": "Tanktop Root",
+		"body": "[[ |TanktopTimes0]] 
+[[ |TanktopTimes1]] 
+[[ |TanktopTimes2]]
+[[ |TanktopTimes3]]
+[[ |TanktopTimes4]]
+[[ |TanktopTimes5]]
+[[ |DANCE]]
+[[ |TanktopFlirt]]
+",
+		"position": {
+			"x": -564,
+			"y": -3759
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Beauty Root",
+		"tags": "Beauty Root",
+		"body": "[[ |BeautyTimes0]] 
+[[ |BeautyTimes1]] 
+[[ |BeautyTimes2]]
+[[ |BeautyTimes3]]
+[[ |BeautyTimes4]]
+[[ |BeautyTimes5]]
+[[ |DANCE]]
+[[ |BeautyFlirt]]
+",
+		"position": {
+			"x": 1195,
+			"y": -4439
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes0",
+		"tags": "smile Times0",
+		"body": "We haven't partied in so long, it's about time we had some real, like, with people fun.
+And I am ready. to. party.
+They open up this huge fan. Like a hand fan. Makes a loud ass noise. 
+It's the signature smile ambassador party fan. 
+<< smile times talked = 1 >>
+",
+		"position": {
+			"x": -2798,
+			"y": -3468
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes1",
+		"tags": "Smile Times1",
+		"body": "#offers G
+<< if borrow not in commands>>
+    The smile ambassador is scanning the room for hotties.
+    <<stop>>
+
+<< if borrow in commands>>
+    << if location == dance floor>>
+        Music's too loud to speak in here.
+    << if location != dance floor>> 
+    By the way, I got some G, babe, in case you want some later.
+    We can't do it here in front of everyone though.
+    So do consider we'd have to go to the bathroom to take it.
+    Yeah, it's a drag, especially when the party's packed, but it is what it is. 
+    So yeah, if you want some, just [BORROW] some from me whenever!
+    << add G to Smile items>>
+    <<make Smile times = 2>>
+",
+		"position": {
+			"x": -2786,
+			"y": -3252
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes2",
+		"tags": "Smile Times2",
+		"body": "#Tells you about introducing you to the pusher, skips to introducing him if conditions are right
+<< if location == dance floor>>
+    Music's banging, you try to talk but it's pointless.
+    << stop >> 
+<< if location != dance floor >> 
+    <<if time < 2 am >>
+        I wanted to introduce you to someone. Who I get my candy from.
+        I don't think they're still here yet.
+        They'll probably be around later.
+        << make SmileTimes = 3>> 
+    
+    << if time > 2 am >>
+        << if in the bathroom>>
+            Hey babe, I really wanted to introduce you to someone.
+            The smile ambassador introduces you to their friend.
+            Their friend is clearly a pusher.
+            <<add clearly a pusher to total people>>
+            << make Smiletimes = 4 >> 
+
+        << if on smoking room>> 
+            I wanted to introduce you to someone. Who I get my candy from.
+            They must be around here somewhere.
+            << make Smiletimes = 3 >>
+",
+		"position": {
+			"x": -2790,
+			"y": -3016
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Borrow G",
+		"tags": "Smile borrow g",
+		"body": ">><<if G in active items>> 
+    Baby, we already did some. Chill, you don't wanna drop on us.
+    <<stop>>
+
+<<if G not in active items>> 
+    << if location = bathroom>> 
+            
+        << if smile.timestalked == 3>> #This is if you havent met the pusher yet.
+            Here they are! Remember I told you I wanted to introduce you to a friend?
+            You're introduced to this friend. 
+            Their friend is clearly a pusher. 
+            They seem nice.
+            You talk a bit, a lot of smiling on all parts.
+            <<time passes>>
+            <<add clearly a pusher to total people>>
+            << make Smiletimes = 4 >> 
+
+            << if party is crowded>>
+            
+                << if player.stalltimewarning is not True>>
+                    It's pretty crowded here in the bathroom.
+                    We're gonna have to wait a bit to get a stall. (input)
+                    It will probably take a while actually.
+                    << player.stalltimewarning set to True>> 
+
+                You okay with waiting? (y/n)
+                << if yes>>
+                    Alright, let's do it.
+                    It IS pretty crowded. Waiting. Small talk. 
+                    After a few minutes a stall frees up.
+                    You both get in.
+                << use G, drop sound effect>>
+                << time passes>> 
+                <<stop>>
+
+                << if no>> 
+                Alright. Let me know if you change your mind.
+                
+            << if party is not crowded>> 
+                Alright, let's do it!
+                << use G, drop sound effect>>
+                << time passes>> 
+                <<stop>>
+    
+    << if location is not the bathroom>>
+        Yeah, for sure! I could have some of that!
+        
+        << if player.movementtimewarning is not True>>
+            We'd have to go all the way to the bathroom, though.
+            I don't wanna do the whole trip by myself.
+            Oh, especially when it's crowded. It's a nightmare.
+            We can still go though. If you want.
+            << set player.movementtimewarning to True>>
+        
+        You really wanna go all the way to the bathroom for this? (y/n)
+            << if yes>> 
+            << player location changes to bathroom, Smile location changes to bathroom>>
+                
+                << if party is crowded>>
+                    The smile ambassador and you slowly bump your way around to the bathroom.
+                    << time passes>> 
+                    << restart this node>> 
+                    <<stop>>
+
+                << if party is NOT crowded>> 
+                    You both find yourselves in the bathroom in no time. 
+                    <<restart this node>>
+            << if no>> 
+                Alright, if you wanna go do tell me though.
+                << stop>>
+",
+		"position": {
+			"x": -2527,
+			"y": -3468
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes3",
+		"tags": "Smile times3",
+		"body": "#theyve already told you about introducing you, youre stuck here until you meet either here or in borrow
+<<  if in bathroom>> #
+    Hey babe, I really wanted to introduce you to someone.
+    
+    The smile ambassador introduces you to their friend.
+    Their friend is clearly a pusher. They seem nice.
+    You talk a bit, a lot of smiling on all parts.
+    <<time passes>>
+    <<add clearly a pusher to total people>>
+    << make Smiletimes = 4 >> 
+
+<< if on dance floor>>
+    
+    << if music is terrible>>
+        << if smile.boost is less than 1.2>> 
+            I LOVE THIS SONG!!!
+            And it shows. So much enthusiasm. No musical standards.
+            And you love that. It's infectious. It cheers you up.
+            << if smile.boost is less than 1.2, make smile.boost 1.2>> 
+        
+        << if smile.boost is => 1.2>>
+            The smile ambassador is dancing up a storm, using that huge ass fan as a prop.
+
+    << if music is okay or great>>
+    The smile ambassador is really into this particular song apparently.
+    The huge fan they're waving around seems a bit dangerous...
+
+<< if on smoking room>> 
+
+    They remind you they wanna introduce you to their friend who should be around.
+",
+		"position": {
+			"x": -2787,
+			"y": -2807
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes4",
+		"tags": "Smile times4",
+		"body": "#You've already met the pusher, this is sharing a moment, you get a memory, you need to dance with him to get to 5
+<< if on dance floor>>
+
+    << if music is terrible>>
+        << if smile.boost is less than 1.2>> 
+            I LOVE THIS SONG!!!
+            And it shows. So much enthusiasm. No musical standards.
+            And you love that. It's infectious. It cheers you up.
+            << if smile.boost is less than 1.2, make smile.boost 1.2>> 
+        
+        << if smile.boost is => 1.2>>
+            Come on baby, I wanna see some moves from you too.
+            Let's dance!
+
+    << if music is okay or great>>
+    The smile ambassador is really into this particular song apparently.
+    That huge fan they're waving around seems a bit dangerous though.
+    Their body language is all come on get your dance on.
+
+<<if in smoking room>>
+    You talk a bit about how stuff is going for each of you.
+
+<<if in bathroom>> 
+    They're talking to someone else now, but you get this knowing look.
+    An I need to go dance look.
+",
+		"position": {
+			"x": -2784,
+			"y": -2587
+		},
+		"colorID": 0
+	},
+	{
+		"title": "DANCE",
+		"tags": "Dance",
+		"body": "You start to dance to the music.
+
+#player effects
+    << if smile is in dance floor>>
+
+    << if smile times talked == 5>>
+        The sound of the huge fan in the background gives you courage.
+
+    << if smile times talked == 4>>
+        The smile ambassador joins your dance.
+        Swinging that huge ass fan to the music.
+        You shadow each other's moves.
+        It's really very fun.
+        << make smile boost 1.3 >> 
+        << add Smile dance to memories>> 
+        << make smile times talked 5>> 
+
+
+<< if Russian on dance floor>>
+    << if popper in active items AND player.popperfirstdance is None>> 
+        The popper rush takes over.
+        You just kick back and ride the wave, your body does its thing.
+        Your russian friend makes a face with their tongue out at you.
+        They know what's up.
+        << player.popperfirstdance = True>> 
+
+        << if russian boost is 1.3>> 
+        Seeing your russian friend quietly vibing nearby hypes you up.
+
+        << if russian boost is 1.2>>
+        You hear YAAS BIITCH over the sound of the music
+        very excited but also like neutral somehow
+
+        you turn around and your russian friend is hyping you up
+
+        you give it your all
+        player.lit += 20
+        << make russian boost 1.3>> 
+        << add russian dance to memories>> 
+        
+
+<< if couple is in dance floor>>
+
+    << if couple times talked is 5>>
+        The cute couple's enthusiasm gives you inspiration.
+    << if couple times talked is 4>>
+        << if music is terrible>>
+            The cute couple's next to you
+            one of them's having a really hard time with the music
+
+            You start dancing like an idiot 
+            making fun of how bad the music is
+            the other one joins in the dance
+            it ends up being pretty fun
+        
+        << if music is not terrible>> 
+            The cute couple's really having a blast with this new music
+            they both end up joining you on this crazy performance piece
+            It's pretty cool actually
+            player.cool += 20
+            
+        << add couple dance to memories>> 
+        << make couple boost 1.3>> 
+        << make couple times talked 5>> 
+
+    << if time is between 2.30 and 3.00 or between 4.00 and 4.30 and couple times talked is not 4>>
+        The cute couple's dancing next to you
+        one of them offers you some of their water
+        You take a big gulp
+        bless them.
+        << player. mouth += 30 >>
+
+    << if cutie on dance floor>>
+        << if Tanktop Interest in memories>> 
+            << if cutie.flirt >5 >>
+                You see the cutie in the tanktop and friends dancing close to you.
+        << if cutie.timestalked == 5>>
+            The cutie in the tanktop's group is having fun. It cheers you up.
+        << if cutie.timestalked == 4 and Tanktop Dance not in memories>>
+            You and your partner dance your way to them and join in.
+            The cutie's got this disco vibe going on.
+            << add Tanktop dance to memories>> 
+            << make tanktop timestalked 5>> 
+            << if tanktop boost <1.1 make 1.1>>
+            << player.lit +=20 and player.cool +=20>> 
+            
+            << if Tanktop Interest in memories>> 
+                The three of you dance together, some kissing happens too.
+                It's playful and sexy.
+                << cutie. flirt +1>>
+
+            << if Tanktop Conversation in memories or tanktop partner in memories>>
+                You, your partner and the cutie start dancing,  
+                their whole group's cheering. It's pretty fun. 
+        
+
+#calculations
+#and then final outcome of dance and pass the time
+
+
+    
+all the dance things
+
+<< time passes, 30 minutes maybe>>
+",
+		"position": {
+			"x": -1517,
+			"y": -1747
+		},
+		"colorID": 0
+	},
+	{
+		"title": "SmileTimes5",
+		"tags": "Smile times5",
+		"body": "#Youve already partied etc, this is the final link.
+
+<< if smilelink in memories>>
+    You've shared some great memories tonight.
+    You feel really grateful for your friendship.
+
+<< if SmileLink in not in memories>>
+    << if on dance floor>>
+        You're led to a corner of the room a little farther away from the music.
+        So you can talk without screaming over the music.
+    << if not on dance floor>>  
+        The smile ambassador goes all serious for a second and looks at you.
+
+
+    You know, when I first met you last march. I did think you were cool.
+    But not this cool. (input) What I meant I say is. (input)
+    I'm really glad we get to share. It's great to party together too.
+    I'm really happy we've become good friends.
+    You feel the same way. You hug and go back to the party.
+    
+    <<add SmileLink to memories>>
+",
+		"position": {
+			"x": -2783,
+			"y": -2371
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Smile Flirt",
+		"tags": "Smile Flirt",
+		"body": "<< if smile.flirt > 0>>
+    You send each other air kisses.
+<<if smile.flirt = 0>>
+    You give them a long seductive look and a wink.
+    You're answered with a chuckle and a kiss on the cheek.
+    You both laugh it off.
+    << smile.flirt+=1>>
+",
+		"position": {
+			"x": -2521,
+			"y": -3244
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes0",
+		"tags": "Russian Times0",
+		"body": "Heeey bitchees! You guys doing alriiight?
+
+in that way your russian friend speaks
+like really into it but also in a totally neutral tone of voice.
+
+Both you and your partner agree things are, indeed, alriiight.
+<< change Russian times talked to 1 >>
+",
+		"position": {
+			"x": -2182,
+			"y": -3454
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes1",
+		"tags": "Russian Times1",
+		"body": "#offers poppers
+<< if borrow not in commands>>
+    Your russian friend tells you about this cool new netflix series.
+    <<stop>>
+
+<< if borrow in commands>>
+    Baabes, I got some poppers on me alriight?
+    [BORROW] some whenever.
+    Well, on the dance floor, not whenever
+    we don't wanna be that obvious
+    just let me know okaaay?
+    << add poppers to Russian items>>
+    <<make Smile times = 2>>
+",
+		"position": {
+			"x": -2184,
+			"y": -3236
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes2",
+		"tags": "Russian Times2",
+		"body": "#Tells you about introducing you to cutie, skips to introducing them if conditions are right
+<<if time < 1 am >>
+    Heey babes, there's a friend I wanted you to meet.
+    Super cutie, you'll both like for suure.
+    Haven't seen them around yet though.
+    << make RussianTimes = 3>> 
+    
+<< if time > 1 am >>
+    << if on the dance floor>>
+    Heeey babes, I want you to meet my frieend.
+    
+    Your russian friend introduces you to their friend.
+    It's a cutie in a tanktop.
+    There's some smiling and flirting involved.
+    Your partner gives you this look.
+    A Wouldn't mind taking him home with us look.
+    <<add cutie to total people, on dance floor>>
+    << make Russiantimes = 4 >> 
+
+    << if not on the dance floor>> 
+    Baaabes, there's this friend. Super cute.
+    Think you'll both like.
+    I think they're already aroound?
+    I'll introduce you guys, later for sure.
+    << make Russiantimes = 3 >>
+",
+		"position": {
+			"x": -2179,
+			"y": -3016
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes3",
+		"tags": "Russian Times3",
+		"body": "#theyve already told you about introducing you, youre stuck here until you meet
+
+<< if on dance floor>>
+    << if later than 1 am>>
+    Heeey babes, I want you to meet my friend.
+    You're introduced to their friend.
+    It's a cutie in a tanktop.
+    There's some smiling and flirting involved.
+    Your partner gives you this look.
+    This wouldn't mind taking him home with us look.
+    <<add cutie to total people, on dance floor>>
+    << time passes>> 
+    << make Russiantimes = 4 >> 
+
+    << if less than 1 am>> 
+    <<random 3>>
+        << if one>> Self isolation though music and poppers, a thesis in action.
+        << if two>> The argument for contemplative dancing, peace in the crowd.
+        <<if three>> You try, but you can't reach their dance dimension. 
+    
+
+<< if on smoking room>> 
+    You talk about this movie you both watched recently.
+",
+		"position": {
+			"x": -2174,
+			"y": -2797
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes4",
+		"tags": "Russian Times4",
+		"body": "#You've already met the cutie, this is sharing a moment, it progresses to 5 when you make plans to go to a film festival
+
+<< if on dance floor>>
+
+        << if russian.boost is => 1.2>>
+            Music's really loud
+            so they just show you their phone
+            there's a film festival thing happening next week
+            you show your partner, and they nod
+            you all agree to do that next week
+            << time passes>> 
+            << make Russiantimes 5>> 
+
+        << if russian.boost is less than 1.2>> 
+            You liked my friend, riight?
+            I thought you might!
+            
+            like half screaming cause the music is loud af
+            and you answer but they don't really hear you
+            they still do this thing where they nod just to end the conversation
+
+            you're just happy they're here with you tonight
+            << if smile.boost is less than 1.2, make smile.boost 1.2>> 
+
+
+<<if in smoking room>>
+    My friend, total cutie, huuh?
+    I know you bitches and your tastes. 
+    
+    and your russian friend laughs like they always do
+    like somewhere between a chuckle and a snort
+    
+    Your partner makes this licking their lips face
+    Yeah you're both looking forward to that
+    
+    You all keep talking a bit longer 
+    you catch up on some stuff
+    end up making plans to go to a film festival next weekend.
+    << time passes>>
+    <<if russian boost is < 1.2, make russian.boost 1.2>>
+    <<make Russian times5>>
+
+<<if in bathroom>> 
+    They're so deep in flirting 
+    with this like full leather clad kinkster
+    you decide not to bother them now.
+",
+		"position": {
+			"x": -2173,
+			"y": -2584
+		},
+		"colorID": 0
+	},
+	{
+		"title": "RussianTimes5",
+		"tags": "Russian Times5",
+		"body": ">><< if Russian Link not in memories>> 
+
+    <<if on dance floor>>
+    Music's pretty loud, hard to talk.
+    
+    <<if on smoking room>>
+    Baabes, you having fuun?
+
+    Your partner says definitely quite the night.
+    They start talking amongst themselves.
+
+    You start to think how much you value this friendship.
+    You hug your russian friend and kiss their forehead.
+    You're looking forward to this film festival thing next weekend.
+    <<add RussianLink to memories>>
+
+    <<if on bathroom>>
+    Baabes, you having fuun?
+
+    Your partner says definitely quite the night.
+    They start talking amongst themselves.
+
+    You start to think how much you value this friendship.
+    You hug your russian friend and kiss their forehead.
+    You're looking forward to this film festival thing next weekend.
+    <<add RussianLink to memories>>
+
+
+<<if RussianLink in memories>>
+    You feel really glad your russian friend is in your lives.
+
+    <<if in bathroom and divinity in memories>>
+    You comment about how divine this red haired
+    coke wielding wonder was.
+
+    << if on bathroom and divinity not in memories>>
+    Your russian friend is talking to this high heeled 
+    like lucious red curly hair up to their waist
+    big breasted, full lipped, cheekbones for days divinity
+    
+    and they introduce you to them
+    and you tell them how absolutely stunning they are
+    and they say thanks, thanks
+
+    and also they offer you some coke.
+    
+    Do you want some coke? (y/n)
+    <<if yes>>
+        << use coke>> 
+    << if no>> 
+         Your partner does take some. 
+    
+    They say they were just leaving.
+    Absolute pleasure sweethearts, see you next time
+    gives each of you one kiss on each cheek 
+    and leave.
+    
+    It's all very dreamlike. 
+    << divinity added to memories>>
+",
+		"position": {
+			"x": -2183,
+			"y": -2386
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BorrowPoppers",
+		"tags": "Borrow Poppers Russian",
+		"body": "#Only usable on dance floor
+
+<<if room is EMPTY AND its before 5 am>>
+    You signal you want a hit
+    They kinda look around the room
+    the very empty room
+    don't wanna be so obvious
+    
+<< if room is EMPTY and its after 5 am>>
+    You signal you want some poppers
+    room's empty but nobody still here cares probably
+    your russian friend gives you the bottle
+    << use poppers>>
+    your partner also takes a deep one
+    you give the bottle back.
+
+<< if room is not EMPTY>>
+    << if poppers in active items>>
+        You just did some, don't wanna hoard them.
+    << if poppers NOT in active items>>
+    << player.popper counter +=1>>
+    << if player.popper counter = 5>> 
+            You signal that you want to take a hit
+            your russian friend shrugs
+            you guess someone else must have the bottle
+
+            you look around a bit
+            your partner sees you looking around and stops dancing
+            wants to know whats going on
+            
+            you try to explain you're looking for the poppers
+            they start laughing and shows you the bottle
+            your partner had it
+
+            << time passes >>
+            << use poppers>> 
+            You return the bottle.
+
+    <<if player.popper counter is not 5>>
+    << random 4>> 
+        << 1>> 
+            Your russian friend opens the bottle and puts it to your nose. << use poppers>>
+        << 2>>
+            They've just taken a hit themselves
+            they cover up the bottle with their thumb and 
+            put it to your nose. << use poppers>>
+
+        << 3>>
+            They signal to a friend of theirs who's dancing nearby
+            you signal to their friend you want some and they give you the bottle.
+            << use poppers>>
+            You give the bottle back.
+            
+        << 4>> 
+            Your friend gives you the bottle
+            << use poppers>>
+            
+            you take your tongue out and nod to them.
+            they nod with their tongue out right back
+",
+		"position": {
+			"x": -1953,
+			"y": -3451
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Russian Flirt",
+		"tags": "Russian Flirt",
+		"body": ">><< if russian.flirt <== 3>>
+    You playfully give each other one quick kiss on the mouth.
+
+<< if russian.flirt == 2>>
+    You ask who fastened all those leather straps in hard to reach places
+    They answer you'll have to see for yourself next time.
+<< russian.flirt +=1>> 
+
+<< if russian.flirt == 1>> 
+    You do this exagerated seductive wink from afar
+    they cartoonishly grab their chest with both hands
+<< russian.flirt +=1>> 
+
+<< if russian.flirt == 0>> 
+    You tell your russian friend you're really into this outfit
+    they're glad cause it took forever to put on
+    You ask if they can show you how to take it off
+    They blush and send you an air kiss
+<< russian.flirt +=1>>
+",
+		"position": {
+			"x": -1952,
+			"y": -3236
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes0",
+		"tags": "Couple Times0",
+		"body": "#They appear in the room you're in when it becomes 00.30, its run by timed events
+<< if location == smoking room>>
+You see your friends, the cute couple, coming straight towards you.
+
+Hey babes, sorry we're a bit late
+one of them says while the other one hugs your partner
+
+At least you made it, all the way from the mountains!
+your friends live 30 minutes away from the city center
+which is basically another continent
+
+Oh bitch, I think we all need some party after all this
+says one of them while the other one lights up a cigarette
+nods all around, it's been too long for sure.
+<< makes timestalked == 1>> 
+<< time passes >>
+
+<< if location == dance floor>>
+You see your friends, the cute couple, coming straight towards you.
+
+one of them says something while the other one hugs your partner
+you make out "sorry" and "late" over the music
+you wave it off and you start moving to the music with them
+<< makes timestalked == 1>> 
+<< time passes>> 
+
+<< if location == bathroom>>
+You see your friends, the cute couple, coming straight towards you.
+
+Hey babes, sorry we're a bit late
+one of them says while the other one hugs your partner
+
+At least you made it, all the way from the mountains!
+your friends live 30 minutes away from the city center
+which is basically another continent
+
+Oh bitch, I think we all need some party after all this
+says one of them while the other one lights up a cigarette
+nods all around, it's been too long for sure.
+<< makes timestalked == 1>> 
+<< time passes >>
+
+
+<< if location == bathroom>>
+You see your friends, the cute couple, walk into the bathroom as well.
+
+Hey babes, was planning to look for you guys right now
+one of them says while the other one blows you a kiss and goes into a stall
+
+At least you made it, hope you're not jetlagged
+your friends live 30 minutes away from the city center
+so like, another country basically
+
+That's what the powder room's for, babe, we're here to party today
+you hear from the stall 
+while the other one is checking their hair in the mirror
+you all agree, you gotta party hard today
+<< makes timestalked == 1>> 
+<< time passes>>
+",
+		"position": {
+			"x": -1666,
+			"y": -3262
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes1",
+		"tags": "Couple times1",
+		"body": "#they offer chewing gum
+<< if location == smoking room>>
+        I wanna dance tonight babe, but the music is like, REALLY BAD right now
+        one of them says while the other is talking to another friend
+        I missed partying but I didn't miss this part
+        
+        You talk a bit about how the week went and stuff
+        They offer you some chewing gum.
+        Do you want some chewing gum? (y/n)
+        << if yes>>
+            << add chewing gum to items>>
+        << if not>>
+            << add chewing gum to couple.items>> 
+        << time passes>>
+    << makes timestalked == 2>> 
+
+<< if location == bathroom>>
+        I hope the music's good tonight, I really wanna dance to some good shit
+        one of them says while the other talks to the smile ambassador
+        You comment how last time the music wasn't great.
+        
+        They offer you some chewing gum.
+        Do you want some chewing gum? (y/n)
+        << if yes>>
+            << add chewing gum to items>>
+        << if not>>
+            << add chewing gum to couple.items>> 
+        << time passes>>
+    << makes timestalked == 2>> 
+
+<< if location == dance floor>>
+        You try to talk a bit but it's pretty loud and you don't get much across.
+        One of them offers you some chewing gum.
+
+        Do you want some chewing gum? (y/n)
+        << if yes>>
+            << add chewing gum to items>>
+        << if not>>
+            << add chewing gum to couple.items>> 
+        << time passes>>
+    << makes timestalked == 2>>
+",
+		"position": {
+			"x": -1667,
+			"y": -3051
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes2",
+		"tags": "Couple Times2",
+		"body": "#already borrowed chewing gum, leaving early, set up for 4 and 5
+
+<< if location == dance floor>>
+    You try to talk a bit but it's very loud.
+    << stop >> 
+<< if location == smoking room >> 
+    << if music is terrible>> 
+    The music was okay when we got here, but now it's so bad
+    one of them says while the other is like shaking their head in approval
+    
+    For sure music's pretty bad right now, wish you could change it.
+    
+    We're leaving early too, like 5 am, we gotta get going
+    so I hope the DJ steps it up
+    says the other one
+    << make times.talked == 3>> 
+
+    << if music is not terrible>>
+    Music's okay right now, right?
+    says one of them
+    Let's go dance!
+    says the other one and they go to the dance floor
+    << change couple location to dance floor>> 
+
+            << make Smiletimes = 3 >>
+",
+		"position": {
+			"x": -1664,
+			"y": -2840
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes3",
+		"tags": "Couple timestalked3",
+		"body": "#already borrowed you know theyre leaving early and bitched about mad music, this is characterization and boost. Advance talking after 3 am.
+
+<< if location == dance floor>>
+    They're both really enjoying themselves dancing.
+    << stop >> 
+<< if location == smoking room >> 
+    << if music is terrible>> 
+        << if time is before 3 am>>
+            You start talking to one of them about feminist theory and relativism
+            the other one is smoking a blunt and looking placid as hell
+            
+            you're really glad they're here with you
+            << if couple boost is less than 1.2 make 1.2>> 
+            << time passes>>
+        << if time is after 3 am>> 
+            Wow, the music's soooo bad, bitch!
+            says one of them
+            the other one's nodding but doesn't really look very bothered
+            
+            And this DJ's gonna be playing til 5 too
+            like all the time we're here basically, ugh
+            
+            the drama, but totally true though
+            you feel his pain
+            you also smoke a cigarette together
+            << use cigarette >>
+            << time passes>> 
+            << make timestalked == 4>>
+            
+
+    << if music is not terrible>>
+        << if changed music in memories>>     
+            Bitch, you really got the DJ to play something decent?!
+            says one of them while the other drops their cigarette to the floor
+            
+            You saved the night baby, love youu!
+            says one of them, while the other steps on the cigarette
+            and they both zip to the dance floor
+            << if couple boost is less than 1.2 make 1.2>> 
+            << make times talked == 4>> 
+            
+        << if changed music no in memories>> 
+        I heard the music got better, we should go dance
+        says one of them while the other one is finishing a cigarette
+        Yeah, bitch, let's get moving!
+        and they both make a beeline to the dance floor
+    << change couple location to dance floor>>
+",
+		"position": {
+			"x": -1655,
+			"y": -2621
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes4",
+		"tags": "Couple timestalked4",
+		"body": "#its after 3 am, they bitched about the DJ and you MAYBE changed the music, maybe didn't. Advance by dancing with them, dance gives you dance memory. If music is terrible you can convince them to come down anyway.
+
+<< if location == dance floor>>
+    << if music is not terrible>>
+        They are so glad you changed the music, they're dancing their hearts out.
+        << if couple.boost is less than 1.2 make 1.2>> 
+    << if music is terrible>>
+        One of them is moving to the music, the other one is cringing and looking around.
+
+<< if location == smoking room >> 
+    << if music is terrible>> 
+        One of them's really not into dancing to this music.
+        The other one's more open you can tell.
+        It might take some time...
+
+        but you think you might talk them into going to the dance floor.
+        Do you wanna try? (y/n)
+        << if yes>>
+            You remind one of them about other times the music's been pretty terrible
+            and you still ended up having a good time despite of it
+            the other one joins your efforts
+            your partner also helps
+            Finally, they agree to come down to the dance floor.
+            << time passes>>
+            << add couple convinced to memories>> 
+            << couple moves to the dance floor>> 
+        <<if no>>
+            You decide not to.
+
+    << if changed music in memories>>     
+        Bitch, you really got the DJ to play something decent?!
+        says one of them while the other drops their cigarette to the floor
+            
+        You saved the night baby, love youu!
+        says one of them, while the other steps on the cigarette
+        and they both zip to the dance floor
+        << if couple boost is less than 1.2 make 1.2>> 
+        << change couple location to dance floor>>
+",
+		"position": {
+			"x": -1656,
+			"y": -2433
+		},
+		"colorID": 0
+	},
+	{
+		"title": "CoupleTimes5",
+		"tags": "Couple timestalked5",
+		"body": "#Youve already partied etc, this is the final link.
+
+<< if CoupleLink in memories>>
+    You had a great time with these two today.
+    You're really happy they could come.
+
+<< if CoupleLink in not in memories>>
+    One of them gives you a lollipop.
+    The other one gives you a hug.
+    They keep dancing to the music.
+    You can tell they really needed to enjoy a good party.
+    You're happy they could come.
+    << add lollipop to player.items>> 
+    <<add CoupleLink to memories>>
+",
+		"position": {
+			"x": -1644,
+			"y": -2202
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BorrowChewingGum",
+		"tags": "Couple borrow chewinggum",
+		"body": "<< if chewing gum not in player.activeitems and chewing gum not in player.items>>
+    You ask one of them for chewing gum, the other one gives you some.
+    <<add some chewing gum to playe.items>>
+",
+		"position": {
+			"x": -1445,
+			"y": -3263
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Couple Flirt",
+		"tags": "Couple flirt",
+		"body": ">><< if couple.flirt == 3>>
+    You blow them air kisses
+    they blow you some back
+<< if couple.flirt == 2>>
+    Your wink to one of them seductively
+    they put the back of their hand to their face
+    and make a duckface 
+    << couple.flirt +=1>> 
+
+<< if couple.flirt == 1>>
+    You start making up this really convoluted compliment.
+    one of them misunderstands what you meant
+    
+    you end talking about the women's liberation movement somehow
+    << time passes>>
+    << if couple.boost is less than 1.2 make 1.2>> 
+    << couple.flirt +=1>> 
+
+<< if couple.flirt == 0>> 
+    You start flirting with one of them
+    the other one is too distracted to notice
+    << couple.flirt +=1>>
+",
+		"position": {
+			"x": -1446,
+			"y": -3045
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Timed Events",
+		"tags": "",
+		"body": ">><<If time is At 00.30 and couple.timestalked == 0>>
+    << add couple to total people>> 
+    << make couple location your current location>> 
+    <<Run couple.talk 0>>
+
+<< When is >>
+
+<< if its 4.30 am and the music is great and couple is in smoking room, move couple to dance floor and do a transition next, make times talked 4>>
+
+<<when it's 5 couple leaves>>
+    The cute couple walks up to you and your partner
+    Babes, we gotta go, it's 5 already
+    says one of them while the other hugs you
+    << if CoupleDance in memories>>
+        It was fun!
+        one of them says
+    << if CoupleDance not in memories>>
+        Maybe they'll have better music next times
+        one of them says
+    << if CoupleLink in memories>>
+        we had a blast!
+        the other one says
+    They hug everyone goodbye and leave the party.
+    << remove couple from total players, change location to None>>
+",
+		"position": {
+			"x": -1237,
+			"y": -1751
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Couple Gameover",
+		"tags": "couple, gameover",
+		"body": "[[|Couple Root]]
+
+
+    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
+    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
+    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
+    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
+    print("|                                                            |")
+    print("|       You got to see your friends, the cute couple,        |")
+    if "Couple Link" in player.memories:
+        print("|       you got to share some great moments with them        |")
+    elif "Couple Link" not in player.memories:
+        print("|      you wish you could have spent more time with them     |")
+    print("|                                                            |")
+    if "Changed Music" in player.memories:
+        print("|         you'll never forget how excited they got           |")
+        print("|       when you got the DJ to play something decent,        |")
+
+    elif "Couple Convinced" in player.memories:
+        print("|         even though the music sucked, it was nice          |")
+        print("|              to get them on the dance floor,               |")
+
+    if "Couple Dance" in player.memories:
+        print("|             dancing with them was so much fun.             |")
+    elif "Couple Dance" not in player.memories:
+        print("|          you wish you could have danced with them.         |")
+    print("|                                                            |")
+    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
+    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
+    print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
+    print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
+",
+		"position": {
+			"x": -1632,
+			"y": -1260
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PusherTimes0",
+		"tags": "Pusher, times0",
+		"body": "Times talked 0
+#Youve just been introduced. There are two memories associated, pusher business, when youve made a deal and looking for pusher, when you havent met the pusher and tanktop asks if you know someone. You get up to times talked1 either having made the bussiness which happens automatically or being told its cool to make the deal, you can't go further if you don't know tanktop.
+
+<<if Looking for pusher in memories and Pusher Business not in memories>>
+You and your partner start casually talking to them
+quickly confirming that, yes, they have some stuff to move around
+
+Your partner mentions some friends of a friend need a boost
+
+    You hook me up with a group and I'll give you a boost too
+
+you say you might do just that
+
+make times_talked = 1
+
+<<elif Pusher Business in memories>>
+    Thanks for the networking earlier.
+    You're a cool cat. Here, for the trouble.
+
+the pusher gives you a pill and gives your partner some k 
+your partner's beaming. you're both thankful.
+
+make times_talked 1
+Commission added to memories
+
+<<elif Pusher Business not in memories>>
+You make some polite small talk about how the party's going so far
+the conversation doesn't go much further than that
+",
+		"position": {
+			"x": -1090,
+			"y": -3385
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PusherTimes1",
+		"tags": "Pusher, times1",
+		"body": "Times talked 1
+#Youve met tanktop and talked to pusher after, you might or might not have your commission. 
+
+<<if Commission in memories>>
+if weed not in active items and location is smoking room
+
+they're smoking some green
+    Heyy! yes. The cool cats!
+
+you talk a little. They offer some weed.
+    All you want, on me today!
+
+do you want some weed?
+yes. You say yes, thankyouverymuch.
+use weed.
+
+no. You kindly refuse.
+    You just let me know, my spliff's your spliff.
+    Have a good one.
+
+ else:
+    Enjoying yourself tonight?
+all friendly like, super articulate.
+you chatter on for a bit before going back to the party.
+
+<<if Looking for pusher in memories and Pusher Business not in memories>>
+
+you should probably go talk to the cutie in the tanktop and play matchmaker.
+
+<<elif Pusher Business in memories>>
+    Thanks for the networking earlier.
+    You're a cool cat. Here, for the trouble.
+
+the pusher gives you a pill and gives your partner some k 
+your partner's beaming. you're both thankful.
+Commission added to memories
+",
+		"position": {
+			"x": -972,
+			"y": -3093
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pusher Flirt",
+		"tags": "Pusher flirt",
+		"body": "You flirt with the pusher friend
+
+if flirt == 1:
+The pusher half smirks
+
+    Don't think that'll get you any discounts though!
+you answer the only prize you're after is a smile
+and you get your prize
+flirt +1
+
+elif pusher business in memories and flirt <3:
+
+    You wanna sweeten the deal even more huh?
+    I'm strictly business today sexy
+    don't get any ideas
+
+flirt +1 
+
+(else)
+random 3
+1: You wink and smile from some distance away.
+They pretend they didn't see you, but you can see the smirk.
+
+2: You compliment their jacket.
+They tell you they genuinely appreciate the compliment.
+
+3: You can't think of anything to tell them right now.
+
+return False
+",
+		"position": {
+			"x": -864,
+			"y": -3388
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes0",
+		"tags": "Tanktop times0",
+		"body": "#Has just been introduced by russian friend at 1 am in the dance floor. Your partner is really into them.
+<< if player.location == dance floor>> 
+    You can only half talk with the music this loud
+    so you end up giving each other looks and smiling
+    your partner's really going for it too
+    full on hunt mode
+    << player.lit +=20 >> 
+    << tanktop.flirt +=1>> 
+    << make times 1>> 
+    << time passes>> 
+    
+<< if player.location != dance floor>> #should mean its later than 1 am y pasaste before 
+    The cutie in the tanktop smiles as you approach.
+    It's pretty damn charming.
+    
+    It's nice to be able to party again, huh?
+    and it's the way they say it
+    you can't help smiling back
+    << player.lit += 20>> 
+    
+    << if blunt in active items>>
+        You try to say something clever
+        but you're too stoned to nail it
+        it ends up sounding dumb but they don't seem to mind.
+
+    << if blunt not in active items and ketamine not in active items>>  
+        You respond with some corny line about good company
+        they seem to like it
+        << tanktop.flirt +=1>> 
+
+    << if blunt not in active items and ketamine in active items>> 
+        You say
+        it'll be much nicer now that we get to party with you
+        and you nail the delivery
+
+        you can tell it worked
+
+        you all smile at each other
+        there's definitely tension 
+        << tanktop.flirt +=2>>
+    
+    You talk for a few more minutes
+    it's going great
+    a friend calls out to them
+    and they leave unwillingly
+    << time passes >>  
+    << make times 1>>
+",
+		"position": {
+			"x": -636,
+			"y": -3532
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes1",
+		"tags": "Tanktop times1",
+		"body": "#this node is basically a reaffirmation of the partner choose-your-path node
+
+<< if tanktop Conversation not in memories and tanktop Interest not in memories and tanktop partner not in memories>>
+    Maybe you should talk to your partner before you make a move.
+
+<< if tanktop Conversation in memories or tanktop Interest in memories or tanktop partner in memories>>
+    You search around the room and make eye contact
+    and they do this thing, between a smile and biting their lip
+    Yeah...
+
+    You walk up to their group and you smile
+    << if Tanktop Conversation in memories>>
+        as harmlessly as you can
+        the way you'd smile at a family member
+            
+        You can tell they notice.
+    
+    << if Tanktop Interest in memories>>
+        a devilish smile
+        you really put some weight behind it 
+        
+        it works.
+        << tanktop.flirt += 2>> 
+
+    << if Tanktop partner in memories>>
+        pretty harmlessly, you lay back
+        and your partner takes over 
+
+        you act as support.
+
+    << if location != dance floor>> 
+        You talk a bit about how the party's going
+        apparently whoever was supposed to get their candy didn't show up
+    << if location == dance floor>>
+        You half shout half sign language over the music
+        looks like whoever was supposed to get their candy didn't show up
+
+    They're all pretty upset about it
+    << time passes>>
+    << times talked == 2>>
+    << >>
+",
+		"position": {
+			"x": -636,
+			"y": -3312
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes2",
+		"tags": "Tanktop times2",
+		"body": "#One of their friends didn't bring candy, introduce them to the pusher if you can
+<< if location == dance floor>> 
+    They're busy talking to their group about something.
+<< if location != dance floor>> 
+    You walk up to their group.
+    They're talking to each other about how to get candy
+    specifically they could use some pills
+
+    << if pusher in total people>>
+        
+        Do you wanna introduce them to your new pusher friend?
+        It might take some time (y/n).
+            << if yes>>
+                You look around for your pusher friend.
+                << if party is packed. time passes>>
+                << change player, partner and cutie in tanktop location to the pushers location>>
+                You end up finding them in {player.location} and you introduce them.
+                You can tell everybody's pretty happy.
+                << Pusher bussiness to memories>> 
+                << time passes>> 
+                << record the time this happens in a variable>> 
+                << make times talked 3>> 
+
+    << if pusher not in total people>>
+        You tell them you don't know of anybody in here.
+        But you'll let them know if you hear something.
+        << add Looking for pusher in memories>> 
+        << make times talked 3>>
+",
+		"position": {
+			"x": -632,
+			"y": -3096
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes3",
+		"tags": "tanktop times3",
+		"body": "#Youre either looking for the pusher and stuck here or already introduced and have to wait for an hour to get to 4
+
+You walk up to the cutie in the tanktop.
+<< if looking for pusher in memories and pusher bussiness not in memories>>
+
+    <<  if pusher not in total people>>
+        Their whole group is pretty low morale.
+        
+        << if Tanktop Conversation in memories>>
+            Maybe try to get a contact for them.
+        << if Tanktop Interest in memories>>
+            You try to lift the mood up a bit 
+            but the conversation ends up being about 
+            what a great time they'd be having if their friend showed up.
+        << if Tanktop partner in memories>> 
+            Your partner tries to lift up the mood a bit
+            but it seems like the conversation always goes back to 
+            what a great time they'd be having if their friend showed up.
+    << if pusher in total people>>
+        
+        Do you wanna introduce them to your new pusher friend?
+        It might take some time (y/n).
+            << if yes>>
+                You look around for your pusher friend.
+                << if party is packed. time passes>>
+                << change player, partner and cutie in tanktop location to the pushers location>>
+                You end up finding them in {player.location} and you introduce them.
+                You can tell everybody's pretty happy.
+                << player.cool +=30 >> 
+                << Pusher bussiness to memories>> 
+                << remove looking for pusher from memories>> 
+                << record time in variable tanktop.capeo>> 
+                << time passes>> 
+
+<< if pusher business in memories>> 
+    The saviors of the night!
+    the whole group's really happy with you two
+     
+    << if Tanktop Conversation in memories>>
+        Your partner gives you this we're missing out look.
+        You're in for a talk after this for sure.
+
+    << if Tanktop Interest in memories>>
+        The cutie in the tanktop is in way better spirits
+        flirting game's back on point too
+        
+    << if Tanktop partner in memories>>
+        Everybody's in better spirits
+        Your partner flirting is hitting home too
+    
+    << if tanktop.capeo is less than an hour>>
+        They're excited for the candy to kick in.
+    << if tanktop.capeo is more than an hour>>
+        They're looking pretty lively. Looks like the candy kicked in.
+        << make times talked4>> 
+
+        << make times talked 4>>
+",
+		"position": {
+			"x": -632,
+			"y": -2866
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes4",
+		"tags": "tantop times4",
+		"body": "#Candy's kicked in now, you have to dance with them to jump to 5, if not on dance floor you can get a cigarette, maybe flirt and they go to the dance floor again
+
+<< if location == dancefloor>>
+    You approach the cutie in the tanktop's group of friends
+    and they're all really getting down to the music.
+    You can't quite reach them to talk, they're all movement.
+
+<< If location != Dance floor >> 
+    You approach the cutie in the tanktop's group of friends.
+    The cutie's smoking a cigarette, most of them are.
+    They offer you one.
+    Do you want a cigarette? (y/n)
+    << space>> 
+    << if yes>>
+        << add cigarette to inventory>>
+        You take a cigarette from them.
+    <<if no>>
+        You kindly refuse.
+    
+        << if Tanktop Conversation in memories>>
+            You can feel your partner holding back.
+
+        << if Tanktop Interest in memories>>
+            You talk about random stuff.
+            Things seem more interesting when a cutie's talking.
+            You get some compliments in.
+            << random 3>>
+            << if 1>>
+                You focus on the way they play with their cigarette.
+            << if 2>>
+                You focus on that beautiful smile. 
+            << if 3>> 
+                You love how your partner is really going for it.
+            << cutie.flirt +2>>
+
+        << if Tanktop partner in memories>>
+                Your partner gets some sexy energy into the conversation.
+                There's chemistry for sure.
+    
+    When everybody's done with their cigarette they go back to the dance floor.
+    << time passes>>
+    << change tanktop locaton to dance floor>>
+",
+		"position": {
+			"x": -626,
+			"y": -2647
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopTimes5",
+		"tags": "Tanktop times5",
+		"body": "#Already danced with them and have the boost. Get the Link and sex thing depending on the path (or your partner hooking up with them).
+<< if Tanktop Link in memories and flirt >= 10>>
+    << run cutie.flirt>>
+
+<< if Tanktop Link in memories and flirt < 10>>
+    You've really made a connection with this cutie tonight.
+        << if Tanktop Conversation in memories>>
+            Your partner's gonna want to talk about this later for sure.
+        << if Tanktop Interest in memories>>
+            You think they might come home with us tonight
+            if we step our flirt game up.
+        << if Tanktop partner in memories>>
+            << if Partner hookup not in memories>>
+                return play tanktop hookup scene. [[PartnerTanktopHookup]]
+            << if Partner hookup in memories>>
+                Your partner seems pretty happy about it. 
+                Looks like you'll be seeing more of them.
+            
+<< if Tanktop Link not in memories>>
+    << if location == dancefloor>>
+        The cutie in the tanktop catches you looking and comes to you.
+        They take you to a more quiet spot.
+    
+    You sweethearts have really made my night.
+    << if Tanktop Partner in memories>>
+        Especially you, sexy
+        they say to your partner with a wink
+    It's been very special.
+    I hope we can keep hanging out.
+    you end up exchanging phone numbers and quickstagram accounts
+    you speak a bit longer and go back to the dance floor.
+    << add Tanktop Link to memories>>
+    <<time passes>>
+",
+		"position": {
+			"x": -622,
+			"y": -2416
+		},
+		"colorID": 0
+	},
+	{
+		"title": "TanktopFlirt",
+		"tags": "Tanktop Flirt",
+		"body": ">><< if times talked == 0>>
+    Maybe test the waters first?
+<< if times talked >= 1>>
+    << if tanktop Conversation not in memories and tanktop Interest not in memories and tanktop partner not in memories>>
+        Maybe you should talk to your partner before you make a move.
+    << if Tanktop Conversation or Tanktop partner in memories>>
+        You decided you're gonna sit this one out.
+
+    << if Tanktop Interest in memories>> #if youve actually decided youre going after them
+        << if Tanktop.timestalked == 1>> 
+            Maybe talk a little more first.
+
+        << if Tanktop.timestalked >= 2>> #then you can actually check if yo can flirt, I cap the level each timestalked.
+        <<flirtornot = None>> 
+
+          
+            << if Tanktop.timestalked == 2>>
+                << if Tanktop.flirt >= 4>> #these are the cap texts
+                    They seem to be busy talking with their friends about something.
+                << elif tanktop.flirt < 4 >>
+                    << flirtornot = True>>
+
+            << if Tanktop.timestalked == 3>>
+                << if Tanktop.flirt >= 6>>
+                    << if pusher Bussiness in memories>>
+                        << if flirt < 8>>
+                            << flirtornot = True>>
+                        <<elif flirt => 8>> #same as timestalked.4
+                            Looks like they want to dance.
+                    << if pusher Bussiness not in memories and Looking for pusher in memories>> 
+                        You don't get through, they're focused on their shortage problem.
+                    <<  if pusher Bussiness not in memories and looking for pusher not in memories>>
+                        Seems like something's going on with their friends.
+                << elif tanktop.flirt < 6>>
+                    << flirtornot = True>>
+
+            << if Tanktop.timestalked == 4>>
+                << if Tanktop.flirt >= 8>>
+                    Looks like they want to dance.
+                << elif tanktop.flirt < 8>>
+                    << flirtornot = True>>
+
+            << if Tanktop.timestalked == 5>>
+                << if Tanktop.flirt >= 10>>
+
+                << if Tanktop Asks not in memories>> 
+                    Your partner's all over them. They look so hot together.
+                    They lust for you too. They want you all to go home and play.
+                    << add Tanktop Asks in Memories>> 
+                << if Tanktop Asks in memories>>
+                    Do you want to leave the party with the cutie in the tanktop? (y/n)
+                    << if yes>>
+                        This would end the night, are you sure? (y/n)
+                        << if yes>> 
+                            << add Tanktop Home to memories >>
+                            << RUN ENDGAME()>> 
+                        <<if no>>
+                            You tell them to wait a little longer.
+                            << add Tanktop Asks to memories>>
+                    << if no>>
+                        << add Tanktop Asks to memories>>
+                        You tell them to wait a little longer.
+
+
+                << elif tanktop.flirt < 10>>
+                    << flirtornot = True>>
+
+            << if flirtornot == True>> 
+                << result = flirt(Tanktop)>>
+                << if result == True>>
+                    <<Flirtgoodbark(Tanktop)>>
+                    lit +10
+                    << tanktop.flirt +1>> 
+                    [[|FlirtGoodBark(Person)]]
+                << if result == False>>
+                    <<Flirtbadbark(Tanktop)>>
+                    [[|FlirtBadBark(Person) ]]
+                    lit -10
+                    << tanktop.flirt -1>> 
+                << time passes>>
+ 
+
+a point system and the calculation thingy
+",
+		"title": "FlirtGoodBark(Person)",
+		"tags": "flirt good bark",
+		"body": ">><< random   0-2>>
+<< if 0>> #active item
+    <<if length of active items is 0>> "being clearheaded seems to help because"
+    <<if length of active items is 1, select one>>
+    <<if cig>> "maybe it's the nicotine but"
+    <<if blunt>> "pure ganja suaveness,"
+    <<if soundcloud>> "you're feeling joyful and it shows,"
+    <<if coke>> "you get the twitch under control and"
+    <<if specialK>> "the good vibes are felt,"
+    <<if gum>> "minty fresh magic,"
+    <<if lolipop>> "the lollipop complements the compliments,"
+    <<if g>> "you're feeling relaxed and"
+    <<if popp>> "you're still feeling a lightheaded but"
+
+
+<< if 1>> #environment
+    <<if player.location == bathroom>> "bathroom flirting,"
+    <<if player.location == dance floor>> "the vibe of the dance floor helps,"
+    <<if player.location == smoking room>> "it's quiet in here, it helps and"
+
+<< if 2>> #stats
+    <<random 0-2>>
+    <<if 0>> "you're feeling cool,"
+    <<if 1>> "the party feels more fun,"
+    <<if 2>> "you start riding the wave and"
+
+#second part
+<<random 0-4>>
+ <<if 0>> add " it goes well, you both smile."
+ <<if 1>> add " you really nail it. Sparks fly."
+ <<if 2>> add " you get the cutest smile in return."
+ <<if 3>> add " you end up sounding charming as hell."
+ <<if 4>> add " there's really good chemistry between you."
+
+return 1 + 2
+",
+		"position": {
+			"x": -49,
+			"y": -2455
+		},
+		"colorID": 1
+	},
+	{
+		"title": "FlirtBadBark(Person)",
+		"tags": "",
+		"body": "#Returns a string, when flirting, saying how it went badly.
+BAD bark
+<< random   0-2>>
+<< if 0>> #active item
+    <<if length of active items is 0>> you might need some chemical help because
+    <<if length of active items is 1, select one>>
+    <<if cig>> maybe it's bad breath but
+    <<if blunt>> you blank out and
+    <<if soundcloud>> might be cottonmouth because
+    <<if coke>> you're a bit too alert, twitchy even, 
+    <<if specialK>> you're a bit absent minded, 
+    <<if gum>> you kinda fumble with the gum and
+    <<if lollipop>> you do a lollipop thing but end up looking silly and 
+    <<if g>> your tongue goes slower than your brain, 
+    <<if popp>> you're still a bit lightheaded so
+
+
+<< if 1>> #environment
+    <<if player.location == bathroom>> it might be the being in a bathroom thing but
+    <<if player.location == dance floor>>the music gets in the way of your delivery and 
+    <<if player.location == smoking room>> the smoke gets in the way of your delivery,
+
+<< if 2>> #stats
+    <<random 0-2>>
+    <<if 0>> you feel a bit self conscious and
+    <<if 1>> you try but you don't really feel it and
+    <<if 2>> maybe you've been taking too much candy because
+#second part
+<<random 0-4>>
+ <<if 0>> add " it doesn't go well, it's a bit embarrasing."
+ <<if 1>> add " you're really off the mark this time, it's pretty bad."
+ <<if 2>> add " it doesn't land very well. Oof."
+ <<if 3>> add " you make a fool of yourself."
+ <<if 4>> add " you sound really dumb. Not good."
+
+return part1+part2
+",
+		"position": {
+			"x": 232,
+			"y": -2459
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTanktopDecision",
+		"tags": "Partner Tanktoptimes1 choice",
+		"body": "[[|PartnerTanktopHookup]]
+<< If tanktop times >=1 and Tanktop Interest not in memories AND tanktop Conversation not in memories and Tanktop Partner not in memories>>
+    So... that cutie in the tanktop.
+    Hot, right?
+    basically asking you if you're on the same page.
+
+    Are you on the same page? (y/n)
+    << if yes>> 
+        You said yes, are you sure? (y/n)
+            << if yes>> 
+                <<Tanktop Interest added to memories>>
+                Yesss, I was hoping you'd say that.
+                That'd be a good time, huh?
+                
+            << if no, go back>>
+    << if no>>
+        You said no, are you sure? (y/n)
+            << if yes>>
+                Ah, I was hoping you were into the idea.
+                kinda disappointed sounding
+                and after a few seconds
+
+                Uh, do you mind if I go for it by myself?
+                
+                Do you mind? (y/n)
+                    << if yes>>
+                        You'll say you do mind.
+                        You wouldn't allow your partner to pursue
+                        the cutie in the tanktop. Are you sure? (y/n)
+                            <<if yes>>
+                                Huh. Okay. I guess we'll talk about it when we get home...
+                                << Tanktop Conversation added to memories>> 
+                            << if no>>
+                                << go back>> 
+    
+                    <<if no>>
+                        You'll say you don't mind.
+                        You'd would allow your partner to pursue
+                        the cutie in the tantop. Are you sure? (y/n)
+                            << if yes>>
+                                Alright! Wish me luck!
+                                <<Tanktop Partner added to memories>> 
+                            << if no>>
+    << time passes>> 
+                                << go back>>
+",
+		"position": {
+			"x": -3808,
+			"y": -4164
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTanktopHookup",
+		"tags": "Partner Tanktop Hookup",
+		"body": "#liga con tanktop, happens spontaneously if it hasnt run and tanktop flirt is higher 10.
+
+looks like your partner's flirting is paying off
+the cutie in the tanktop's bouncing that energy right back
+/sleep2 they give you a final look to check if you're okay with it
+and without thinking about it you give a small nod
+and they disappear together
+
+/sleep3 You stop for one second and check in with yourself.
+    How do you feel about this? (input)
+
+Do you really feel (input)? (y/n)
+if n go back
+
+if yes:
+save input as a string to player.PartnerHookupFeeling
+You feel (player.PartnerHookupFeeling) then.
+and that's that.
+
+/sleep2 they show up after a few minutes
+your partner looks at you and you feel even more (player.PartnerHookupFeeling).
+you ask how it went
+
+    It went well, it was fun.
+    
+You decide to talk more about it back home
+and go back to partying.
+<<add Partner Hookup to memories >>
+",
+		"position": {
+			"x": -3924,
+			"y": -3856
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Partner Times 0",
+		"tags": "partner, times0",
+		"body": "#gives you ask for and use K. [[|PartnerTimes1]]
+
+Babe, we can do the k if you want, just let me know when.
+    I only have a little bit though.
+<<if in the bathroom>> 
+    We could do it now if you want.
+
+<<if not in the bathroom>>
+    We'd have to go to the bathroom first of course.
+
+<<Give you ask for. Borrow K added to memories>>
+<<make partner times 1>>
+",
+		"position": {
+			"x": -3439,
+			"y": -3618
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerBorrowK",
+		"tags": "PartnerBorrowK",
+		"body": "#the default is 3 uses, in the character setup. If you get the comission from the pusher you get 2 more.
+
+you ask your partner for some k 
+
+
+if k in active items:
+    You just did some, babe
+    I'll give you some more later if you want
+and that's that for now.
+    return False
+
+elif k not in active items:
+    if partner.kusesleft == 0:
+
+        I ran out, babe
+        I'm sorry
+    and it's genuine sadness
+    you almost feel bad for asking
+    return False
+
+    elif partner.kusesleft > 1:
+
+    << if location = bathroom>> 
+        
+        << if party is crowded>>
+            << if player.stalltimewarning is not True>>
+                We're gonna need to go into a stall
+                and there's a lot of people waiting.
+                It takes a while when the party's this crowded.
+                You want to wait? I don't mind...
+                << player.stalltimewarning set to True>> 
+
+            It's pretty crowded now, you okay with waiting? (y/n)
+                << if yes>>
+                    Alright babe, we wait.
+                    And you wait like 10 minutes
+                    until a stall frees up.
+                    You both get in.
+                    << use k>>
+                    << time passes>> 
+                    partner.kusesleft =-1
+                    return True
+
+                << if no>> 
+                    Okay love. 
+                    You tell me if you wanna try later. 
+                
+        << if party is not crowded>> 
+                Great, let's go!
+            you go into the stall
+
+            if kusesleft = 1:
+                your partner tells you they just gave some to your russian friend
+                but you can kill the bag now
+                << use k>>
+                << time passes>> 
+                partner.kuses =-1
+                return True
+    
+    << elif location is not bathroom>>
+            Yeah, I could use some freshening up!
+        your partner says half smiling
+        
+        << if player.movementtimewarning is not True>>
+            We have to go to the bathroom then. 
+            It's a pain. Especially when it's crowded.
+            But you gotta do what you gotta do.
+            << set player.movementtimewarning to True>>
+        
+        You really wanna go all the way to the bathroom for this? (y/n)
+            << if yes>> 
+                << player location changes to bathroom, partner location changes to bathroom>>
+                
+                << if party is crowded>>
+                    Your partner and you slowly make your way to the bathroom.
+                    << time passes>> 
+            
+                << if party is NOT crowded>> 
+                    You both find yourselves in the bathroom in no time. 
+
+                return PartnerBorrowK scene (this same scene)
+
+            << if no>> 
+                Okay babe, let me know if you change your mind.
+                << stop>>
+",
+		"position": {
+			"x": -3092,
+			"y": -3723
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTimes1",
+		"tags": "partner, times1",
+		"body": "#talks about cute couple, comments on having fun and dancing, makes time 2 [[|PartnerTimes2]]
+
+<<if cute couple not in total people and before 5am>>
+Your partner tells you 
+
+    I wonder if they'll show up at all tonight 
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, they might not come at all
+<<sleep 2>>
+    I hope they come, I miss hanging out with them
+    they leave early too
+    we gotta dance a lot and have fun
+<<sleep 4>>
+you agree, the night feels promising
+<<sleep 2>>
+
+
+<<elif cute couple in total people and before 5am>>
+Your partner tells you 
+
+    I'm glad they came tonight!
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, you thought they might not come at all
+<<sleep 2>>
+    They said they'll leave early, like at 5
+    so let's talk and dance and have fun
+<<sleep 2>>
+you agree, the night feels promising
+<<sleep 2>>
+
+<<elif after 5 am>>
+Your partner tells you 
+
+    I'm glad they came tonight in the end
+<<sleep 2>>
+your friends, the cute couple, you assume
+one of them worked late, you thought they might not come at all
+<<sleep 2>>
+    it was fun hanging out 
+    I'm really glad we met them
+<<sleep 4>>
+you agree, it makes you feel all warm inside
+<<sleep 2>>
+
+
+
+
+player.modify_stat("lit", 10, True)
+<<make times2>>
+",
+		"position": {
+			"x": -3450,
+			"y": -3380
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTimes2",
+		"tags": "partner, times2 ",
+		"body": "#appreciation and some navi stuff
+#in order to get to 3, you have to dance after boost is more than 1.3
+[[|PartnerTimes3]] [[|PartnerBank]] [[|PartnerGather0]] 
+
+if boost is < 1.3:
+who's looking very pleased just by being here
+and it's a really good look
+<<sleep 2>>
+you appreciate what a beautiful creature your partner is
+<<sleep 2>>
+you're caught looking and get the most charming smile in return
+make boost 1.3 
+total heartthrob
+return False
+
+else:
+your partner tells you
+<<return partner bank scene play>>
+",
+		"position": {
+			"x": -3468,
+			"y": -3104
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTimes3",
+		"tags": "partner, coolness",
+		"body": "#in order to get here, you have to dance after boost is more than 1.3 
+#if between 3.30 and 5, it returns PartnerGather0.  To get to times 4 has to be before 5 am.
+
+
+if after 5 am or music changed in memories:     #gather scene finished
+
+    if partner.boost <1.4:
+        
+            It was a fun plan
+            but it was a bit silly.
+        you let out a chuckle
+        it really was silly
+
+        if Music not changed in memories:
+            I'm glad we at least thought about it
+
+        if music changed in memories:
+            and we managed to pull it off!
+            just ridiculous
+            I'm glad we thought about it
+
+
+        and so are you, you'll remember this later
+
+        if music not changed in player.memories:
+        it was dumb, but fun
+
+        and you consider
+        this is why you've been together this long
+        partner.boost == 1.4
+        lit +10, coolness -10
+        return True
+
+    elif partner.boost == 1.4:
+        make partner times4
+        return partner times 4 [[|PartnerTimes4]]
+
+else:
+    return PartnerGather0 [[|PartnerGather0]]
+",
+		"position": {
+			"x": -3475,
+			"y": -2821
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerGather0",
+		"tags": "partner, gather",
+		"body": "#this runs between 3.30 and 5, if music is terrible and boost >1.3 and music changed not in memories [[|PartnerGather1]]
+
+if if this has run:
+return Scene PartnerGather1
+
+if this hasnt run:
+and complain about the music
+it's killing you
+
+    The music is te rri ble.
+    I could dance to a car alarm right now
+    But this?
+
+you both grimace 
+<<sleep 4>>>>
+but then your partner's face lights up
+and half smirking starts saying
+    
+    Remember that party in the warehouse?
+    with the redhead in the crazy green jacket?
+
+    Do you remember? (y/n)
+
+if yes:
+you totally remember, that was a crazy jacket
+
+if no:
+you don't remember at all but you nod anyway
+<<sleep 2>>
+
+    Yeah yeah! It's the same DJ.
+    Jacket redhead was totally in control of the music that night.
+
+you start to get the idea
+you get your friends down to the dance floor
+you get enough attention and the DJ will listen probably
+it's a good plan. 
+
+    Do you wanna try? (y/n)
+
+if yes:
+you say yeah, time to get your friends on the dance floor
+add "Gathering" to player.memories
+return True
+
+ if no:
+you say no, too much effort
+add "Not Gathering" to player.memories
+return True
+",
+		"position": {
+			"x": -3170,
+			"y": -2813
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerTimes4",
+		"tags": "partner times4",
+		"body": "#only runs after 5 or after music changed, either way they're happy, gives you partnerLink Memory   [[|PartnerBank]]
+
+if PartnerLink not in memories:
+
+    you look at your partner
+    you weren't completely sure about coming out tonight
+    but just being here together is absolutely worth it 
+    you consider you should start doing more things together
+/sleep 2
+    you're caught looking and get a smile back in return.
+    /sleep 3 you're pretty sure this is what love feels like
+/sleep2
+PartnerLink added to memories
+lit +10, coolness -10
+return True
+
+elif PartnerLink in memories:
+return partner bank
+",
+		"position": {
+			"x": -3474,
+			"y": -2418
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerWater",
+		"tags": "Partner tap water",
+		"body": "#plays immediately if it hasnt run and your mouth is very dry and you dont have a lolipop on you [[|PartnerMusic]]
+
+Your partner stops you for a second
+
+    Babe, your mouth
+    it's so dry
+while half laughing
+<<sleep 4>>
+    Hold on, I think I have some chewing gum
+but turns out it ran out already
+<<sleep 4>>
+    We can always drink some tap water in the bathroom I guess
+    not super classy
+    but gotta stay hydrated
+
+you get the idea
+<<sleep 6>>
+",
+		"position": {
+			"x": -4066,
+			"y": -3581
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerMusic",
+		"tags": "partner music",
+		"body": "#plays immediately and doesnt take time if on dance floor and music is terrible and it hasnt played yet [[|partnercrowd]]
+
+Your partner gives you this look
+mouthing something like 
+    
+    This music is terrible
+<<sleep 2>>
+you feel your willpower draining 
+this is totally killing your vibe
+<<sleep 4>>
+    Let's go smoke
+they gesture
+
+    Better to avoid the dance floor when the music's this bad.
+    Do you wanna go smoke? (y/n)
+    <<if yes>>
+You both make your way to the smoking room.
+Your partner looks half amused as they tell you
+
+    That was nonsensical
+    <<sleep 2>>
+you consider making some time until the bad music blows over.
+<<move you and partner to the dance floor>>
+
+    <<if no>>
+You decide to stay here for the moment.
+You can feel the fun slowly draining out of your body.
+player.modify_stat("lit", 10, False)
+<<return True>>
+",
+		"position": {
+			"x": -4068,
+			"y": -3322
+		},
+		"colorID": 0
+	},
+	{
+		"title": "partnercrowd",
+		"tags": "",
+		"body": "#plays immediately at 1.30 and doesnt take time if it hasnt played yet [[|partnercrowd]] [[|partneranxiety]]
+
+The party is starting to get crowded, more and more people are coming in
+Your partner also notices and says
+    
+    It's gonna be harder to move around soon
+<<sleep 2>>
+it's definitely gonna take some time to move around
+if it gets more crowded than this
+<<sleep 4>>
+",
+		"position": {
+			"x": -4094,
+			"y": -3065
+		},
+		"colorID": 0
+	},
+	{
+		"title": "partneranxiety",
+		"tags": "",
+		"body": "#plays if coolness > 60 and it hasnt played yet
+
+Your partner side-eyes you for a moment
+then puts a hand on your shoulder and pulls you to the side
+
+    Are you okay babe?
+    You seem tense.
+
+You do feel tense. You feel like people are looking at you.
+You like the attention but it's making you very self aware.
+
+    Just focus on us, let's hang with our friends.
+    Try not to mind the other people.
+    If you wanna leave, we can leave anytime babe.
+    You just say the word, okay? 
+    <<okay? (y/n)>>
+
+<<if yes>>
+you nod
+
+    Alright love, let's have fun. 
+and you feel more calm, more backed up.
+player.modify_stat ("coolness", False, 30)
+return False
+
+<<if no>>
+you shake your head
+you hate that you get like this
+
+    Baby, this is about you, not about them.
+    You don't even know these people, it doesn't matter what they think.
+    You're here for yourself.
+    And if you wanna leave, we leave, it's fine.
+<<sleep 4>>
+and that's true of course. end = "" <<sleep 2>> Of course.
+you breathe a bit and do your whole mindfulness bs.
+it calms you down a bit.
+player.modify_stat ("coolness", False, 30)
+return False
+",
+		"position": {
+			"x": -4103,
+			"y": -2796
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerBank",
+		"tags": "#partner #bank",
+		"body": ">><<if it hasnt run>>
+    player.NPCs[partner].banklist = ["keta", "GHB", "fun", "mouth", "empty", "reloaded"]
+
+<<if "keta" in actor.banklist:>>
+    <<if keta not in active items and high is less than 50 and partner.kusesleft >1:>>
+
+    Remember I still some k left in case you want some.
+
+you make a point to ask them for some
+if you feel like it later
+player.NPCs[partner].banklist.remove ("keta")
+return False 
+
+<<if "GHB" in actor.banklist:>>
+    <<if high is less than 50 and G not in active items>>
+    
+    We can always ask for some G
+    if you're too sober
+
+you make a point to ask your friend
+the smile ambassador for some later
+if you feel like it
+player.NPCs[partner].banklist.remove ("GHB")
+return False 
+
+<<if "fun" in actor.banklist:>>
+    <<if lit is less than 30>>
+    
+    You don't seem like you're having fun babe
+    Let's go talk with our friends
+    or dance a bit
+
+you might as well
+it's only, <<player.time>> .
+player.modify_stat("lit", 10, True)
+player.NPCs[partner].banklist.remove ("fun")
+return False 
+
+<<if "mouth" in actor.banklist:>>
+    <<if mouth is less than 50>>
+    
+    Maybe we should try to get a lollipop
+    or some chewing gum or something
+
+you can always drink tap water too
+your mouth is getting dry
+player.NPCs[partner].banklist.remove ("mouth")
+return False 
+
+<<if "empty" in actor.banklist:>>
+    <<if keta counter is 0 and high < 50>>
+    
+    I wish I had some k left...
+
+you can't help laughing
+player.modify_stat("lit", 10, True)
+player.NPCs[partner].banklist.remove ("empty")
+return False 
+
+<<if "reloaded" in actor.banklist:>>
+    <<if Comission in memories>>
+    
+    What a wonderful night
+    meeting this total cutie
+    and we even got some more k
+
+this love for horse tranquilizer
+you let out a laugh
+
+player.modify_stat("lit", 10, True)
+player.NPCs["partner"].banklist.remove ("reloaded")
+return False 
+
+
+----
+if partnerlink not in memories:
+they wish they were dancing
+elif partnerlink in memories:
+you're really grateful to be sharing your life with your partner 
+you stay in quiet appreciation
+return False
+",
+		"position": {
+			"x": -3811,
+			"y": -2792
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerGather1",
+		"tags": "partner gather 1",
+		"body": "#you have either Gathering or Not Gathering in memories, gotten in partnergather0
+#either get everybody and dance and change the music
+# in schedule, if its 5 and music changed not in memories and gathering in memories, "DJ changes", add music not changed to memories
+
+if "Not Gathering" in player.memories:
+
+Music's still pretty bad
+this DJs up til 5 am
+you hold your head with one hand 
+and look over at your partner, who's mouthing
+
+    You want us to do the whole gather everyone thing? (y/n)
+
+if yes:
+you say yeah, I guess, and it's time to look for your friends.
+add "Gathering" to player.memories
+remove "Not Gathering" from player.memories
+return False
+
+ if no:
+you say nah, not worth it and wave it off
+return False
+
+
+
+if Gathering in player.memories:
+make list of friends not on the dance floor
+if list is not empty
+your partner tells you
+    
+    We still have to get (list of people) down there.
+
+you agree, you should find them and talk to them.
+    
+if list is empty
+your partner tells you
+
+    I guess everybody's on the dance floor
+    Let's go dance!
+
+and you're hoping this works
+cause you cannot stand this music anymore
+",
+		"position": {
+			"x": -3099,
+			"y": -2534
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PartnerDance",
+		"tags": "partner dance",
+		"body": "if changed music not in memories:
+    if gathering in memories and all your friends are on the dance floor 
+    run the change the music scene, add changed music to memories
+    and finish
+
+
+elif partner boost = 1.3 and partner times < 3:
+your partner's feeling the rhythm 
+/sleep2 effortlessly melting into the ether 
+/sleep2 commuting with the melody sprites
+/sleep1 speaking with the elements
+/2sleep2 absolute rapture
+
+and it fills you with joy
+your heart swells
+lit + 10
+coolness - 10
+partner.times == 3
+
+else:
+your partner's dancing next to you
+
+
+
+	{
+		"title": "PartnerGameover",
+		"tags": "Parter, gameover",
+		"body": "[[|Partner Root]]
+
+balt�, dance and link
+changed music
+
+
+def partnergameovercontent(player):
+    print("| _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _ |")
+    print("|/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \|")
+    print("|\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/|")
+    print("|/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \|")
+    print("|\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/|")
+    print("|                                                            |")
+    print("|                You still have to write this                |")
+    print("|                  Then there's your partner                 |")
+    print("|                  what a mess, just like you                |")
+    print("|          you feel so lucky to have found each other        |")
+    print("|          always has your back, you feel so lucky to have found each other        |")
+    print("|                                                            |")
+
+    print("| _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _ |")
+    print("|/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \|")
+    print("|\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/|")
+    print("|/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \|")
+    print("|\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/|")"
+
+
+
+pusher gameover
+
+if met
+
+looking for Pusher
+pusher business
+commision
