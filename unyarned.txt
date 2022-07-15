@@ -2140,23 +2140,7 @@ if after 5 am or music changed in memories:     #gather scene finished
 else:
     return PartnerGather0 [[|PartnerGather0]]
 ",
-		"position": {
-			"x": -3475,
-			"y": -2821
-		},
-		"colorID": 0
-	},
-	{
-		"title": "PartnerGather0",
-		"tags": "partner, gather",
-		"body": "
-",
-		"position": {
-			"x": -3170,
-			"y": -2813
-		},
-		"colorID": 0
-	},
+
 	{
 		"title": "PartnerTimes4",
 		"tags": "partner times4",
