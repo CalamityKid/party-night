@@ -1884,15 +1884,6 @@ you ask how it went
 You decide to talk more about it back home
 and go back to partying.
 <<add Partner Hookup to memories >>
-",
-		"position": {
-			"x": -3924,
-			"y": -3856
-		},
-		"colorID": 0
-	},
-	{
-	
 
 
 balt�, dance and link

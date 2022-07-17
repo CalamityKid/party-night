@@ -1,90 +1,112 @@
-#the default is 3 uses, in the character setup. If you get the comission from the pusher you get 2 more.
+from ...Scripts.Blocks import items
+from ...Scripts.Actions import use_item
+from ...Input import yesorno
 
-def partnertimes1content(player):
-
-
-    player.modify_stat("lit", 10, True)
-
-you ask your partner for some k 
+# the default is 3 uses, in the character setup. If you get the comission from the pusher you get 2 more.
 
 
-if k in active items:
-    You just did some, babe
-    I'll give you some more later if you want
-and that's that for now.
-    return False
+def partnerkcontent(player):
+    print("you ask your partner for some k")
+    if player.items["special K"] in player.active_items:
+        print("")
+        print("     You just did some, babe")
+        print("     I'll give you some more later if you want")
+        print("and that's that for now.")
+        return False
 
-elif k not in active items:
-    if partner.kusesleft == 0:
+    elif player.items["special K"] not in player.active_items:
+        if player.NPCs["partner"].kusesleft == 0:
+            print("")
+            print("     I ran out, babe")
+            print("     I'm sorry")
+            print("")
+            print("and it's genuine sadness")
+            print("you almost feel bad for asking")
+            return False
 
-        I ran out, babe
-        I'm sorry
-    and it's genuine sadness
-    you almost feel bad for asking
-    return False
+        elif player.NPCs["partner"].kusesleft > 0:
 
-    elif partner.kusesleft > 1:
+            if player.NPCs["partner"].kusesleft == 1:
+                print(
+                    "your partner tells you they just gave some to your russian friend"
+                )
+                print("but you can kill the bag now")
 
-    << if location = bathroom>> 
-        
-        << if party is crowded>>
-            << if player.stalltimewarning is not True>>
-                We're gonna need to go into a stall
-                and there's a lot of people waiting.
-                It takes a while when the party's this crowded.
-                You want to wait? I don't mind...
-                << player.stalltimewarning set to True>> 
+            if player.location != player.rooms["bathroom"]:
+                print("")
+                print("     Yeah, I could use some freshening up!")
+                print("your partner says half smiling")
 
-            It's pretty crowded now, you okay with waiting? (y/n)
-                << if yes>>
-                    Alright babe, we wait.
-                    And you wait like 10 minutes
-                    until a stall frees up.
-                    You both get in.
-                    << use k>>
-                    << time passes>> 
-                    partner.kusesleft =-1
+            if player.scenevariables.movementtimewarning == False:
+                print("")
+                print("      We have to go to the bathroom then.")
+                print("      It's a pain. Especially when it's crowded.")
+                print("      But you gotta do what you gotta do.")
+                print("")
+                player.scenevariables.movementtimewarning = True
+            print(
+                "      You really wanna go all the way to the bathroom for this? (y/n)",
+                end=" ",
+            )
+            option = yesorno()
+            if option == True:
+
+                if player.party.crowd == "full":
+                    print("")
+                    print("Your partner and you slowly make your way to the bathroom.")
+                    player.time.ten_minutes()
+
+                elif player.party.crowd != "full":
+                    print("")
+                    print("You both find yourselves in the bathroom in no time.")
+                    print("")
+
+                player.location = player.rooms["bathroom"]
+                player.NPCs["partner"].location = player.rooms["bathroom"]
+
+            if option == False:
+                print("")
+                print("          Okay babe, let me know if you change your mind.")
+                return False
+
+            if player.location == player.rooms["bathroom"]:
+                if player.party.crowd == "full":
+                    if player.scenevariables.stalltimewarning == False:
+                        print("")
+                        print("     We're gonna need to go into a stall")
+                        print("     and there's a lot of people waiting.")
+                        print("     It takes a while when the party's this crowded.")
+                        print("      You want to wait? I don't mind...")
+                        print("")
+                        player.scenevariables.stalltimewarning = True
+
+                    print("      You okay with waiting for a stall? (y/n)", end="")
+                    option = yesorno()
+                    if option == True:
+                        print("      Alright babe, we wait.")
+                        print("")
+                        print("And you wait like 10 minutes")
+                        print("until a stall frees up.")
+                        print("You both get in.")
+                        print("")
+                        player.time.ten_minutes()
+                        player.items.append(items["special K"])
+                        use_item.execute(player, items["special K"])
+                        player.NPCs["partner"].kusesleft -= 1
+                        return True
+
+                    if option == False:
+                        print("")
+                        print("     Okay love.")
+                        print("     You tell me if you wanna try later.")
+                        return False
+
+                elif player.party.crowd != "full":
+                    print("")
+                    print("     Great, let's go!")
+                    print("")
+                    print("you both go into the stall")
+                    player.items.append(items["special K"])
+                    use_item.execute(player, items["special K"])
+                    player.NPCs["partner"].kusesleft -= 1
                     return True
-
-                << if no>> 
-                    Okay love. 
-                    You tell me if you wanna try later. 
-                
-        << if party is not crowded>> 
-                Great, let's go!
-            you go into the stall
-
-            if kusesleft = 1:
-                your partner tells you they just gave some to your russian friend
-                but you can kill the bag now
-                << use k>>
-                << time passes>> 
-                partner.kuses =-1
-                return True
-    
-    << elif location is not bathroom>>
-            Yeah, I could use some freshening up!
-        your partner says half smiling
-        
-        << if player.movementtimewarning is not True>>
-            We have to go to the bathroom then. 
-            It's a pain. Especially when it's crowded.
-            But you gotta do what you gotta do.
-            << set player.movementtimewarning to True>>
-        
-        You really wanna go all the way to the bathroom for this? (y/n)
-            << if yes>> 
-                << player location changes to bathroom, partner location changes to bathroom>>
-                
-                << if party is crowded>>
-                    Your partner and you slowly make your way to the bathroom.
-                    << time passes>> 
-            
-                << if party is NOT crowded>> 
-                    You both find yourselves in the bathroom in no time. 
-
-                return PartnerBorrowK scene (this same scene)
-
-            << if no>> 
-                Okay babe, let me know if you change your mind.
-                << stop>>

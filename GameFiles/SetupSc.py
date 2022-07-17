@@ -59,7 +59,6 @@ NPCs["partner"].location = rooms["bathroom"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
 
-
 # print(formatting.format_objects_string(items))
 # print(rooms["smoking room"].usable_in_room(items["cigarette"]))
 # print(items["cigarette"].usable_in_room(rooms["bathroom"]))
@@ -74,8 +73,7 @@ print("")
 print(player.time)
 time.hour = 4
 time.minute = 20
-timestr = "it's only " + str(player.time)
-print(timestr)
+
 from GameFiles.Scripts.Format import Calculations
 
 update_schedule()

@@ -35,6 +35,7 @@ def smileGcontent(player):
             if option == True:
                 player.location = player.rooms["bathroom"]
                 player.NPCs["smile"].location = player.rooms["bathroom"]
+                player.NPCs["partner"].location = player.rooms["bathroom"]
                 if player.party.crowd == "full":
                     print("")
                     print(
@@ -43,7 +44,7 @@ def smileGcontent(player):
                     print("You finally make it to the bathroom.")
                     print("")
                     player.time.ten_minutes()
-                if player.party.crowd != "full":
+                elif player.party.crowd != "full":
                     print("")
                     print("You both find yourselves in the bathroom in no time.")
                     print("")
