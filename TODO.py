@@ -2,8 +2,10 @@
 # remeber to add people to player.people_in_party in Scenes when they are introduced
 # partner gives you "Borrow" memory. This is now unnecesary.
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
-# stablish partner.kusesleft somewhere
 # Make partner anxiety, crowd, music, water run automatically
+# "Ask for k" in memories. Ask for.
+# probable circular import in partnerstimes2 and in partnergather con el compile de partnerscenes
+
 
 # Link balti #plays immediately when your high goes up to 100
 # make script for friends on dance floor to check for the gathering scene, in partnerdance
@@ -30,14 +32,6 @@
 
 
 def partnertimes1content(player):
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
     sleep(2)
     player.modify_stat("lit", 10, True)
     player.NPCs["partner"].times_talked = 2
