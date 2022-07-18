@@ -3,7 +3,7 @@
 # partner gives you "Borrow" memory. This is now unnecesary.
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
 # Make partner anxiety, crowd, music, water run automatically
-# "Ask for k" in memories. Ask for.
+# "Ask for k" in memories. Ask for.   "Ask for G" in memories.
 # probable circular import in partnerstimes2 and in partnergather con el compile de partnerscenes
 
 

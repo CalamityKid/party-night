@@ -1,3 +1,21 @@
+from time import sleep
+
+
+def yesorno():
+    yesornoresult = None
+    while yesornoresult == None:
+        yesornoresult = input()
+        if len(yesornoresult) > 0:
+            if "y" in yesornoresult[0]:
+                print("")
+                return True
+            elif "n" in yesornoresult[0]:
+                print("")
+                return False
+        print("(yes or no): ", end=" ")
+        yesornoresult = None
+
+
 print("º>==========================================================<º")
 print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
 print(
@@ -69,13 +87,3 @@ print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
 print("|  o | o   o | o   o | o   o |  by Joel Pantaleón Tejada   o |")
 print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
 print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
-
-
-class DanceInstance:
-    pass
-
-
-instance = DanceInstance()
-
-instance.variable1 = 9
-print(instance.variable1)
