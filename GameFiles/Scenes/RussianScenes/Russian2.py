@@ -9,10 +9,11 @@ def russiantimes2content(player):
         print("")
         print("     Are you interested? (y/n) ", end="")
         option = yesorno()
+        print("")
         if option == True:
             print("You're both looking forward to this mysterious cutie.")
         if option == False:
-            print("You're like sure, I'll meet this person, whatever.")
+            print("You're like sure, we'll meet this person, whatever.")
         player.NPCs["russian"].times_talked = 3
         return True
 

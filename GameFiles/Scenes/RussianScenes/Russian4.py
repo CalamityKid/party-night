@@ -65,7 +65,7 @@ def russiantimes4content(player):
         elif option == False:
             print("You turn down the offer.")
             print("Your partner looks a bit disappointed.")
-            player.memories.append("Not Attending Festival")
+            player.memories.append("Not Attending Film Festival")
         print("")
         print("You're happy you get to share with your friend tonight.")
         if player.NPCs["russian"].boost < 1.2:

@@ -48,7 +48,7 @@ def coupletimes0content(player):
     elif player.location == player.rooms["bathroom"]:
         print("you see your friends, the cute couple, walk into the bathroom as well.")
         print("")
-        print("     Hey babes, was planning to look for you guys right now.")
+        print("     Hey babes, was going to look for you guys right now.")
         print(
             "one of them says while the other one blows you a kiss and goes into a stall."
         )
@@ -62,7 +62,7 @@ def coupletimes0content(player):
         print("     That's what the powder room's for babe, we're here to party today")
         print("you hear from the stall")
         print("while the other one is checks their hair on the mirror.")
-        print("you all agree, you gotta party hard today.")
+        print("you all agree, you gonna party hard today.")
         print("")
         sleep(4)
         player.NPCs["partner"].location = player.location

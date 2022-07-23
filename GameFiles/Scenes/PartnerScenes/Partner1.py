@@ -2,21 +2,6 @@ from time import sleep
 
 
 def partnertimes1content(player):
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    print("")
-    sleep(2)
-    player.modify_stat("lit", 10, True)
-    player.NPCs["partner"].times_talked = 2
-    return True
-
-
-def partnertimes1content(player):
     if player.NPCs["couple"] not in player.people_in_party and player.time.hour < 5:
         print("Your partner tells you")
         print("    I'm glad they came tonight!")

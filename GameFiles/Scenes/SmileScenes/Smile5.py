@@ -27,6 +27,6 @@ def smiletimes5content(player):
         print("     I'm really happy we've become good friends.")
         print("You feel the same way. You hug and go back to the party.")
         print(" ")
-        print("You know you'll look back on this moment in the future.")
+        print("You know you'll remember this tenderly later'.")
         player.memories.append("Smile Link")
         return True

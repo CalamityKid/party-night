@@ -1,63 +1,61 @@
 from ...Input import yesorno
+from .Compile import partnerscenes
 
-
-#this runs between 3.30 and 5, if music is terrible and boost >1.3 and music changed not in memories
+# this runs between 3.30 and 5, if music is terrible and boost >1.3 and music changed not in memories
 #    if "Gathering" in player.memories or "Not Gathering" in player.memories:
 #        return Gather1
 
 
-def partnergathering1content(player):
-    print ("and complain about the music")
-    print ("it's killing you")
-    print ("")
-    print ("     The music is te rri ble.")
-    print ("     I could dance to a car alarm right now")
-    print ("     But this?")
-    print ("")
-    print ("you both grimace")
+def partnergather0content(player):
+    if "Gathering" in player.memories or "Not Gathering" in player.memories:
+        return partnerscenes["Gather1"].run_scene(player)
 
+    print("and complain about the music")
+    print("it's killing you")
+    print("")
+    print("     The music is te rri ble.")
+    print("     I could dance to a car alarm right now")
+    print("     But this?")
+    print("")
+    print("you both grimace")
+    sleep(4)
+    print("but then your partner's face lights up")
+    print("and half smirking starts saying")
+    print("")
+    print("     Remember that party in the warehouse?")
+    print("     with the redhead in the crazy green jacket?")
+    print("        Do you remember? (y/n)", end=" ")
+    print("")
+    option = yesorno()
 
-if this hasnt run:
-and complain about the music
+    if option == True:
+        print("you totally remember, that was a crazy jacket")
 
+    elif option == False:
 
-    
-    
-    
+        print("you don't remember at all but you nod anyway")
 
- 
-<<sleep 4>>>>
-but then your partner's face lights up
-and half smirking starts saying
-    
-    Remember that party in the warehouse?
-    with the redhead in the crazy green jacket?
+    sleep(2)
+    print("")
+    print("     Yeah yeah! It's the same DJ.")
+    print("     Jacket redhead was totally in control of the music that night.")
+    print("")
+    sleep(2)
+    print("you start to get the idea")
+    print("you get your friends down to the dance floor")
+    print("you get enough attention and the DJ will listen probably")
+    print("it's a good plan. ")
+    sleep(4)
+    print("     Do you wanna try? (y/n)", end=" ")
+    option = yesorno()
+    print("")
 
-    Do you remember? (y/n)
+    if option == True:
+        print("you say yeah, time to get your friends on the dance floor")
+        player.memories.append("Gathering")
+        return True
 
-if yes:
-you totally remember, that was a crazy jacket
-
-if no:
-you don't remember at all but you nod anyway
-<<sleep 2>>
-
-    Yeah yeah! It's the same DJ.
-    Jacket redhead was totally in control of the music that night.
-
-you start to get the idea
-you get your friends down to the dance floor
-you get enough attention and the DJ will listen probably
-it's a good plan. 
-
-    Do you wanna try? (y/n)
-
-if yes:
-you say yeah, time to get your friends on the dance floor
-add "Gathering" to player.memories
-return True
-
- if no:
-you say no, too much effort
-add "Not Gathering" to player.memories
-return True
+    elif option == False:
+        print("you say no, too much effort")
+        player.memories.append("Not Gathering")
+        return True

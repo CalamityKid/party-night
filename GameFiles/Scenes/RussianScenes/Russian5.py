@@ -69,9 +69,10 @@ def russiantimes5content(player):
                 print("")
                 print("     Absolute pleasure sweethearts, see you next time.")
                 print("gives each of you one kiss on each cheek ")
-                print("and leaves.")
+                print("and leaves")
                 print("")
-                print("It's all very dreamlike.")
+                print("It's feels kinda surreal")
+                print("a bit like you dreamt it")
                 print("You're kinda blown away by the whole experience.")
                 player.memories.append("Divinity")
                 return True

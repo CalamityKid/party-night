@@ -3,9 +3,11 @@
 # partner gives you "Borrow" memory. This is now unnecesary.
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
 # Make partner anxiety, crowd, music, water run automatically
-# "Ask for k" in memories. Ask for.   "Ask for G" in memories.
+# "Ask for k" in memories. Ask for. "Ask for P"  "Ask for G" in memories. Borrow Gum, no memory.
 # probable circular import in partnerstimes2 and in partnergather con el compile de partnerscenes
-
+# fix the code in partnerdance
+# Attending Film Festival and Not Attending Film Festival to russian game over
+# dance can take 20 minutes
 
 # Link balti #plays immediately when your high goes up to 100
 # make script for friends on dance floor to check for the gathering scene, in partnerdance

@@ -43,26 +43,20 @@ def russiangameovercontent(player):
         player.NPCs["tanktop"] in player.people_in_party
     ):
         print("|             They introduced you to the cutie               |")
-        if "Tanktop Hookup" in player.memories:
-            print("|        and that turned out pretty great for you two        |")
-        elif "Tanktop Interest" in player.memories:
-            print("|          you hope you get to see them again soon           |")
-        elif "Partner Hookup" in player.memories:
-            print("|           and your partner def had a good time             |")
+
+        if "Tanktop Interest" in player.memories:
+            print("|              so, honestly, bless their heart               |")
+
         elif "Tanktop Partner" in player.memories:
-            print("|            you partner's def grateful about it             |")
+            print("|            your partner's def grateful about it             |")
+
         elif "Tanktop Conversation" in player.memories:
             print("|           and now you and your partner are in for          |")
             print("|       a conversation you had been avoiding for a while     |")
         print("|                                                            |")
 
-    if "Attending Film Festival" in player.memories:
-        print("|        You're definitely looking forward to going          |")
-        print("|         to that film festival together next week!          |")
-
-    elif "Not Attending Film Festival" in player.memories:
-        print("|           You're thinking of maybe reconsidering           |")
-        print("|            the whole film festival thing later.            |")
+    if "Russian Link" in player.memories:
+        print("|    You're looking forward to these film festival plans     |")
 
     print("|                                                            |")
     print(

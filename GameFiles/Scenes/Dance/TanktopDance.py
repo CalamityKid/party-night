@@ -12,7 +12,10 @@ def tanktopdancecontent(player):
             and "Tanktop Dance" not in player.memories
         ):
             print("You and your partner dance your way to them and join in.")
-            print("The cutie's got this disco vibe going on.")
+            print("The cutie's got this disco vibe going on")
+            print("you two catch the fever, disco fingers and all")
+            print("it's hella fun")
+            player.time.ten_minutes()
 
             player.memories.append("Tanktop Dance")
             player.NPCs["tanktop"].times_talked = 5
@@ -37,3 +40,4 @@ def tanktopdancecontent(player):
             if player.NPCs["tanktop"].boost < 1.1:
                 player.NPCs["tanktop"].boost = 1.1
             player.modify_stat("lit", 10, True)
+            return True

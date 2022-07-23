@@ -89,6 +89,14 @@ while player.gameover == False:
     player_choose_action(player)
     sleep(3)
     time.ten_minutes()
+
+    print("this is a test")
+    print(player.active_items)
+    print(len(player.active_items))
+    if len(player.active_items) > 0:
+        for i in player.active_items:
+            print(player.active_items[i])
+
     if player.gameover == False:
         update_schedule()
         sleep(3)

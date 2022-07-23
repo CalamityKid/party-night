@@ -6,7 +6,7 @@ from ...Scripts.Format.Calculations import not_on_dance_floor
 # either get everybody and dance and change the music
 
 
-def partnergathering1content(player):
+def partnergather1content(player):
     if "Not Gathering" in player.memories:
         print("Music's still pretty bad")
         print("this DJs up til 5 am")

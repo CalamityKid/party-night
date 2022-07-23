@@ -87,7 +87,7 @@ def partnerbankcontent(player):
             return False
 
     if "Partner Link" not in player.memories:
-        print("they clearly wish they were dancing")
+        print("they wish they were dancing")
         return False
 
     elif "Partner Link" in player.memories:

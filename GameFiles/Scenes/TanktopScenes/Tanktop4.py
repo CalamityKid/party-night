@@ -9,6 +9,7 @@ def tanktoptimes4content(player):
         print("and they're all really getting down to the music.")
         print("You can't really talk, they're all movement.")
         print("")
+        return None
 
     elif player.location != player.rooms["dance floor"]:
         print("You approach the cutie in the tanktop's group of friends.")
@@ -52,3 +53,4 @@ def tanktoptimes4content(player):
         print("The cutie lets you know they'll all be downstairs dancing.")
         print("")
         player.NPCs["tanktop"].location = player.rooms["dance floor"]
+        return True

@@ -11,3 +11,8 @@ def smiledancecontent(player):
         player.NPCs["smile"].boost = 1.3
         player.memories.append("Smile Dance")
         player.NPCs["smile"].times_talked = 5
+        player.time.ten_minutes()
+        return True
+
+    else:
+        print("The smile ambassador sways close to you.")

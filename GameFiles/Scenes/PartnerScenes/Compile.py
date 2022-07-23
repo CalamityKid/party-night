@@ -4,6 +4,8 @@ from .Partner0 import partnertimes0content
 from .Partner1 import partnertimes1content
 from .Partner2 import partnertimes2content
 from .PartnerBank import partnerbankcontent
+from .PartnerTanktop0 import partnertanktoptimes0content
+from .PartnerTanktop5 import partnertanktop5content
 from .PartnerGather0 import partnergather0content
 from .PartnerGather1 import partnergather1content
 
@@ -16,6 +18,8 @@ def assemble_partner_scenes():
     times2 = Scene("Times2", partnertimes2content)
     gather0 = Scene("Gather0", partnergather0content)
     gather1 = Scene("Gather1", partnergather1content)
+    partnertanktop0 = Scene("PartnerTanktop0", partnertanktoptimes0content)
+    partnertanktop5 = Scene("PartnerTanktop5", partnertanktop5content)
     partnerbank = Scene("PartnerBank", partnerbankcontent)
 
     partnertanktop0 = Scene("PartnerTanktop0", partnertanktoptimes0content)
@@ -28,6 +32,7 @@ def assemble_partner_scenes():
         "Gather1": gather1,
         "PartnerBank": partnerbank,
         "PartnerTanktop0": partnertanktop0,
+        "PartnerTanktop5": partnertanktop5,
     }
 
 

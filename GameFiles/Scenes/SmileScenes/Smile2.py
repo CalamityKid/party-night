@@ -25,7 +25,7 @@ def smiletimes2content(player):
 
         elif player.location != player.rooms["bathroom"]:
             print("")
-            print("          I wanted to introduce you my friend. My candy mover.")
+            print("          I wanted to introduce you my friend. My candy provider.")
             print("          They must be around here somewhere by now.")
             print("You agree to meet this friend when they show up later.")
             print("")

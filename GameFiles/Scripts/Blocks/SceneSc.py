@@ -20,12 +20,14 @@ class SceneVariables:
         popper_counter=0,
         capeohour=00,
         capeominute=00,
+        gum_counter=0,
     ):
         self.stalltimewarning = stalltimewarning
         self.movementtimewarning = movementtimewarning
         self.popper_counter = popper_counter
         self.capeohour = capeohour
         self.capeominute = capeominute
+        self.gum_counter = gum_counter
 
     def __repr__(self):
         return "Scene Variables"

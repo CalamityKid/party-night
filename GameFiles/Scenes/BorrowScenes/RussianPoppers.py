@@ -46,7 +46,7 @@ def russianpopperscontent(player):
                 print("You signal your friend you want a hit")
                 print("they kinda look around the room")
                 print("the very empty room.")
-                print("Don't wanna be so obvious.")
+                print("they signal to wait until it's more crowded.")
                 return None
             elif player.time.hour >= 5:
                 print("You signal you want some poppers")

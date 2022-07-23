@@ -23,7 +23,7 @@ def smiletimes4content(player):
                 "The smile ambassador is really into this particular song apparently."
             )
             print("The huge fan they're waving around seems a bit dangerous...")
-            print("You're told, through body motion, to get your dance on too.")
+            print("Their body language is all come on get your dance on.")
 
     if player.location == player.rooms["smoking room"]:
         print("You talk a bit about how stuff is going for each of you.")

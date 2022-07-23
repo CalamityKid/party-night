@@ -1,4 +1,4 @@
-from ...Input import yesorno
+from ..PartnerScenes.Compile import partnerscenes
 
 # Already danced with them and have the boost. Get the Link and sex thing depending on the path (or your partner hooking up with them).
 def tanktoptimes5content(player):
@@ -12,7 +12,7 @@ def tanktoptimes5content(player):
 
         if "Tanktop Partner" in player.memories:
             print("     Especially you, sexy")
-            print("they say to your partner with a wink")
+            print("while looking at your partner and winking")
             print("")
         print("     It's been very special.")
         print("     I hope we can keep hanging out.")
@@ -44,27 +44,7 @@ def tanktoptimes5content(player):
         elif "Tanktop Partner" in player.memories:
             print("You've really made a connection with this cutie tonight.")
             if "Partner Hookup" not in player.memories:
-                print("Your partner seems to be going all in this time.")
-                print("They kinda eye you, like checking if you're okay with it.")
-                print("")
-                print(
-                    "     Are you okay with your partner and the cutie in the tanktop"
-                )
-                print("               hooking up without you? (y/n) ", end="")
-                option = yesorno()
-                if option == True:
-                    print(
-                        "You signal you're cool with it and they're gone for a few minutes."
-                    )
-                    print("You keep doing your thing and after a bit they come back.")
-                    print("They both seem pretty happy.")
-                    print("You might ask your partner about it after the party's over.")
-                    player.memories.append("Partner Hookup")
-                    return True
-                elif option == False:
-                    print("You signal maybe not now.")
-                    print("Your partner kinda eases on the flirting and lays back.")
-                    return None
+                return partnerscenes["PartnerTanktop5"].run_scene(player)
 
             elif "Partner Hookup" in player.memories:
                 print("Your partner's even happier about it.")
