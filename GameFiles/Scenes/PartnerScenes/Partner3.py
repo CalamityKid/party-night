@@ -1,5 +1,3 @@
-from .Compile import partnerscenes
-
 # in order to get here, you have to dance after boost is more than 1.3
 # if between 3.30 and 5, it returns PartnerGather0.  To get to times 4 has to be before 5 am.
 
@@ -35,7 +33,7 @@ def partnertimes3content(player):
 
         elif player.NPCs["partner"].boost == 1.4:
             player.NPCs["partner"].times_talked = 4
-            return partnerscenes["Times4"].run_scene(player)
+            return player.partnerscenes["Times4"].run_scene(player)
 
         else:
-            return partnerscenes["Gather0"].run_scene(player)
+            return player.partnerscenes["Gather0"].run_scene(player)

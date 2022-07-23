@@ -1,5 +1,4 @@
 from time import sleep
-from .Compile import partnerscenes
 
 # appreciation and some navi stuff
 # in order to get to 3, you have to dance after boost is more than 1.3
@@ -18,4 +17,4 @@ def partnertimes2content(player):
         return False
     else:
         print("your partner tells you")
-        return partnerscenes["PartnerBank"].run_scene(player)
+        return player.partnerscenes["PartnerBank"].run_scene(player)

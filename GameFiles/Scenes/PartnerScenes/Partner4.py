@@ -1,5 +1,4 @@
 from time import sleep
-from .Compile import partnerscenes
 
 # only runs after 5 or after music changed, either way they're happy, gives you partnerLink Memory   [[|PartnerBank]]
 
@@ -21,4 +20,4 @@ def partnertimes4content(player):
         return True
 
     elif "Partner Link" in player.memories:
-        return partnerscenes["PartnerBank"].run_scene(player)
+        return player.partnerscenes["PartnerBank"].run_scene(player)

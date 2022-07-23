@@ -1,5 +1,4 @@
 from ...Input import yesorno
-from .Compile import partnerscenes
 
 # this runs between 3.30 and 5, if music is terrible and boost >1.3 and music changed not in memories
 #    if "Gathering" in player.memories or "Not Gathering" in player.memories:
@@ -8,7 +7,7 @@ from .Compile import partnerscenes
 
 def partnergather0content(player):
     if "Gathering" in player.memories or "Not Gathering" in player.memories:
-        return partnerscenes["Gather1"].run_scene(player)
+        return player.partnerscenes["Gather1"].run_scene(player)
 
     print("and complain about the music")
     print("it's killing you")
