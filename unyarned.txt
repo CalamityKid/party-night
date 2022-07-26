@@ -103,34 +103,6 @@ return Beggining
 		"colorID": 0
 	},
 	{
-		"title": "Timed Events",
-		"tags": "",
-		"body": ">><<If time is At 00.30 and couple.timestalked == 0>>
-    << add couple to total people>> 
-    << make couple location your current location>> 
-    <<Run couple.talk 0>>
-
-<< When is >>
-
-<< if its 4.30 am and the music is great and couple is in smoking room, move couple to dance floor and do a transition next, make times talked 4>>
-
-<<when it's 5 couple leaves>>
-    The cute couple walks up to you and your partner
-    Babes, we gotta go, it's 5 already
-    says one of them while the other hugs you
-    << if CoupleDance in memories>>
-        It was fun!
-        one of them says
-    << if CoupleDance not in memories>>
-        Maybe they'll have better music next times
-        one of them says
-    << if CoupleLink in memories>>
-        we had a blast!
-        the other one says
-    They hug everyone goodbye and leave the party.
-    << remove couple from total players, change location to None>>
-",
-
 	{
 
 

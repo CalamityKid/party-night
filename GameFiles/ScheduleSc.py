@@ -22,7 +22,6 @@ def update_schedule():
             player.party.change_music_terrible()
         elif "Changed Music" in player.memories:
             player.party.change_music_great()
-        # otherwise make music amazing
 
     elif player.time.hour >= 5:
         player.party.change_music_great()
@@ -90,16 +89,9 @@ def update_schedule():
             player.NPCs["pusher"].location = player.rooms["bathroom"]
 
     if player.time.hour == 5 and player.time.minute == 00:
-        # couple kisses you goodbye
-        print("")
-        print("The cute couple tells you it's five am and they gotta go.")
-        print(
-            "They both kiss you goodbye and swiftly start their long trek to the mountains."
-        )
-        print("")
-        player.NPCs["couple"].location = None
-        player.people_in_party.remove(player.NPCs["couple"])
-        # remove couple from people in party
+        # couple kisses you goodbye and leaves, removes couple from party
+        couplescenes["CoupleLeaves"].run_scene(player)
+        # couple kisses you goodbye and leaves, removes couple from party
         player.NPCs["russian"].location = player.rooms["bathroom"]
         player.NPCs["smile"].location = player.rooms["dance floor"]
         if player.NPCs["tanktop"] in player.people_in_party:
@@ -136,5 +128,9 @@ def update_schedule():
             "dance floor"
         ]  # if tanktop4 has run and tanktop 5 hasnt run, stay there on dance floor
 
-        if couplescenes["CoupleGum"].has_run == False and player.mouth < 30:
+        if (
+            player.NPCs["couple"] in player.people_in_party
+            and couplescenes["CoupleGum"].has_run == False
+            and player.mouth < 30
+        ):
             couplescenes["CoupleGum"].run_scene(player)
