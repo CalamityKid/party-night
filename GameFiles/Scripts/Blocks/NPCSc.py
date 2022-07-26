@@ -56,7 +56,7 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
         ["cutie", "tank", "tanktop"],
     )
     pusher = NPC(
-        "someone who seems to be a pusher",
+        "your new mercantile friend",
         ["Soundcloud", "blunt", "cigarette", "poppers", "chewing gum"],
         ["pusher"],
     )

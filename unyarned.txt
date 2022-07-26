@@ -95,81 +95,11 @@ Cool. That's the end of the tutorial! Let's get to the game.
 return Beggining
 ",
 	{
-	},
-	{
-		"title": "Smile Flirt",
-		"tags": "Smile Flirt",
-		"body": "<< if smile.flirt > 0>>
-    You send each other air kisses.
-<<if smile.flirt = 0>>
-    You give them a long seductive look and a wink.
-    You're answered with a chuckle and a kiss on the cheek.
-    You both laugh it off.
-    << smile.flirt+=1>>
-",
-
-	},
-
-	},
-	{
-		"title": "Russian Flirt",
-		"tags": "Russian Flirt",
-		"body": ">><< if russian.flirt <== 3>>
-    You playfully give each other one quick kiss on the mouth.
-
-<< if russian.flirt == 2>>
-    You ask who fastened all those leather straps in hard to reach places
-    They answer you'll have to see for yourself next time.
-<< russian.flirt +=1>> 
-
-<< if russian.flirt == 1>> 
-    You do this exagerated seductive wink from afar
-    they cartoonishly grab their chest with both hands
-<< russian.flirt +=1>> 
-
-<< if russian.flirt == 0>> 
-    You tell your russian friend you're really into this outfit
-    they're glad cause it took forever to put on
-    You ask if they can show you how to take it off
-    They blush and send you an air kiss
-<< russian.flirt +=1>>
-",
-		"position": {
-			"x": -1952,
-			"y": -3236
-		},
+	}
 	},
 	{
 
-		"title": "Couple Flirt",
-		"tags": "Couple flirt",
-		"body": ">><< if couple.flirt == 3>>
-    You blow them air kisses
-    they blow you some back
-<< if couple.flirt == 2>>
-    Your wink to one of them seductively
-    they put the back of their hand to their face
-    and make a duckface 
-    << couple.flirt +=1>> 
-
-<< if couple.flirt == 1>>
-    You start making up this really convoluted compliment.
-    one of them misunderstands what you meant
-    
-    you end talking about the women's liberation movement somehow
-    << time passes>>
-    << if couple.boost is less than 1.2 make 1.2>> 
-    << couple.flirt +=1>> 
-
-<< if couple.flirt == 0>> 
-    You start flirting with one of them
-    the other one is too distracted to notice
-    << couple.flirt +=1>>
-",
-		"position": {
-			"x": -1446,
-			"y": -3045
-		},
+	
 		"colorID": 0
 	},
 	{
@@ -201,124 +131,9 @@ return Beggining
     << remove couple from total players, change location to None>>
 ",
 
-		"title": "PusherTimes0",
-		"tags": "Pusher, times0",
-		"body": "Times talked 0
-#Youve just been introduced. There are two memories associated, pusher business, when youve made a deal and looking for pusher, when you havent met the pusher and tanktop asks if you know someone. You get up to times talked1 either having made the bussiness which happens automatically or being told its cool to make the deal, you can't go further if you don't know tanktop.
-
-<<if Looking for pusher in memories and Pusher Business not in memories>>
-You and your partner start casually talking to them
-quickly confirming that, yes, they have some stuff to move around
-
-Your partner mentions some friends of a friend need a boost
-
-    You hook me up with a group and I'll give you a boost too
-
-you say you might do just that
-
-make times_talked = 1
-
-<<elif Pusher Business in memories>>
-    Thanks for the networking earlier.
-    You're a cool cat. Here, for the trouble.
-
-the pusher gives you a pill and gives your partner some k 
-your partner's beaming. you're both thankful.
-
-make times_talked 1
-Commission added to memories
-
-<<elif Pusher Business not in memories>>
-You make some polite small talk about how the party's going so far
-the conversation doesn't go much further than that
-",
-		"position": {
-			"x": -1090,
-			"y": -3385
-		},
-		"colorID": 0
-	},
 	{
-		"title": "PusherTimes1",
-		"tags": "Pusher, times1",
-		"body": "Times talked 1
-#Youve met tanktop and talked to pusher after, you might or might not have your commission. 
 
-<<if Commission in memories>>
-if weed not in active items and location is smoking room
 
-they're smoking some green
-    Heyy! yes. The cool cats!
-
-you talk a little. They offer some weed.
-    All you want, on me today!
-
-do you want some weed?
-yes. You say yes, thankyouverymuch.
-use weed.
-
-no. You kindly refuse.
-    You just let me know, my spliff's your spliff.
-    Have a good one.
-
- else:
-    Enjoying yourself tonight?
-all friendly like, super articulate.
-you chatter on for a bit before going back to the party.
-
-<<if Looking for pusher in memories and Pusher Business not in memories>>
-
-you should probably go talk to the cutie in the tanktop and play matchmaker.
-
-<<elif Pusher Business in memories>>
-    Thanks for the networking earlier.
-    You're a cool cat. Here, for the trouble.
-
-the pusher gives you a pill and gives your partner some k 
-your partner's beaming. you're both thankful.
-Commission added to memories
-",
-		"position": {
-			"x": -972,
-			"y": -3093
-		},
-		"colorID": 0
-	},
-	{
-		"title": "Pusher Flirt",
-		"tags": "Pusher flirt",
-		"body": "You flirt with the pusher friend
-
-if flirt == 1:
-The pusher half smirks
-
-    Don't think that'll get you any discounts though!
-you answer the only prize you're after is a smile
-and you get your prize
-flirt +1
-
-elif pusher business in memories and flirt <3:
-
-    You wanna sweeten the deal even more huh?
-    I'm strictly business today sexy
-    don't get any ideas
-
-flirt +1 
-
-(else)
-random 3
-1: You wink and smile from some distance away.
-They pretend they didn't see you, but you can see the smirk.
-
-2: You compliment their jacket.
-They tell you they genuinely appreciate the compliment.
-
-3: You can't think of anything to tell them right now.
-
-return False
-
-		"colorID": 0
-	},
 	{
 		"title": "TanktopFlirt",
 		"tags": "Tanktop Flirt",

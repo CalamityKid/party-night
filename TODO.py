@@ -8,6 +8,7 @@
 # fix the code in partnerdance
 # Attending Film Festival and Not Attending Film Festival to russian game over
 # dance can take 20 minutes
+# add tanktop and partner flirt scenes
 
 # Link balti #plays immediately when your high goes up to 100
 # make script for friends on dance floor to check for the gathering scene, in partnerdance
