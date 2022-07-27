@@ -34,17 +34,18 @@ def tutorialcontent(player):
     print("Okay, so, you're partying with your friends", end=" ")
     sleep(2)
     print("after a long time of no parties.")
-    sleep(2)
+    sleep(3)
     print("You have no money", end=" ")
     sleep(2)
     print("but you'll make the most out of tonight.")
-    sleep(2)
+    sleep(3)
     print("")
     print("Try to have the best time you can with your friends.")
     sleep(3)
     print("")
     ################### TALK
     print("You can perform actions by writing a verb and a noun.")
+    sleep(2)
     act = None
     obj = None
 
@@ -56,13 +57,14 @@ def tutorialcontent(player):
     print("Perfect!")
     sleep(2)
     print("Talking with your friends is key to having a good time tonight.")
-    sleep(2)
+    sleep(3)
     print("")
     print(
         "You can also use items you have in your pockets, they will affect how you feel. "
     )
-    print("Some will give you a buzz, others will affect your breath and so on.")
     sleep(2)
+    print("Some will give you a buzz, others will affect your breath and so on.")
+    sleep(3)
     print("")
     player.dict_of_objects = {"cigarette": original_obj_dict["cigarette"]}
     player.dict_of_actions = {"Use": original_act_dict["Use"]}
@@ -80,25 +82,32 @@ def tutorialcontent(player):
     sleep(2)
     print("")
     print("You can only use items in your pockets.")
+    sleep(2)
     print("You'll get your hands on different things as the night goes on.")
-    sleep(3)
+    sleep(4)
     ################ MOVE
     print("")
     print("It's 12 am right now. The party ends at 6 am.")
-    sleep(2)
+    sleep(3)
     print("As you perform different actions, time will pass.")
     print("Actions usually take about 10 minutes.")
-    sleep(3)
+    sleep(4)
+    print("")
     print("Life is full of surprises though, who knows what will happen?")
     sleep(3)
     print("")
     print("")
-    print(
-        "There are three rooms in this party: the dance floor, the smoking room and the bathroom."
-    )
+    print("There are three rooms in this party:")
+    sleep(3)
+    print("the dance floor,", end=" ")
+    sleep(2)
+    print("the smoking room", end=" ")
+    sleep(2)
+    print("and the bathroom.")
+    sleep(2)
     print("You can move between them. The actions in each room will change slightly.")
     print("")
-    sleep(2)
+    sleep(3)
     player.dict_of_objects = {
         "smoking room": original_obj_dict["smoking room"],
         "bathroom": original_obj_dict["bathroom"],
@@ -123,11 +132,12 @@ def tutorialcontent(player):
     print("")
     sleep(3)
     print("Dancing can lead to different outcomes.")
-    sleep(2)
+    sleep(3)
     print("Let's pretend you're having a great time,")
+    sleep(2)
     print("you've smoked some weed and the music's great.")
     print("")
-    sleep(2)
+    sleep(4)
     player.lit = 100
     player.coolness = 0
     player.mouth = 100
@@ -155,7 +165,7 @@ def tutorialcontent(player):
     print("")
     print("If you don't like the music though,")
     sleep(3)
-    print("are too sober or not enjoying the party it'll go worse.")
+    print("or if you're too sober or not enjoying the party it'll go worse.")
     sleep(2)
     print("So let's try that again. This time though...")
     print("")
@@ -179,7 +189,7 @@ def tutorialcontent(player):
         print("")
 
     actin.execute(player, None)
-    sleep(2)
+    sleep(4)
     print("Yeah...", end=" ")
     sleep(3)
     print("That didn't go so well.")
@@ -197,7 +207,7 @@ def tutorialcontent(player):
     print("it'll help ease it.")
     print("")
     sleep(3)
-    print("The closer to your friends are,", end=" ")
+    print("The closer to your friends you are,", end=" ")
     sleep(2)
     print("the less anxious you'll feel when they're by your side.")
     print("")
@@ -211,8 +221,7 @@ def tutorialcontent(player):
     print("You can even Check yourself", end=" ")
     sleep(3)
     print("to see how you're feeling")
-    sleep(3)
-    print("")
+    sleep(4)
     print("so don't forget the check command, it can be useful.")
     sleep(4)
     print("")
