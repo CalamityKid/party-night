@@ -7,5 +7,6 @@ object1 = Example("Check")
 object2 = Example("Whatever")
 liststr = {"Checkkey": object1, "whateverkey": object2}
 
-if "Check" in liststr["Checkkey"].name:
-    print("yes")
+print(liststr)
+liststr.pop("Checkkey")
+print(liststr)
