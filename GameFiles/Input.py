@@ -1,14 +1,16 @@
 from .Scripts.Format import formatting
 
 
-def player_choose_action(player):
+def player_choose_action(player_obj):
     action_met = None
     while action_met == None:
         inputaction = None
         inputobject = None
         while (inputaction == None) or (inputobject == None):
             currentinput = input("What do you want to do? ")
-            inputaction, inputobject = formatting.format_input_command(currentinput)
+            inputaction, inputobject = formatting.format_input_command(
+                currentinput, player_obj
+            )
             if inputaction == None or inputobject == None:
                 print(inputaction, inputobject)
                 print("What?")
@@ -17,15 +19,15 @@ def player_choose_action(player):
                 inputobject = None
         ######################################### tap water exception
         if (
-            inputaction == player.dict_of_actions["Use"]
-            and inputobject == player.dict_of_actions["Tap Water"]
+            inputaction == player_obj.dict_of_actions["Use"]
+            and inputobject == player_obj.dict_of_actions["Tap Water"]
         ):
-            inputaction = player.dict_of_actions["Tap Water"]
+            inputaction = player_obj.dict_of_actions["Tap Water"]
             inputobject = True
         # print("executing!")
 
         print("")
-        action_met = inputaction.execute(player, inputobject)
+        action_met = inputaction.execute(player_obj, inputobject)
         print("")
         # if action_met == None:    #this is if execute returns none, maybe add a counter here
         # print("execute returned None. So time doesn't pass. Try something else:, maybe here refresh available actions, also maybe a counter")

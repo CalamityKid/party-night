@@ -1,9 +1,9 @@
 from time import sleep
-from random import choice
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action
 from GameFiles.Scripts.Format.Narration import narrate_actions, narrate_people_in_room
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
+from GameFiles.Scenes.TutorialContent import tutorialscene
 
 # from GameFiles.Scenes.SceneSelectSc import scene_select
 from .Scripts.Blocks.SceneSc import scenevariables
@@ -57,7 +57,7 @@ player.scenevariables = scenevariables
 player.partnerscenes = partnerscenes
 
 # Gives the player and NPCs a location so shit doesn't crash
-player.location = rooms["smoking room"]
+player.location = rooms["dance floor"]
 NPCs["partner"].location = rooms["bathroom"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
@@ -74,11 +74,10 @@ print("GAME START.")
 print("")
 
 print(player.time)
-time.hour = 4
+time.hour = 2
 time.minute = 20
 
-from GameFiles.Scripts.Format import Calculations
-
+tutorialscene.run_scene(player)
 update_schedule()
 print(player.dict_of_actions)
 while player.gameover == False:
@@ -92,17 +91,6 @@ while player.gameover == False:
     player_choose_action(player)
     sleep(3)
     time.ten_minutes()
-
-    print("this is a test")
-    print(player.active_items)
-    print(len(player.active_items))
-    if len(player.active_items) > 0:
-        randkey = choice(list(player.active_items.keys()))
-        print(randkey)
-        randkey = choice(list(player.active_items.keys()))
-        print(randkey)
-        randkey = choice(list(player.active_items.keys()))
-        print(randkey)
 
     if player.gameover == False:
         update_schedule()

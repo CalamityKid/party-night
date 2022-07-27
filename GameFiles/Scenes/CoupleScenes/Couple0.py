@@ -25,11 +25,6 @@ def coupletimes0content(player):
         print("nods all around, it's been too long for sure.")
         print("")
         sleep(4)
-        player.NPCs["partner"].location = player.location
-        player.NPCs["couple"].location = player.location
-        player.people_in_party.append(player.NPCs["couple"])
-        player.NPCs["couple"].times_talked = 1
-        return True
 
     elif player.location == player.rooms["dance floor"]:
         print("you see your friends, the cute couple, coming straight towards you.")
@@ -39,11 +34,6 @@ def coupletimes0content(player):
         print("""you make out "sorry" and "late" over the music""")
         print("")
         sleep(4)
-        player.NPCs["partner"].location = player.location
-        player.NPCs["couple"].location = player.location
-        player.people_in_party.append(player.NPCs["couple"])
-        player.NPCs["couple"].times_talked = 1
-        return True
 
     elif player.location == player.rooms["bathroom"]:
         print("you see your friends, the cute couple, walk into the bathroom as well.")
@@ -65,8 +55,9 @@ def coupletimes0content(player):
         print("you all agree, you gonna party hard today.")
         print("")
         sleep(4)
-        player.NPCs["partner"].location = player.location
-        player.NPCs["couple"].location = player.location
-        player.people_in_party.append(player.NPCs["couple"])
-        player.NPCs["couple"].times_talked = 1
-        return True
+
+    player.NPCs["partner"].location = player.location
+    player.NPCs["couple"].location = player.location
+    player.people_in_party.append(player.NPCs["couple"])
+    player.NPCs["couple"].times_talked = 1
+    return True

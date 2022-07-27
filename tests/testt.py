@@ -1,10 +1,11 @@
-dict1 = {
-    "your russian": 1,
-    "the smile": 2,
-    "your partner": 3,
-}
-var1 = "hello"
-if "your russian" in dict1:
-    var1 = dict1["your russian"]
+class Example:
+    def __init__(self, name):
+        self.name = name
 
-print(var1)
+
+object1 = Example("Check")
+object2 = Example("Whatever")
+liststr = {"Checkkey": object1, "whateverkey": object2}
+
+if "Check" in liststr["Checkkey"].name:
+    print("yes")

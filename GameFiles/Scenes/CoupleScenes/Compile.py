@@ -6,6 +6,7 @@ from .Couple3 import coupletimes3content
 from .Couple4 import coupletimes4content
 from .Couple5 import coupletimes5content
 from .CoupleGum import coupleGumcontent
+from .CoupleLeave import coupleleavescontent
 
 
 def assemble_couple_scenes():
@@ -16,6 +17,7 @@ def assemble_couple_scenes():
     times4 = Scene("Times4", coupletimes4content)
     times5 = Scene("Times4", coupletimes5content)
     couplegum = Scene("CoupleGum", coupleGumcontent)
+    coupleleaves = Scene("CoupleLeaves", coupleleavescontent)
 
     return {
         "Times0": times0,
@@ -25,6 +27,7 @@ def assemble_couple_scenes():
         "Times4": times4,
         "Times5": times5,
         "CoupleGum": couplegum,
+        "CoupleLeaves": coupleleaves,
     }
 
 

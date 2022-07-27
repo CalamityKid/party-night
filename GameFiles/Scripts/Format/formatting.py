@@ -1,14 +1,12 @@
-from ..Blocks.PlayerSc import player
 from ..Blocks.ItemsSc import items
-from ..Blocks.TimeSc import time
-from ..Blocks.PartySc import party
 
 
-def identify_object(object_to_be_identified_list, dict_of_objects):
+def identify_object(object_to_be_identified_list, player_obj):
+    """If passed a list (prior .split() ) and player.dict_of:objects will check the objects identifiers and return the object"""
     if object_to_be_identified_list == None or object_to_be_identified_list == []:
         return None
     for word in object_to_be_identified_list:
-        for key, objectx in dict_of_objects.items():
+        for key, objectx in player_obj.dict_of_objects.items():
             for identifierx in objectx.identifiers:
                 if identifierx in word:
                     return objectx
@@ -18,15 +16,16 @@ def identify_object(object_to_be_identified_list, dict_of_objects):
                     return items["G"]
                 if word == "tap" or word == "water":
                     # print("identify object: tap exception")
-                    return player.dict_of_actions["Tap Water"]
+                    return player_obj.dict_of_actions["Tap Water"]
     # print("Identify object i guess returns None cause nothing was identified")
 
 
-def identify_object_check(object_to_be_identified_list, dict_of_objects):
+def identify_object_check(object_to_be_identified_list, player_obj):
+    """Modified identify_object for Check action, also returns actions and other stuff. modify object: If passed a list (prior .split() ) and player.dict_of:objects will check the objects identifiers and return the object"""
     if object_to_be_identified_list == None:
         return None
     for word in object_to_be_identified_list:
-        for key, objectx in dict_of_objects.items():
+        for key, objectx in player_obj.dict_of_objects.items():
             for identifierx in objectx.identifiers:
                 if identifierx in word:
                     return objectx
@@ -34,26 +33,26 @@ def identify_object_check(object_to_be_identified_list, dict_of_objects):
                 if word == "g":
                     return items["G"]
                 if word == "tap" or word == "water":
-                    return player.dict_of_actions["Tap Water"]
+                    return player_obj.dict_of_actions["Tap Water"]
                 if word == "time":
-                    return time
+                    return player_obj.time
                 if word == "party" or word == "mood":
-                    return party
+                    return player_obj.party
                 if (
                     word == "body"
                     or word == "feeling"
                     or word == "feelings"
                     or word == "myself"
                 ):
-                    return player
+                    return player_obj
                 if word == "action" or word == "actions":
                     return "actions check"
                 if word == "pockets" or word == "items" or word == "holding":
                     return "item check"
                 if word == "around" or word == "room":
-                    return player.location
+                    return player_obj.location
                 if word == "party":
-                    return party
+                    return player_obj.party
                 if word == "friends":
                     return "friends"
 
@@ -80,7 +79,7 @@ def clean_input(to_clean):
         return None
 
 
-def format_input_command(player_input):
+def format_input_command(player_input, player_obj):
     action = None
     subject = None
     player_input = clean_input(player_input)
@@ -90,20 +89,20 @@ def format_input_command(player_input):
 
     elif len(player_input) >= 1:
         action = player_input[0]
-        action = identify_action(action, player.dict_of_actions)
+        action = identify_action(action, player_obj.dict_of_actions)
 
     if len(player_input) >= 2:
         subject = player_input[1:]
 
-        if action == player.dict_of_actions["Check"]:
-            subject = identify_object_check(subject, player.dict_of_objects)
+        if action == player_obj.dict_of_actions["Check"]:
+            subject = identify_object_check(subject, player_obj)
 
-        elif action != player.dict_of_actions["Check"]:
-            subject = identify_object(subject, player.dict_of_objects)
+        elif action != player_obj.dict_of_actions["Check"]:
+            subject = identify_object(subject, player_obj)
 
     if subject == None and (
-        action == player.dict_of_actions["Tap Water"]
-        or action == player.dict_of_actions["Dance"]
+        action == player_obj.dict_of_actions["Tap Water"]
+        or action == player_obj.dict_of_actions["Dance"]
     ):
         subject = True
 
