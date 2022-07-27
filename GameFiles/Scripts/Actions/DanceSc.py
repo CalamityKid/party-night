@@ -72,19 +72,19 @@ class Dance(Action):
         instance.goods_code = create_goods_code(instance.bool_dict)
         instance.bads_code = create_bads_code(instance)
 
-        print(
+        """print(
             "dance result is ",
             instance.result,
             "goods:",
             instance.goods,
             "bads:",
             instance.bads,
-        )
+        )"""
 
         instance.unmodded_goods = calculate_goods(player_object)
         instance.unmodded_result = int(instance.unmodded_goods - instance.bads)
 
-        print(
+        """print(
             "unmodded dance result is",
             instance.unmodded_result,
             "unmodded goods:",
@@ -92,7 +92,7 @@ class Dance(Action):
         )
 
         print(narrate_bads(instance))
-        print(narrate_goods(instance))
+        print(narrate_goods(instance))"""
         (num, str) = calculate_outcome(instance.result)
         sleep(3)
         print(narrate_outcomes(num, str))

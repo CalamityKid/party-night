@@ -7,15 +7,12 @@ def identify_action_tutorial(action_to_be_identified, dict_of_actions):
     for key, objectx in dict_of_actions.items():
         for identifierx in objectx.identifiers:
             if identifierx in action_to_be_identified:
-                print("identified action:")
-                print(objectx)
                 return objectx
 
 
 def identify_object_tutorial(object_to_be_identified_list, player_obj):
     """If passed a list (prior .split() ) and player will check the objects identifiers and return the object"""
     if object_to_be_identified_list == None or object_to_be_identified_list == []:
-        print("print object to be identified list:", object_to_be_identified_list)
         return None
     for word in object_to_be_identified_list:
         for key, objectx in player_obj.dict_of_objects.items():
@@ -63,7 +60,6 @@ def clean_input(to_clean):
         result = result.strip()
         return result
     elif type(to_clean) != str:
-        print("clean_input wasn't fed a string.")
         return None
 
 
@@ -90,10 +86,8 @@ def format_input_command_tutorial(player_input, player_obj):
             hasattr(action, "name") == True and "Check" not in action.name
         ) or hasattr(action, "name") == False:
             subject = identify_object_tutorial(subject, player_obj)
-            print("inside of the chec thing, the subject is", subject)
     else:
         subject = identify_object_tutorial(subject, player_obj)
-        print("inside of the else thing, the subject is", subject)
 
     if "Dance" in player_obj.dict_of_actions:
         if subject == None and (action == player_obj.dict_of_actions["Dance"]):
@@ -101,7 +95,7 @@ def format_input_command_tutorial(player_input, player_obj):
     elif "Tap Water" in player_obj.dict_of_actions:
         if subject == None and (action == player_obj.dict_of_actions["Tap Water"]):
             subject = True
-    print("return action:", action, " and subject: ", subject)
+
     return action, subject
 
 
@@ -112,12 +106,11 @@ def player_choose_action_tutorial(player_obj):
         inputaction = None
         inputobject = None
         while (inputaction == None) or (inputobject == None):
-            currentinput = input("Try typing a command ")
+            currentinput = input("Try typing a command: ")
             inputaction, inputobject = format_input_command_tutorial(
                 currentinput, player_obj
             )
             if inputaction == None or inputobject == None:
-                print(inputaction, inputobject)
                 print("Try typing that again.")
                 # print("Try again, bitch. One of the things is None. It won't execute.")
                 inputaction = None
@@ -127,5 +120,18 @@ def player_choose_action_tutorial(player_obj):
         action_met = True
         return inputaction, inputobject
 
-        # if action_met == None:    #this is if execute returns none, maybe add a counter here
-        # print("execute returned None. So time doesn't pass. Try something else:, maybe here refresh available actions, also maybe a counter")
+
+def yesorno():
+    yesornoresult = None
+    while yesornoresult == None:
+        yesornoresult = input()
+        if len(yesornoresult) > 0:
+            yesornoresult = clean_input(yesornoresult)
+            if "y" in yesornoresult[0]:
+                print("")
+                return True
+            elif "n" in yesornoresult[0]:
+                print("")
+                return False
+        print("(yes or no): ", end=" ")
+        yesornoresult = None
