@@ -1,5 +1,6 @@
 from .ActionSc import Action
-from ..Format.Bark import flirt_bark_good, flirt_bark_bad
+from ..Blocks.PlayerSc import MainCharacter
+from ...Scenes.Flirt.Compile import flirtscenes
 
 
 class Flirt(Action):
@@ -15,10 +16,15 @@ class Flirt(Action):
         self.identifiers = identifiers
         self.rooms_it_cannot_be_done_in = rooms_it_cannot_be_done_in
 
-    def execute(self, object_performing_the_action, object_to_be_interacted_with):
-        print(flirt_bark_good(object_performing_the_action))
-        print(flirt_bark_bad(object_performing_the_action))
-        return None
+    def execute(self, flirter, flirtee):
+        if isinstance(flirtee, MainCharacter) != True:
+            print("You can't flirt with ", flirtee.name)
+            return True
+        if flirtee.location != flirter.location:
+            print("They're not here right now.")
+            return None
+        elif flirtee.location == flirter.location:
+            return flirtscenes[flirtee.name].run_scene()
 
 
 flirt = Flirt()
