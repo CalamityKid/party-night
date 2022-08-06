@@ -24,7 +24,7 @@ class Flirt(Action):
             print("They're not here right now.")
             return None
         elif flirtee.location == flirter.location:
-            return flirtscenes[flirtee.name].run_scene()
+            return flirtscenes[flirtee.name].run_scene(flirter)
 
 
 flirt = Flirt()

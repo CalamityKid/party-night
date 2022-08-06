@@ -1,6 +1,6 @@
 from time import sleep
 from GameFiles.ScheduleSc import update_schedule
-from GameFiles.Input import player_choose_action
+from GameFiles.Input import player_choose_action, yesorno
 from GameFiles.Scripts.Format.Narration import narrate_actions, narrate_people_in_room
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
 from GameFiles.Scenes.TutorialContent import tutorialscene
@@ -73,11 +73,14 @@ NPCs["russian"].location = rooms["smoking room"]
 print("GAME START.")
 print("")
 
-print(player.time)
-time.hour = 2
-time.minute = 20
 
-tutorialscene.run_scene(player)
+time.hour = 00
+time.minute = 20
+print("Tutorial? (y/n) ", end="")
+op = yesorno()
+if op == True:
+    tutorialscene.run_scene(player)
+
 update_schedule()
 print(player.dict_of_actions)
 while player.gameover == False:
@@ -86,7 +89,7 @@ while player.gameover == False:
     narrate_actions(player)
     print("--------------------")
     print("")
-    sleep(1)
+    sleep(2)
     player.narrate_stats(True)
     player_choose_action(player)
     sleep(3)
