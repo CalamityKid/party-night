@@ -2,7 +2,7 @@
 def smiletimes3content(player):
     print("")
     if player.location == player.rooms["bathroom"]:
-        if player.time >= 2:
+        if player.time.hour >= 2:
             print("     Hey babe, I really wanted to introduce you to someone.")
             print("The smile ambassador introduces you to their friend.")
             print("Their friend is clearly a pusher. They seem nice.")
@@ -11,7 +11,7 @@ def smiletimes3content(player):
             player.NPCs["pusher"].location = player.rooms["bathroom"]
             player.NPCs["smile"].times_talked = 4
             return True
-        if player.time < 2:
+        if player.time.hour < 2:
             print("They remind you they wanna introduce you to their friend later.")
             print("")
 
