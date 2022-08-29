@@ -1,7 +1,12 @@
 from time import sleep
 from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action, yesorno
-from GameFiles.Scripts.Format.Narration import narrate_actions, narrate_people_in_room
+from GameFiles.Scripts.Format.Narration import (
+    narrate_actions,
+    narrate_people_in_room,
+    narrate_items,
+    narrate_move,
+)
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
 from GameFiles.Scenes.TutorialContent import tutorialscene
 
@@ -58,7 +63,7 @@ player.partnerscenes = partnerscenes
 
 # Gives the player and NPCs a location so shit doesn't crash
 player.location = rooms["dance floor"]
-NPCs["partner"].location = rooms["bathroom"]
+NPCs["partner"].location = rooms["dance floor"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
 
@@ -66,16 +71,16 @@ NPCs["russian"].location = rooms["smoking room"]
 # print(rooms["smoking room"].usable_in_room(items["cigarette"]))
 # print(items["cigarette"].usable_in_room(rooms["bathroom"]))
 
-# narrate_items(player)
 # player.narrate_stats()
 # player_choose_action()
 
+narrate_move(player)
 print("GAME START.")
 print("")
 
 
 time.hour = 00
-time.minute = 20
+time.minute = 10
 print("Tutorial? (y/n) ", end="")
 op = yesorno()
 if op == True:
@@ -87,6 +92,7 @@ while player.gameover == False:
     print("--------------------")
     player.location.narrate()
     narrate_actions(player)
+    narrate_items(player)
     print("--------------------")
     print("")
     sleep(2)

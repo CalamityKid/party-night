@@ -18,4 +18,5 @@ def coupleleavescontent(player):
     print("They hug everyone goodbye and leave the party.")
     player.NPCs["couple"].location = None
     player.people_in_party.remove(player.NPCs["couple"])
+    player.memories.remove("Borrow Gum")
     return None

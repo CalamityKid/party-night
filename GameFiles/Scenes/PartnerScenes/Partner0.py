@@ -8,6 +8,6 @@ def partnertimes0content(player):
         print("We could do it now if you want.")
     elif player.location != player.rooms["bathroom"]:
         print("We'd have to go to the bathroom first of course.")
-    player.memories.append("Ask for k")
+    player.memories.append("Ask for K")
     player.NPCs["partner"].times_talked = 1
     return False

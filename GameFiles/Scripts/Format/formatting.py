@@ -12,8 +12,9 @@ def identify_object(object_to_be_identified_list, player_obj):
                     return objectx
                 # exception for G
                 if word == "g":
-                    # print("identify object: G exception")
                     return items["G"]
+                elif word == "k":
+                    return items["special K"]
                 if word == "tap" or word == "water":
                     # print("identify object: tap exception")
                     return player_obj.dict_of_actions["Tap Water"]

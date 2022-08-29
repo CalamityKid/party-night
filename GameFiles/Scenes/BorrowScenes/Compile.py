@@ -1,6 +1,8 @@
 from ...Scripts.Blocks.SceneSc import Scene
 from .RussianPoppers import russianpopperscontent
 from .SmileG import smileGcontent
+from .BorrowGum import borrowgumcontent
+from .PartnerK import partnerkcontent
 
 
 def assemble_borrow_scenes():
@@ -8,15 +10,15 @@ def assemble_borrow_scenes():
 
     russianpoppers = Scene("RussianPoppers", russianpopperscontent)
     smileG = Scene("SmileG", smileGcontent)
+    borrowGum = Scene("BorrowGum", borrowgumcontent)
+    partnerK = Scene("PartnerK", partnerkcontent)
 
     return {
         "your russian friend": russianpoppers,
         "the smile ambassador": smileG,
+        "the attractive couple": borrowGum,
+        "your partner": partnerK,
     }
 
 
-item_redirect = {
-    "a bottle of poppers": "your russian friend",
-    "G": "the smile ambassador",
-}
 borrow_scenes = assemble_borrow_scenes()

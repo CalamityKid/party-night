@@ -5,8 +5,7 @@ from .CoupleFlirt import coupleflirtcontent
 from .PusherFlirt import pusherflirtcontent
 from .RussianFlirt import russianflirtcontent
 from .SmileFlirt import smileflirtcontent
-
-# from .TanktopFlirt import tanktopflirtcontent
+from .TanktopFlirt import tanktopflirtcontent
 
 
 def assemble_flirt_scenes():
@@ -17,7 +16,7 @@ def assemble_flirt_scenes():
     pusher = Scene("pusherflirt", pusherflirtcontent)
     russian = Scene("russianflirt", russianflirtcontent)
     smile = Scene("smileflirt", smileflirtcontent)
-    # tanktop = Scene("tanktopflirt", tanktopflirtcontent)
+    tanktop = Scene("tanktopflirt", tanktopflirtcontent)
 
     return {
         "the attractive couple": coupleflirt,
@@ -25,7 +24,7 @@ def assemble_flirt_scenes():
         "your new mercantile friend": pusher,
         "your russian friend": russian,
         "the smile ambassador": smile,
-        # "the cutie in the tank top": tanktopflirtcontent,
+        "the cutie in the tank top": tanktop,
     }
 
 

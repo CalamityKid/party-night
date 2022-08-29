@@ -1,10 +1,11 @@
 from ...Input import yesorno
 from ...Scripts.Blocks import items
 
-# they offer chewing gum
+# they offer chewing gum, give you borrow gum memory
 
 
 def coupletimes1content(player):
+    player.memories.append("Borrow Gum")
     print("")
     if player.location == player.rooms["smoking room"]:
         print(

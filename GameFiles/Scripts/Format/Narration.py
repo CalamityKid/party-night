@@ -19,7 +19,11 @@ def narrate_items(player):
         final_string = final_string.replace(" a ", " the ")
         final_string = final_string.replace(".", " in this room though.")
     if len(player.items) > 0:
-        print("You're holding " + formatting.format_objects_string(player.items))
+        print(
+            "You have "
+            + (formatting.format_objects_string(player.items)[:-1])
+            + " in your pockets."
+        )
     elif len(player.items) == 0:
         print("You're not holding anything rn.")
     if len(final_string) >= 34:
@@ -50,6 +54,17 @@ def narrate_actions(player):
     final_string = formatting.format_objects_string(usable_actions)
     final_string = final_string.replace("and", "or")
     print("You could " + final_string)
+
+
+def narrate_move(player):
+    move_string = "You could move to "
+    move_list = []
+    for key, room in player.rooms.items():
+        if room != player.location:
+            move_list.append(room.name)
+    move_string += formatting.format_objects_string(move_list)
+    move_string = move_string.replace("and", "or")
+    print(move_string)
 
 
 def people_in_room_string(player_object):

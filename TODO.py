@@ -2,7 +2,6 @@
 # remeber to add people to player.people_in_party in Scenes when they are introduced
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
 # Make partner anxiety, crowd, music, water run automatically
-# "Ask for k" in memories. Ask for. "Ask for P"  "Ask for G" in memories. Borrow Gum, no memory.
 # fix the code in partnerdance. TUTORIAL COMMAND.
 # Attending Film Festival and Not Attending Film Festival to russian game over
 # add tanktop and partner flirt scenes
