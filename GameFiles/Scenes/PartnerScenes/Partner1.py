@@ -2,7 +2,17 @@ from time import sleep
 
 
 def partnertimes1content(player):
-    if player.NPCs["couple"] not in player.people_in_party and player.time.hour < 5:
+    if player.NPCs["couple"] not in player.people_in_party and player.time.hour <= 3:
+        print("Your partner tells you")
+        print("    I hope they come tonight!")
+        sleep(2)
+        print("your friends, the cute couple, you assume")
+        print("one of them works late, so they they might not make it after all")
+        sleep(2)
+        print("")
+        print("you nod. It'd be fun to see them tonight.")
+
+    elif player.NPCs["couple"] in player.people_in_party and player.time.hour < 5:
         print("Your partner tells you")
         print("    I'm glad they came tonight!")
         sleep(2)

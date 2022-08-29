@@ -3,6 +3,7 @@ from .CoupleScenes.Compile import couplescenes
 from .RussianScenes.Compile import russianscenes
 from .TanktopScenes.Compile import tanktopscenes
 from .PartnerScenes.Compile import partnerscenes
+from .PusherScenes.Compile import pusherscenes
 from ..Input import yesorno
 
 
@@ -31,7 +32,8 @@ def scene_select(player, actor):
         scene_dict_used = tanktopscenes
     elif actor == player.NPCs["partner"]:
         scene_dict_used = partnerscenes
-
+    elif actor == player.NPCs["pusher"]:
+        scene_dict_used = pusherscenes
     ######## scene exceptions
     if (
         (actor == player.NPCs["couple"])
