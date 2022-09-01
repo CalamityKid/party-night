@@ -83,12 +83,8 @@ if op == True:
     tutorialscene.run_scene(player)
 
 update_schedule()
-print(player.dict_of_actions)
 while player.gameover == False:
-    print("--------------------")
     narrate_actions(player)
-    print("--------------------")
-    print("")
     sleep(2)
     player.narrate_stats(True)
     player_choose_action(player)

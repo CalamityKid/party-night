@@ -110,7 +110,7 @@ class Dance(Action):
 
     def narrate(self, player_obj):
         if self.doable_in_room(player_obj.location) == True:
-            print("You could also dance here.")
+            print("You could also [DANCE] here.", end=" ")
 
 
 dance = Dance()

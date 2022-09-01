@@ -42,7 +42,7 @@ class Check(Action):
         return None
 
     def narrate(self, player_obj):
-        print("You can also check stuff or look around.", end=" ")
+        print("You can also [CHECK] stuff or [LOOK AROUND].", end=" ")
 
 
 check = Check()

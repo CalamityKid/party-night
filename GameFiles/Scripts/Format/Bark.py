@@ -20,7 +20,6 @@ from ...Scenes.Flirt.BadBarkText import (
 
 def body_check_bark():  ##Random opening statement before body check
     """prints a randomized opening statement before a body check"""
-    print(" ")
     op = randint(0, 9)
     print(body_check_bark_dict[op])
     return None

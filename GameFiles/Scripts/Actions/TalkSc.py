@@ -38,9 +38,11 @@ class Talk(Action):
             people_in_room_string = format_objects_string(people_in_room_list)
         if people_in_room_string == "nothing":
             people_in_room_string = "no familiar faces."
-        print("You see " + str(people_in_room_string), end=" ")
+        else:
+            print("")
+        print("You see " + people_in_room_string, end=" ")
         if people_in_room_string != "no familiar faces.":
-            print("You could flirt or talk to them.")
+            print("You could [FLIRT] or [TALK] to them.")
         else:  # to keep the spacing equal cause of the end
             print("")
 

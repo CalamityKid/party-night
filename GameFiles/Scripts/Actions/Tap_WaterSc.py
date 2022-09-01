@@ -28,7 +28,7 @@ class Tap_Water(Action):
 
     def narrate(self, player_obj):
         if self.doable_in_room(player_obj.location) == True:
-            print("You could drink tap water too.")
+            print("You could [DRINK TAP] water too.", end=" ")
 
 
 #########################################################################

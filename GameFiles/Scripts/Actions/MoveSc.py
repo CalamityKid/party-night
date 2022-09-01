@@ -2,6 +2,7 @@ from .ActionSc import Action
 from ..Blocks.RoomSc import Room
 
 from ..Format.formatting import format_objects_string
+from ..Format.Narration import narrate_actions
 
 
 class Move(Action):
@@ -37,10 +38,11 @@ class Move(Action):
                         object_to_be_interacted_with.name + ".",
                     )
                     object_performing_the_action.time.ten_minutes()
-                self.narrate(object_performing_the_action)
-                return (
-                    None  # because time doesnt pass when you move unless crowd is full.
-                )
+                print(" ")
+                narrate_actions(object_performing_the_action)
+
+                return None
+                # because time doesnt pass when you move unless crowd is full.
 
             elif isinstance(object_to_be_interacted_with, Room) == False:
                 print("You can't move to " + object_to_be_interacted_with.name + ".")
@@ -49,7 +51,8 @@ class Move(Action):
         return None
 
     def narrate(self, player_obj):
-        move_string = "You could move to "
+        player_obj.location.narrate()
+        move_string = "You could [MOVE] to "
         move_list = []
         for key, room in player_obj.rooms.items():
             if room != player_obj.location:

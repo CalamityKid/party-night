@@ -21,15 +21,14 @@ class Room:
             print(
                 "You and your partner are currently on "
                 + str(player.location.name)
-                + "."
+                + ".",
             )
         else:
             print(
                 "You and your partner are currently in "
                 + str(player.location.name)
-                + "."
+                + ".",
             )
-        player.dict_of_actions["Talk"].narrate(player)
 
     def usable_in_room(self, object):
         try:

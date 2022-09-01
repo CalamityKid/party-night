@@ -56,9 +56,9 @@ class Use_Item(Action):
         unusable_item_list = []
         final_string = ""
         if len(player_obj.items) == 0:
-            final_string = "You don't have any items you can use atm."
+            final_string = "You don't have any items you can [USE] atm."
         elif len(player_obj.items) > 0:
-            final_string += "You can't use "
+            final_string += "You can't [USE] "
         for i in player_obj.items:
             if i.usable_in_room(player_obj.location) == False:
                 unusable_item_list.append(i)
@@ -76,7 +76,7 @@ class Use_Item(Action):
                 + " in your pockets."
             )
 
-        elif len(player_bj.items) == 0:
+        elif len(player_obj.items) == 0:
             print("You're not holding anything rn.")
 
         if len(final_string) >= 34:

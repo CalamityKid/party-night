@@ -79,7 +79,7 @@ class Borrow(Action):
         return None
 
     def narrate(self, player_obj):
-        final_str = "You could borrow "
+        final_str = "You could [BORROW] "
         borrow_list = available_borrows(player_obj)
         str_list = []
         if len(borrow_list) > 0:
@@ -92,7 +92,6 @@ class Borrow(Action):
             final_str = final_str + format_objects_string(str_list)
             final_str = final_str.replace("and", "or")
             print(final_str[:-1] + ".")
-        print("borrow list:", borrow_list)
 
 
 borrow = Borrow()
