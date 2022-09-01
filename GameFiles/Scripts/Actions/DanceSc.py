@@ -108,5 +108,9 @@ class Dance(Action):
         dance_flourish(instance)
         return True
 
+    def narrate(self, player_obj):
+        if self.doable_in_room(player_obj.location) == True:
+            print("You could also dance here.")
+
 
 dance = Dance()

@@ -26,5 +26,8 @@ class Flirt(Action):
         elif flirtee.location == flirter.location:
             return flirtscenes[flirtee.name].run_scene(flirter)
 
+    def narrate(self, player):
+        return None
+
 
 flirt = Flirt()

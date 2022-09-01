@@ -26,6 +26,10 @@ class Tap_Water(Action):
         object_performing_the_action.mouth += 30
         return True
 
+    def narrate(self, player_obj):
+        if self.doable_in_room(player_obj.location) == True:
+            print("You could drink tap water too.")
+
 
 #########################################################################
 #############################   INSTANCES   #############################

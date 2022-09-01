@@ -3,6 +3,7 @@ from ..Blocks.ItemsSc import Item as Item
 from ..Blocks.NPCSc import NPC as NPC
 from ...Scenes.BorrowScenes.Compile import borrow_scenes
 from ..Format.BorrowCalculations import item_redirect, available_borrows
+from ..Format.formatting import format_objects_string
 
 
 class Borrow(Action):
@@ -76,6 +77,22 @@ class Borrow(Action):
             return None
         print("You haven't been offered " + unaltered_namestr + ".")
         return None
+
+    def narrate(self, player_obj):
+        final_str = "You could borrow "
+        borrow_list = available_borrows(player_obj)
+        str_list = []
+        if len(borrow_list) > 0:
+            for i in borrow_list:
+                for item, person in item_redirect.items():
+                    if i in person:
+                        str_list.append(
+                            "{thing} from {someone}".format(thing=item, someone=person)
+                        )
+            final_str = final_str + format_objects_string(str_list)
+            final_str = final_str.replace("and", "or")
+            print(final_str[:-1] + ".")
+        print("borrow list:", borrow_list)
 
 
 borrow = Borrow()

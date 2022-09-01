@@ -1,5 +1,5 @@
 from ...Input import yesorno
-from ...Scripts.Format.Narration import narrate_people_in_room
+
 
 # its after 3 am, they bitched about the DJ and you MAYBE changed the music, maybe didn't. Advance by dancing with them, dance gives you dance memory. If music is terrible you can convince them to come down anyway.
 
@@ -46,7 +46,7 @@ def coupletimes4content(player):
                 player.NPCs["partner"].location = player.rooms["dance floor"]
                 player.NPCs["couple"].location = player.rooms["dance floor"]
                 player.memories.append("Couple Convinced")
-                narrate_people_in_room(player)
+
                 return True
 
             elif option == False:

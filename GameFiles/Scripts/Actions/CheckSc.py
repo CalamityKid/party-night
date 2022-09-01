@@ -1,6 +1,6 @@
 from .ActionSc import Action
 from ..Blocks.ItemsSc import Item as Item
-from ..Format.Narration import narrate_actions, narrate_items
+from ..Format.Narration import narrate_actions
 
 
 class Check(Action):
@@ -22,7 +22,7 @@ class Check(Action):
             if thing_to_be_checked == "actions check":
                 narrate_actions(object_checking)
             if thing_to_be_checked == "item check":
-                narrate_items(object_checking)
+                object_checking.dict_of_actions["Use"].narrate(object_checking)
             if thing_to_be_checked == "friends":
                 object_checking.dict_of_actions["Talk"].narrate(object_checking)
             return None

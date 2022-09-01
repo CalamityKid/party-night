@@ -1,6 +1,7 @@
 from .ActionSc import Action
 from ..Blocks.RoomSc import Room
-from ..Format.Narration import narrate_people_in_room
+
+from ..Format.formatting import format_objects_string
 
 
 class Move(Action):
@@ -36,7 +37,7 @@ class Move(Action):
                         object_to_be_interacted_with.name + ".",
                     )
                     object_performing_the_action.time.ten_minutes()
-                narrate_people_in_room(object_performing_the_action)
+                self.narrate(object_performing_the_action)
                 return (
                     None  # because time doesnt pass when you move unless crowd is full.
                 )
@@ -46,6 +47,16 @@ class Move(Action):
                 print("You can only move to other rooms.")
                 return None
         return None
+
+    def narrate(self, player_obj):
+        move_string = "You could move to "
+        move_list = []
+        for key, room in player_obj.rooms.items():
+            if room != player_obj.location:
+                move_list.append(room.name)
+        move_string += format_objects_string(move_list)
+        move_string = move_string.replace("and", "or")
+        print(move_string)
 
 
 #########################################################################

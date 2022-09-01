@@ -3,7 +3,6 @@ from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action, yesorno
 from GameFiles.Scripts.Format.Narration import (
     narrate_actions,
-    narrate_items,
 )
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
 from GameFiles.Scenes.TutorialContent import tutorialscene
@@ -87,13 +86,7 @@ update_schedule()
 print(player.dict_of_actions)
 while player.gameover == False:
     print("--------------------")
-    player.location.narrate()
-    narrate_move(player)
     narrate_actions(player)
-    narrate_items(player)
-    narrate_dance(player)
-    print(".")
-    player.dict_of_actions["Borrow"].narrate(player)
     print("--------------------")
     print("")
     sleep(2)

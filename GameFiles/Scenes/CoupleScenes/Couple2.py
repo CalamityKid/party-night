@@ -1,5 +1,3 @@
-from ...Scripts.Format.Narration import narrate_people_in_room
-
 # already borrowed chewing gum, leaving early, set up for 4 and 5
 
 
@@ -36,5 +34,4 @@ def coupletimes2content(player):
             player.NPCs["couple"].location = player.rooms["dance floor"]
             player.NPCs["partner"].location = player.rooms["dance floor"]
             player.NPCs["couple"].times_talked = 3
-            narrate_people_in_room(player)
             return None

@@ -1,6 +1,7 @@
 from .ActionSc import Action
 from ..Blocks.ItemsSc import Item, items
 from ..Blocks.PlayerSc import MainCharacter
+from ..Format.formatting import format_objects_string
 
 
 class Use_Item(Action):
@@ -50,6 +51,36 @@ class Use_Item(Action):
                 # if object_to_be_interacted_with == items["poppers"]:
                 #    return True
                 return True
+
+    def narrate(self, player_obj):
+        unusable_item_list = []
+        final_string = ""
+        if len(player_obj.items) == 0:
+            final_string = "You don't have any items you can use atm."
+        elif len(player_obj.items) > 0:
+            final_string += "You can't use "
+        for i in player_obj.items:
+            if i.usable_in_room(player_obj.location) == False:
+                unusable_item_list.append(i)
+
+        if len(unusable_item_list) > 0:
+            final_string += format_objects_string(unusable_item_list)
+            final_string = final_string.replace("and", "or")
+            final_string = final_string.replace(" a ", " the ")
+            final_string = final_string.replace(".", " in this room though.")
+
+        if len(player_obj.items) > 0:
+            print(
+                "You have "
+                + (format_objects_string(player_obj.items)[:-1])
+                + " in your pockets."
+            )
+
+        elif len(player_bj.items) == 0:
+            print("You're not holding anything rn.")
+
+        if len(final_string) >= 34:
+            print(final_string)
 
 
 #########################################################################
