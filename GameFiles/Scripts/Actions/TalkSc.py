@@ -1,6 +1,8 @@
 from .ActionSc import Action
 from ..Blocks.PlayerSc import MainCharacter
 from ...Scenes.SceneSelectSc import scene_select
+from ..Format.formatting import format_objects_string
+from ..Format.Calculations import create_list_people_in_room
 
 
 class Talk(Action):
@@ -27,6 +29,20 @@ class Talk(Action):
         elif isinstance(thing_to_talk_to, MainCharacter) != True:
             print("You can't talk to " + str(thing_to_talk_to.name) + ".")
             return None
+
+    def narrate(self, player_obj):
+        people_in_room_string = ""
+        people_in_room_list = create_list_people_in_room(player_obj)
+        if player_obj.NPCs["partner"] in people_in_room_list:
+            people_in_room_list.remove(player_obj.NPCs["partner"])
+            people_in_room_string = format_objects_string(people_in_room_list)
+        if people_in_room_string == "nothing":
+            people_in_room_string = "no familiar faces."
+        print("You see " + str(people_in_room_string), end=" ")
+        if people_in_room_string != "no familiar faces.":
+            print("You could flirt or talk to them.")
+        else:  # to keep the spacing equal cause of the end
+            print("")
 
 
 talk = Talk()

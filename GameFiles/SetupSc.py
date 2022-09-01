@@ -3,10 +3,7 @@ from GameFiles.ScheduleSc import update_schedule
 from GameFiles.Input import player_choose_action, yesorno
 from GameFiles.Scripts.Format.Narration import (
     narrate_actions,
-    narrate_people_in_room,
     narrate_items,
-    narrate_move,
-    narrate_dance,
 )
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
 from GameFiles.Scenes.TutorialContent import tutorialscene

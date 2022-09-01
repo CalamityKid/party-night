@@ -1,4 +1,3 @@
-from ..Format.Narration import narrate_people_in_room
 from .PlayerSc import player
 
 
@@ -30,7 +29,7 @@ class Room:
                 + str(player.location.name)
                 + "."
             )
-        narrate_people_in_room(player)
+        player.dict_of_actions["Talk"].narrate(player)
 
     def usable_in_room(self, object):
         try:

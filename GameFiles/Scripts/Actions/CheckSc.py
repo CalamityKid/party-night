@@ -1,6 +1,6 @@
 from .ActionSc import Action
 from ..Blocks.ItemsSc import Item as Item
-from ..Format.Narration import narrate_actions, narrate_items, narrate_people_in_room
+from ..Format.Narration import narrate_actions, narrate_items
 
 
 class Check(Action):
@@ -24,7 +24,7 @@ class Check(Action):
             if thing_to_be_checked == "item check":
                 narrate_items(object_checking)
             if thing_to_be_checked == "friends":
-                narrate_people_in_room(object_checking)
+                object_checking.dict_of_actions["Talk"].narrate(object_checking)
             return None
 
         if type(thing_to_be_checked) != str:
@@ -40,6 +40,9 @@ class Check(Action):
                 print(", but you've taken some recently", end="")
             print(".")
         return None
+
+    def narrate(self, player_obj):
+        print("You can also check stuff or look around.", end=" ")
 
 
 check = Check()
