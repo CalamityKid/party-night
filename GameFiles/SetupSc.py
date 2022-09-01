@@ -6,6 +6,7 @@ from GameFiles.Scripts.Format.Narration import (
     narrate_people_in_room,
     narrate_items,
     narrate_move,
+    narrate_dance,
 )
 from GameFiles.Scenes.PartnerScenes.Compile import partnerscenes
 from GameFiles.Scenes.TutorialContent import tutorialscene
@@ -74,7 +75,6 @@ NPCs["russian"].location = rooms["smoking room"]
 # player.narrate_stats()
 # player_choose_action()
 
-narrate_move(player)
 print("GAME START.")
 print("")
 
@@ -91,8 +91,12 @@ print(player.dict_of_actions)
 while player.gameover == False:
     print("--------------------")
     player.location.narrate()
+    narrate_move(player)
     narrate_actions(player)
     narrate_items(player)
+    narrate_dance(player)
+    print(".")
+    player.dict_of_actions["Borrow"].narrate(player)
     print("--------------------")
     print("")
     sleep(2)

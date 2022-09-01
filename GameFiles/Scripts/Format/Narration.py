@@ -1,5 +1,6 @@
 from . import formatting
 from .Calculations import create_list_people_in_room
+from .BorrowCalculations import available_borrows, item_redirect
 
 
 def narrate_items(player):
@@ -40,7 +41,7 @@ def narrate_people_in_room(player):
         people_in_room_string = "no familiar faces."
     print("You see " + str(people_in_room_string), end=" ")
     if people_in_room_string != "no familiar faces.":
-        print("You could talk to them.")
+        print("You could flirt or talk to them.")
     else:  # to keep the spacing equal cause of the end
         print("")
 
@@ -65,6 +66,11 @@ def narrate_move(player):
     move_string += formatting.format_objects_string(move_list)
     move_string = move_string.replace("and", "or")
     print(move_string)
+
+
+def narrate_dance(player):
+    if player.dict_of_actions["Dance"].doable_in_room(player.location) == True:
+        print("You could also dance here.")
 
 
 def people_in_room_string(player_object):
