@@ -51,7 +51,6 @@ class Move(Action):
         return None
 
     def narrate(self, player_obj):
-        player_obj.location.narrate()
         move_string = "You could [MOVE] to "
         move_list = []
         for key, room in player_obj.rooms.items():
