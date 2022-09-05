@@ -44,9 +44,9 @@ def tanktopgameovercontent(player):
     print("|                                                            |")
 
     if "Tanktop Interest" in player.memories:
-        if player.player.NPCs["tanktop"].flirt >= 6:
+        if player.NPCs["tanktop"].flirt >= 6:
             print("|       there's great chemistry between the three of you     |")
-        elif player.player.NPCs["tanktop"].flirt < 6:
+        elif player.NPCs["tanktop"].flirt < 6:
             print("|              your flirt game was so weak though            |")
         print("|                                                            |")
 

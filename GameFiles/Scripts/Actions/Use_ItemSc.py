@@ -50,7 +50,7 @@ class Use_Item(Action):
                 ########### poppers exception cause time passes if you use poppers
                 # if object_to_be_interacted_with == items["poppers"]:
                 #    return True
-                return True
+                return None
 
     def narrate(self, player_obj):
         unusable_item_list = []
@@ -58,7 +58,7 @@ class Use_Item(Action):
         if len(player_obj.items) == 0:
             final_string = "You don't have any items you can [USE] atm."
         elif len(player_obj.items) > 0:
-            final_string += "You can't [USE] "
+            final_string += "Can't use "
         for i in player_obj.items:
             if i.usable_in_room(player_obj.location) == False:
                 unusable_item_list.append(i)
@@ -67,14 +67,10 @@ class Use_Item(Action):
             final_string += format_objects_string(unusable_item_list)
             final_string = final_string.replace("and", "or")
             final_string = final_string.replace(" a ", " the ")
-            final_string = final_string.replace(".", " in this room though.")
+            final_string = final_string.replace(".", " in here.")
 
         if len(player_obj.items) > 0:
-            print(
-                "You have "
-                + (format_objects_string(player_obj.items)[:-1])
-                + " in your pockets."
-            )
+            print("In your pockets: " + (format_objects_string(player_obj.items)))
 
         elif len(player_obj.items) == 0:
             print("You're not holding anything rn.")

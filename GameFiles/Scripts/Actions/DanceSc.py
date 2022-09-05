@@ -34,7 +34,7 @@ class Dance(Action):
         self,
         name="dance",
         identifiers=["dance", "vogue"],
-        rooms_it_cannot_be_done_in=[],  # "the smoking room", "the bathroom"
+        rooms_it_cannot_be_done_in=["the smoking room", "the bathroom"],
     ):
         self.name = name
         self.identifiers = identifiers
