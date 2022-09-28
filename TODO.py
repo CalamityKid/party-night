@@ -1,11 +1,9 @@
 #####REMEMBER.
 # remeber to add people to player.people_in_party in Scenes when they are introduced
 # Give "Tanktop Hookup" memory in flirt, the two of you hook up with them, also Tanktop Home and gameover
-# Make partner crowd, run automatically **
 # fix borrow to only include the people in the room!
-# fix the code in partnerdance.
 # Attending Film Festival and Not Attending Film Festival to russian game over
-# add tanktop and partner flirt scenes
+# write partnerdance, write changed music
 # Write convinced scenes. couple? if its 4.30 am and the music is great and couple is in smoking room, move couple to dance floor and do a transition next, make times talked 4>>
 
 # Link balti #plays immediately when your high goes up to 100
