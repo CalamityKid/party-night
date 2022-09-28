@@ -15,10 +15,10 @@ def partnerwatercontent(player):
     print("     Hold on, I have some chewing gum")
     print("but turns out it ran out already")
     sleep(2)
-    print("      We can always drink some tap water in the bathroom I guess")
+    print("     We can always drink some tap water in the bathroom I guess")
     print("     not super classy")
     print("     but gotta stay hydrated")
     sleep(2)
     print("you get the idea")
-    sleep(2)
-    return True
+    sleep(4)
+    return False

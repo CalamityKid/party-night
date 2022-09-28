@@ -4,6 +4,7 @@ from ...Input import yesorno
 def tanktoptimes2content(player):
     if player.location == player.rooms["dance floor"]:
         print("The cutie's busy talking to their group about something.")
+        print("It's too loud in here to understand anything right now.")
         return None
 
     elif player.location != player.rooms["dance floor"]:
@@ -32,7 +33,7 @@ def tanktoptimes2content(player):
                     "and you introduce them.",
                 )
                 print("Everybody seems pretty happy about the whole thing.")
-                player.cool += 30
+                player.coolness += 30
                 player.memories.append("Pusher Business")
                 player.scenevariables.capeohour = player.time.hour
                 player.scenevariables.capeominute = player.time.minute
