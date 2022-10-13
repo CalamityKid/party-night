@@ -1,3 +1,6 @@
+from time import sleep
+
+
 def tanktopgameovercontent(player):
     if player.NPCs["tanktop"] not in player.people_in_party:
         return None
@@ -6,7 +9,9 @@ def tanktopgameovercontent(player):
     print("|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|")
     print("|<> <> <> <> <> <> <> <> <> <>  <> <> <> <> <> <> <> <> <> <>|")
     print("|                                                            |")
+    print("|                                                            |")
     print("|          You met the cutie in the tanktop tonight          |")
+    sleep(2)
 
     if "Tanktop Interest" in player.memories:
         print("|                  this absolute dream babe.                 |")
@@ -20,6 +25,7 @@ def tanktopgameovercontent(player):
         print("|            the nature of your relationship soon...         |")
 
     print("|                                                            |")
+    sleep(2)
 
     if "Tanktop Link" in player.memories:
         print("|          You got to know them a bit, they seem cool        |")
@@ -27,6 +33,8 @@ def tanktopgameovercontent(player):
         "Tanktop Link" not in player.memories and "Tanktop Home" not in player.memories
     ):
         print("|          You didn't talk to the cutie that much...         |")
+    print("|                                                            |")
+    sleep(2)
 
     if "Pusher Business" in player.memories:
         print("|            their friends were fun, if a bit loud           |")
@@ -35,20 +43,21 @@ def tanktopgameovercontent(player):
         print("|   their friends were so centered on how sober they were    |")
         print("|             they didn't even try having any fun.           |")
         print("|                    It's a shame really...                  |")
-    print("")
+    print("|                                                            |")
+    sleep(2)
 
     if "Tanktop Dance" in player.memories:
         print("|      and you def enjoyed your time on the dance floor      |")
     elif "Tanktop Dance" not in player.memories:
         print("|         you didn't get to party together that much         |")
     print("|                                                            |")
+    sleep(2)
 
     if "Tanktop Interest" in player.memories:
         if player.NPCs["tanktop"].flirt >= 6:
             print("|       there's great chemistry between the three of you     |")
         elif player.NPCs["tanktop"].flirt < 6:
             print("|              your flirt game was so weak though            |")
-        print("|                                                            |")
 
     elif "Tanktop Partner" in player.memories:
         print("|        Your partner and the cutie really hit it off        |")
@@ -61,6 +70,8 @@ def tanktopgameovercontent(player):
                 + "."
             )
             print(str(feelingstr))
+    print("|                                                            |")
+    sleep(2)
 
     if "TanktopAsks" in player.memories and "Tanktop Home" not in player.memories:
         print("|               they wanted to come home with you            |")
@@ -70,6 +81,8 @@ def tanktopgameovercontent(player):
         print("|            you are now on your way home together           |")
         print("|                    looking forward to it!                  |")
 
+    sleep(2)
+    print("|                                                            |")
     print("|                                                            |")
     print("|<> <> <> <> <> <> <> <> <> <>  <> <> <> <> <> <> <> <> <> <>|")
     print("|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|")

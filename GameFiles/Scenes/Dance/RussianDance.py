@@ -28,3 +28,5 @@ def russiandancecontent(player):
         player.memories.append("Russian Dance")
         player.time.ten_minutes()
         return True
+    else:
+        print("Your russian friend's riding the sound waves.")

@@ -1,4 +1,3 @@
-from time import sleep
 from .ActionSc import Action
 from ..Blocks.RoomSc import Room
 
@@ -20,8 +19,8 @@ class Move(Action):
 
         if object_performing_the_action.location == object_to_be_interacted_with:
             print("You're already in this room.")
-            sleep(2)
             return None
+
         elif object_performing_the_action.location != object_to_be_interacted_with:
             if isinstance(object_to_be_interacted_with, Room) == True:
                 object_performing_the_action.location = object_to_be_interacted_with
@@ -39,8 +38,6 @@ class Move(Action):
                         object_to_be_interacted_with.name + ".",
                     )
                     object_performing_the_action.time.ten_minutes()
-                print(" ")
-                sleep(2)
 
                 return None
                 # because time doesnt pass when you move unless crowd is full.
@@ -60,7 +57,6 @@ class Move(Action):
         move_string += format_objects_string(move_list)
         move_string = move_string.replace("and", "or")
         print(move_string)
-        sleep(2)
 
 
 #########################################################################

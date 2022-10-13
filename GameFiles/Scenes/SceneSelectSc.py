@@ -13,7 +13,9 @@ def scene_select(player, actor):
     else:
         print("You walk up to", str(actor.name) + " ", end="")
 
-    print("Times talked is now", str(actor.times_talked) + ".")
+    if player.debug == True:
+        print("Times talked is now", str(actor.times_talked) + ".")
+
     print("")
     scene_dict_used = {}
     scene_name = "Times"
@@ -41,6 +43,14 @@ def scene_select(player, actor):
         and (couplescenes["CoupleGum"].has_run == False)
     ):
         return couplescenes["CoupleGum"].run_scene(player)
+
+    elif "Gathering" in player.memories and player.time.hour < 5:
+        if (
+            hasattr(actor, "convinced") == True
+            and actor.location.name != "the dance floor"
+            and scene_dict_used["Convinced"].has_run != True
+        ):
+            return scene_dict_used["Convinced"].run_scene(player)
 
     ######################### end exceptions, if no exceptions, run the scene
     try:
