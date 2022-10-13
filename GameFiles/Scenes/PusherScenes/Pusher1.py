@@ -21,24 +21,30 @@ def pushertimes1content(player):
             print("     Do you want a puff? (y/n)", end=" ")
             op = yesorno()
             if op == True:
+                print("")
                 print("You say yes, thankyouverymuch.")
+                sleepp(2)
                 player.items.append(items["blunt"])
                 use_item.execute(player, items["blunt"])
                 print("")
-                print("you talk a bit longer and thank them.")
+                print("you thank them and then tal a bit longer.")
+                sleep(1)
                 return True
 
             elif op == False:
                 print("You kindly refuse.")
                 print("")
+                sleep(2)
                 print("     You just let me know, my spliff's your spliff.")
                 print("     Have a good one.")
+                sleep(2)
                 return None
 
         else:  # the default if conditions arent met and you got the commision already
             print("")
             print("     Enjoying yourselves tonight?")
             print("all friendly like, super articulate.")
+            sleep(2)
             print("you chatter on for a bit before going back to the party.")
             return None
 
@@ -65,4 +71,5 @@ def pushertimes1content(player):
 
     else:
         print("you idly talk about not much at all")
-        return False
+        sleep(1)
+        return None
