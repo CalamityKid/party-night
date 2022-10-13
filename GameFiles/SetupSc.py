@@ -64,23 +64,16 @@ NPCs["partner"].location = rooms["dance floor"]
 NPCs["smile"].location = rooms["bathroom"]
 NPCs["russian"].location = rooms["smoking room"]
 
-# print(formatting.format_objects_string(items))
-# print(rooms["smoking room"].usable_in_room(items["cigarette"]))
-# print(items["cigarette"].usable_in_room(rooms["bathroom"]))
-
-# player.narrate_stats()
-# player_choose_action()
-
 print("GAME START.")
 print("")
 
 
 time.hour = 00
-time.minute = 10
-print("Tutorial? (y/n) ", end="")
-op = yesorno()
-if op == True:
-    tutorialscene.run_scene(player)
+time.minute = 00
+# ("Tutorial? (y/n) ", end="")
+# op = yesorno()
+# if op == True:
+#    tutorialscene.run_scene(player)
 
 update_schedule()
 while player.gameover == False:
