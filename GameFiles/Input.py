@@ -3,10 +3,9 @@ from .Scripts.Format import formatting
 
 
 def player_choose_action(player_obj):
-    action_met = None
     executed = None
     counter = 0
-    while action_met == None:
+    while executed != True:
         inputaction = None
         inputobject = None
         while (inputaction == None) or (inputobject == None):
@@ -20,7 +19,7 @@ def player_choose_action(player_obj):
                 inputobject = None
                 print("")
                 print("that wasn't very clear... can you try that again?")
-                sleep(2)
+                sleep(1)
                 counter += 1
                 if counter > 2:
                     print(
@@ -36,7 +35,9 @@ def player_choose_action(player_obj):
 
         print("")
         action_met = inputaction.execute(player_obj, inputobject)
+        executed = True
         print("")
+        return action_met
 
         # if action_met == None:    #this is if execute returns none
         # print("execute returned None. So time doesn't pass. Try something else.")

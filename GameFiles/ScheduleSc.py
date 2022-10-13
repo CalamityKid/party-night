@@ -2,6 +2,7 @@ from .Scripts.Blocks.PlayerSc import player
 from .Scenes.CoupleScenes.Compile import couplescenes
 from .Scenes.PartnerScenes.Compile import partnerscenes
 from .Scenes.TanktopScenes.Compile import tanktopscenes
+from .Scenes.PartnerScenes.Compile import partnerscenes
 
 
 def update_schedule():
@@ -79,10 +80,14 @@ def update_schedule():
             player.NPCs["smile"].location = player.rooms["dance floor"]
             player.NPCs["couple"].location = player.rooms["dance floor"]
         elif player.party.music == "terrible":
-            if "Couple Convinced" not in player.memories:
+            if (
+                "Couple Convinced" not in player.memories
+                or player.NPCs["couple"].convinced != True
+            ):
                 player.NPCs["couple"].location = player.rooms["smoking room"]
         if player.time.hour == 4 and player.time.minute == 00:
-            player.NPCs["smile"].location = player.rooms["bathroom"]
+            if player.NPCs["smile"].convinced != True:
+                player.NPCs["smile"].location = player.rooms["bathroom"]
         if player.NPCs["tanktop"] in player.people_in_party:
             player.NPCs["tanktop"].location = player.rooms["dance floor"]
         if player.NPCs["pusher"] in player.people_in_party:
@@ -118,6 +123,43 @@ def update_schedule():
             player
         )  # runs partnertanktop to decide the branching path
         player.time.ten_minutes()
+
+    if player.time.hour >= 5:
+        if "Gathering" in player.memories:
+            player.memories.remove("Gathering")
+        if "Not Gathering" in player.memories:
+            player.memories.remove("Not Gathering")
+        if "Music Changed" not in player.memories:
+            player.memories.append("Music Not Changed")
+
+    #################### PARTNER TUTORIALESQUE SCENES ###############
+
+    ######BALTRI#####
+    if player.high == 100:
+        partnerscenes["Baltri"].run_scene(player)
+    # Runs partner water is mouth is less than 30 and it hasnt run
+    elif player.mouth < 30 and partnerscenes["PartnerWater"].has_run == False:
+        partnerscenes["PartnerWater"].run_scene(player)
+
+    # Runs partner Anxiety is coolness is high and it hasnt run
+    elif player.coolness > 60 and partnerscenes["PartnerAnxiety"].has_run == False:
+        partnerscenes["PartnerAnxiety"].run_scene(player)
+
+    # Runs partner music is its bad and hasnt run,
+    # tells you that staying on the dance floor if musics bad takes your lit down
+    elif (
+        player.party.music == "terrible"
+        and partnerscenes["PartnerMusic"].has_run == False
+    ):
+        partnerscenes["PartnerMusic"].run_scene(player)
+
+    # Runs a the scene to tell you moving will take time if the partys packed.
+    elif (
+        player.party.crowd == "full" and partnerscenes["PartnerCrowd"].has_run == False
+    ):
+        partnerscenes["PartnerCrowd"].run_scene(player)
+
+    ################################END PARTNER TUTORIALESQUE SCENES ####
 
     if (
         (tanktopscenes["Times4"].has_run == True)

@@ -59,17 +59,19 @@ def identify_object_check(object_to_be_identified_list, player_obj):
 
 
 def identify_action(action_to_be_identified, dict_of_actions):
+    """uses the first word of the use rinput to identify an action using the identifiers of each action"""
     if action_to_be_identified == None:
         return None
     for key, objectx in dict_of_actions.items():
         for identifierx in objectx.identifiers:
             if identifierx in action_to_be_identified:
-                print("identified action:")
-                print(objectx)
+                # print("identified action:")
+                # print(objectx)
                 return objectx
 
 
 def clean_input(to_clean):
+    """cleans the input written by the player to lowercase"""
     result = None
     if type(to_clean) == str:
         result = to_clean.lower()
@@ -81,6 +83,8 @@ def clean_input(to_clean):
 
 
 def format_input_command(player_input, player_obj):
+    """Handles identifying the action and the subject of the input, aided by identify_action (for first word) and identify_object (for all the other words).
+    also handles the exceptions for the actions that have no object like dance, tap water and tutorial"""
     action = None
     subject = None
     player_input = clean_input(player_input)
@@ -104,6 +108,7 @@ def format_input_command(player_input, player_obj):
     if subject == None and (
         action == player_obj.dict_of_actions["Tap Water"]
         or action == player_obj.dict_of_actions["Dance"]
+        or action == player_obj.dict_of_actions["Tutorial"]
     ):
         subject = True
 
@@ -112,7 +117,8 @@ def format_input_command(player_input, player_obj):
 
 def format_objects_string(
     given_list,
-):  # Returns "nothing" if empty list, returns "object, object, and object." style string.
+):
+    """Given a list returns string "nothing" if empty list, returns "object, object, and object." style string based on the .name attributes of the objects in the list"""
     final_string = ""
     try:
         if len(given_list) == 0:

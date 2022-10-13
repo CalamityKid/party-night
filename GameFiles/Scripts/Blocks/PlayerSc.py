@@ -15,6 +15,7 @@ class MainCharacter:
         identifiers=["player", "myself", "me"],
         memories=[],
         gameover=False,
+        debug=False,
     ):
         self.name = name
         self.lit = lit
@@ -138,16 +139,17 @@ class MainCharacter:
             print("You feel like all eyes are on you.")
         print("""			""")
 
-        print(
-            "cool is now",
-            self.coolness,
-            " , lit is now",
-            self.lit,
-            ", high is now",
-            self.high,
-            ", mouth is now",
-            self.mouth,
-        )
+        if self.debug == True:
+            print(
+                "cool is now",
+                self.coolness,
+                " , lit is now",
+                self.lit,
+                ", high is now",
+                self.high,
+                ", mouth is now",
+                self.mouth,
+            )
 
     def update_body(
         self,
@@ -160,8 +162,8 @@ class MainCharacter:
             self.lit += 20
             self.coolness += 10
         elif self.high >= 100:
-            self.high = 90
-            self.coolness -= 10
+            self.high = 100
+            self.coolness -= 20
             self.lit -= 20
 
         if self.mouth <= 10:  # For mouth
@@ -174,10 +176,12 @@ class MainCharacter:
         for attr in ["high", "coolness", "lit", "mouth"]:
             if getattr(self, attr) < 10:
                 setattr(self, attr, 10)
-                print(" fixed now its 10.")
+                if self.debug == True:
+                    print(" fixed now its 10.")
             elif getattr(self, attr) > 100:
                 setattr(self, attr, 100)
-                print("fixed now its 100.")
+                if self.debug == True:
+                    print("fixed now its 100.")
 
     def modify_stat(self, attr, ammount, bool):
         """attribute in ""(coolness, high, lit, mouth), ammount in multiples of 10,
@@ -186,24 +190,26 @@ class MainCharacter:
         base_stat = getattr(self, attr)
         if bool == True:
             setattr(self, attr, (base_stat + ammount))
-            print(
-                "Attribute is",
-                attr,
-                "it was",
-                base_stat,
-                "now its",
-                (base_stat + ammount),
-            )
+            if self.debug == True:
+                print(
+                    "Attribute is",
+                    attr,
+                    "it was",
+                    base_stat,
+                    "now its",
+                    (base_stat + ammount),
+                )
         elif bool == False:
             setattr(self, attr, (base_stat - ammount))
-            print(
-                "Attribute is",
-                attr,
-                "it was",
-                base_stat,
-                "now its",
-                (base_stat - ammount),
-            )
+            if self.debug == True:
+                print(
+                    "Attribute is",
+                    attr,
+                    "it was",
+                    base_stat,
+                    "now its",
+                    (base_stat - ammount),
+                )
 
     def narrate(self):
         if self.location == self.rooms["dance floor"]:

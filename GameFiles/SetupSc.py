@@ -70,19 +70,28 @@ print("")
 
 time.hour = 00
 time.minute = 00
+
 # ("Tutorial? (y/n) ", end="")
 # op = yesorno()
 # if op == True:
 #    tutorialscene.run_scene(player)
 
+print("Debug? (y/n) ", end="")
+op = yesorno()
+if op == True:
+    player.debug = True
+
 update_schedule()
+
 while player.gameover == False:
+    action_met = None
     narrate_actions(player)
     sleep(2)
     player.narrate_stats(True)
-    player_choose_action(player)
+    action_met = player_choose_action(player)
     sleep(3)
-    time.ten_minutes()
+    if action_met == True:
+        time.ten_minutes()
 
     if player.gameover == False:
         update_schedule()
