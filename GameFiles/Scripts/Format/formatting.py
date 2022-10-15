@@ -105,7 +105,7 @@ def format_input_command(player_input, player_obj):
                 player_obj.debug = True
                 print("Debug mode is on")
             elif subject == ["off"]:
-                player_obj.debug == False
+                player_obj.debug = False
                 print("Debug mode is off")
 
         if action == player_obj.dict_of_actions["Check"]:

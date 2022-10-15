@@ -57,12 +57,11 @@ class Dance(Action):
             if (len(givenlist) == 0) == True:
                 return dance_scenes["Changed Music"].run_scene(player_object)
 
-        else:
-            for person in people_in_room:
-                if person.name in dance_scenes:
-                    dance_scenes[person.name].run_scene(player_object)
-                    dance_flourish(instance)
-                    sleep(3)
+        for person in people_in_room:
+            if person.name in dance_scenes:
+                dance_scenes[person.name].run_scene(player_object)
+                dance_flourish(instance)
+                sleep(3)
 
         # if object_checking.party.music == "" multiplier is 0.8, 1.2 o 1   GET THE MUSIC IN THERE
 

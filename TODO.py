@@ -1,9 +1,9 @@
 #####REMEMBER.
 # remeber to add people to player.people_in_party in Scenes when they are introduced
-# add so many spaces everywhere. bad music only fucs you up on the dance floor.
-# add music to dance. If on dance floor narrate music. Add time.
+# add so many spaces everywhere. bad music only fucs you up on the dance floor. is smile in the bathroom after 2 for long enough?
+# add music to dance. If on dance floor narrate music. Add time. Remove 30 minute refresh thing.
 # Get the flow down properly in partner and the gather scenes, wtf is cool going up so much
-# Turn off debug in formatting.format_input_command when compiling
+# Turn off debug in formatting.format_input_command when compiling. LEAVE party. ok in select option.
 
 # TO DO
 # consider making a save function.

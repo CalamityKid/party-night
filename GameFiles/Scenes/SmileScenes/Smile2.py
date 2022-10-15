@@ -3,7 +3,7 @@
 
 def smiletimes2content(player):
     print("")
-    if player.time.hour < 2:
+    if player.time.hour <= 2:
         print("     I wanted to introduce you to someone. Who I get my candy from.")
         print("     I don't think they're still here yet.")
         print("     They'll probably be around later.")
