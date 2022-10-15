@@ -3,6 +3,7 @@
 # add so many spaces everywhere. bad music only fucs you up on the dance floor.
 # add music to dance. If on dance floor narrate music. Add time.
 # Get the flow down properly in partner and the gather scenes, wtf is cool going up so much
+# Turn off debug in formatting.format_input_command when compiling
 
 # TO DO
 # consider making a save function.

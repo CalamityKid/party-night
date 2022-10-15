@@ -99,6 +99,15 @@ def format_input_command(player_input, player_obj):
     if len(player_input) >= 2:
         subject = player_input[1:]
 
+        ######## DEBUG ON OF OFF
+        if player_input[0] == "debug":
+            if subject == ["on"]:
+                player_obj.debug = True
+                print("Debug mode is on")
+            elif subject == ["off"]:
+                player_obj.debug == False
+                print("Debug mode is off")
+
         if action == player_obj.dict_of_actions["Check"]:
             subject = identify_object_check(subject, player_obj)
 
