@@ -1,10 +1,9 @@
 from ...Input import yesorno
 
-# PartnerTanktop0 should happen automatically if you go to a room where tanktop is not there and isnt dance floor
-
 
 def partnertanktoptimes0content(player):
     print("Now that the cutie's out of sight, your partner turns to you.")
+    print("")
 
     print("     So... the cutie in the tanktop.")
     print("     Hot, right?")

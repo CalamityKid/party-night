@@ -35,16 +35,17 @@ class Talk(Action):
         people_in_room_list = create_list_people_in_room(player_obj)
         if player_obj.NPCs["partner"] in people_in_room_list:
             people_in_room_list.remove(player_obj.NPCs["partner"])
-            people_in_room_string = format_objects_string(people_in_room_list)
+        people_in_room_string = format_objects_string(people_in_room_list)
         if people_in_room_string == "nothing":
-            people_in_room_string = "no familiar faces."
+            people_in_room_string = "no familiar faces"
         else:
             print("")
         print("You see " + people_in_room_string, end=" ")
-        if people_in_room_string != "no familiar faces.":
-            print("You could [FLIRT] or [TALK] to them.")
-        else:  # to keep the spacing equal cause of the end
-            print("")
+
+        if people_in_room_string != "no familiar faces":
+            print("You could [FLIRT] or [TALK] to them or your partner.")
+        else:
+            print("other than your partner.")
 
 
 talk = Talk()

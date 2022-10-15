@@ -44,12 +44,14 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
     smile = NPC(
         "the smile ambassador", ["blunt"], ["smil", "ambass", "ruben"], smilelocation
     )
+    smile.convinced = False
     russian = NPC(
         "your russian friend",
         ["poppers", "lollipop"],
         ["russ"],
         russianlocation,
     )
+    russian.convinced = False
     tanktop = NPC(
         "the cutie in the tank top",
         ["Soundcloud", "blunt", "cigarette", "lollipop"],
@@ -65,6 +67,7 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
         ["blunt", "cigarette", "chewing gum"],
         ["attrac", "coupl"],
     )
+    smile.convinced = False
 
     return {
         "partner": partner,

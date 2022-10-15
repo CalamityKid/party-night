@@ -5,6 +5,7 @@ from .Russian2 import russiantimes2content
 from .Russian3 import russiantimes3content
 from .Russian4 import russiantimes4content
 from .Russian5 import russiantimes5content
+from .Convinced import convincedcontent
 
 
 def assemble_russian_scenes():
@@ -14,6 +15,7 @@ def assemble_russian_scenes():
     times3 = Scene("Times3", russiantimes3content)
     times4 = Scene("Times4", russiantimes4content)
     times5 = Scene("Times4", russiantimes5content)
+    convinced = Scene("Convinced", convincedcontent)
 
     return {
         "Times0": times0,
@@ -22,6 +24,7 @@ def assemble_russian_scenes():
         "Times3": times3,
         "Times4": times4,
         "Times5": times5,
+        "Convinced": convinced,
     }
 
 

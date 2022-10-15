@@ -1,4 +1,5 @@
 from ...Input import yesorno
+from time import sleep
 
 # You've already met the cutie, this is sharing a moment, it progresses to 5 when you make plans to go to a film festival
 
@@ -22,6 +23,8 @@ def russiantimes4content(player):
                 print("Your partner looks a bit disappointed.")
                 player.memories.append("Not Attending Festival")
             player.NPCs["russian"].times_talked = 5
+            print("")
+            sleep(3)
             return True
 
         elif player.NPCs["russian"].boost < 1.2:
@@ -33,8 +36,10 @@ def russiantimes4content(player):
                 "they still do this thing where they nod just to end the conversation."
             )
             print("")
+            sleep(2)
             print("You're just happy you get to party with your friend tonight.")
             print("")
+            sleep(2)
             player.NPCs["russian"].boost = 1.2
             return True
 
@@ -44,6 +49,7 @@ def russiantimes4content(player):
         print("and your russian friend laughs like they always do")
         print("like somewhere between a chuckle and a snort.")
         print("")
+        sleep(2)
         print("Your partner makes this licking their lips face.")
         print("     You in on that too? (y/n) ", end="")
         option = yesorno()
@@ -52,10 +58,12 @@ def russiantimes4content(player):
         elif option == False:
             print("You're not super into it.")
         print("")
+        sleep(2)
         print("You all keep talking a bit longer ")
         print("you catch up on some stuff")
         print("end up getting invited to a film festival next weekend.")
         print("")
+        sleep(2)
         print("     Do you wanna go to this music festival? (y/n) ", end="")
         option = yesorno()
         if option == True:
@@ -72,10 +80,12 @@ def russiantimes4content(player):
             player.NPCs["russian"].boost = 1.2
         player.NPCs["russian"].times_talked = 5
         print("")
+        sleep(2)
         return True
 
     elif player.location == player.rooms["bathroom"]:
         print("Your russian friend is so deep in flirting")
         print("with this like full leather clad kinkster")
         print("you decide not to bother them now.")
+        sleep(2)
         return None

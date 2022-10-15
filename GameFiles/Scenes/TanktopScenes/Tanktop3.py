@@ -1,4 +1,5 @@
 from ...Input import yesorno
+from time import sleep
 
 # Youre either looking for the pusher and stuck here or already introduced and have to wait for an hour to get to 4
 
@@ -12,21 +13,21 @@ def tanktoptimes3content(player):
     ):
 
         if player.NPCs["pusher"] not in player.people_in_party:
-
             print("The whole group's morale is pretty low.")
+
             if "Tanktop Conversation" in player.memories:
                 print("Maybe you should try to get them a contact.")
-                return None
             elif "Tanktop Interest" in player.memories:
                 print("You try to lift the mood up a bit")
                 print("but conversation ends up being about")
                 print("what a great time they'd be having if their friend showed up.")
-                return None
             elif "Tanktop Partner" in player.memories:
                 print("You try to lift the mood up a bit")
                 print("but conversation ends up being about")
                 print("what a great time they'd be having if their friend showed up.")
-                return None
+            print("")
+            sleep(2)
+            return None
 
         elif player.NPCs["pusher"] in player.people_in_party:
 
@@ -48,15 +49,19 @@ def tanktoptimes3content(player):
                     "and you introduce them.",
                 )
                 print("Everybody seems pretty happy about the whole thing.")
-                player.cool += 30
+                player.coolness += 30
                 player.memories.append("Pusher Business")
                 player.scenevariables.capeohour = player.time.hour
                 player.scenevariables.capeominute = player.time.minute
+                print("")
+                sleep(2)
                 return True
 
             elif option == False:
                 print("You decide not to introduce them.")
                 print("They ask you to please let them know if you hear about anyone.")
+                print("")
+                sleep(2)
                 return None
 
     elif "Pusher Business" in player.memories:
@@ -76,6 +81,9 @@ def tanktoptimes3content(player):
             print("Everybody's in better spirits")
             print("Your partner flirting is hitting home too")
 
+        print("")
+        sleep(2)
+
         ######################### Must be a full hour til the drugs kick in
         print("")
 
@@ -89,9 +97,13 @@ def tanktoptimes3content(player):
         if capeo == True:
             print("They're all looking pretty lively. Looks like the candy kicked in.")
             player.NPCs["tanktop"].times_talked = 4
+            print("")
+            sleep(2)
             return None
 
         elif capeo == False:
             print("They're excited for the candy to kick in.")
             print("They're only talking about that atm.")
+            print("")
+            sleep(2)
             return None

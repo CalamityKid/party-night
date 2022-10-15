@@ -1,5 +1,6 @@
 # in order to get here, you have to dance after boost is more than 1.3
 # if between 3.30 and 5, it returns PartnerGather0.  To get to times 4 has to be before 5 am.
+from time import sleep
 
 
 def partnertimes3content(player):
@@ -10,30 +11,37 @@ def partnertimes3content(player):
             print("     It was a fun plan")
             print("     but it was a bit silly.")
             print("")
+            sleep(2)
             print("you let out a chuckle")
             print("it really was silly")
             print("")
+            sleep(2)
             if "Music Changed" not in player.memories:
                 print("     I'm glad we at least thought about it")
+                sleep(2)
             elif "Music Changed" in player.memories:
                 print("     and we managed to pull it off!")
                 print("     just ridiculous")
                 print("     I'm glad we thought about it")
+                sleep(2)
             print("")
             print("and so are you, you'll remember this later")
+            sleep(2)
 
             if "Music Changed" not in player.memories:
                 print("it was dumb, but fun")
+                sleep(2)
 
             print("and you consider")
             print("this is why you've been together this long")
             player.modify_stat("lit", 10, True)
             player.NPCs["partner"].boost = 1.4
+            sleep(2)
             return True
 
         elif player.NPCs["partner"].boost == 1.4:
             player.NPCs["partner"].times_talked = 4
             return player.partnerscenes["Times4"].run_scene(player)
 
-        else:
-            return player.partnerscenes["Gather0"].run_scene(player)
+    else:
+        return player.partnerscenes["Gather0"].run_scene(player)

@@ -1,6 +1,7 @@
 from ...Input import yesorno
 from ...Scripts.Format.formatting import format_objects_string
 from ...Scripts.Format.Calculations import not_on_dance_floor
+from time import sleep
 
 # you have either Gathering or Not Gathering in memories, gotten in partnergather0
 # either get everybody and dance and change the music
@@ -12,6 +13,8 @@ def partnergather1content(player):
         print("this DJs up til 5 am")
         print("you hold your head with one hand ")
         print("and look over at your partner, who's mouthing")
+        sleep(2)
+        print("")
         print("     You want us to do the whole gather everyone thing? (y/n)", end=" ")
 
         option = yesorno()
@@ -21,12 +24,13 @@ def partnergather1content(player):
             print("and it's time to look for your friends.")
             player.memories.append("Gathering")
             player.memories.remove("Not Gathering")
-            return False
+            sleep(2)
+            return None
 
         elif option == False:
 
             print("you say nah, not worth it and wave it off")
-            return False
+            return None
 
     elif "Gathering" in player.memories:
         notondancefloorlist = not_on_dance_floor(player)
@@ -41,15 +45,20 @@ def partnergather1content(player):
                 + str(notondancefloorstring[:-1])
                 + " on board."
             )
+            print(liststring)
+            print("")
+            sleep(2)
             print("you agree")
             print("you should find them and talk to them.")
             print("")
-            return False
+            sleep(2)
+            return None
 
         elif len(notondancefloorlist) == 0:
             print("     I guess everybody's on the dance floor")
             print("     Let's go dance!")
+            sleep(2)
             print("")
             print("and you're hoping this works")
             print("cause you cannot stand this music anymore")
-            return False
+            return None

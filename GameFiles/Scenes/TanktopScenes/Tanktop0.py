@@ -1,5 +1,7 @@
+from time import sleep
 from ...Input import yesorno
 from ...Scripts.Blocks import items
+
 
 # Has just been introduced by russian friend at 1 am in the dance floor. Your partner is really into them.
 def tanktoptimes0content(player):
@@ -11,6 +13,9 @@ def tanktoptimes0content(player):
         player.lit += 20
         player.NPCs["tanktop"].flirt += 1
         player.NPCs["tanktop"].times_talked = 1
+        print("")
+        sleep(2)
+        return True
 
     elif (
         player.location != player.rooms["dance floor"]
@@ -18,11 +23,15 @@ def tanktoptimes0content(player):
         print("The cutie in the tanktop smiles as you approach.")
         print("It's pretty damn charming.")
         print("")
+        sleep(2)
         print("     It's nice to be able to party again, huh?")
         print("")
         print("and it's they way they say it")
         print("you can't help smiling back")
         player.lit += 20
+        print("")
+        sleep(2)
+
         print("     Do you wanna try to flirt back? (y/n) ", end="")
         option = yesorno()
         if option == True:
@@ -33,28 +42,35 @@ def tanktoptimes0content(player):
                     print("You respond with some corny line about good company")
                     print("they seem to like it")
                     player.NPCs["tanktop"].flirt += 1
+                    sleep(2)
                     return True
                 print("You try to say something clever")
                 print("but you're too stoned to nail it")
                 print("it ends up sounding dumb but they don't seem to mind.")
 
-            elif items["special K"] in player.active_items or player.cool > 40:
+            elif items["special K"] in player.active_items or player.coolness > 40:
                 print("You respond")
                 print("     It'll be much nicer now that we get to party with you")
                 print("")
+                sleep(2)
                 print("and you nail the delivery")
                 print("")
+                sleep(1)
                 print("you can tell it worked")
                 print("you're all smiling cheekily at each other")
                 print("there's definitely tension")
                 print("")
+                sleep(2)
                 player.NPCs["tanktop"].flirt += 2
 
         elif option == False:
             print("Your partner does flirt back. There's a chemistry.")
             print("")
+            sleep(1)
         print("You talk for a few more minutes")
         print("a friend calls out to them")
         print("and they leave unwillingly.")
+        print("")
+        sleep(2)
         player.NPCs["tanktop"].times_talked = 1
         return True

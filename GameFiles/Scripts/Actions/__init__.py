@@ -6,6 +6,7 @@ from .TalkSc import Talk, talk
 from .DanceSc import Dance, dance
 from .BorrowSc import Borrow, borrow
 from .FlirtSc import Flirt, flirt
+from .TutorialSc import tutorial
 
 #########################################################################
 #############################   INSTANCES   #############################
@@ -20,4 +21,5 @@ dict_of_actions = {
     "Dance": dance,
     "Borrow": borrow,
     "Flirt": flirt,
+    "Tutorial": tutorial,
 }

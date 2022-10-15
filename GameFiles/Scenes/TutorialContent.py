@@ -87,7 +87,7 @@ def tutorialcontent(player):
     sleep(4)
     ################ MOVE
     print("")
-    print("It's 12 am right now. The party ends at 6 am.")
+    print("You get to the party at 12 am. It will end at 6 am.")
     sleep(3)
     print("As you perform different actions, time will pass.")
     print("Actions usually take about 10 minutes.")
@@ -210,6 +210,7 @@ def tutorialcontent(player):
     print("The closer to your friends you are,", end=" ")
     sleep(2)
     print("the less anxious you'll feel when they're by your side.")
+    sleep(1)
     print("")
     print("So remember to talk to your friends.")
     sleep(4)
@@ -233,7 +234,7 @@ def tutorialcontent(player):
     elif op == False:
         print("You'll figure it out, I'm sure...")
     sleep(4)
-    print("You repeat the tutorial again at any time by writing TUTORIAL.")
+    print("You can repeat the tutorial again at any time by writing TUTORIAL.")
     sleep(4)
     print("Now back to the game!")
     sleep(4)
@@ -243,7 +244,7 @@ def tutorialcontent(player):
     player.dict_of_objects = original_obj_dict
     player.people_in_party = original_ppl
     player.high = or_high
-    player.cool = or_cool
+    player.coolness = or_cool
     player.lit = or_high
     player.mouth = or_mouth
     return None

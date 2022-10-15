@@ -1,26 +1,27 @@
 from ...Input import yesorno
-
-# this runs between 3.30 and 5, if music is terrible and boost >1.3 and music changed not in memories
-#    if "Gathering" in player.memories or "Not Gathering" in player.memories:
-#        return Gather1
+from time import sleep
 
 
 def partnergather0content(player):
+
     if "Gathering" in player.memories or "Not Gathering" in player.memories:
         return player.partnerscenes["Gather1"].run_scene(player)
 
     print("and complain about the music")
     print("it's killing you")
     print("")
+    sleep(2)
     print("     The music is te rri ble.")
     print("     I could dance to a car alarm right now")
     print("     But this?")
     print("")
+    sleep(2)
     print("you both grimace")
-    sleep(4)
+    sleep(2)
     print("but then your partner's face lights up")
     print("and half smirking starts saying")
     print("")
+    sleep(2)
     print("     Remember that party in the warehouse?")
     print("     with the redhead in the crazy green jacket?")
     print("        Do you remember? (y/n)", end=" ")

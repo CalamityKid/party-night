@@ -3,10 +3,13 @@ from .Calculations import create_list_people_in_room
 
 
 def narrate_actions(player_obj):
-    print("--------------------")
+    print("---------------------")
+    print(player_obj.time, end=" ")
     player_obj.location.narrate()
+    if player_obj.location.name == "the dance floor":
+        player_obj.party.narrate_music()
     player_obj.dict_of_actions["Talk"].narrate(player_obj)
-    print("AVAILABLE ACTIONS:")
+    print(" ")
     for key, act in player_obj.dict_of_actions.items():
         if key == "Talk" or key == "Use":
             continue
@@ -14,10 +17,9 @@ def narrate_actions(player_obj):
         else:
             if act.doable_in_room(player_obj.location) == True:
                 act.narrate(player_obj)
-    # print("You can always [TALK] to your partner.")
-    print("---")
+    print("")
     player_obj.dict_of_actions["Use"].narrate(player_obj)
-    print("--------------------")
+    print("---------------------")
 
 
 def people_in_room_string(player_object):

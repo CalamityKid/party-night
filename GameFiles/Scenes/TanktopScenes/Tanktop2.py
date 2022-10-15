@@ -1,3 +1,4 @@
+from time import sleep
 from ...Input import yesorno
 
 # One of their friends didn't bring candy, introduce them to the pusher if you can
@@ -12,6 +13,7 @@ def tanktoptimes2content(player):
         print("They're talking to each other about how to get candy")
         print("specifically they could use some pills.")
         print("")
+        sleep(2)
 
         if player.NPCs["pusher"] in player.people_in_party:
             print("")
@@ -38,6 +40,8 @@ def tanktoptimes2content(player):
                 player.scenevariables.capeohour = player.time.hour
                 player.scenevariables.capeominute = player.time.minute
                 player.NPCs["tanktop"].times_talked = 3
+                print("")
+                sleep(2)
                 return True
 
             elif option == False:
@@ -45,11 +49,15 @@ def tanktoptimes2content(player):
                 print("They ask you to please let them know if you hear about anyone.")
                 player.memories.append("Looking for Pusher")
                 player.NPCs["tanktop"].times_talked = 3
-                return True
+                print("")
+                sleep(2)
+                return None
 
         elif player.NPCs["pusher"] not in player.people_in_party:
             print("You tell them you don't know of anybody in here.")
             print("But you'll let them know if you hear anything.")
             player.memories.append("Looking for Pusher")
             player.NPCs["tanktop"].times_talked = 3
-            return True
+            print("")
+            sleep(2)
+            return None

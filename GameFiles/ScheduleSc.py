@@ -95,7 +95,8 @@ def update_schedule():
 
     if player.time.hour == 5 and player.time.minute == 00:
         # couple kisses you goodbye and leaves, removes couple from party
-        couplescenes["CoupleLeaves"].run_scene(player)
+        if couplescenes["CoupleLeaves"].has_run != True:
+            couplescenes["CoupleLeaves"].run_scene(player)
         # couple kisses you goodbye and leaves, removes couple from party
         player.NPCs["russian"].location = player.rooms["bathroom"]
         player.NPCs["smile"].location = player.rooms["dance floor"]
@@ -116,13 +117,21 @@ def update_schedule():
     if (
         (player.NPCs["tanktop"].times_talked == 1)
         and (partnerscenes["PartnerTanktop0"].has_run == False)
-        and (player.location != player.rooms["dance floor"])
         and (player.location != player.NPCs["tanktop"].location)
     ):
         partnerscenes["PartnerTanktop0"].run_scene(
             player
         )  # runs partnertanktop to decide the branching path
         player.time.ten_minutes()
+
+    elif (
+        "Tanktop Partner" in player.memories
+        and (player.NPCs["tanktop"].times_talked == 5)
+        and (partnerscenes["PartnerTanktop5"].has_run == False)
+    ):
+        partnerscenes["PartnerTanktop0"].run_scene(player)
+        player.time.ten_minutes()
+        # run the partnertanktop hookup scene
 
     if player.time.hour >= 5:
         if "Gathering" in player.memories:
@@ -142,13 +151,14 @@ def update_schedule():
         partnerscenes["PartnerWater"].run_scene(player)
 
     # Runs partner Anxiety is coolness is high and it hasnt run
-    elif player.coolness > 60 and partnerscenes["PartnerAnxiety"].has_run == False:
+    elif player.coolness > 70 and partnerscenes["PartnerAnxiety"].has_run == False:
         partnerscenes["PartnerAnxiety"].run_scene(player)
 
     # Runs partner music is its bad and hasnt run,
     # tells you that staying on the dance floor if musics bad takes your lit down
     elif (
         player.party.music == "terrible"
+        and player.location == player.rooms["dance floor"]
         and partnerscenes["PartnerMusic"].has_run == False
     ):
         partnerscenes["PartnerMusic"].run_scene(player)

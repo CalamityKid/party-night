@@ -31,6 +31,7 @@ class MainCharacter:
         self.gameover = gameover
         self.identifiers = identifiers
         self.items = items
+        self.debug = debug
 
     def __repr__(self):
         return "The protagonist, {name}.".format(name=self.name)
@@ -154,7 +155,8 @@ class MainCharacter:
     def update_body(
         self,
     ):  # modifies lit and cool depending on other stats, should be time sensitive.
-        print("running update body in player")
+        if self.debug == True:
+            print("running update body in player")
         if self.high >= 30 and self.high < 70:
             self.lit += 10
             self.coolness += 10

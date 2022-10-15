@@ -21,7 +21,7 @@ def tanktopflirtcontent(player_obj):
             "Tanktop Conversation" in player_obj.memories
             or "Tanktop Partner" in player_obj.memories
         ):
-            print("You decided you're gonna sit this one out.")
+            print("You've decided you're gonna sit this one out.")
             return None
     ###In these situations you cannot flirt with this character
 

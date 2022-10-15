@@ -1,3 +1,6 @@
+from time import sleep
+
+
 def coupledancecontent(player):
     if player.NPCs["couple"].times_talked == 5:
         print("The cute couple's enthusiasm gives you inspiration.")
@@ -8,11 +11,14 @@ def coupledancecontent(player):
             print("The cute couple's next to you")
             print("one of them's having a really hard time with the music")
             print("")
+            sleep(2)
             print("You start dancing like an idiot")
             print("making fun of how bad the music is")
+            sleep(2)
             print("the other one joins in the dance")
             print("it ends up being pretty fun")
             print("")
+            sleep(2)
             player.modify_stat("coolness", 30, False)
             player.memories.append("Dumb Dance")
             return True
@@ -22,6 +28,7 @@ def coupledancecontent(player):
             print("they both end up joining you on this crazy performance piece")
             print("It's pretty cool actually")
             print("")
+            sleep(3)
             player.modify_stat("coolness", 40, False)
             player.memories.append("Couple Dance")
             player.NPCs["couple"].boost = 1.3
@@ -36,9 +43,11 @@ def coupledancecontent(player):
         print("The cute couple's dancing next to you")
         print("one of them offers you some of their water")
         print("")
+        sleep(2)
         print("You take a big gulp")
         print("bless them.")
         player.modify_stat("mouth", 30, True)
+        sleep(2)
         return True
     else:
         print("Your friends, the cute couple, are dancing by your side.")

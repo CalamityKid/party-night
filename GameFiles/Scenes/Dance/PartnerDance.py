@@ -3,7 +3,17 @@ from time import sleep
 
 def partnerdancecontent(player):
 
-    if player.NPCs["partner"].boost == 1.3 and player.NPCs["partner"].times_talked < 3:
+    if player.NPCs["partner"].times_talked == 5:
+        print("your partner's in communion with the music")
+        return True
+
+    elif player.NPCs["partner"].times_talked == 4:
+        print("you join in your partner in dance")
+        return True
+
+    elif (
+        player.NPCs["partner"].boost == 1.3 and player.NPCs["partner"].times_talked < 3
+    ) and "Partner Dance" not in player.memories:
         print("your partner's feeling the rhythm ")
         sleep(2)
         print("commuting with the melody sprites")
@@ -27,3 +37,4 @@ def partnerdancecontent(player):
         return True
     else:
         print("your partner's dancing next to you")
+        return True

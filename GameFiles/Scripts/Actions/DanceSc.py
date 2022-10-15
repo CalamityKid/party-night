@@ -67,10 +67,18 @@ class Dance(Action):
         # if object_checking.party.music == "" multiplier is 0.8, 1.2 o 1   GET THE MUSIC IN THERE
 
         # checks item mod effects and assigns them to the instance
-        instance.lit = calculate_mod_item_effect(player_object, "lit")
-        instance.high = calculate_mod_item_effect(player_object, "high")
-        instance.coolness = calculate_mod_item_effect(player_object, "coolness")
-        instance.friend_boost = calculate_friend_boost(people_in_room)
+        instance.lit = calculate_mod_item_effect(
+            player_object, "lit", player_object.debug
+        )
+        instance.high = calculate_mod_item_effect(
+            player_object, "high", player_object.debug
+        )
+        instance.coolness = calculate_mod_item_effect(
+            player_object, "coolness", player_object.debug
+        )
+        instance.friend_boost = calculate_friend_boost(
+            people_in_room, player_object.debug
+        )
 
         # calculates the goods and bads and the result
         instance.goods = calculate_goods(instance)
@@ -88,6 +96,7 @@ class Dance(Action):
         (num, str) = calculate_outcome(instance.result)
         sleep(3)
         print(narrate_outcomes(num, str))
+
         outcome_on_stats(
             player_object, num, (num != 1)
         )  # num is the outcome, 1 is bad, so it'll be = to outcome bool

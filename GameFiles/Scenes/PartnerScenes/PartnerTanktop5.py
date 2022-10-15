@@ -40,5 +40,6 @@ def partnertanktop5content(player):
             print("It went well, it was fun.")
             print("You decide to talk more about it back home")
             print("and go back to partying.")
+            player.hookupfeeling = inputstring
             player.memories.append("Partner Hookup")
             return True

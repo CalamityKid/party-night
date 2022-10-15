@@ -1,4 +1,5 @@
 from random import randint
+from time import sleep
 
 
 def pusherflirtcontent(player):
@@ -6,8 +7,11 @@ def pusherflirtcontent(player):
         print("you get a half smirk back")
         print("")
         print("     Don't think that'll get you any discounts though!")
+        sleep(2)
         print("you answer the only prize you're after is a smile")
+        sleep(2)
         print("and you get your prize")
+        sleep(1)
         player.NPCs["pusher"].flirt += 1
         return None
     elif (
@@ -17,9 +21,12 @@ def pusherflirtcontent(player):
     ):
         print("")
         print("     You wanna sweeten the deal even more huh?")
+        sleep(2)
         print("     I'm strictly business today sexy")
+        sleep(1)
         print("     don't get any ideas")
         print(" ")
+        sleep(2)
         print("you three laugh it off.")
         player.memories.append("PusherFlirtScene")
         player.NPCs["pusher"].flirt += 1
@@ -30,13 +37,12 @@ def pusherflirtcontent(player):
         if rando == 0:
             print("You wink and smile from some distance away.")
             print("They pretend they didn't see you, but you can see the smirk.")
-            player.NPCs["pusher"].flirt += 1
-            return None
         elif rando == 1:
             print("You compliment their jacket.")
             print("They tell you they genuinely appreciate the compliment.")
-            player.NPCs["pusher"].flirt += 1
-            return None
         elif rando == 2:
             print("You can't think of anything to tell them right now.")
-            return None
+
+        player.NPCs["pusher"].flirt += 1
+        sleep(2)
+        return None

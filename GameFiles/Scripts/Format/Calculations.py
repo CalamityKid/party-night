@@ -10,24 +10,26 @@ def create_list_people_in_room(player):
     return people_in_room_list
 
 
-def calculate_friend_boost(ppl_room_list):
+def calculate_friend_boost(ppl_room_list, debug=False):
     """Given a list of people in room, returns the total boost in full int (mult of 10)
     used in dance calculations"""
     total_boost = 0
     for person in ppl_room_list:
         total_boost += person.boost
-    print("total boost is", total_boost)
+    if debug == True:
+        print("total boost is", total_boost)
     return int(total_boost * 10)
 
 
-def calculate_mod_item_effect(player, variable_in_string):
+def calculate_mod_item_effect(player, variable_in_string, debug=False):
     mod_name = str(variable_in_string) + ("_mod")
     totaladded = 0
     count = 0
     grandtotal = 0
     base_stat = getattr(player, variable_in_string)
     for item, effect in player.active_items.items():
-        print(item, ":")
+        if debug == True:
+            print(item, ":")
         if hasattr(item, mod_name) == True:
             totaladded += (base_stat * ((getattr(item, mod_name)))) - base_stat
             count += 1
@@ -35,18 +37,20 @@ def calculate_mod_item_effect(player, variable_in_string):
     if grandtotal > 100:
         grandtotal = 100
     if count > 0:
-        print(
-            variable_in_string,
-            "base is",
-            base_stat,
-            "the mod is returning",
-            grandtotal,
-        )
-        print("")
+        if debug == True:
+            print(
+                variable_in_string,
+                "base is",
+                base_stat,
+                "the mod is returning",
+                grandtotal,
+            )
+            print("")
         return grandtotal
     elif count == 0:
-        print(variable_in_string, "isnt modded, returns", base_stat)
-        print("")
+        if debug == True:
+            print(variable_in_string, "isnt modded, returns", base_stat)
+            print("")
         return int(base_stat)
 
 

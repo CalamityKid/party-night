@@ -2,7 +2,11 @@ from .ActionSc import Action
 from ..Blocks.ItemsSc import Item as Item
 from ..Blocks.NPCSc import NPC as NPC
 from ...Scenes.BorrowScenes.Compile import borrow_scenes
-from ..Format.BorrowCalculations import item_redirect, available_borrows
+from ..Format.BorrowCalculations import (
+    item_redirect,
+    available_borrows,
+    remove_if_not_here,
+)
 from ..Format.formatting import format_objects_string
 
 
@@ -79,8 +83,10 @@ class Borrow(Action):
         return None
 
     def narrate(self, player_obj):
+        print("")
         final_str = "You could [BORROW] "
         borrow_list = available_borrows(player_obj)
+        borrow_list = remove_if_not_here(borrow_list, player_obj)
         str_list = []
         if len(borrow_list) > 0:
             for i in borrow_list:

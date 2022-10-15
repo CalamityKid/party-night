@@ -1,15 +1,10 @@
 #####REMEMBER.
 # remeber to add people to player.people_in_party in Scenes when they are introduced
-# fix borrow to only include the people in the room!
-# add so many spaces everywhere
-# mae sure the dance scenes run properly, also make scenes for pusher or so
-# write gameover screens
-
-# Link balti #plays immediately when your high goes up to 100
-# Get the flow down properly in partner and the gather scenes
+# add so many spaces everywhere. bad music only fucs you up on the dance floor.
+# add music to dance. If on dance floor narrate music. Add time.
+# Get the flow down properly in partner and the gather scenes, wtf is cool going up so much
 
 # TO DO
-# # aslo Smile use G has too many spaces.
 # consider making a save function.
 
 # in dance

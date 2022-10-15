@@ -1,3 +1,4 @@
+from time import sleep
 from ...Scripts.Blocks import items
 from ...Scripts.Actions import use_item
 from ...Input import yesorno
@@ -12,6 +13,7 @@ def partnerkcontent(player):
         print("     You just did some, babe")
         print("     I'll give you some more later if you want")
         print("and that's that for now.")
+        sleep(2)
         return None
 
     elif items["special K"] not in player.active_items:
@@ -20,8 +22,10 @@ def partnerkcontent(player):
             print("     I ran out, babe")
             print("     I'm sorry")
             print("")
+            sleep(2)
             print("and it's genuine sadness")
             print("you almost feel bad for asking")
+            sleep(2)
             return None
 
         elif player.NPCs["partner"].kusesleft > 0:
@@ -30,7 +34,8 @@ def partnerkcontent(player):
                 print(
                     "your partner tells you they just gave some to your russian friend"
                 )
-                print("but you can kill the bag now")
+                print("     But you can kill the bag now")
+                print("")
 
             if player.location != player.rooms["bathroom"]:
                 print("")
@@ -43,6 +48,7 @@ def partnerkcontent(player):
                 print("      It's a pain. Especially when it's crowded.")
                 print("      But you gotta do what you gotta do.")
                 print("")
+                sleep(2)
                 player.scenevariables.movementtimewarning = True
             print(
                 "      You really wanna go all the way to the bathroom for this? (y/n)",
@@ -67,6 +73,7 @@ def partnerkcontent(player):
             if option == False:
                 print("")
                 print("          Okay babe, let me know if you change your mind.")
+                sleep(2)
                 return None
 
             if player.location == player.rooms["bathroom"]:
@@ -80,7 +87,7 @@ def partnerkcontent(player):
                         print("")
                         player.scenevariables.stalltimewarning = True
 
-                    print("      You okay with waiting for a stall? (y/n)", end="")
+                    print("      You okay with waiting for a stall? (y/n)", end=" ")
                     option = yesorno()
                     if option == True:
                         print("      Alright babe, we wait.")
@@ -93,12 +100,14 @@ def partnerkcontent(player):
                         player.items.append(items["special K"])
                         use_item.execute(player, items["special K"])
                         player.NPCs["partner"].kusesleft -= 1
+                        sleep(2)
                         return True
 
                     if option == False:
                         print("")
                         print("     Okay love.")
                         print("     You tell me if you wanna try later.")
+                        sleep(2)
                         return None
 
                 elif player.party.crowd != "full":
@@ -109,4 +118,5 @@ def partnerkcontent(player):
                     player.items.append(items["special K"])
                     use_item.execute(player, items["special K"])
                     player.NPCs["partner"].kusesleft -= 1
+                    sleep(2)
                     return True

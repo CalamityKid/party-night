@@ -7,8 +7,10 @@ def partnertimes4content(player):
     if "Partner Link" not in player.memories:
         print("you look at your partner")
         print("you weren't completely sure about coming out tonight")
+        sleep(2)
         print("but just being here together is absolutely worth it")
         print("you consider you should start doing more things together")
+        print("")
         sleep(2)
         print("you're caught looking and get a smile back in return.")
         sleep(3)

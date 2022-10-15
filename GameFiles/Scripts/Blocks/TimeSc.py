@@ -8,6 +8,8 @@ class Time:
         self.identifiers = identifiers
 
     def __repr__(self):
+        if self.hour == 0 and self.minute == 0:
+            return "Midnight."
         if self.minute == 0:
             return "0{hour} o' clock.".format(hour=self.hour)
         else:
