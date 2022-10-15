@@ -24,7 +24,7 @@ def smilegameovercontent(player):
     ):
         print("|            You didn't meet their special friend            |")
         print("|                  well, maybe next time...                  |")
-        print("|                                                             |")
+        print("|                                                            |")
         sleep(2)
     elif player.NPCs["smile"].times_talked > 2 and (
         player.NPCs["tanktop"] in player.people_in_party
