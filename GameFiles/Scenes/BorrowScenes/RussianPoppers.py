@@ -1,3 +1,4 @@
+from time import sleep
 from random import randint
 from ...Scripts.Blocks import items
 from ...Scripts.Actions.Use_ItemSc import use_item
@@ -24,16 +25,22 @@ def russianpopperscontent(player):
         option = yesorno()
         if option == True:
             print("you look around a bit")
+            sleep(1)
             print("your partner sees you looking around and stops dancing")
+            sleep(1)
             print("wants to know whats going on")
             print("")
+            sleep(1)
             print("you start to explain you're looking for the poppers")
             print("they start laughing and show you the bottle")
+
         elif option == False:
             print("You don't care enough to look around for it")
             print("few seconds pass and you see your partner returning the bottle")
+        sleep(2)
         print("your partner had it")
         print("")
+        sleep(2)
         player.scenevariables.popper_counter += 1
         player.items.append(items["poppers"])
         use_item.execute(player, items["poppers"])
@@ -45,16 +52,21 @@ def russianpopperscontent(player):
             if player.time.hour < 5:
                 print("You signal your friend you want a hit")
                 print("they kinda look around the room")
+                sleep(2)
                 print("the very empty room.")
+                sleep(1)
                 print("they signal to wait until it's more crowded.")
                 return None
             elif player.time.hour >= 5:
                 print("You signal you want some poppers")
                 print("room's empty but nobody still here cares probably")
+                sleep(2)
                 print("your russian friend gives you the bottle")
+                sleep(1)
                 player.items.append(items["poppers"])
                 use_item.execute(player, items["poppers"])
                 player.scenevariables.popper_counter += 1
+                print("")
                 print("your partner also takes a deep one")
                 print("you pass the bottle back.")
                 return None

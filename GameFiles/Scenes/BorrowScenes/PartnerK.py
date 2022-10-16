@@ -11,9 +11,10 @@ def partnerkcontent(player):
     if items["special K"] in player.active_items:
         print("")
         print("     You just did some, babe")
+        sleep(1)
         print("     I'll give you some more later if you want")
+        print("")
         print("and that's that for now.")
-        sleep(2)
         return None
 
     elif items["special K"] not in player.active_items:
@@ -36,15 +37,18 @@ def partnerkcontent(player):
                 )
                 print("     But you can kill the bag now")
                 print("")
+                sleep(2)
 
             if player.location != player.rooms["bathroom"]:
                 print("")
                 print("     Yeah, I could use some freshening up!")
                 print("your partner says half smiling")
+                sleep(2)
 
             if player.scenevariables.movementtimewarning == False:
                 print("")
                 print("      We have to go to the bathroom then.")
+                sleep(1)
                 print("      It's a pain. Especially when it's crowded.")
                 print("      But you gotta do what you gotta do.")
                 print("")
@@ -64,8 +68,8 @@ def partnerkcontent(player):
 
                 elif player.party.crowd != "full":
                     print("")
-                    print("You both find yourselves in the bathroom in no time.")
-                    print("")
+                    print("You find yourselves in the bathroom in no time.")
+                    sleep(2)
 
                 player.location = player.rooms["bathroom"]
                 player.NPCs["partner"].location = player.rooms["bathroom"]
@@ -81,8 +85,11 @@ def partnerkcontent(player):
                     if player.scenevariables.stalltimewarning == False:
                         print("")
                         print("     We're gonna need to go into a stall")
+                        sleep(1)
                         print("     and there's a lot of people waiting.")
+                        sleep(1)
                         print("     It takes a while when the party's this crowded.")
+                        sleep(1)
                         print("      You want to wait? I don't mind...")
                         print("")
                         player.scenevariables.stalltimewarning = True
@@ -92,31 +99,31 @@ def partnerkcontent(player):
                     if option == True:
                         print("      Alright babe, we wait.")
                         print("")
+                        sleep(2)
                         print("And you wait like 10 minutes")
                         print("until a stall frees up.")
+                        sleep(2)
                         print("You both get in.")
                         print("")
                         player.time.ten_minutes()
                         player.items.append(items["special K"])
                         use_item.execute(player, items["special K"])
                         player.NPCs["partner"].kusesleft -= 1
-                        sleep(2)
                         return True
 
                     if option == False:
                         print("")
                         print("     Okay love.")
                         print("     You tell me if you wanna try later.")
-                        sleep(2)
                         return None
 
                 elif player.party.crowd != "full":
                     print("")
                     print("     Great, let's go!")
                     print("")
+                    sleep(2)
                     print("you both go into the stall")
                     player.items.append(items["special K"])
                     use_item.execute(player, items["special K"])
                     player.NPCs["partner"].kusesleft -= 1
-                    sleep(2)
                     return True

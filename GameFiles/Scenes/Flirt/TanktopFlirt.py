@@ -58,6 +58,7 @@ def tanktopflirtcontent(player_obj):
 
                     elif "Looking for Pusher" not in player_obj.memories:
                         print("Seems like something's going on with their friends.")
+                        sleep(1)
                         print("Maybe talk to them about it.")
                         return None
 

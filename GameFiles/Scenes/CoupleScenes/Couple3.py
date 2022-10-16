@@ -23,15 +23,19 @@ def coupletimes3content(player):
     elif player.time.hour >= 3:
         if player.party.music == "terrible":
             print("Wow, the music's soooo bad, bitch!")
+            sleep(2)
             print("says one of them")
+            sleep(1)
             print("and the other one's nodding but doesn't really look very bothered.")
             print("")
             sleep(3)
             print("     And this DJ's gonna be playing til 5 too")
+            sleep(1)
             print("     like all the time we're here basically, ugh.")
             sleep(3)
             print("")
             print("Wow, the drama. But totally true though.")
+            sleep(1)
             print("you feel their pain.")
             print("")
             sleep(2)
@@ -55,12 +59,14 @@ def coupletimes3content(player):
         elif player.party.music != "terrible":
             if "Changed Music" in player.memories:
                 print("     Bitch, you really got the DJ to play something decent!")
+                sleep(2)
                 print(
                     "says one of them while the other drops their cigarette to the floor."
                 )
+                sleep(2)
                 print("")
-                sleep(3)
                 print("     You saved the night baby, love youu!")
+                sleep(2)
                 print("says one of them, while the other steps on the cigarette")
                 sleep(2)
                 print("")
@@ -75,18 +81,21 @@ def coupletimes3content(player):
             elif "Changed Music" not in player.memories:
                 if player.location != player.rooms["dance floor"]:
                     print("     I heard the music got better, we should go dance!")
+                    sleep(2)
                     print(
                         "says one of them while the other one is finishing a cigarette."
                     )
                     print("")
                     sleep(2)
                     print("     Yeah, bitch, let's get moving!")
+                    sleep(1)
                     print("and they both make a beeline to the dance floor.")
                     print("")
                     sleep(2)
                     player.NPCs["couple"].location = player.rooms["dance floor"]
                 else:
                     print("     The music's better! We should dance!")
+                    sleep(2)
                     print("one of them says while the other is already dancing.")
 
                 player.NPCs["couple"].times_talked = 4

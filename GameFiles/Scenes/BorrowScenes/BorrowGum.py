@@ -23,8 +23,7 @@ def borrowgumcontent(player):
     elif (items["chewing gum"]) in player.active_items:
         print("you're literally chewing gum while you ask")
         sleep(2)
-        print("so that doesn't get very far.")
-        sleep(2)
+        print("so that doesn't go very far.")
         return None
 
     elif (items["chewing gum"]) in player.items:

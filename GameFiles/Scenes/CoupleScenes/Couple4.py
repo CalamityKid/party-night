@@ -21,7 +21,7 @@ def coupletimes4content(player):
             print(
                 "One of them is moving to the music, the other one is cringing and looking around."
             )
-        sleep(2)
+
         return None
 
     elif player.location != player.rooms["dance floor"]:
@@ -54,8 +54,6 @@ def coupletimes4content(player):
                 player.NPCs["couple"].location = player.rooms["dance floor"]
                 player.memories.append("Couple Convinced")
                 player.NPCs["couple"].convinced = True
-                sleep(2)
-
                 return True
 
             elif option == False:
@@ -64,5 +62,5 @@ def coupletimes4content(player):
         elif player.party.music != "terrible":
             print("     The music's better! We should dance!")
             print("one of them says while the other is already dancing.")
-            sleep(2)
+            sleep(1)
             return None
