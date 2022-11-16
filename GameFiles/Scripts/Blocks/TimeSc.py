@@ -18,11 +18,6 @@ class Time:
     def narrate(self):
         print("It is now " + str(self))
 
-    def thirty_minute_update(self):
-        self.narrate()
-        player.party.narrate()
-        player.narrate()
-
     def ten_minutes(self):
         self.minute += 10
 
@@ -32,7 +27,10 @@ class Time:
 
         if self.hour == 6:
             player.gameover = True
-            print("GAME OVER")
+            print("")
+            print("The lights turn on!")
+            print("It's 6 am!")
+            print("")
             ##############RUN GAMEOVER SCRIPT##############
 
         if player.gameover == True:
@@ -41,13 +39,13 @@ class Time:
         elif player.gameover == False:
             if self.minute == 00 or self.minute == 30:
                 player.high -= 10
-                if player.party.music == "great":
-                    player.lit += 10
-                    print("The music's fire rn, it's cheering you up.")
-                elif player.party.music == "terrible":
-                    player.lit -= 10
-                    print("You really hate this music.")
-                self.thirty_minute_update()
+                if player.location.name == "the dance floor":
+                    if player.party.music == "great":
+                        player.lit += 10
+                        print("The music's fire rn, it's cheering you up.")
+                    elif player.party.music == "terrible":
+                        player.lit -= 10
+                        print("You really hate this music.")
             player.update_active_items()
             print("")
 
