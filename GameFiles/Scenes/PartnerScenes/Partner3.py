@@ -36,7 +36,6 @@ def partnertimes3content(player):
             print("this is why you've been together this long")
             player.modify_stat("lit", 10, True)
             player.NPCs["partner"].boost = 1.4
-            sleep(2)
             return True
 
         elif player.NPCs["partner"].boost == 1.4:

@@ -37,7 +37,6 @@ def partnertimes1content(player):
         sleep(4)
         print("you agree, it makes you feel all warm inside")
         sleep(1)
-    sleep(2)
     player.modify_stat("lit", 10, True)
     player.NPCs["partner"].times_talked = 2
     return True

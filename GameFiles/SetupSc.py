@@ -76,11 +76,6 @@ op = yesorno()
 if op == True:
     tutorialscene.run_scene(player)
 
-partnerscenes["Times3"].run_scene(player)
-# print("Debug? (y/n) ", end="")
-# op = yesorno()
-# if op == True:
-#    player.debug = True
 
 update_schedule()
 
