@@ -43,5 +43,8 @@ def partnertimes3content(player):
             player.NPCs["partner"].times_talked = 4
             return player.partnerscenes["Times4"].run_scene(player)
 
-    else:
+    elif player.time.hour > 3 and player.party.music == "terrible":
         return player.partnerscenes["Gather0"].run_scene(player)
+
+    else:
+        return player.partnerscenes["PartnerBank"].run_scene(player)

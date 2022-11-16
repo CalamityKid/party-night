@@ -6,6 +6,7 @@
 # Turn off debug in formatting.format_input_command when compiling. LEAVE party. ok in select option.
 
 # TO DO
+# get rid of 30m update, dance only in dance floor
 # consider making a save function.
 
 # in dance

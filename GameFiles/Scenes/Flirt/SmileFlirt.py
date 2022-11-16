@@ -1,4 +1,4 @@
-from tiem import sleep
+from time import sleep
 
 
 def smileflirtcontent(player):

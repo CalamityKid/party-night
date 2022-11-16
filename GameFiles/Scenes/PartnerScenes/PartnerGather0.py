@@ -25,8 +25,8 @@ def partnergather0content(player):
     print("     Remember that party in the warehouse?")
     print("     with the redhead in the crazy green jacket?")
     print("        Do you remember? (y/n)", end=" ")
-    print("")
     option = yesorno()
+    print("")
 
     if option == True:
         print("you totally remember, that was a crazy jacket")
