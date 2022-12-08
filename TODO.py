@@ -11,7 +11,6 @@
 
 # in dance
 # gameoversmile "pusher friend met?" even though we hadnt i think
-# add spaces to Cutie
 # fix anxiety thingsss (in player probably)
 # in narrate talk, chec if theres more than 4 people do it on separate lines
 # gameover action narration "you get out of the club"?
