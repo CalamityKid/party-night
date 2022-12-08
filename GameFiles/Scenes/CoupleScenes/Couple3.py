@@ -22,7 +22,8 @@ def coupletimes3content(player):
 
     elif player.time.hour >= 3:
         if player.party.music == "terrible":
-            print("Wow, the music's soooo bad, bitch!")
+            print("")
+            print("     Wow, the music's soooo bad, bitch!")
             sleep(2)
             print("says one of them")
             sleep(1)
@@ -30,12 +31,12 @@ def coupletimes3content(player):
             print("")
             sleep(3)
             print("     And this DJ's gonna be playing til 5 too")
-            sleep(1)
+            sleep(2)
             print("     like all the time we're here basically, ugh.")
             sleep(3)
             print("")
             print("Wow, the drama. But totally true though.")
-            sleep(1)
+            sleep(2)
             print("you feel their pain.")
             print("")
             sleep(2)
@@ -53,7 +54,6 @@ def coupletimes3content(player):
                 elif option == False:
                     print("You kindly turn down the offer.")
                 player.NPCs["couple"].times_talked = 4
-                sleep(2)
             return True
 
         elif player.party.music != "terrible":
@@ -89,6 +89,7 @@ def coupletimes3content(player):
                     sleep(2)
                     print("     Yeah, bitch, let's get moving!")
                     sleep(1)
+                    print("")
                     print("and they both make a beeline to the dance floor.")
                     print("")
                     sleep(2)

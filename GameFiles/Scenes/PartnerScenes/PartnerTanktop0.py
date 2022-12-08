@@ -1,12 +1,16 @@
+from time import sleep
 from ...Input import yesorno
 
 
 def partnertanktoptimes0content(player):
     print("Now that the cutie's out of sight, your partner turns to you.")
+    sleep(2)
     print("")
 
     print("     So... the cutie in the tanktop.")
+    sleep(1)
     print("     Hot, right?")
+    sleep(1)
     print("basically asking you if you're on the same page.")
     option1 = None
     while option1 == None:
@@ -23,10 +27,21 @@ def partnertanktoptimes0content(player):
             elif option2 == True:
                 print("You're like heck yeah let's go for it.")
                 print("")
+                sleep(2)
                 print("     Yesss, I was hoping you'd say that.")
+                sleep(2)
                 print("     That'd be a good time, huh?")
+                sleep(2)
                 print("")
-                print("Yes it would. Yes, it, would.")
+                print("Yes it would. ", end="")
+                sleep(1)
+                print("Yes, ", end="")
+                sleep(1)
+                print("it, ", end="")
+                sleep(1)
+                print("would.")
+                sleep(2)
+                print("")
                 print("You get back to the partying.")
                 player.memories.append("Tanktop Interest")
                 return True
@@ -41,10 +56,14 @@ def partnertanktoptimes0content(player):
             elif option2 == True:
                 print("You're like no, not interested.")
                 print("")
+                sleep(2)
                 print("     Ah, I was hoping you were into the idea.")
+                sleep(2)
                 print("kinda disappointed sounding")
+                sleep(2)
                 print("and after a few seconds")
                 print("")
+                sleep(2)
                 print("     Uh, do you mind if I go for it by myself?")
                 print("")
                 option3 = None
@@ -63,18 +82,23 @@ def partnertanktoptimes0content(player):
                         if option4 == False:
                             option3 = None
                         elif option4 == True:
-                            print(
-                                "You say, you do, in fact, mind. And you'd prefer it if they didn't."
-                            )
+                            print("You say, you do, in fact, mind.", end=" ")
+                            sleep(2)
+                            print("And you'd prefer it if they didn't.")
                             print("")
-                            print(
-                                "     Huh. Okay. I guess we'll talk about it when we get home..."
-                            )
+                            sleep(2)
+                            print("     Huh.", end=" ")
+                            sleep(2)
+                            print("Okay.", end=" ")
+                            sleep(2)
+                            print(" I guess we'll talk about it when we get home...")
                             print("")
-                            print(
-                                "That tone of voice. You're in for a discussion later on..."
-                            )
-                            print("You get back to the partying.")
+                            sleep(2)
+                            print("That tone of voice.", end=" ")
+                            sleep(2)
+                            print("Sounds like an argument brewing...")
+                            sleep(2)
+                            print("You get back to partying.")
                             player.memories.append("Tanktop Conversation")
                             return True
 
@@ -91,10 +115,12 @@ def partnertanktoptimes0content(player):
                             option3 = None
                         elif option4 == True:
                             print(
-                                "You say, you don't mind. YOu give your partner your blessing."
+                                "You say, you don't mind. You give your partner your blessing."
                             )
                             print("")
+                            sleep(2)
                             print("     Alright! Wish me luck!")
-                            print("and you get back to the partying.")
+                            sleep(2)
+                            print("and you get back to partying.")
                             player.memories.append("Tanktop Partner")
                             return True

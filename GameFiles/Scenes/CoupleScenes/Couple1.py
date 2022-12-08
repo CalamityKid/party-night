@@ -7,6 +7,7 @@ from ...Scripts.Blocks import items
 
 def coupletimes1content(player):
     player.memories.append("Borrow Gum")
+    sleep(1)
     print("")
     if player.location == player.rooms["smoking room"]:
         print(
@@ -39,7 +40,7 @@ def coupletimes1content(player):
         )
         sleep(2)
         print("one of them says while the other talks to the smile ambassador.")
-        sleep(1)
+        sleep(2)
         print("You comment how last time the music wasn't great.")
         print("")
         print("They offer you some chewing gum.")
@@ -67,5 +68,8 @@ def coupletimes1content(player):
             player.items.append(items["chewing gum"])
         elif option == False:
             print("You kindly turn down the offer.")
+
+        sleep(1)
+        print("You're hoping it'll get better later.")
         player.NPCs["couple"].times_talked = 2
         return True

@@ -82,10 +82,10 @@ update_schedule()
 while player.gameover == False:
     action_met = None
     narrate_actions(player)
-    sleep(2)
+    sleep(1)
     player.narrate_stats(True)
     action_met = player_choose_action(player)
-    sleep(3)
+    sleep(2)
     if action_met == True:
         time.ten_minutes()
 

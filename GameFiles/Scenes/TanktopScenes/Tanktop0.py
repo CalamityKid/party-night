@@ -7,8 +7,11 @@ from ...Scripts.Blocks import items
 def tanktoptimes0content(player):
     if player.location == player.rooms["dance floor"]:
         print("You can only half talk with the music this loud")
+        sleep(1)
         print("so you end up giving each other looks and smiling")
+        sleep(2)
         print("your partner's really going for it too")
+        sleep(1)
         print("full on hunt mode")
         player.lit += 20
         player.NPCs["tanktop"].flirt += 1
@@ -21,12 +24,15 @@ def tanktoptimes0content(player):
         player.location != player.rooms["dance floor"]
     ):  # should mean its later than 1 am y pasaste before
         print("The cutie in the tanktop smiles as you approach.")
+        sleep(1)
         print("It's pretty damn charming.")
         print("")
         sleep(2)
         print("     It's nice to be able to party again, huh?")
+        sleep(1)
         print("")
         print("and it's they way they say it")
+        sleep(1)
         print("you can't help smiling back")
         player.lit += 20
         print("")
@@ -40,12 +46,15 @@ def tanktoptimes0content(player):
                     items["special K"] in player.active_items or player.cool > 40
                 ):  # a half save
                     print("You respond with some corny line about good company")
+                    sleep(2)
                     print("they seem to like it")
                     player.NPCs["tanktop"].flirt += 1
                     sleep(2)
                     return True
                 print("You try to say something clever")
+                sleep(1)
                 print("but you're too stoned to nail it")
+                sleep(2)
                 print("it ends up sounding dumb but they don't seem to mind.")
 
             elif items["special K"] in player.active_items or player.coolness > 40:
@@ -57,10 +66,11 @@ def tanktoptimes0content(player):
                 print("")
                 sleep(1)
                 print("you can tell it worked")
+                sleep(1)
                 print("you're all smiling cheekily at each other")
+                sleep(2)
                 print("there's definitely tension")
                 print("")
-                sleep(2)
                 player.NPCs["tanktop"].flirt += 2
 
         elif option == False:
@@ -68,9 +78,10 @@ def tanktoptimes0content(player):
             print("")
             sleep(1)
         print("You talk for a few more minutes")
+        sleep(2)
         print("a friend calls out to them")
+        sleep(1)
         print("and they leave unwillingly.")
         print("")
-        sleep(2)
         player.NPCs["tanktop"].times_talked = 1
         return True
