@@ -13,7 +13,7 @@ def partnertimes4content(player):
         sleep(2)
         print("you consider you should start doing more things together")
         print("")
-        sleep(2)
+        sleep(3)
         print("you're caught looking and get a smile back in return.")
         sleep(3)
         print("you're pretty sure this is what love feels like")

@@ -127,4 +127,10 @@ def tanktopflirtcontent(player_obj):
         player_obj.modify_stat("lit", 10, False)
         player_obj.NPCs["tanktop"].flirt += 1
 
+    if player_obj.debug == True:
+        print(
+            "flirt is now {flirtnumber}".format(
+                flirtnumber=player_obj.NPCs["tanktop"].flirt
+            )
+        )
     return True

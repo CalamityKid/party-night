@@ -13,7 +13,7 @@ def coupletimes2content(player):
             print("     The music was okay when we got here, but now it's so bad.")
             sleep(2)
             print("one of them says while the other is like, ", end="")
-            sleep(1)
+            sleep(2)
             print("shaking their head in approval.")
             sleep(2)
             print("")
@@ -23,9 +23,9 @@ def coupletimes2content(player):
             print(
                 "     We're leaving early too, like 5 am, we're gonna have to get going..."
             )
-            sleep(1)
+            sleep(2)
             print("     so I hope the DJ steps it up.")
-            sleep(1)
+            sleep(2)
             print("says the other one.")
             player.NPCs["couple"].times_talked = 3
             return True
@@ -34,10 +34,10 @@ def coupletimes2content(player):
             print("     Music's okay right now, right?")
             sleep(2)
             print("says one of them.")
-            sleep(1)
+            sleep(2)
             print("")
             print("     Let's go dance!")
-            sleep(1)
+            sleep(2)
             print("says the other one and they half drag you to the dance floor.")
             sleep(2)
             print("")

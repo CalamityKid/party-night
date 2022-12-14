@@ -42,7 +42,13 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
     partner = NPC("your partner", ["cigarette"], ["part"], partnerlocation)
     partner.kusesleft = 3
     smile = NPC(
-        "the smile ambassador", ["blunt"], ["smil", "ambass", "ruben"], smilelocation
+        "the smile ambassador",
+        ["blunt"],
+        [
+            "smil",
+            "ambass",
+        ],
+        smilelocation,
     )
     smile.convinced = False
     russian = NPC(
@@ -60,7 +66,7 @@ def setupcharacters(partnerlocation=None, smilelocation=None, russianlocation=No
     pusher = NPC(
         "your new mercantile friend",
         ["Soundcloud", "blunt", "cigarette", "poppers", "chewing gum"],
-        ["pusher"],
+        ["pusher", "mercan"],
     )
     couple = NPC(
         "the attractive couple",

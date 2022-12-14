@@ -4,6 +4,7 @@ from ...Input import yesorno
 # liga con tanktop, happens spontaneously if it hasnt run and tanktop flirt is higher 10.
 def partnertanktop5content(player):
     print("looks like your partner's flirting is paying off")
+    sleep(2)
     print("the cutie in the tanktop's bouncing that energy right back")
     sleep(2)
     print("your partner gives you a quick look to check if you're okay with it")
@@ -37,7 +38,8 @@ def partnertanktop5content(player):
             print("you ask how it went")
             print("")
             sleep(2)
-            print("It went well, it was fun.")
+            print("     It went well, it was fun.")
+            sleep(2)
             print("You decide to talk more about it back home")
             print("and go back to partying.")
             player.hookupfeeling = inputstring

@@ -39,7 +39,7 @@ def partnerflirtcontent(player):
         sleep(1)
         print("")
         print("You just melt. ", end="")
-        sleep(2)
+        sleep(1)
         print("You've been overflirted.")
         player.modify_stat("lit", 10, True)
         player.NPCs["partner"].flirt += 1

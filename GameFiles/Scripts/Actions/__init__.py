@@ -7,6 +7,7 @@ from .DanceSc import Dance, dance
 from .BorrowSc import Borrow, borrow
 from .FlirtSc import Flirt, flirt
 from .TutorialSc import tutorial
+from .LeaveSc import leave
 
 #########################################################################
 #############################   INSTANCES   #############################
@@ -22,4 +23,5 @@ dict_of_actions = {
     "Borrow": borrow,
     "Flirt": flirt,
     "Tutorial": tutorial,
+    "Leave": leave,
 }

@@ -59,10 +59,10 @@ player.scenevariables = scenevariables
 player.partnerscenes = partnerscenes
 
 # Gives the player and NPCs a location so shit doesn't crash
-player.location = rooms["dance floor"]
+player.location = rooms["smoking room"]
 NPCs["partner"].location = rooms["dance floor"]
-NPCs["smile"].location = rooms["bathroom"]
-NPCs["russian"].location = rooms["smoking room"]
+NPCs["smile"].location = rooms["dance floor"]
+NPCs["russian"].location = rooms["dance floor"]
 
 print("GAME START.")
 print("")
@@ -76,7 +76,7 @@ op = yesorno()
 if op == True:
     tutorialscene.run_scene(player)
 
-
+non_counter = 0
 update_schedule()
 
 while player.gameover == False:
@@ -86,8 +86,11 @@ while player.gameover == False:
     player.narrate_stats(True)
     action_met = player_choose_action(player)
     sleep(2)
-    if action_met == True:
+    if action_met == True or non_counter == 3:
         time.ten_minutes()
+        non_counter = 0
+    elif action_met != True:
+        non_counter += 1
 
     if player.gameover == False:
         update_schedule()

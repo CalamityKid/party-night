@@ -3,7 +3,7 @@ from time import sleep
 
 def russiantimes0content(player):
     print("")
-    print("     Heeey bitchees!", end="")
+    print("     Heeey bitchees! ", end="")
     sleep(2)
     print("You guys doing alriiight?")
     print("")

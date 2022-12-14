@@ -5,7 +5,6 @@ from .Tanktop2 import tanktoptimes2content
 from .Tanktop3 import tanktoptimes3content
 from .Tanktop4 import tanktoptimes4content
 from .Tanktop5 import tanktoptimes5content
-from .TanktopFlirt import tanktopflirtcontent
 
 
 def assemble_tanktop_scenes():
@@ -15,7 +14,6 @@ def assemble_tanktop_scenes():
     times3 = Scene("Times3", tanktoptimes3content)
     times4 = Scene("Times4", tanktoptimes4content)
     times5 = Scene("Times4", tanktoptimes5content)
-    tanktopflirt = Scene("TanktopFlirt", tanktopflirtcontent)
 
     return {
         "Times0": times0,
@@ -24,7 +22,6 @@ def assemble_tanktop_scenes():
         "Times3": times3,
         "Times4": times4,
         "Times5": times5,
-        "TanktopFlirt": tanktopflirt,
     }
 
 

@@ -13,7 +13,7 @@ def convincedcontent(player):
     print("")
     print("     Suure, I'm doown. See you there.")
     print("")
-    sleep(1)
+    sleep(2)
     print("and heads to the dance floor.")
     print("")
 

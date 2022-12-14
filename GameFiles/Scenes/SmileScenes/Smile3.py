@@ -57,9 +57,9 @@ def smiletimes3content(player):
 
                 if "Tried Reaching Smile" in player.memories:
                     sleep(2)
-                    print("Good luck trying to reach them like this")
+                    print("Good luck trying to reach them like this.")
                     sleep(2)
-                    print("Maybe another approach might work")
+                    print("Maybe another approach might work...")
                 elif "Tried Reaching Smile" not in player.memories:
                     player.memories.append("Tried Reaching Smile")
 

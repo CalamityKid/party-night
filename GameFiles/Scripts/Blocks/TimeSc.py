@@ -42,9 +42,10 @@ class Time:
                 if player.location.name == "the dance floor":
                     if player.party.music == "great":
                         player.lit += 10
-                        print("The music's fire rn, it's cheering you up.")
+                        print("The music's fire rn. You're really feeling it.")
                     elif player.party.music == "terrible":
                         player.lit -= 10
+                        player.coolness += 10
                         print("You really hate this music.")
             player.update_active_items()
             print("")

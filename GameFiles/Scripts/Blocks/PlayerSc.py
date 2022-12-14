@@ -102,7 +102,7 @@ class MainCharacter:
         elif self.high <= 70:
             print("This high is feeling goood tho.", end=" ")
         elif self.high <= 90:
-            print("Great fucking high.", end=" ")
+            print("You're very fucking high.", end=" ")
         elif self.high >= 100:
             print("You're waay too high right now, like bad high, you feel... ugh.")
 
@@ -126,7 +126,7 @@ class MainCharacter:
         elif self.lit <= 90:
             print("This party's really fucking lit. ", end=" ")
         elif self.lit >= 100:
-            print("You're having the best time of your life. ", end=" ")
+            print("You're having an amazing time. ", end=" ")
 
         if self.coolness <= 10:  # For coolness
             print("")
@@ -135,9 +135,9 @@ class MainCharacter:
         elif self.coolness <= 70:
             print("Getting looks from some cuties around the room.")
         elif self.coolness <= 90:
-            print("You're getting a ton of attention from people.")
+            print("You're feeling tense. ")
         elif self.coolness >= 100:
-            print("You feel like all eyes are on you.")
+            print("You feel very anxious. ")
         print("""			""")
 
         if self.debug == True:
@@ -162,18 +162,21 @@ class MainCharacter:
             self.coolness += 10
         elif self.high >= 70 and self.high < 100:
             self.lit += 20
-            self.coolness += 10
+            self.coolness -= 10
         elif self.high >= 100:
             self.high = 100
-            self.coolness -= 20
-            self.lit -= 20
 
         if self.mouth <= 10:  # For mouth
-            self.coolness -= 10
+            self.coolness += 10
             self.lit -= 10
             self.mouth = 10
         elif self.mouth >= 20 and self.mouth <= 40:
             self.lit -= 10
+
+        if self.lit > 50:  # For lit
+            self.coolness -= 10
+        if self.lit > 80:
+            self.coolness -= 10
 
         for attr in ["high", "coolness", "lit", "mouth"]:
             if getattr(self, attr) < 10:
@@ -227,9 +230,9 @@ class MainCharacter:
 
 player = MainCharacter(
     "main character",
-    20,
+    30,
     0,
-    10,
+    0,
     ["cigarette", "Soundcloud", "blunt"],
     {},
 )

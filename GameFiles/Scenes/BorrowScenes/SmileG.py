@@ -11,7 +11,7 @@ def smileGcontent(player):
     if items["G"] in player.active_items:
         print("          Baby, we already did some. Chill, you don't wanna drop on us.")
         print("")
-        sleep(1)
+        sleep(2)
         print("You DON'T wanna drop on them. Double dosing G is fucked up.")
         sleep(2)
         print("You decide to wait it out.")
@@ -24,13 +24,13 @@ def smileGcontent(player):
             if player.scenevariables.movementtimewarning == False:
                 print("")
                 print("      We'd have to go all the way to the bathroom, though.")
-                sleep(1)
+                sleep(2)
                 print("      I don't wanna do the whole trip by myself.")
-                sleep(1)
+                sleep(2)
                 print("      Especially when it's crowded. Takes forever. A nightmare.")
                 sleep(2)
                 print("      We can still go though. If you want...")
-                sleep(1)
+                sleep(2)
                 print("")
                 player.scenevariables.movementtimewarning = True
             print(
@@ -47,9 +47,8 @@ def smileGcontent(player):
                     print(
                         "The smile ambassador and you slowly bump your way through the crowd."
                     )
-                    sleep(1)
+                    sleep(2)
                     print("You finally make it to the bathroom.")
-                    sleep(1)
                     player.time.ten_minutes()
                 elif player.party.crowd != "full":
                     print("")
@@ -71,8 +70,11 @@ def smileGcontent(player):
                 sleep(1)
                 print("Their friend is clearly a pusher.")
                 sleep(2)
+                print("")
                 print("They seem nice.")
+                sleep(2)
                 print("You end up talking a bit, there's smiling on both parts.")
+                sleep(2)
                 print("You kinda end up not doing any G.")
                 player.people_in_party.append(player.NPCs["pusher"])
                 player.NPCs["pusher"].location = player.rooms["bathroom"]
@@ -83,6 +85,7 @@ def smileGcontent(player):
                 if player.scenevariables.stalltimewarning == False:
                     print("")
                     print("      It's pretty crowded in here.")
+                    sleep(2)
                     print("      We're gonna have to wait a bit to get a stall.")
                     sleep(2)
                     print("      It will probably take a while actually.")
@@ -97,7 +100,9 @@ def smileGcontent(player):
                     print("")
                     sleep(1)
                     print("It IS pretty crowded. Waiting. Small talk.")
+                    sleep(2)
                     print("After a few minutes a stall frees up.")
+                    sleep(2)
                     print("You both get in.")
                     sleep(2)
                     player.items.append(items["G"])
@@ -112,7 +117,7 @@ def smileGcontent(player):
             if player.party.crowd != "full":
                 print("      Alright, let's do it!")
                 print("")
-                sleep(1)
+                sleep(2)
                 print("and you go into an empty stall together")
                 player.items.append(items["G"])
                 use_item.execute(player, items["G"])

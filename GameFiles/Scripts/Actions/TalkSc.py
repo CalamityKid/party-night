@@ -42,6 +42,9 @@ class Talk(Action):
             print("")
         print("You see " + people_in_room_string, end=" ")
 
+        if len(people_in_room_list) > 2:
+            print("")
+
         if people_in_room_string != "no familiar faces":
             print("You could [FLIRT] or [TALK] to them or your partner.")
         else:

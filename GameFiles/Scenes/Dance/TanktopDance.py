@@ -32,7 +32,7 @@ def tanktopdancecontent(player):
                 print("The three of you dance together, some kissing happens too.")
                 sleep(1)
                 print("It's playful and sexy.")
-                player.NPCs["tanktop"].flirt += 1
+                player.NPCs["tanktop"].flirt += 2
             return True
 
     elif (

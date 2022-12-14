@@ -3,6 +3,7 @@ from ...Scripts.Blocks import items
 
 
 def partnerbankcontent(player):
+    print("")
 
     if hasattr(player, "banklist") == False:
         player.banklist = ["keta", "GHB", "fun", "mouth", "empty", "reloaded"]
@@ -82,8 +83,9 @@ def partnerbankcontent(player):
         if "Commission" in player.memories:
             print("     What a wonderful night")
             sleep(2)
-            print("     meeting this total cutie")
-            sleep(2)
+            if player.NPCs["tanktop"].times_talked > 0:
+                print("     meeting this total cutie")
+                sleep(2)
             print("     and we even got some more k")
             sleep(2)
             print("")

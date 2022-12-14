@@ -15,36 +15,42 @@ def pushertimes1content(player):
             and player.location.name == "the smoking room"
         ):
             print("they're smoking some green")
+            sleep(1)
+            print ("")
             print("     Heyy! yes. The cool cats!")
+            sleep(1)
+            print ("")
             print("you talk a little. They offer some weed.")
+            sleep(1)
             print("")
             print("     Do you want a puff? (y/n)", end=" ")
             op = yesorno()
             if op == True:
                 print("")
                 print("You say yes, thankyouverymuch.")
-                sleepp(2)
+                sleep(2)
                 player.items.append(items["blunt"])
                 use_item.execute(player, items["blunt"])
                 print("")
-                print("you thank them and then tal a bit longer.")
+                print("you thank them and then talk a bit longer.")
                 sleep(1)
                 return True
 
             elif op == False:
                 print("You kindly refuse.")
                 print("")
-                sleep(2)
+                sleep(1)
                 print("     You just let me know, my spliff's your spliff.")
+                sleep(1)
                 print("     Have a good one.")
-                sleep(2)
                 return None
 
         else:  # the default if conditions arent met and you got the commision already
             print("")
             print("     Enjoying yourselves tonight?")
+            sleep(1)
             print("all friendly like, super articulate.")
-            sleep(2)
+            sleep(1)
             print("you chatter on for a bit before going back to the party.")
             return None
 
@@ -53,16 +59,19 @@ def pushertimes1content(player):
         and "Pusher Business" not in player.memories
     ):
         print("but instead you consider you could")
+        sleep(1)
         print("go talk to the cutie in the tanktop and play matchmaker instead.")
         return None
 
     elif "Pusher Business" in player.memories and "Commission" not in player.memories:
         print("")
         print("     Thanks for the networking earlier.")
+        sleep(1)
         print("     You're a cool cat. Here, for the trouble.")
+        sleep(1)
         print("")
-        sleep(3)
         print("the pusher gives you a pill and gives your partner some k ")
+        sleep(1)
         print("your partner's beaming. you're both thankful.")
         player.items.append(items["special K"])
         player.memories.append("Commission")
@@ -71,5 +80,4 @@ def pushertimes1content(player):
 
     else:
         print("you idly talk about not much at all")
-        sleep(1)
         return None

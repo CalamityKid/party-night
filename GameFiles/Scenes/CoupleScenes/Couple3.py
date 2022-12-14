@@ -17,7 +17,11 @@ def coupletimes3content(player):
         if player.NPCs["couple"].boost < 1.2:
             print("You're really glad they're here with you tonight.")
             player.NPCs["couple"].boost = 1.2
+        elif player.NPCs["couple"].boost == 1.2:
+            print("")
+            print("They're hanging out with a few friends now")
             sleep(2)
+            print("they're engrossed in conversation.")
         return None
 
     elif player.time.hour >= 3:

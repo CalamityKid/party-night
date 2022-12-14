@@ -55,7 +55,9 @@ class Dance(Action):
         ):
             givenlist = not_on_dance_floor(player_object)
             if (len(givenlist) == 0) == True:
-                return dance_scenes["Changed Music"].run_scene(player_object)
+                dance_scenes["Changed Music"].run_scene(player_object)
+                dance_flourish(instance)
+                return True
 
         for person in people_in_room:
             if person.name in dance_scenes:

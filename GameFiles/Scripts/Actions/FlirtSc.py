@@ -24,6 +24,12 @@ class Flirt(Action):
             print("They're not here right now.")
             return None
         elif flirtee.location == flirter.location:
+            if flirter.debug == True:
+                print(
+                    "before scene, flirt is {flirtnumber}".format(
+                        flirtnumber=flirtee.flirt
+                    )
+                )
             return flirtscenes[flirtee.name].run_scene(flirter)
 
     def narrate(self, player):

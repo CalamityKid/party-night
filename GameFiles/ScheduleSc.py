@@ -94,10 +94,6 @@ def update_schedule():
             player.NPCs["pusher"].location = player.rooms["bathroom"]
 
     if player.time.hour == 5 and player.time.minute == 00:
-        # couple kisses you goodbye and leaves, removes couple from party
-        if couplescenes["CoupleLeaves"].has_run != True:
-            couplescenes["CoupleLeaves"].run_scene(player)
-        # couple kisses you goodbye and leaves, removes couple from party
         player.NPCs["russian"].location = player.rooms["bathroom"]
         player.NPCs["smile"].location = player.rooms["dance floor"]
         if player.NPCs["tanktop"] in player.people_in_party:
@@ -114,6 +110,10 @@ def update_schedule():
             player.NPCs["pusher"].location = player.rooms["bathroom"]
 
     ###########Then checks for condition based timed events
+    if player.time.hour >= 5 and couplescenes["CoupleLeaves"].has_run != True:
+        couplescenes["CoupleLeaves"].run_scene(player)
+        # couple kisses you goodbye and leaves, removes couple from party
+
     if (
         (player.NPCs["tanktop"].times_talked == 1)
         and (partnerscenes["PartnerTanktop0"].has_run == False)

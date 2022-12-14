@@ -10,9 +10,9 @@ def partnertimes2content(player):
         print("and it's a really good look")
         sleep(2)
         print("you appreciate what a beautiful creature your partner is")
-        sleep(1)
+        sleep(2)
         print("you're caught looking and get the most charming smile in return")
-        sleep(1)
+        sleep(2)
         player.NPCs["partner"].boost = 1.3
         return False
     else:

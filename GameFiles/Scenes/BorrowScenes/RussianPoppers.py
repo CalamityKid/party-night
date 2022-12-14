@@ -9,7 +9,11 @@ from ...Input import yesorno
 
 def russianpopperscontent(player):
     if player.location != player.rooms["dance floor"]:
-        print("They remind you, only on the dance floor baabe, okaay?")
+        print("They remind you")
+        sleep(2)
+        print("     Only on the dance floor baabe, ", end="")
+        sleep(1)
+        print("okaay?")
         print("")
         return None
     elif items["poppers"] in player.active_items:
@@ -18,7 +22,9 @@ def russianpopperscontent(player):
         return None
     elif player.scenevariables.popper_counter == 5:
         print("You signal that you want to take a hit")
+        sleep(2)
         print("your russian friend shrugs")
+        sleep(2)
         print("you assume someone else must have the bottle.")
         print(" ")
         print("     Do you wanna look around? (y/n) ", end="")
@@ -27,11 +33,12 @@ def russianpopperscontent(player):
             print("you look around a bit")
             sleep(1)
             print("your partner sees you looking around and stops dancing")
-            sleep(1)
+            sleep(2)
             print("wants to know whats going on")
             print("")
-            sleep(1)
+            sleep(2)
             print("you start to explain you're looking for the poppers")
+            sleep(2)
             print("they start laughing and show you the bottle")
 
         elif option == False:
@@ -59,6 +66,7 @@ def russianpopperscontent(player):
                 return None
             elif player.time.hour >= 5:
                 print("You signal you want some poppers")
+                sleep(2)
                 print("room's empty but nobody still here cares probably")
                 sleep(2)
                 print("your russian friend gives you the bottle")

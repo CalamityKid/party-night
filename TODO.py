@@ -3,7 +3,7 @@
 # add so many spaces everywhere.
 # add music to dance. If on dance floor narrate music.
 # Get the flow down properly in partner and the gather scenes
-#  LEAVE party. ok in select option.
+# ok in select option.
 
 # TO DO
 # consider making a save function.

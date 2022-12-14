@@ -118,6 +118,7 @@ def format_input_command(player_input, player_obj):
         action == player_obj.dict_of_actions["Tap Water"]
         or action == player_obj.dict_of_actions["Dance"]
         or action == player_obj.dict_of_actions["Tutorial"]
+        or action == player_obj.dict_of_actions["Leave"]
     ):
         subject = True
 

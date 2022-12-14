@@ -6,12 +6,15 @@ from ...Input import yesorno
 
 def partneranxietycontent(player):
     print("Your partner side-eyes you for a moment")
+    sleep(2)
     print("then puts a hand on your shoulder and pulls you to the side")
+    sleep(2)
     print("     Are you okay babe?")
     print("     You seem tense.")
     print("")
     sleep(3)
     print("You do feel tense. You feel like people are looking at you.")
+    sleep(2)
     print("You like the attention but it's making you very self aware.")
     sleep(3)
     print("")

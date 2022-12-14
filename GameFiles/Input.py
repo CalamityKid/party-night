@@ -49,7 +49,11 @@ def yesorno():
         yesornoresult = input()
         if len(yesornoresult) > 0:
             yesornoresult = formatting.clean_input(yesornoresult)
-            if "y" in yesornoresult[0]:
+            if (
+                "y" in yesornoresult[0]
+                or yesornoresult == "ok"
+                or yesornoresult == "okay"
+            ):
                 print("")
                 return True
             elif "n" in yesornoresult[0]:

@@ -21,6 +21,7 @@ def partnerkcontent(player):
         if player.NPCs["partner"].kusesleft == 0:
             print("")
             print("     I ran out, babe")
+            sleep(1)
             print("     I'm sorry")
             print("")
             sleep(2)
@@ -35,6 +36,8 @@ def partnerkcontent(player):
                 print(
                     "your partner tells you they just gave some to your russian friend"
                 )
+                sleep(2)
+                print("")
                 print("     But you can kill the bag now")
                 print("")
                 sleep(2)
@@ -42,14 +45,16 @@ def partnerkcontent(player):
             if player.location != player.rooms["bathroom"]:
                 print("")
                 print("     Yeah, I could use some freshening up!")
+                sleep(2)
                 print("your partner says half smiling")
                 sleep(2)
 
             if player.scenevariables.movementtimewarning == False:
                 print("")
                 print("      We have to go to the bathroom then.")
-                sleep(1)
+                sleep(2)
                 print("      It's a pain. Especially when it's crowded.")
+                sleep(2)
                 print("      But you gotta do what you gotta do.")
                 print("")
                 sleep(2)
@@ -64,6 +69,7 @@ def partnerkcontent(player):
                 if player.party.crowd == "full":
                     print("")
                     print("Your partner and you slowly make your way to the bathroom.")
+                    sleep(2)
                     player.time.ten_minutes()
 
                 elif player.party.crowd != "full":
@@ -85,11 +91,11 @@ def partnerkcontent(player):
                     if player.scenevariables.stalltimewarning == False:
                         print("")
                         print("     We're gonna need to go into a stall")
-                        sleep(1)
+                        sleep(2)
                         print("     and there's a lot of people waiting.")
-                        sleep(1)
+                        sleep(2)
                         print("     It takes a while when the party's this crowded.")
-                        sleep(1)
+                        sleep(2)
                         print("      You want to wait? I don't mind...")
                         print("")
                         player.scenevariables.stalltimewarning = True
