@@ -9,7 +9,7 @@ def tanktoptimes4content(player):
         print("You approach the cutie in the tanktop's group of friends")
         sleep(1)
         print("and they're all really getting down to the music.")
-        sleep(1)
+        sleep(2)
         print("You can't really talk, they're all movement.")
         print("")
         return None
@@ -37,9 +37,9 @@ def tanktoptimes4content(player):
 
         elif "Tanktop Interest" in player.memories:
             print("You talk about random stuff.")
-            sleep(1)
+            sleep(2)
             print("Things seem more interesting when being told by a hottie.")
-            sleep(1)
+            sleep(2)
             print("You get some compliments in.")
 
             op = randint(0, 2)
@@ -49,18 +49,19 @@ def tanktoptimes4content(player):
                 print("You focus on that beautiful smile.")
             elif op == 1:
                 print("You love how your partner is really going for it.")
-                sleep(1)
+                sleep(2)
                 print("They get along great, it's really cute.")
                 player.NPCs["tanktop"].flirt += 1
             sleep(1)
         elif "Tanktop Partner" in player.memories:
             print("Your partner gets some sexy energy into the conversation.")
+            sleep(2)
             print("Yeah, there's chemistry for sure.")
 
         print(
             "When everybody's done with their cigarette they decide to go back to the dance floor."
         )
-        sleep(1)
+        sleep(2)
         print("The cutie lets you know they'll all be downstairs dancing.")
         print("")
         player.NPCs["tanktop"].location = player.rooms["dance floor"]

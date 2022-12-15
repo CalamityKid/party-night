@@ -8,7 +8,7 @@ def russiandancecontent(player):
     ):
         print("")
         print("you feel the rush")
-        sleep(1)
+        sleep(2)
         print("You let go and ride the wave, your body does its thing.")
         sleep(2)
         print("Your russian friend makes a face with his tongue out at you.")
@@ -21,21 +21,24 @@ def russiandancecontent(player):
 
     elif player.NPCs["russian"].boost == 1.3:
         print("Seeing your russian friend quietly vibing nearby hypes you up.")
+        print("")
         return True
 
     elif player.NPCs["russian"].boost == 1.2:
         print("You hear YAAS BIITCH over the sound of the music")
-        sleep(1)
+        sleep(2)
         print("very excited but also like neutral somehow")
-        sleep(1)
+        sleep(2)
         print("")
         print("you turn around and your russian friend is hyping you up")
-        sleep(1)
+        sleep(2)
         print("you give it your all")
         player.modify_stat("lit", 20, True)
         player.NPCs["russian"].boost = 1.3
         player.memories.append("Russian Dance")
         player.time.ten_minutes()
+        print("")
         return True
     else:
         print("Your russian friend's riding the sound waves.")
+        print("")

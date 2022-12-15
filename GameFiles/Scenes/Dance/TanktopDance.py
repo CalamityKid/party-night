@@ -6,6 +6,7 @@ def tanktopdancecontent(player):
 
         if player.NPCs["tanktop"].times_talked == 5:
             print("The cutie in the tanktop's group is having fun. It cheers you up.")
+            print("")
             return True
 
         elif (
@@ -15,10 +16,11 @@ def tanktopdancecontent(player):
             print("You and your partner dance your way to them and join in.")
             sleep(2)
             print("The cutie's got this disco vibe going on")
-            sleep(1)
+            sleep(2)
             print("you two catch the fever, disco fingers and all")
-            sleep(1)
+            sleep(2)
             print("it's hella fun")
+            print("")
             player.time.ten_minutes()
 
             player.memories.append("Tanktop Dance")
@@ -30,7 +32,7 @@ def tanktopdancecontent(player):
 
             if player.NPCs["tanktop"].flirt > 3:
                 print("The three of you dance together, some kissing happens too.")
-                sleep(1)
+                sleep(2)
                 print("It's playful and sexy.")
                 player.NPCs["tanktop"].flirt += 2
             return True
@@ -40,11 +42,13 @@ def tanktopdancecontent(player):
         or "Tanktop Partner" in player.memories
     ) and player.NPCs["tanktop"].boost < 1.1:
         print("You, your partner and the cutie start dancing,")
-        sleep(1)
+        sleep(2)
         print("their whole group's cheering. It's pretty fun.")
         if player.NPCs["tanktop"].boost < 1.1:
             player.NPCs["tanktop"].boost = 1.1
         player.modify_stat("lit", 20, True)
+        print("")
         return True
     else:
         print("You see the cutie in the tanktop and friends dancing close to you.")
+        print("")

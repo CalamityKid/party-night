@@ -1,6 +1,3 @@
-from time import sleep
-from GameFiles.Scripts.Format.Calculations import not_on_dance_floor
-
 intro_text = """
 You're not super excited to play this game.
 Because it doesn't have any visuals.
@@ -71,3 +68,14 @@ line = """
 """
 
 space = ""
+
+h1 = 1
+m1 = 30
+t1 = 0
+h2 = 2
+m2 = 00
+t2 = 0
+t1 = (h1 * 60) + m1
+t2 = (h2 * 60) + m2
+dif = t2 - t1
+print(dif)

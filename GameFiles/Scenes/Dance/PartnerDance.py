@@ -9,6 +9,7 @@ def partnerdancecontent(player):
 
     elif player.NPCs["partner"].times_talked == 4:
         print("you join in your partner in dance")
+        print("")
         return True
 
     elif (
@@ -37,4 +38,5 @@ def partnerdancecontent(player):
         return True
     else:
         print("your partner's dancing next to you")
+        print("")
         return True

@@ -52,6 +52,7 @@ def dance_flourish(dance_instance):
     """prints flourish. if counter is odd starts ***, if even starts *"""
     for i in flourish[(dance_instance.flourish_counter % 2)]:
         print(i)
+        sleep(1)
     dance_instance.flourish_counter += 1
 
 

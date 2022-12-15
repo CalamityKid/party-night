@@ -16,12 +16,14 @@ def tanktoptimes3content(player):
 
             if "Tanktop Conversation" in player.memories:
                 print("Maybe you should try to get them a contact.")
+
             elif "Tanktop Interest" in player.memories:
                 print("You try to lift the mood up a bit")
                 sleep(1)
                 print("but conversation ends up being about")
                 sleep(1)
                 print("what a great time they'd be having if their friend showed up.")
+
             elif "Tanktop Partner" in player.memories:
                 print("You try to lift the mood up a bit")
                 sleep(1)
@@ -53,7 +55,7 @@ def tanktoptimes3content(player):
                 )
                 sleep(1)
                 print("Everybody seems pretty happy about the whole thing.")
-                player.coolness += 30
+                player.coolness -= 30
                 player.memories.append("Pusher Business")
                 player.scenevariables.capeohour = player.time.hour
                 player.scenevariables.capeominute = player.time.minute
@@ -68,36 +70,41 @@ def tanktoptimes3content(player):
                 return None
 
     elif "Pusher Business" in player.memories:
-        print("     The saviors of the night!")
+        if "Saviors" not in player.memories:
+            print("")
+            print("     The saviors of the night!")
+            print("")
+            sleep(2)
+            print("The cutie's friends are really happy with you two.")
+            sleep(2)
+
+            if "Tanktop Conversation" in player.memories:
+                print("Your partner gives you this we're-missing-out look.")
+                sleep(2)
+                print("You're in for a talk after this for sure.")
+
+            elif "Tanktop Interest" in player.memories:
+                print("The cutie in the tanktop is in way better spirits")
+                sleep(2)
+                print("flirting game's back on point too")
+
+            elif "Tanktop Conversation" in player.memories:
+                print("Everybody's in better spirits")
+                sleep(2)
+                print("Your partner flirting is hitting home too")
+            player.memories.append("Saviors")
+            print("")
+            sleep(2)
+
+        ######################### Must be 30 minutes for the drugs to kick in
         print("")
-        sleep(1)
-        print("The cutie's friends are really happy with you two.")
-        sleep(1)
 
-        if "Tanktop Conversation" in player.memories:
-            print("Your partner gives you this we're-missing-out look.")
-            sleep(1)
-            print("You're in for a talk after this for sure.")
-
-        elif "Tanktop Interest" in player.memories:
-            print("The cutie in the tanktop is in way better spirits")
-            sleep(1)
-            print("flirting game's back on point too")
-
-        elif "Tanktop Conversation" in player.memories:
-            print("Everybody's in better spirits")
-            sleep(1)
-            print("Your partner flirting is hitting home too")
-
-        print("")
-        sleep(2)
-
-        ######################### Must be a full hour til the drugs kick in
-        print("")
-
-        hdif = player.time.hour - player.scenevariables.capeohour
-        mdif = player.time.minute - player.scenevariables.capeominute
-        if (hdif == 1 and mdif > 0) or hdif > 2:
+        capt = (
+            player.scenevariables.capeohour * 60
+        ) + player.scenevariables.capeominute
+        currt = (player.time.hour * 60) + player.time.minute
+        dif = currt - capt
+        if dif >= 30:
             capeo = True
         else:
             capeo = False
@@ -110,7 +117,8 @@ def tanktoptimes3content(player):
 
         elif capeo == False:
             print("They're excited for the candy to kick in.")
-            sleep(1)
+            sleep(2)
             print("They're only talking about that atm.")
+            sleep(2)
             print("")
             return None

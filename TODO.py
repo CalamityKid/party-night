@@ -1,8 +1,8 @@
 #####REMEMBER.
 # remeber to add people to player.people_in_party in Scenes when they are introduced
 # add so many spaces everywhere.
-# add music to dance. If on dance floor narrate music.
-# Get the flow down properly in partner and the gather scenes
+# add music to dance.
+# Get the flow down properly in partner and the gather scenes.
 
 # TO DO
 # consider making a save function.
