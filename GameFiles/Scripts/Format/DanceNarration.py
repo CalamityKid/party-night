@@ -1,5 +1,7 @@
 from random import randint
+from time import sleep
 from .Narration import people_in_room_string
+
 
 # Narrate goods
 narrate_lit_dict = {
