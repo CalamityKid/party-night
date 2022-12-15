@@ -2,6 +2,8 @@ from time import sleep
 
 
 def couplegameovercontent(player):
+    if player.NPCs["couple"].times_talked == 0:
+        return None
     print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")
     print("| )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )( |")
     print("|(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )(  )|")

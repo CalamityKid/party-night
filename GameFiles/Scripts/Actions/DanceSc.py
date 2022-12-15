@@ -14,11 +14,10 @@ from ..Format.Calculations import (
 )
 from ..Format.DanceNarration import (
     dance_flourish,
-    narrate_bads,
-    narrate_goods,
     narrate_opening,
     narrate_outcomes,
 )
+from ...Sound.Sounds import play_end
 from ...Scenes.Dance.Compile import dance_scenes
 from ...Scripts.Format.Calculations import not_on_dance_floor
 
@@ -106,7 +105,6 @@ class Dance(Action):
         instance.unmodded_result = int(instance.unmodded_goods - instance.bads)
 
         (num, str) = calculate_outcome(instance.result)
-        # sleep(2)
         print("")
         print(narrate_outcomes(num, str))
         print("")
@@ -117,6 +115,7 @@ class Dance(Action):
         )  # num is the outcome, 1 is bad, so it'll be = to outcome bool
 
         dance_flourish(instance)
+        play_end()
         return True
 
     def narrate(self, player_obj):

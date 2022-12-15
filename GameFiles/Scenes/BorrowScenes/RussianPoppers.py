@@ -43,6 +43,7 @@ def russianpopperscontent(player):
 
         elif option == False:
             print("You don't care enough to look around for it")
+            sleep(2)
             print("few seconds pass and you see your partner returning the bottle")
         sleep(2)
         print("your partner had it")

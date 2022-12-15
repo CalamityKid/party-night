@@ -8,35 +8,51 @@ def partnertimes3content(player):
         player.time.hour >= 5 or "Music Changed" in player.memories
     ):  # gather scene finished
         if player.NPCs["partner"].boost < 1.4:
-            print("     It was a fun plan")
-            print("     but it was a bit silly.")
-            print("")
-            sleep(2)
-            print("you let out a chuckle")
-            print("it really was silly")
-            print("")
-            sleep(2)
-            if "Music Changed" not in player.memories:
-                print("     I'm glad we at least thought about it")
+            if "Plotting" in player.memories:
+                print("     It was a fun plan")
+                print("     but it was a bit silly.")
+                print("")
                 sleep(2)
-            elif "Music Changed" in player.memories:
-                print("     and we managed to pull it off!")
-                print("     just ridiculous")
-                print("     I'm glad we thought about it")
+                print("you let out a chuckle")
+                print("it really was silly")
+                print("")
                 sleep(2)
-            print("")
-            print("and so are you, you'll remember this later")
-            sleep(2)
-
-            if "Music Changed" not in player.memories:
-                print("it was dumb, but fun")
+                if "Music Changed" not in player.memories:
+                    print("     I'm glad we at least thought about it")
+                    sleep(2)
+                elif "Music Changed" in player.memories:
+                    print("     and we managed to pull it off!")
+                    print("     just ridiculous")
+                    print("     I'm glad we thought about it")
+                    sleep(2)
+                print("")
+                print("and so are you, you'll remember this later")
                 sleep(2)
 
-            print("and you consider")
-            print("this is why you've been together this long")
-            player.modify_stat("lit", 10, True)
-            player.NPCs["partner"].boost = 1.4
-            return True
+                if "Music Changed" not in player.memories:
+                    print("it was dumb, but fun")
+                    sleep(2)
+
+                print("and you consider")
+                print("this is why you've been together this long")
+                player.modify_stat("lit", 10, True)
+                player.NPCs["partner"].boost = 1.4
+                return True
+            elif "Plotting" not in player.memories:
+                print("     Seems like they switched DJs already")
+                sleep(2)
+                print("     They're playing some Mustard Dijon now.")
+                sleep(2)
+                print("     It's super good! Let's go dance babe!")
+                sleep(2)
+                print("Your partner seems very excited about it.")
+                sleep(2)
+                print("It's really cute.")
+                sleep(1)
+                print("You feel a small rush.")
+                player.modify_stat("lit", 10, None)
+                player.NPCs["partner"].boost = 1.4
+                return True
 
         elif player.NPCs["partner"].boost == 1.4:
             player.NPCs["partner"].times_talked = 4

@@ -14,14 +14,12 @@ def russiandancecontent(player):
         print("Your russian friend makes a face with his tongue out at you.")
         sleep(2)
         print("They know what's up.")
-        print("")
         player.modify_stat("coolness", 30, False)
         player.memories.append("Poppers First Dance")
         return True
 
     elif player.NPCs["russian"].boost == 1.3:
         print("Seeing your russian friend quietly vibing nearby hypes you up.")
-        print("")
         return True
 
     elif player.NPCs["russian"].boost == 1.2:
@@ -37,8 +35,6 @@ def russiandancecontent(player):
         player.NPCs["russian"].boost = 1.3
         player.memories.append("Russian Dance")
         player.time.ten_minutes()
-        print("")
         return True
     else:
         print("Your russian friend's riding the sound waves.")
-        print("")

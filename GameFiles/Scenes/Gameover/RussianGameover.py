@@ -58,7 +58,7 @@ def russiangameovercontent(player):
             print("|              so, honestly, bless their heart               |")
 
         elif "Tanktop Partner" in player.memories:
-            print("|            your partner's def grateful about it             |")
+            print("|           your partner's def grateful about it             |")
 
         elif "Tanktop Conversation" in player.memories:
             print("|           and now you and your partner are in for          |")

@@ -59,7 +59,7 @@ def russiantimes5content(player):
                 sleep(2)
                 print("big breasted, full lipped, cheekbones-for-days divinity.")
                 print("")
-                sleep(2)
+                sleep(3)
                 print("They introduce you and your partner to them")
                 sleep(2)
                 print("and you tell them how absolutely stunning they are")

@@ -61,7 +61,7 @@ def tanktopgameovercontent(player):
 
     elif "Tanktop Partner" in player.memories:
         print("|        Your partner and the cutie really hit it off        |")
-        print("||")
+        print("|                                                            |")
         if "Partner Hookup" in player.memories:
             print("|             they even got to fool around a bit             |")
             feelingstr = (
@@ -82,7 +82,6 @@ def tanktopgameovercontent(player):
         print("|                    looking forward to it!                  |")
 
     sleep(2)
-    print("|                                                            |")
     print("|                                                            |")
     print("|<> <> <> <> <> <> <> <> <> <>  <> <> <> <> <> <> <> <> <> <>|")
     print("|\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/|")

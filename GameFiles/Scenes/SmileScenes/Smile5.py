@@ -13,7 +13,7 @@ def smiletimes5content(player):
         return None
     elif "Smile Link" not in player.memories:
         if player.location == player.rooms["dance floor"]:
-            print("You're lead to a corner of the room", end="")
+            print("You're lead to a corner of the room ", end="")
             sleep(2)
             print("so you don't have to scream over the music.")
 
@@ -50,6 +50,6 @@ def smiletimes5content(player):
         print("You hug and go back to the party.")
         sleep(2)
         print(" ")
-        print("You know you'll remember this tenderly later'.")
+        print("You know you'll remember this tenderly later.")
         player.memories.append("Smile Link")
         return True

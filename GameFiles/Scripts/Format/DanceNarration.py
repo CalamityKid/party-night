@@ -1,6 +1,7 @@
 from random import randint
 from time import sleep
 from .Narration import people_in_room_string
+from ...Sound.Sounds import play_tap, play_toop, play_end
 
 
 # Narrate goods
@@ -37,7 +38,14 @@ narrate_friend_boost_dict = {
 }
 # intro
 flourish = {0: ["***", "**", "*"], 1: ["*", "**", "***"]}
-dance_bark = {0: "The music's sounding {music} now. ", 1: "The beats are {music} atm. "}
+flourish_sound = {
+    0: [play_tap, play_tap, play_toop],
+    1: [play_toop, play_toop, play_tap],
+}
+dance_bark_dict = {
+    0: "The music's sounding {music} now. ",
+    1: "The beats are {music} atm. ",
+}
 
 # outcomes
 outcomes_intro_str = "The dancing's {outcome}. "
@@ -52,10 +60,21 @@ outcomes_dict = {
 
 def dance_flourish(dance_instance):
     """prints flourish. if counter is odd starts ***, if even starts *"""
-    for i in flourish[(dance_instance.flourish_counter % 2)]:
+    flourish_bool = dance_instance.flourish_counter % 2
+    soundi = 0
+    sound_list = flourish_sound[flourish_bool]
+    for i in flourish[(flourish_bool)]:
         print(i)
+        sound_list[soundi]()
+        soundi += 1
         sleep(1)
     dance_instance.flourish_counter += 1
+
+
+def dance_bark(player_object):
+    op = randint(0, (len(dance_bark_dict) - 1))
+    print(dance_bark_dict[op].format(music=player_object.party.music))
+    sleep(2)
 
 
 def narrate_opening(player_object, ppl_in_room):
@@ -64,10 +83,9 @@ def narrate_opening(player_object, ppl_in_room):
     string_list = []
     list_as_string = ""
     ppl_in_room_str = people_in_room_string(player_object)
-    op = randint(0, (len(dance_bark) - 1))
-    string_list.append(dance_bark[op].format(music=player_object.party.music))
+    dance_bark(player_object)
 
-    if len(ppl_in_room_str) > 15:
+    if len(ppl_in_room_str) > 13:
         string_list.append("Dancing around you see ")
         string_list.append(ppl_in_room_str)
     else:

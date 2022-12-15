@@ -7,6 +7,7 @@ from time import sleep
 def partnertimes2content(player):
     if player.NPCs["partner"].boost < 1.3:
         print("who's looking very pleased just by being here")
+        sleep(2)
         print("and it's a really good look")
         sleep(2)
         print("you appreciate what a beautiful creature your partner is")

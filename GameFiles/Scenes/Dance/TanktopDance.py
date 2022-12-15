@@ -6,7 +6,6 @@ def tanktopdancecontent(player):
 
         if player.NPCs["tanktop"].times_talked == 5:
             print("The cutie in the tanktop's group is having fun. It cheers you up.")
-            print("")
             return True
 
         elif (
@@ -20,7 +19,6 @@ def tanktopdancecontent(player):
             print("you two catch the fever, disco fingers and all")
             sleep(2)
             print("it's hella fun")
-            print("")
             player.time.ten_minutes()
 
             player.memories.append("Tanktop Dance")
@@ -47,8 +45,6 @@ def tanktopdancecontent(player):
         if player.NPCs["tanktop"].boost < 1.1:
             player.NPCs["tanktop"].boost = 1.1
         player.modify_stat("lit", 20, True)
-        print("")
         return True
     else:
         print("You see the cutie in the tanktop and friends dancing close to you.")
-        print("")

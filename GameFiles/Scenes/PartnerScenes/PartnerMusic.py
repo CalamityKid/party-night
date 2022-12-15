@@ -6,7 +6,9 @@ from ...Input import yesorno
 
 def partnermusiccontent(player):
     print("Your partner gives you this look")
+    sleep(2)
     print("mouthing something like ")
+    sleep(2)
     print("")
     print("     This music is terrible")
     print("")
@@ -24,6 +26,7 @@ def partnermusiccontent(player):
 
     if option == True:
         print("You both make your way to the smoking room.")
+        sleep(2)
         print("Your partner looks half amused as they tell you")
         print("")
         sleep(1)
@@ -38,7 +41,5 @@ def partnermusiccontent(player):
         print("You decide to stay here for the moment.")
         print("You can feel the fun slowly draining out of your body.")
         player.modify_stat("lit", 10, False)
-
     print("")
-    sleep(2)
     return True

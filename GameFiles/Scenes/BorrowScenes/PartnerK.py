@@ -49,42 +49,44 @@ def partnerkcontent(player):
                 print("your partner says half smiling")
                 sleep(2)
 
-            if player.scenevariables.movementtimewarning == False:
-                print("")
-                print("      We have to go to the bathroom then.")
-                sleep(2)
-                print("      It's a pain. Especially when it's crowded.")
-                sleep(2)
-                print("      But you gotta do what you gotta do.")
-                print("")
-                sleep(2)
-                player.scenevariables.movementtimewarning = True
-            print(
-                "      You really wanna go all the way to the bathroom for this? (y/n)",
-                end=" ",
-            )
-            option = yesorno()
-            if option == True:
-
-                if player.party.crowd == "full":
+                if player.scenevariables.movementtimewarning == False:
                     print("")
-                    print("Your partner and you slowly make your way to the bathroom.")
+                    print("      We have to go to the bathroom then.")
                     sleep(2)
-                    player.time.ten_minutes()
-
-                elif player.party.crowd != "full":
+                    print("      It's a pain. Especially when it's crowded.")
+                    sleep(2)
+                    print("      But you gotta do what you gotta do.")
                     print("")
-                    print("You find yourselves in the bathroom in no time.")
                     sleep(2)
+                    player.scenevariables.movementtimewarning = True
+                print(
+                    "      You really wanna go all the way to the bathroom for this? (y/n)",
+                    end=" ",
+                )
+                option = yesorno()
+                if option == True:
 
-                player.location = player.rooms["bathroom"]
-                player.NPCs["partner"].location = player.rooms["bathroom"]
+                    if player.party.crowd == "full":
+                        print("")
+                        print(
+                            "Your partner and you slowly make your way to the bathroom."
+                        )
+                        sleep(2)
+                        player.time.ten_minutes()
 
-            if option == False:
-                print("")
-                print("          Okay babe, let me know if you change your mind.")
-                sleep(2)
-                return None
+                    elif player.party.crowd != "full":
+                        print("")
+                        print("You find yourselves in the bathroom in no time.")
+                        sleep(2)
+
+                    player.location = player.rooms["bathroom"]
+                    player.NPCs["partner"].location = player.rooms["bathroom"]
+
+                if option == False:
+                    print("")
+                    print("          Okay babe, let me know if you change your mind.")
+                    sleep(2)
+                    return None
 
             if player.location == player.rooms["bathroom"]:
                 if player.party.crowd == "full":

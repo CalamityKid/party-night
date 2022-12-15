@@ -44,7 +44,6 @@ def changedmusiccontent(player):
     print("the music's changing, ", end="")
     sleep(2)
     print("your gambit works!")
-    print("")
     sleep(2)
     player.party.change_music_great()
     player.memories.append("Changed Music")

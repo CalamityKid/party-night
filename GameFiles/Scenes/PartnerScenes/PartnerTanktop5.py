@@ -1,7 +1,7 @@
 from time import sleep
 from ...Input import yesorno
 
-# liga con tanktop, happens spontaneously if it hasnt run and tanktop flirt is higher 10.
+# liga con tanktop, happens spontaneously if you're on the tanktoppartner path and tanktop timestalked is 5
 def partnertanktop5content(player):
     print("looks like your partner's flirting is paying off")
     sleep(2)
@@ -41,6 +41,7 @@ def partnertanktop5content(player):
             print("     It went well, it was fun.")
             sleep(2)
             print("You decide to talk more about it back home")
+            sleep(2)
             print("and go back to partying.")
             player.hookupfeeling = inputstring
             player.memories.append("Partner Hookup")

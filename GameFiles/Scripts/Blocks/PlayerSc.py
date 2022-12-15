@@ -230,7 +230,7 @@ class MainCharacter:
 
 player = MainCharacter(
     "main character",
-    30,
+    40,
     0,
     0,
     ["cigarette", "Soundcloud", "blunt"],

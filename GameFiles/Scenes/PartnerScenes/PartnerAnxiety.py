@@ -55,8 +55,8 @@ def partneranxietycontent(player):
         print("Of course.")
         sleep(1)
         print("you breathe a bit and do your whole mindfulness bs.")
+        sleep(2)
         print("it calms you down a bit.")
 
-    sleep(2)
     player.modify_stat("coolness", False, 30)
     return False

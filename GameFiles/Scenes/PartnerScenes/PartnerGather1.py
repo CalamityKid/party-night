@@ -10,8 +10,11 @@ from time import sleep
 def partnergather1content(player):
     if "Not Gathering" in player.memories:
         print("Music's still pretty bad")
+        sleep(2)
         print("this DJs up til 5 am")
+        sleep(2)
         print("you hold your head with one hand ")
+        sleep(2)
         print("and look over at your partner, who's mouthing")
         sleep(2)
         print("")
@@ -21,8 +24,10 @@ def partnergather1content(player):
         if option == True:
             print("")
             print("you say yeah, I guess")
+            sleep(2)
             print("and it's time to look for your friends.")
             player.memories.append("Gathering")
+            player.memories.append("Plotting")
             player.memories.remove("Not Gathering")
             sleep(2)
             return None
@@ -56,6 +61,7 @@ def partnergather1content(player):
 
         elif len(notondancefloorlist) == 0:
             print("     I guess everybody's on the dance floor")
+            sleep(2)
             print("     Let's go dance!")
             sleep(2)
             print("")

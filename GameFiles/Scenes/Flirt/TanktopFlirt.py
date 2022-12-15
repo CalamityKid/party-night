@@ -58,7 +58,7 @@ def tanktopflirtcontent(player_obj):
 
                     elif "Looking for Pusher" not in player_obj.memories:
                         print("Seems like something's going on with their friends.")
-                        sleep(1)
+                        sleep(2)
                         print("Maybe talk to them about it.")
                         return None
 
@@ -69,7 +69,7 @@ def tanktopflirtcontent(player_obj):
 
             # TIMES TALKED 5. NO CAPS, but possible ENDGAME.
             elif player_obj.NPCs["tanktop"].times_talked == 5:
-                if player_obj.NPCs["tanktop"].flirt > 10:
+                if player_obj.NPCs["tanktop"].flirt >= 9:
 
                     if "Tanktop Asks" not in player_obj.memories:
                         print("Your partner's all over them")
@@ -101,12 +101,19 @@ def tanktopflirtcontent(player_obj):
                             if op2 == True:
                                 print("")
                                 print("You look at them and unwillingly smile")
-                                sleep(1)
+                                sleep(2)
                                 print("a smile like someone about to misbehave")
-                                sleep(1)
+                                sleep(2)
                                 print("a smile of hunger and excitement")
                                 sleep(2)
-                                print("you signal to your friends and you all go home.")
+                                print(
+                                    "you signal to your friends that you lot are leaving"
+                                )
+                                sleep(2)
+                                print("")
+                                print(
+                                    "You and your partner go home with the cutie in the tanktop."
+                                )
                                 player_obj.time.narrate()
                                 player_obj.memories.append("Tanktop Home")
                                 player_obj.gameover = True
@@ -119,13 +126,19 @@ def tanktopflirtcontent(player_obj):
     ######if you havent run into a capped Return statement this is where the magic happens
 
     flirting_result = flirting(player_obj)
+    print("you and your parter start flirting with the cutie in the tanktop")
+    sleep(2)
     if flirting_result == True:
         player_obj.modify_stat("lit", 10, True)
         player_obj.NPCs["tanktop"].flirt += 1
+        sleep(2)
+        print("You feel the tension building up.")
 
-    elif flirting_result == True:
+    elif flirting_result == False:
         player_obj.modify_stat("lit", 10, False)
-        player_obj.NPCs["tanktop"].flirt += 1
+        player_obj.NPCs["tanktop"].flirt -= 1
+        sleep(2)
+        print("The chemistry falters a bit.")
 
     if player_obj.debug == True:
         print(

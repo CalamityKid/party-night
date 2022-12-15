@@ -11,20 +11,20 @@ def partnergameovercontent(player):
     print("|\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/\_/|")
     print("|                                                            |")
     print("|                                                            |")
-    print("|                  Then there's your partner                 |")
+    print("|                        Your partner                        |")
     print("|                  what a mess,", end=" ")
     sleep(2)
     print("just like you                |")
     sleep(2)
     print("|         you feel so lucky to have found each other.        |")
-    print("|               together, through thick and thin             |")
+    print("|               Together, through thick and thin             |")
     print("|                                                            |")
     sleep(3)
 
     if "Too High" in player.memories:
         print("|      which is specially helpful when you fucking faint     |")
         sleep(2)
-        if "too High Twice" in player.memories:
+        if "Too High Twice" in player.memories:
             print("|                    twice in one night...                   |")
             sleep(2)
             print("|            you consider you might have a problem           |")

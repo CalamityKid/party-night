@@ -54,7 +54,7 @@ def assemble_and_run_gameover_scenes(player):
 
     for key, scene in gameover_scenes.items():
         scene.run_scene(player)
-        time.sleep(6)
+        time.sleep(3)
 
     print("º>==========================================================<º")
     print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
@@ -68,4 +68,5 @@ def assemble_and_run_gameover_scenes(player):
     print("|+---+--            Thanks for playing !!      --+---+---+---|")
     print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
     print("º>==========================================================<º")
-    time.sleep(10)
+
+    time.sleep(6)
