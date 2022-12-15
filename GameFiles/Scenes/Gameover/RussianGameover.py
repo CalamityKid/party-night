@@ -15,6 +15,7 @@ def russiangameovercontent(player):
         "|\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//|"
     )
     print("|                                                            |")
+    print("|                                                            |")
     print("|       You're glad your russian friend was there too        |")
     if "Russian Link" in player.memories:
         print("|           it was great hanging out together again          |")
@@ -76,7 +77,6 @@ def russiangameovercontent(player):
 
     print("|                                                            |")
     sleep(2)
-    print("|                                                            |")
 
     print(
         "|\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//|"
