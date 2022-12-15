@@ -44,9 +44,18 @@ class Dance(Action):
     def execute(self, player_object, thing_to_be_checked):
         instance = DanceInstance()  # creates instance
         instance.flourish_counter = 1
+        print("You start dancing.")
+        sleep(2)
+        print("")
         dance_flourish(instance)
+        print("")
         people_in_room = create_list_people_in_room(player_object)
         print(narrate_opening(player_object, people_in_room))
+        sleep(2)
+        print("")
+        dance_flourish(instance)
+        sleep(2)
+        print("")
 
         # checks if dance scenes apply, also the exception for Changed Music Scene
         if (
@@ -61,9 +70,11 @@ class Dance(Action):
 
         for person in people_in_room:
             if person.name in dance_scenes:
+                print("")
                 dance_scenes[person.name].run_scene(player_object)
+                print("")
                 dance_flourish(instance)
-                sleep(3)
+                sleep(2)
 
         # if object_checking.party.music == "" multiplier is 0.8, 1.2 o 1   GET THE MUSIC IN THERE
 
@@ -95,8 +106,11 @@ class Dance(Action):
         instance.unmodded_result = int(instance.unmodded_goods - instance.bads)
 
         (num, str) = calculate_outcome(instance.result)
-        sleep(3)
+        # sleep(2)
+        print("")
         print(narrate_outcomes(num, str))
+        print("")
+        sleep(2)
 
         outcome_on_stats(
             player_object, num, (num != 1)
