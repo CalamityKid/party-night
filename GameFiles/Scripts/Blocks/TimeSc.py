@@ -38,7 +38,8 @@ class Time:
 
         elif player.gameover == False:
             if self.minute == 00 or self.minute == 30:
-                player.high -= 10
+                player.high -= 20
+                player.lit -= 10
                 if player.location.name == "the dance floor":
                     if player.party.music == "great":
                         player.lit += 10
