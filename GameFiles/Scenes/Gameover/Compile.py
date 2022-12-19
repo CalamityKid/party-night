@@ -1,4 +1,4 @@
-import time
+from time import sleep
 from ...Input import yesorno
 from ...Scripts.Blocks.SceneSc import Scene
 from .CoupleGameover import couplegameovercontent
@@ -7,6 +7,7 @@ from .PusherGameover import pushergameovercontent
 from .RussianGameover import russiangameovercontent
 from .SmileGameover import smilegameovercontent
 from .TanktopGameover import tanktopgameovercontent
+from ...Logo import logoscene
 
 
 def assemble_and_run_gameover_scenes(player):
@@ -32,41 +33,68 @@ def assemble_and_run_gameover_scenes(player):
         print("       Alright, here we go! Lay back and enjoy!")
     elif option == False:
         print("Ready or not, here we go! Lay back and enjoy!")
-    time.sleep(4)
+    sleep(4)
 
-    print("º>==========================================================<º")
-    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
-    print("|  o | o   o | o   o | o   o | o  __ | o   o | o   o | o   o |")
-    print("|+---+---+---+  ____  ____ ______/ /___  __  +---+---+---+---|")
-    print("|  o | o   o   / __ \/ __ `/ ___/ __/ / / /  | o   o | o   o |")
-    print("|+---+---+--  / /_/ / /_/ / /  / /_/ /_/ /  -+---+---+---+---|")
-    print("|  o | o     / .___/\__,_/_/   \__/\__, /  o | o   o | o   o |")
-    print("|+---+---+  /_/    --+---+---+  _ /____/      __  ---+---+---|")
-    print("|  o | o   o | o   o |   ____  (_)___ _/ /_  / /_    | o   o |")
-    print("|+---+---+---+---+---+  / __ \/ / __ `/ __ \/ __/   -+---+---|")
-    print("|  o | o   o | o   o   / / / / / /_/ / / / / /_      | o   o |")
-    print("|+---+---+---+---+--  /_/ /_/_/\__, /_/ /_/\__/  +---+---+---|")
-    print("|  o | o   o | o   o          /____/               o | o   o |")
-    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
-    print("|  o | o   o | o   o | o   o |  by Joel Pantaleón Tejada   o |")
-    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
-    print("º>==========================================================<º")
+    logoscene.run_scene(player)
 
     for key, scene in gameover_scenes.items():
         scene.run_scene(player)
-        time.sleep(3)
+        sleep(2)
 
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | words & code  |   by  | Joel Pantaleón Tejada | o   o |")
+    sleep(2)
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o |  Marc Perelló | o   o |  recorded & cleaned sound fx  |")
+    sleep(2)
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | o   o | o   o |     TOOLS     | o   o | o   o | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o |  Yarn Spinner Editor  |  as  visual  writing aid  | o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o |  ASCII  Gen   |   at  |   network-science.de  | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | ASCII Patterns  from  | o   o |  asciiart.eu  | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    sleep(2)
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---+---+---+---+---+    Dedicated to   +---+---+---+---+---|")
+    print("|  o | o   o |    Every lousy party at Sala Tango    | o   o |")
+    print("|+---+---+---+---+-  in which against all odds  -+---+---+---|")
+    sleep(3)
+    print("|  o | o   o | we still managed to have a great time | o   o |")
+    sleep(3)
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    sleep(1)
     print("º>==========================================================<º")
     print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
     print("|  o  Special Thanks to:     | o   o | o   o | o   o | o   o |")
-    print("|+---    Marc and Edu             My friends   --+---+---+---|")
-    print("|  o |     for the support,         for the inspiration    o |")
-    print("|+---+---+     love and patience.          and the laughs. --|")
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    sleep(1)
     print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---+---+---+ Cr & Am for critical early counsel    +---+---|")
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    sleep(1)
+    print("|+---+---+---+  Au, Ad, Ra, Kr for the encouragement +---+---|")
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    sleep(1)
+    print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
+    print("|+---   Marc  and  Edu            Oc, Ht, Ms     +---+---+---|")
+    sleep(2)
+    print("|  o |     for the support,          Rb, Eo & Gv     | o   o |")
+    sleep(2)
+    print("|+---+---+---+  love and            for inspiration  +---+---|")
+    print("|  o | o   o | o   patience.            and laughs.  | o   o |")
+    sleep(2)
     print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
     print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
     print("|+---+--            Thanks for playing !!      --+---+---+---|")
     print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
     print("º>==========================================================<º")
-
-    time.sleep(6)
+    sleep(5)
