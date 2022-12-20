@@ -1,6 +1,6 @@
 from time import sleep
 
-###################Smile times 2 #Tells you about introducing you to the pusher, skips to introducing him if conditions are right
+###################Smile times 2 #Tells you about introducing you to the pusher, skips to introducing them if conditions are right
 
 
 def smiletimes2content(player):

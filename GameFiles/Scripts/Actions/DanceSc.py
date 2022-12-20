@@ -41,6 +41,9 @@ class Dance(Action):
         self.rooms_it_cannot_be_done_in = rooms_it_cannot_be_done_in
 
     def execute(self, player_object, thing_to_be_checked):
+        if player_object.location.name in self.rooms_it_cannot_be_done_in:
+            print("You can only dance on the dance floor.")
+            return None
         instance = DanceInstance()  # creates instance
         instance.flourish_counter = 1
         print("You start dancing.")

@@ -68,7 +68,7 @@ def baltricontent(player):
     sleep(4)
     print("")
 
-    player.modify_stat("high", 60, False)
+    player.modify_stat("high", 70, False)
     player.modify_stat("mouth", 40, True)
     if "Too High" not in player.memories:
         player.memories.append("Too High")

@@ -7,9 +7,7 @@ class Flirt(Action):
     def __init__(
         self,
         name="flirt with someone",
-        identifiers=[
-            "flirt",
-        ],
+        identifiers=["flirt", "kiss"],
         rooms_it_cannot_be_done_in=[],
     ):
         self.name = name

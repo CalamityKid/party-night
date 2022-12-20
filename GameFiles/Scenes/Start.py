@@ -4,9 +4,11 @@ from GameFiles.Scripts.Blocks.SceneSc import Scene
 
 def startcontent(player):
     print("")
-    print("You've come to this party with your partner")
+    print("So, ", end="")
     sleep(2)
-    print("and two of your friends, ", end="")
+    print("you've come to this party with your partner")
+    sleep(2)
+    print("and two of your friends: ")
     sleep(2)
     print("""the self proclaimed "smile ambassador", """, end="")
     sleep(2)

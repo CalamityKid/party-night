@@ -1,11 +1,11 @@
 from playsound import playsound
 import os
 
-toop = "pat.wav"
-tap = "cursor.wav"
-end = "battleTurn.wav"
-b_in = "breathein.wav"
-b_out = "breatheout.wav"
+toop = "toop.mp3"
+tap = "tap.mp3"
+end = "end.mp3"
+b_in = "bin.mp3"
+b_out = "bout.mp3"
 
 
 def play_sound(sound):

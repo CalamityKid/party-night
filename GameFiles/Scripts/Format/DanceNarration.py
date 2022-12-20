@@ -1,7 +1,7 @@
 from random import randint
 from time import sleep
 from .Narration import people_in_room_string
-from ...Sound.Sounds import play_tap, play_toop, play_end
+from ...Sound.Sounds import play_tap, play_toop, play_in, play_out
 
 
 # Narrate goods
@@ -74,7 +74,8 @@ def dance_flourish(dance_instance):
 def dance_bark(player_object):
     op = randint(0, (len(dance_bark_dict) - 1))
     print(dance_bark_dict[op].format(music=player_object.party.music))
-    sleep(2)
+    play_in()
+    sleep(1)
 
 
 def narrate_opening(player_object, ppl_in_room):

@@ -1,9 +1,10 @@
 from time import sleep
+from ...Scripts.Blocks import items
 
 
 def russiandancecontent(player):
     if (
-        "poppers" in player.active_items
+        items["poppers"] in player.active_items
         and "Poppers First Dance" not in player.memories
     ):
         print("")
@@ -11,7 +12,7 @@ def russiandancecontent(player):
         sleep(2)
         print("You let go and ride the wave, your body does its thing.")
         sleep(2)
-        print("Your russian friend makes a face with his tongue out at you.")
+        print("Your russian friend makes a face with their tongue out at you.")
         sleep(2)
         print("They know what's up.")
         player.modify_stat("coolness", 30, False)
@@ -30,7 +31,11 @@ def russiandancecontent(player):
         print("")
         print("you turn around and your russian friend is hyping you up")
         sleep(2)
-        print("you give it your all")
+        print("you start dancing and they join in")
+        sleep(2)
+        print("your dance around each other in circles")
+        sleep(2)
+        print("you lose yourself in it together")
         player.modify_stat("lit", 20, True)
         player.NPCs["russian"].boost = 1.3
         player.memories.append("Russian Dance")

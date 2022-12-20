@@ -54,11 +54,6 @@ def setup():
     NPCs["smile"].location = rooms["dance floor"]
     NPCs["russian"].location = rooms["dance floor"]
 
-    print("SET UP.")
-    print("")
-    print(player.gameover)
-    print(time)
-
     player.time.hour = 00
     player.time.minute = 00
     return player

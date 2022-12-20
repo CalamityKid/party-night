@@ -13,7 +13,6 @@ def smiledancecontent(player):
         print("You shadow each other's moves.")
         sleep(2)
         print("It's really very fun.")
-        sleep(2)
         player.modify_stat("lit", 30, True)
         player.NPCs["smile"].boost = 1.3
         player.memories.append("Smile Dance")

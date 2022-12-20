@@ -20,7 +20,6 @@ def coupledancecontent(player):
             print("the other one joins in the dance")
             sleep(2)
             print("it ends up being pretty fun")
-            sleep(2)
             player.modify_stat("coolness", 30, False)
             player.memories.append("Dumb Dance")
             return True
@@ -31,7 +30,6 @@ def coupledancecontent(player):
             print("they both end up joining you on this crazy performance piece")
             sleep(2)
             print("It's pretty cool actually")
-            sleep(2)
             player.modify_stat("coolness", 40, False)
             player.memories.append("Couple Dance")
             player.NPCs["couple"].boost = 1.3
@@ -52,7 +50,6 @@ def coupledancecontent(player):
         sleep(1)
         print("bless them.")
         player.modify_stat("mouth", 30, True)
-        sleep(2)
         return True
     else:
         print("Your friends, the cute couple, are dancing by your side.")

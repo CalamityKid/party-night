@@ -29,7 +29,6 @@ def partnerdancecontent(player):
         print("")
         print("and it fills you with joy")
         print("your heart swells")
-        sleep(2)
         player.modify_stat("lit", 10, True)
         player.modify_stat("coolness", 10, False)
         player.NPCs["partner"].times_talked = 3

@@ -20,6 +20,7 @@ def partnertimes0content(player):
         print("     We'd have to go to the bathroom first of course.")
 
     sleep(2)
+    print("")
     print("You'll keep that in mind.")
     player.memories.append("Ask for K")
     player.NPCs["partner"].times_talked = 1
