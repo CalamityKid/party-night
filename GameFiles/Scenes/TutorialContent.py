@@ -26,6 +26,7 @@ def tutorialcontent(player):
         original_ppl.append(person)
     player.people_in_party = []
 
+    or_loc = player.location
     or_lit = player.lit
     or_high = player.high
     or_cool = player.coolness
@@ -253,6 +254,8 @@ def tutorialcontent(player):
     player.coolness = or_cool
     player.lit = or_lit
     player.mouth = or_mouth
+    player.location = or_loc
+
     return None
 
 

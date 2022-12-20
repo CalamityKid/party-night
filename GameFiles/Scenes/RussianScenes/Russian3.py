@@ -37,4 +37,12 @@ def russiantimes3content(player):
 
     elif player.location != player.rooms["dance floor"]:
         print("You talk about this movie you both watched recently.")
+        sleep(2)
+        print("They mention introducing you to their friend again. ")
+        sleep(2)
+        print("You'll get along well, ", end="")
+        sleep(2)
+        print("on the dance floor, later ")
+        sleep(2)
+        print("or something like that")
         return None

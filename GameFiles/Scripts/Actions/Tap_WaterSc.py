@@ -1,4 +1,5 @@
 from .ActionSc import Action
+from time import sleep
 
 
 class Tap_Water(Action):
@@ -20,8 +21,10 @@ class Tap_Water(Action):
             print("You can only drink tap water in the bathroom.")
             return None
         print("It's definitely not your best look, but free water is free water.")
-        print("You get your head in the sink and take a few gulps. It's refreshing.")
-        print("")
+        sleep(2)
+        print("You get your head in the sink and take a few gulps. ", end="")
+        sleep(2)
+        print("It's refreshing.")
         object_performing_the_action.coolness -= 10
         object_performing_the_action.mouth += 30
         return True

@@ -34,10 +34,10 @@ def pushergameovercontent(player):
         sleep(3)
         print("|          but it was none of your business, really          |")
         sleep(2)
-        print("(|                          right?                           |)")
+        print("(|                          right?                           |")
 
     else:
-        print("|       it did't really go much deeper than that though      |)")
+        print("|       it did't really go much deeper than that though      |")
         sleep(2)
         print("|                  Oh well, maybe next time                  |")
 
