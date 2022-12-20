@@ -85,7 +85,7 @@ def assemble_and_run_gameover_scenes(player):
     sleep(1)
     print("|+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
     print("|  o | o   o | o   o | o   o | o   o | o   o | o   o | o   o |")
-    print("|+---   Marc  and  Edu            Oc, Ht, Ms     +---+---+---|")
+    print("|+---   Marc  and  Edu            Oc, Hc, Ms     +---+---+---|")
     sleep(2)
     print("|  o |     for the support,          Rb, Eo & Gv     | o   o |")
     sleep(2)

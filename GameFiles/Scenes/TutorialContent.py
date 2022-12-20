@@ -127,7 +127,13 @@ def tutorialcontent(player):
     print("")
     sleep(2)
     ################### DANCE
-    print("Lastly, while on the dance floor, you can try dancing.")
+    player.location = player.rooms["dance floor"]
+    print("Now, let's talk about", end="")
+    sleep(2)
+    print(" dancing.")
+    sleep(1)
+    print("While on the dance floor, you can try to dance.")
+    sleep(2)
     print("""Just write "dance".""")
     print("")
     sleep(3)
@@ -245,7 +251,7 @@ def tutorialcontent(player):
     player.people_in_party = original_ppl
     player.high = or_high
     player.coolness = or_cool
-    player.lit = or_high
+    player.lit = or_lit
     player.mouth = or_mouth
     return None
 
