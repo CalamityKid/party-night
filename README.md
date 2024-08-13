@@ -8,3 +8,6 @@ The whole game is written in gender neutral language.
 There are set events that happen at specific times, but it is up to you to decide who or what you want to spend your time on.
 After the party ends, at 6 am or if you decide to leave, you get a summary of how much you bonded with each friend.
 I hope you enjoy it.
+
+An .exe version is available at https://flametreegames.itch.io/party-night
+
