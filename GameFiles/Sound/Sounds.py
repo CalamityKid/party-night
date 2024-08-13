@@ -1,4 +1,4 @@
-from playsound import playsound
+from playsound3 import playsound
 import os
 
 toop = "toop.mp3"
