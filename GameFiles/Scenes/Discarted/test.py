@@ -29,7 +29,7 @@ So, yeah, the plot is...
 in a club full of super hot people. 
 This is pre COVID 19, of course.
 Or post COVID, whatever, point is, everybody's
-having  blast,
+having a blast,
 dancing together, sweaty. 
 Like the Slave 4 U video.
 
